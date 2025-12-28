@@ -1,14 +1,21 @@
 ---
 import Layout from '../layouts/Layout.astro';
-// microCMSクライアントを読み込み（お知らせ用）
-import { client } from '../lib/microcms';
-
-// 1. お知らせのみ取得
-const newsResponse = await client.get({ endpoint: "news" });
 
 // SEO用の設定
 const pageTitle = "たかちゃんピアノ教室 | 心に寄り添うレッスン（東京）";
 const pageDescription = "東京都出身、T音楽大学卒業。講師「たかちゃん」による、初心者から経験者まで一人ひとりに合わせた丁寧なピアノレッスン。無料体験受付中。";
+
+// お知らせデータを直接定義（ここを書き換えれば更新できます）
+const newsContents = [
+  {
+    createdAt: '2025-12-28',
+    title: 'ホームページをリニューアルしました。'
+  },
+  {
+    createdAt: '2025-12-20',
+    title: '1月の体験レッスン受付中です。'
+  }
+];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
@@ -43,11 +50,11 @@ const pageDescription = "東京都出身、T音楽大学卒業。講師「たか
 		<section class="py-16 px-6 max-w-4xl mx-auto">
 			<h2 class="text-2xl font-serif mb-8 border-l-4 border-[#C5A059] pl-4">お知らせ</h2>
 			<div class="space-y-4">
-				{newsResponse.contents.length > 0 ? (
-					newsResponse.contents.map((item: any) => (
+				{newsContents.length > 0 ? (
+					newsContents.map((item) => (
 						<div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex flex-col md:flex-row md:items-center justify-between gap-2">
 							<span class="text-sm opacity-60 font-mono">
-								{new Date(item.createdAt).toLocaleDateString('ja-JP')}
+								{item.createdAt}
 							</span>
 							<span class="font-medium text-lg">{item.title}</span>
 						</div>
@@ -61,11 +68,7 @@ const pageDescription = "東京都出身、T音楽大学卒業。講師「たか
 		<section class="py-20 px-6 max-w-5xl mx-auto">
 			<div class="grid md:grid-cols-2 gap-12 items-center">
 				<div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl border-8 border-white">
-					<img 
-						src="https://images.unsplash.com/photo-1571974599782-87624638275e?q=80&w=1931&auto=format&fit=crop" 
-						alt="Instructor" 
-						class="w-full h-full object-cover"
-					/>
+					<img src="https://images.unsplash.com/photo-1571974599782-87624638275e?q=80&w=1931&auto=format&fit=crop" alt="Instructor" class="w-full h-full object-cover"/>
 				</div>
 				<div>
 					<h2 class="text-3xl font-serif mb-6 border-b border-[#C5A059] pb-2 inline-block">講師プロフィール</h2>
@@ -79,6 +82,29 @@ const pageDescription = "東京都出身、T音楽大学卒業。講師「たか
 					</p>
 					<div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#C5A059]">
 						<p class="italic">"技術だけでなく、音楽を通じて心が豊かになる時間を提供いたします。"</p>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<section class="py-20 bg-white shadow-inner">
+			<div class="max-w-6xl mx-auto px-6 text-center">
+				<h2 class="text-3xl font-serif mb-16">レッスンの3つの特長</h2>
+				<div class="grid md:grid-cols-3 gap-10">
+					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
+						<div class="text-4xl mb-6">🎹</div>
+						<h3 class="text-xl font-serif mb-4">オーダーメイドレッスン</h3>
+						<p class="text-sm leading-relaxed opacity-80">教材選びから練習方法まで、目的やレベルに合わせて柔軟にカリキュラムを作成します。</p>
+					</div>
+					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
+						<div class="text-4xl mb-6">✨</div>
+						<h3 class="text-xl font-serif mb-4">大人・初心者歓迎</h3>
+						<p class="text-sm leading-relaxed opacity-80">「昔習っていたけれど再開したい」という方も、安心して始めていただけます。</p>
+					</div>
+					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
+						<div class="text-4xl mb-6">🎵</div>
+						<h3 class="text-xl font-serif mb-4">発表会・イベント</h3>
+						<p class="text-sm leading-relaxed opacity-80">日頃の成果を披露する場として、定期演奏会や交流会を企画しています。</p>
 					</div>
 				</div>
 			</div>
