@@ -1,7 +1,7 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// SEO用の設定：検索キーワードを自然に盛り込みます
+// SEO用の設定
 const pageTitle = "江東区・清澄白河の出張ピアノレッスン | たかちゃんピアノ教室";
 const pageDescription = "江東区・清澄白河エリアを中心に活動する講師による出張ピアノ教室です。ご自宅でリラックスしながら、大人からお子様まで一人ひとりの感性を大切に育むオーダーメイドレッスン。無料体験受付中。";
 
@@ -226,7 +226,8 @@ const newsContents = [
 <script is:inline>
   const form = document.getElementById('contact-form');
   const btn = document.getElementById('submit-btn');
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbyVKxWKitgsw9mxAaGztgRIFH7iZpDmpsW4cVcObw5SKx7aX-U-l3y2QdHrV4n7MLfH/exec"; //
+  // 修正1: 最新のGASウェブアプリURLに更新
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbwruAuBvHur-ZGDyQcKIPqKCoBRDDhwBPy2a-Y11vH1htI0Yj1dCgg9y4xIqLfK_u7yTQ/exec";
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -239,9 +240,13 @@ const newsContents = [
       await fetch(GAS_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(data), //
+        headers: { 
+          // 修正2: CORSエラー回避のため 'text/plain' を指定
+          'Content-Type': 'text/plain' 
+        },
+        body: JSON.stringify(data),
       });
+    
       alert('お問い合わせありがとうございます。内容を確認し、折り返しご連絡いたします。');
       form.reset();
     } catch (error) {
