@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 // SEO用の設定
-const pageTitle = "江東区・清澄白河の出張ピアノレッスン | たかちゃんピアノ教室";
+const pageTitle = "江東区・清澄白河の出張ピアノレッスン | 髙橋遊月ピアノ教室";
 const pageDescription = "江東区・清澄白河エリアを中心に活動する講師による出張ピアノ教室です。ご自宅でリラックスしながら、大人からお子様まで一人ひとりの感性を大切に育むオーダーメイドレッスン。無料体験受付中。";
 
 const newsContents = [
@@ -70,13 +70,13 @@ const newsContents = [
 			<div class="grid md:grid-cols-2 gap-16 items-center">
 				<div class="relative">
 					<div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl">
-						<img src="/senzai.png" alt="たかちゃん先生" class="w-full h-full object-cover"/>
+						<img src="/senzai.png" alt="高橋遊月" class="w-full h-full object-cover"/>
 					</div>
 					<div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"></div>
 				</div>
 				<div>
 					<h2 class="text-sm tracking-[0.3em] text-[#C5A059] mb-4 uppercase">Instructor Profile</h2>
-					<h3 class="text-3xl font-serif mb-6 leading-snug">たかちゃん <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Taka-chan</span></h3>
+					<h3 class="text-3xl font-serif mb-6 leading-snug">高橋　遊月 <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Takahashi Yuzuki</span></h3>
 					<div class="space-y-6 text-[#6B5F54] leading-relaxed font-light">
 						<p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
 							東京音楽大学 卒業
@@ -210,7 +210,7 @@ const newsContents = [
 							<textarea name="message" rows="3" class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light resize-none" placeholder="レッスンへのご要望やご住所の目安など"></textarea>
 						</div>
 						<button type="submit" id="submit-btn" class="w-full bg-[#544A40] text-white py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.3em] text-xs uppercase">
-							Send Message
+							送信する
 						</button>
 					</form>
 				</div>
@@ -218,7 +218,7 @@ const newsContents = [
 		</section>
 
 		<footer class="py-16 text-center text-[10px] tracking-[0.2em] opacity-40 uppercase">
-			&copy; 2025 Taka-chan Piano School.
+			&copy; 2025 Takahashi Yuzuki Piano School.
 		</footer>
 	</main>
 </Layout>
@@ -254,7 +254,7 @@ const newsContents = [
       alert('送信中にエラーが発生しました。');
     } finally {
       btn.disabled = false;
-      btn.innerText = 'Send Message';
+      btn.innerText = '送信する';
     }
   });
 </script>
