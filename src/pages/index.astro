@@ -2,7 +2,7 @@
 import Layout from '../layouts/Layout.astro';
 
 // SEO用の設定
-const pageTitle = "たかちゃんピアノ教室 | 心に寄り添うレッスン（東京）";
+const pageTitle = "たかちゃんピアノ教室 | 楽しく学べるレッスン（東京）"; // タイトルも少し柔らかく変更
 const pageDescription = "東京都出身、T音楽大学卒業。講師「たかちゃん」による、初心者から経験者まで一人ひとりに合わせた丁寧なピアノレッスン。無料体験受付中。";
 
 // お知らせデータを直接定義（ここを書き換えれば更新できます）
@@ -19,7 +19,8 @@ const newsContents = [
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-	<main class="bg-[#FAF9F6] text-[#4A4238] font-sans">
+	<main class="bg-[#FFFDF5] text-[#4A4238] font-sans"> 
+		{/* 背景を温かみのあるクリーム色に変更 */}
 		
 		<section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
 			<div class="absolute inset-0 z-0">
@@ -28,32 +29,35 @@ const newsContents = [
 					alt="Piano" 
 					class="w-full h-full object-cover opacity-60"
 				/>
-				<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#FAF9F6]"></div>
+				{/* グラデーションを明るいオレンジ〜黄色系に変更 */}
+				<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#FFFDF5]"></div>
 			</div>
 
 			<div class="relative z-10 text-center px-4">
-				<h1 class="text-4xl md:text-6xl font-serif mb-6 tracking-widest drop-shadow-sm">
-					心に寄り添うピアノレッスン
+				{/* セリフ体を削除し、ポップなオレンジ色に変更 */}
+				<h1 class="text-4xl md:text-6xl font-bold mb-6 tracking-wider drop-shadow-sm text-[#FF8C42]">
+					ワクワクするピアノレッスン
 				</h1>
-				<p class="text-lg md:text-xl mb-10 tracking-loose opacity-90">
-					あなただけの音色を、一緒に見つけませんか？
+				<p class="text-lg md:text-xl mb-10 tracking-wide opacity-90 font-bold text-[#5D5C61]">
+					あなただけの音色を、一緒に見つけよう！
 				</p>
 				<a 
 					href="#contact" 
-					class="inline-block bg-[#C5A059] text-white px-10 py-4 rounded-full shadow-lg hover:bg-[#B38F48] transition-all transform hover:-translate-y-1"
+					class="inline-block bg-[#FF8C42] text-white text-lg font-bold px-10 py-4 rounded-full shadow-lg hover:bg-[#FF6B6B] transition-all transform hover:-translate-y-1 border-4 border-white"
 				>
-					無料体験レッスンはこちら
+					無料体験レッスンはこちら 🎵
 				</a>
 			</div>
 		</section>
 
 		<section class="py-16 px-6 max-w-4xl mx-auto">
-			<h2 class="text-2xl font-serif mb-8 border-l-4 border-[#C5A059] pl-4">お知らせ</h2>
+			{/* アクセントカラーをピンクに変更 */}
+			<h2 class="text-2xl font-bold mb-8 border-l-8 border-[#FF6B6B] pl-4 text-[#FF6B6B]">お知らせ</h2>
 			<div class="space-y-4">
 				{newsContents.length > 0 ? (
 					newsContents.map((item) => (
-						<div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex flex-col md:flex-row md:items-center justify-between gap-2">
-							<span class="text-sm opacity-60 font-mono">
+						<div class="bg-white p-5 rounded-2xl shadow-sm border-2 border-[#FFECD1] flex flex-col md:flex-row md:items-center justify-between gap-2 hover:shadow-md transition-shadow">
+							<span class="text-sm text-[#FF8C42] font-bold">
 								{item.createdAt}
 							</span>
 							<span class="font-medium text-lg">{item.title}</span>
@@ -67,12 +71,13 @@ const newsContents = [
 
 		<section class="py-20 px-6 max-w-5xl mx-auto">
 			<div class="grid md:grid-cols-2 gap-12 items-center">
-				<div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl border-8 border-white">
+				<div class="aspect-[3/4] overflow-hidden rounded-3xl shadow-xl border-8 border-white rotate-2 hover:rotate-0 transition-transform duration-500">
 					<img src="https://images.unsplash.com/photo-1571974599782-87624638275e?q=80&w=1931&auto=format&fit=crop" alt="Instructor" class="w-full h-full object-cover"/>
 				</div>
 				<div>
-					<h2 class="text-3xl font-serif mb-6 border-b border-[#C5A059] pb-2 inline-block">講師プロフィール</h2>
-					<h3 class="text-2xl font-serif mb-4 text-[#8B7355]">たかちゃん <span class="text-sm">Taka-chan</span></h3>
+					{/* 下線を波線にしたり色を変えたり */}
+					<h2 class="text-3xl font-bold mb-6 border-b-4 border-[#4ECDC4] pb-2 inline-block text-[#4ECDC4]">講師プロフィール</h2>
+					<h3 class="text-2xl font-bold mb-4 text-[#FF6B6B]">たかちゃん先生 <span class="text-sm text-gray-500">Taka-chan</span></h3>
 					<p class="mb-4 leading-relaxed font-bold">
 						東京都出身 / T高校 卒業 / T音楽大学 卒業
 					</p>
@@ -80,92 +85,93 @@ const newsContents = [
 						これまでにT先生に師事し、ピアノの研鑽を積んできました。
 						「音楽を一生の宝物に」をモットーに、お子様から大人の方まで、一人ひとりの個性やペースに合わせた丁寧な指導を心がけています。
 					</p>
-					<div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#C5A059]">
-						<p class="italic">"技術だけでなく、音楽を通じて心が豊かになる時間を提供いたします。"</p>
+					<div class="bg-[#E0F7FA] p-6 rounded-xl border-2 border-[#4ECDC4] text-[#006064]">
+						<p class="font-bold">"技術だけでなく、音楽を通じて心が豊かになる時間を提供いたします。"</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="py-20 bg-white shadow-inner">
+		<section class="py-20 bg-white border-y-4 border-dashed border-[#FFECD1]">
 			<div class="max-w-6xl mx-auto px-6 text-center">
-				<h2 class="text-3xl font-serif mb-16">レッスンの3つの特長</h2>
+				<h2 class="text-3xl font-bold mb-16 text-[#FF8C42]">レッスンの3つの特長</h2>
 				<div class="grid md:grid-cols-3 gap-10">
-					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
-						<div class="text-4xl mb-6">🎹</div>
-						<h3 class="text-xl font-serif mb-4">オーダーメイドレッスン</h3>
-						<p class="text-sm leading-relaxed opacity-80">教材選びから練習方法まで、目的やレベルに合わせて柔軟にカリキュラムを作成します。</p>
+					{/* カードを3色に色分け */}
+					<div class="p-8 rounded-3xl bg-[#FFF0F5] border-2 border-[#FFB7B2] hover:shadow-lg transition-all transform hover:-translate-y-2">
+						<div class="text-5xl mb-6">🎹</div>
+						<h3 class="text-xl font-bold mb-4 text-[#FF6B6B]">オーダーメイド</h3>
+						<p class="text-sm leading-relaxed opacity-90">教材選びから練習方法まで、目的やレベルに合わせて柔軟にカリキュラムを作成します。</p>
 					</div>
-					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
-						<div class="text-4xl mb-6">✨</div>
-						<h3 class="text-xl font-serif mb-4">大人・初心者歓迎</h3>
-						<p class="text-sm leading-relaxed opacity-80">「昔習っていたけれど再開したい」という方も、安心して始めていただけます。</p>
+					<div class="p-8 rounded-3xl bg-[#E0F7FA] border-2 border-[#4ECDC4] hover:shadow-lg transition-all transform hover:-translate-y-2">
+						<div class="text-5xl mb-6">✨</div>
+						<h3 class="text-xl font-bold mb-4 text-[#00ACC1]">初心者だいかんげい</h3>
+						<p class="text-sm leading-relaxed opacity-90">「ピアノは初めて」というお子様も、「昔習っていた」という方も安心して始めていただけます。</p>
 					</div>
-					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
-						<div class="text-4xl mb-6">🎵</div>
-						<h3 class="text-xl font-serif mb-4">発表会・イベント</h3>
-						<p class="text-sm leading-relaxed opacity-80">日頃の成果を披露する場として、定期演奏会や交流会を企画しています。</p>
+					<div class="p-8 rounded-3xl bg-[#FFF9C4] border-2 border-[#FFEE58] hover:shadow-lg transition-all transform hover:-translate-y-2">
+						<div class="text-5xl mb-6">🎵</div>
+						<h3 class="text-xl font-bold mb-4 text-[#FBC02D]">発表会・イベント</h3>
+						<p class="text-sm leading-relaxed opacity-90">日頃の成果を披露する場として、定期演奏会や交流会を企画しています。</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
 		<section class="py-20 px-6 max-w-4xl mx-auto">
-			<h2 class="text-3xl font-serif mb-12 text-center">コース・料金案内</h2>
+			<h2 class="text-3xl font-bold mb-12 text-center text-[#5D5C61]">コース・料金案内</h2>
 			<div class="overflow-x-auto">
-				<table class="w-full bg-white rounded-xl shadow-sm overflow-hidden border-collapse">
+				<table class="w-full bg-white rounded-2xl shadow-md overflow-hidden border-collapse border-4 border-[#A3E635]">
 					<thead>
-						<tr class="bg-[#C5A059] text-white">
-							<th class="py-4 px-6 text-left">コース名</th>
-							<th class="py-4 px-6 text-left">内容</th>
-							<th class="py-4 px-6 text-left">料金（税込）</th>
+						<tr class="bg-[#A3E635] text-white">
+							<th class="py-4 px-6 text-left text-lg">コース名</th>
+							<th class="py-4 px-6 text-left text-lg">内容</th>
+							<th class="py-4 px-6 text-left text-lg">料金（税込）</th>
 						</tr>
 					</thead>
-					<tbody class="divide-y divide-stone-100">
-						<tr>
-							<td class="py-6 px-6 font-medium">こどもピアノ</td>
+					<tbody class="divide-y-2 divide-[#F0F9FF]">
+						<tr class="hover:bg-[#F7FEE7]">
+							<td class="py-6 px-6 font-bold text-[#556B2F]">こどもピアノ</td>
 							<td class="py-6 px-6 text-sm">30分 / 月3〜4回</td>
-							<td class="py-6 px-6 font-serif">8,000円〜</td>
+							<td class="py-6 px-6 font-bold text-lg">8,000円〜</td>
 						</tr>
-						<tr>
-							<td class="py-6 px-6 font-medium">大人の趣味ピアノ</td>
+						<tr class="hover:bg-[#F7FEE7]">
+							<td class="py-6 px-6 font-bold text-[#556B2F]">大人の趣味ピアノ</td>
 							<td class="py-6 px-6 text-sm">45分 / 月2回</td>
-							<td class="py-6 px-6 font-serif">10,000円〜</td>
+							<td class="py-6 px-6 font-bold text-lg">10,000円〜</td>
 						</tr>
-						<tr>
-							<td class="py-6 px-6 font-medium">本格演奏コース</td>
+						<tr class="hover:bg-[#F7FEE7]">
+							<td class="py-6 px-6 font-bold text-[#556B2F]">本格演奏コース</td>
 							<td class="py-6 px-6 text-sm">60分 / 月3〜4回</td>
-							<td class="py-6 px-6 font-serif">15,000円〜</td>
+							<td class="py-6 px-6 font-bold text-lg">15,000円〜</td>
 						</tr>
 					</tbody>
 				</table>
 			</div>
 		</section>
 
-		<section id="contact" class="py-20 bg-[#F1EDE4]">
+		<section id="contact" class="py-20 bg-[#FFF3E0]">
 			<div class="max-w-2xl mx-auto px-6">
-				<div class="bg-white p-10 rounded-3xl shadow-xl">
-					<h2 class="text-3xl font-serif mb-4 text-center">お問い合わせ</h2>
-					<p class="text-center mb-10 text-sm opacity-80">体験レッスンのお申し込みはこちらからお願いいたします。</p>
+				<div class="bg-white p-10 rounded-3xl shadow-xl border-4 border-[#FFCC80]">
+					<h2 class="text-3xl font-bold mb-4 text-center text-[#FF8C42]">お問い合わせ</h2>
+					<p class="text-center mb-10 text-sm opacity-80">体験レッスンのお申し込みはこちらから！</p>
 					
 					<form id="contact-form" class="space-y-6">
 						<div>
-							<label class="block text-sm font-medium mb-2">お名前</label>
-							<input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="山田 太郎" />
+							<label class="block text-sm font-bold mb-2 text-[#5D5C61]">お名前</label>
+							<input type="text" name="name" required class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-[#FF8C42] focus:ring-0 focus:outline-none transition-all" placeholder="山田 太郎" />
 						</div>
 						<div class="grid md:grid-cols-2 gap-6">
 							<div>
-								<label class="block text-sm font-medium mb-2">メールアドレス</label>
-								<input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="example@mail.com" />
+								<label class="block text-sm font-bold mb-2 text-[#5D5C61]">メールアドレス</label>
+								<input type="email" name="email" required class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-[#FF8C42] focus:ring-0 focus:outline-none transition-all" placeholder="example@mail.com" />
 							</div>
 							<div>
-								<label class="block text-sm font-medium mb-2">電話番号</label>
-								<input type="tel" name="tel" class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="090-0000-0000" />
+								<label class="block text-sm font-bold mb-2 text-[#5D5C61]">電話番号</label>
+								<input type="tel" name="tel" class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-[#FF8C42] focus:ring-0 focus:outline-none transition-all" placeholder="090-0000-0000" />
 							</div>
 						</div>
 						<div>
-							<label class="block text-sm font-medium mb-2">希望コース</label>
-							<select name="course" class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all">
+							<label class="block text-sm font-bold mb-2 text-[#5D5C61]">希望コース</label>
+							<select name="course" class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-[#FF8C42] focus:ring-0 focus:outline-none transition-all">
 								<option>体験レッスン</option>
 								<option>こどもピアノ</option>
 								<option>大人の趣味ピアノ</option>
@@ -173,10 +179,10 @@ const newsContents = [
 							</select>
 						</div>
 						<div>
-							<label class="block text-sm font-medium mb-2">メッセージ</label>
-							<textarea name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="ご相談や希望の日時など"></textarea>
+							<label class="block text-sm font-bold mb-2 text-[#5D5C61]">メッセージ</label>
+							<textarea name="message" rows="4" class="w-full px-4 py-3 rounded-xl border-2 border-stone-200 focus:border-[#FF8C42] focus:ring-0 focus:outline-none transition-all" placeholder="ご相談や希望の日時など"></textarea>
 						</div>
-						<button type="submit" id="submit-btn" class="w-full bg-[#4A4238] text-white py-4 rounded-lg font-bold hover:bg-[#383129] transition-colors shadow-lg">
+						<button type="submit" id="submit-btn" class="w-full bg-[#FF8C42] text-white py-4 rounded-xl font-bold text-lg hover:bg-[#FF6B6B] transition-colors shadow-lg border-b-4 border-[#E65100] active:border-0 active:translate-y-1">
 							この内容で送信する
 						</button>
 					</form>
@@ -184,8 +190,8 @@ const newsContents = [
 			</div>
 		</section>
 
-		<footer class="py-10 text-center text-xs opacity-50 border-t border-stone-200">
-			&copy; 2025 Taka-chan Piano School. All Rights Reserved.
+		<footer class="py-10 text-center text-sm font-bold text-[#FF8C42] bg-[#FFF3E0]">
+			&copy; 2025 Taka-chan Piano School.
 		</footer>
 	</main>
 </Layout>
