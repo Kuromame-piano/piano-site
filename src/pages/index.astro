@@ -1,11 +1,10 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-// SEO用の設定
-const pageTitle = "たかちゃんピアノ教室 | 心に寄り添うレッスン（東京）";
-const pageDescription = "東京都出身、T音楽大学卒業。講師「たかちゃん」による、初心者から経験者まで一人ひとりに合わせた丁寧なピアノレッスン。無料体験受付中。";
+// SEO用の設定：検索キーワードを自然に盛り込みます
+const pageTitle = "江東区・清澄白河の出張ピアノレッスン | たかちゃんピアノ教室";
+const pageDescription = "江東区・清澄白河エリアを中心に活動する講師による出張ピアノ教室です。ご自宅でリラックスしながら、大人からお子様まで一人ひとりの感性を大切に育むオーダーメイドレッスン。無料体験受付中。";
 
-// お知らせデータを直接定義（ここを書き換えれば更新できます）
 const newsContents = [
   {
     createdAt: '2025-12-28',
@@ -13,179 +12,213 @@ const newsContents = [
   },
   {
     createdAt: '2025-12-20',
-    title: '1月の体験レッスン受付中です。'
+    title: '1月の江東区内・出張体験レッスン受付中です。'
   }
 ];
 ---
 
 <Layout title={pageTitle} description={pageDescription}>
-	<main class="bg-[#FAF9F6] text-[#4A4238] font-sans">
+	<main class="bg-[#FCFAF7] text-[#544A40] font-sans">
 		
-		<section class="relative h-[80vh] flex items-center justify-center overflow-hidden">
+		<section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
 			<div class="absolute inset-0 z-0">
 				<img 
-					src="https://images.unsplash.com/photo-1520529611404-6153c5163979?q=80&w=2070&auto=format&fit=crop" 
-					alt="Piano" 
-					class="w-full h-full object-cover opacity-60"
+					src="https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop" 
+					alt="落ち着いた空間でのピアノレッスン" 
+					class="w-full h-full object-cover opacity-50"
 				/>
-				<div class="absolute inset-0 bg-gradient-to-b from-transparent to-[#FAF9F6]"></div>
+				<div class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"></div>
 			</div>
 
-			<div class="relative z-10 text-center px-4">
-				<h1 class="text-4xl md:text-6xl font-serif mb-6 tracking-widest drop-shadow-sm">
-					心に寄り添うピアノレッスン
+			<div class="relative z-10 text-center px-4 max-w-4xl">
+				<span class="inline-block mb-4 text-[#C5A059] tracking-[0.2em] text-sm md:text-base font-serif">江東区・清澄白河エリアの出張レッスン</span>
+				<h1 class="text-3xl md:text-5xl font-serif mb-8 leading-relaxed tracking-wider">
+					日常に彩りを添える、<br class="md:hidden"/>心豊かなピアノの時間
 				</h1>
-				<p class="text-lg md:text-xl mb-10 tracking-loose opacity-90">
-					あなただけの音色を、一緒に見つけませんか？
+				<p class="text-base md:text-lg mb-12 leading-loose opacity-90 font-light">
+					講師がご自宅へ伺い、あなたの大切なピアノで、<br/>
+					あなただけの音色を一緒に奏でます。
 				</p>
 				<a 
 					href="#contact" 
-					class="inline-block bg-[#C5A059] text-white px-10 py-4 rounded-full shadow-lg hover:bg-[#B38F48] transition-all transform hover:-translate-y-1"
+					class="inline-block bg-[#A88B58] text-white px-12 py-5 rounded-full shadow-md hover:bg-[#8B7347] transition-all transform hover:-translate-y-1 tracking-widest text-sm font-bold"
 				>
-					無料体験レッスンはこちら
+					無料体験レッスンを申し込む
 				</a>
 			</div>
 		</section>
 
-		<section class="py-16 px-6 max-w-4xl mx-auto">
-			<h2 class="text-2xl font-serif mb-8 border-l-4 border-[#C5A059] pl-4">お知らせ</h2>
-			<div class="space-y-4">
+		<section class="py-12 px-6 max-w-4xl mx-auto">
+			<h2 class="text-xl font-serif mb-8 text-center text-[#A88B58]">Information</h2>
+			<div class="space-y-3">
 				{newsContents.length > 0 ? (
 					newsContents.map((item) => (
-						<div class="bg-white p-5 rounded-xl shadow-sm border border-stone-100 flex flex-col md:flex-row md:items-center justify-between gap-2">
-							<span class="text-sm opacity-60 font-mono">
+						<div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-[#E8E2D9] flex flex-col md:flex-row md:items-center gap-4">
+							<span class="text-xs opacity-50 font-mono italic">
 								{item.createdAt}
 							</span>
-							<span class="font-medium text-lg">{item.title}</span>
+							<span class="text-sm tracking-wide">{item.title}</span>
 						</div>
 					))
 				) : (
-					<p class="text-sm opacity-60">現在お知らせはありません。</p>
+					<p class="text-sm opacity-60 text-center">現在お知らせはありません。</p>
 				)}
 			</div>
 		</section>
 
-		<section class="py-20 px-6 max-w-5xl mx-auto">
-			<div class="grid md:grid-cols-2 gap-12 items-center">
-				<div class="aspect-[3/4] overflow-hidden rounded-2xl shadow-xl border-8 border-white">
-					<img src="https://images.unsplash.com/photo-1571974599782-87624638275e?q=80&w=1931&auto=format&fit=crop" alt="Instructor" class="w-full h-full object-cover"/>
+		<section class="py-24 px-6 max-w-5xl mx-auto">
+			<div class="grid md:grid-cols-2 gap-16 items-center">
+				<div class="relative">
+					<div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl">
+						<img src="/profile.png" alt="たかちゃん先生" class="w-full h-full object-cover"/>
+					</div>
+					<div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"></div>
 				</div>
 				<div>
-					<h2 class="text-3xl font-serif mb-6 border-b border-[#C5A059] pb-2 inline-block">講師プロフィール</h2>
-					<h3 class="text-2xl font-serif mb-4 text-[#8B7355]">たかちゃん <span class="text-sm">Taka-chan</span></h3>
-					<p class="mb-4 leading-relaxed font-bold">
-						東京都出身 / T高校 卒業 / T音楽大学 卒業
-					</p>
-					<p class="mb-6 leading-relaxed">
-						これまでにT先生に師事し、ピアノの研鑽を積んできました。
-						「音楽を一生の宝物に」をモットーに、お子様から大人の方まで、一人ひとりの個性やペースに合わせた丁寧な指導を心がけています。
-					</p>
-					<div class="bg-white p-6 rounded-lg shadow-sm border-l-4 border-[#C5A059]">
-						<p class="italic">"技術だけでなく、音楽を通じて心が豊かになる時間を提供いたします。"</p>
+					<h2 class="text-sm tracking-[0.3em] text-[#C5A059] mb-4 uppercase">Instructor Profile</h2>
+					<h3 class="text-3xl font-serif mb-6 leading-snug">たかちゃん <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Taka-chan</span></h3>
+					<div class="space-y-6 text-[#6B5F54] leading-relaxed font-light">
+						<p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
+							東京都出身 / T音楽大学 卒業
+						</p>
+						<p>
+							江東区・清澄白河を中心に、ご自宅への出張ピアノレッスンを行っております。
+							これまで多くの門下生を指導し、音楽を通じた心の交流を大切にしてきました。
+						</p>
+						<p>
+							「出張レッスン」だからこそ、移動の負担なく、いつもの慣れ親しんだピアノでリラックスして学んでいただけます。
+							きめ細やかな指導で、技術だけでなく、音楽を一生のパートナーにするお手伝いをいたします。
+						</p>
+					</div>
+					<div class="mt-10 p-8 bg-white rounded-2xl shadow-sm border border-[#F1EBE4] relative">
+						<span class="absolute top-4 left-4 text-4xl text-[#A88B58]/20 font-serif italic">"</span>
+						<p class="italic text-sm leading-loose">音楽は、言葉にできない感情を表現してくれる大切な友。技術の習得はもちろん、お一人おひとりの生活に寄り添う、穏やかで上質な時間を提供いたします。</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="py-20 bg-white shadow-inner">
-			<div class="max-w-6xl mx-auto px-6 text-center">
-				<h2 class="text-3xl font-serif mb-16">レッスンの3つの特長</h2>
-				<div class="grid md:grid-cols-3 gap-10">
-					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
-						<div class="text-4xl mb-6">🎹</div>
-						<h3 class="text-xl font-serif mb-4">オーダーメイドレッスン</h3>
-						<p class="text-sm leading-relaxed opacity-80">教材選びから練習方法まで、目的やレベルに合わせて柔軟にカリキュラムを作成します。</p>
+		<section class="py-24 bg-[#F7F3EE]">
+			<div class="max-w-6xl mx-auto px-6">
+				<div class="text-center mb-16">
+					<h2 class="text-3xl font-serif mb-4">出張レッスンの3つのメリット</h2>
+					<p class="text-[#A88B58] text-sm tracking-widest font-serif">Koto-ku Delivery Lesson</p>
+				</div>
+				<div class="grid md:grid-cols-3 gap-12">
+					<div class="text-center">
+						<div class="text-2xl mb-6 inline-block p-4 bg-white rounded-full shadow-sm">🏠</div>
+						<h3 class="text-lg font-serif mb-4">通う手間なく、ご自宅で</h3>
+						<p class="text-sm leading-loose opacity-80 font-light">送迎の時間や天候を気にせず、慣れ親しんだご自身のピアノで受講いただけます。</p>
 					</div>
-					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
-						<div class="text-4xl mb-6">✨</div>
-						<h3 class="text-xl font-serif mb-4">大人・初心者歓迎</h3>
-						<p class="text-sm leading-relaxed opacity-80">「昔習っていたけれど再開したい」という方も、安心して始めていただけます。</p>
+					<div class="text-center">
+						<div class="text-2xl mb-6 inline-block p-4 bg-white rounded-full shadow-sm">🕰️</div>
+						<h3 class="text-lg font-serif mb-4">ライフスタイルに柔軟に</h3>
+						<p class="text-sm leading-loose opacity-80 font-light">大人の方の趣味の時間から、お子様の習い事まで。江東区内のご希望の時間に伺います。</p>
 					</div>
-					<div class="p-8 rounded-2xl bg-[#FAF9F6] border border-stone-100 hover:shadow-md transition-shadow">
-						<div class="text-4xl mb-6">🎵</div>
-						<h3 class="text-xl font-serif mb-4">発表会・イベント</h3>
-						<p class="text-sm leading-relaxed opacity-80">日頃の成果を披露する場として、定期演奏会や交流会を企画しています。</p>
+					<div class="text-center">
+						<div class="text-2xl mb-6 inline-block p-4 bg-white rounded-full shadow-sm">🤝</div>
+						<h3 class="text-lg font-serif mb-4">完全個別対応</h3>
+						<p class="text-sm leading-loose opacity-80 font-light">周りを気にせず、自分のペースで。講師と1対1で深く向き合えるプライベートな空間です。</p>
 					</div>
 				</div>
 			</div>
 		</section>
 
-		<section class="py-20 px-6 max-w-4xl mx-auto">
-			<h2 class="text-3xl font-serif mb-12 text-center">コース・料金案内</h2>
-			<div class="overflow-x-auto">
-				<table class="w-full bg-white rounded-xl shadow-sm overflow-hidden border-collapse">
+		<section class="py-24 px-6 max-w-4xl mx-auto">
+			<h2 class="text-3xl font-serif mb-12 text-center">出張コース・料金案内</h2>
+			<div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#F1EBE4]">
+				<table class="w-full text-left border-collapse">
 					<thead>
-						<tr class="bg-[#C5A059] text-white">
-							<th class="py-4 px-6 text-left">コース名</th>
-							<th class="py-4 px-6 text-left">内容</th>
-							<th class="py-4 px-6 text-left">料金（税込）</th>
+						<tr class="bg-[#A88B58] text-white">
+							<th class="py-5 px-8 font-serif font-normal">Course</th>
+							<th class="py-5 px-8 font-serif font-normal text-right">Fee</th>
 						</tr>
 					</thead>
-					<tbody class="divide-y divide-stone-100">
+					<tbody class="divide-y divide-[#F1EBE4]">
 						<tr>
-							<td class="py-6 px-6 font-medium">こどもピアノ</td>
-							<td class="py-6 px-6 text-sm">30分 / 月3〜4回</td>
-							<td class="py-6 px-6 font-serif">8,000円〜</td>
+							<td class="py-8 px-8">
+								<span class="block text-lg font-serif mb-1 text-[#8B7355]">こどもピアノ出張レッスン</span>
+								<span class="text-xs opacity-60">30分 / 月3〜4回（江東区内・出張料込）</span>
+							</td>
+							<td class="py-8 px-8 text-right font-serif text-xl">8,000円〜</td>
 						</tr>
 						<tr>
-							<td class="py-6 px-6 font-medium">大人の趣味ピアノ</td>
-							<td class="py-6 px-6 text-sm">45分 / 月2回</td>
-							<td class="py-6 px-6 font-serif">10,000円〜</td>
+							<td class="py-8 px-8">
+								<span class="block text-lg font-serif mb-1 text-[#8B7355]">大人のための嗜みピアノ</span>
+								<span class="text-xs opacity-60">45分 / 月2回（初心者・再開者歓迎）</span>
+							</td>
+							<td class="py-8 px-8 text-right font-serif text-xl">10,000円〜</td>
 						</tr>
 						<tr>
-							<td class="py-6 px-6 font-medium">本格演奏コース</td>
-							<td class="py-6 px-6 text-sm">60分 / 月3〜4回</td>
-							<td class="py-6 px-6 font-serif">15,000円〜</td>
+							<td class="py-8 px-8">
+								<span class="block text-lg font-serif mb-1 text-[#8B7355]">本格演奏・専門コース</span>
+								<span class="text-xs opacity-60">60分 / 月3〜4回（音大受験・コンクール等）</span>
+							</td>
+							<td class="py-8 px-8 text-right font-serif text-xl">15,000円〜</td>
 						</tr>
 					</tbody>
 				</table>
+				<div class="bg-[#FCFAF7] p-6 text-center text-xs opacity-60 italic">
+					※清澄白河駅から片道30分圏内を目安に伺っております。
+				</div>
 			</div>
 		</section>
 
-		<section id="contact" class="py-20 bg-[#F1EDE4]">
+		<section class="py-16 px-6 bg-white border-t border-[#F1EBE4]">
+			<div class="max-w-4xl mx-auto text-center">
+				<h2 class="text-xl font-serif mb-8 text-[#A88B58]">Service Area</h2>
+				<p class="text-sm leading-relaxed mb-6">主な出張対応エリア：</p>
+				<p class="text-sm tracking-widest text-[#6B5F54] font-light">
+					東京都江東区（清澄白河、門前仲町、木場、深川、森下、白河、三好、平野、平久、福住、冬木、永代、牡丹、古石場）
+				</p>
+				<p class="text-[10px] mt-4 opacity-50">※上記以外の地域についても、お気軽にご相談ください。</p>
+			</div>
+		</section>
+
+		<section id="contact" class="py-24 bg-[#EAE3DA]">
 			<div class="max-w-2xl mx-auto px-6">
-				<div class="bg-white p-10 rounded-3xl shadow-xl">
-					<h2 class="text-3xl font-serif mb-4 text-center">お問い合わせ</h2>
-					<p class="text-center mb-10 text-sm opacity-80">体験レッスンのお申し込みはこちらからお願いいたします。</p>
+				<div class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7]">
+					<h2 class="text-3xl font-serif mb-4 text-center">Contact</h2>
+					<p class="text-center mb-12 text-sm opacity-70 tracking-widest font-light">まずは無料体験レッスンからお気軽に。</p>
 					
-					<form id="contact-form" class="space-y-6">
-						<div>
-							<label class="block text-sm font-medium mb-2">お名前</label>
-							<input type="text" name="name" required class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="山田 太郎" />
-						</div>
-						<div class="grid md:grid-cols-2 gap-6">
-							<div>
-								<label class="block text-sm font-medium mb-2">メールアドレス</label>
-								<input type="email" name="email" required class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="example@mail.com" />
+					<form id="contact-form" class="space-y-8">
+						<div class="grid md:grid-cols-2 gap-8">
+							<div class="space-y-2">
+								<label class="block text-xs uppercase tracking-widest font-bold opacity-60">お名前</label>
+								<input type="text" name="name" required class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light" placeholder="山田 佳子" />
 							</div>
-							<div>
-								<label class="block text-sm font-medium mb-2">電話番号</label>
-								<input type="tel" name="tel" class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="090-0000-0000" />
+							<div class="space-y-2">
+								<label class="block text-xs uppercase tracking-widest font-bold opacity-60">お電話番号</label>
+								<input type="tel" name="tel" class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light" placeholder="090-0000-0000" />
 							</div>
 						</div>
-						<div>
-							<label class="block text-sm font-medium mb-2">希望コース</label>
-							<select name="course" class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all">
-								<option>体験レッスン</option>
-								<option>こどもピアノ</option>
+						<div class="space-y-2">
+							<label class="block text-xs uppercase tracking-widest font-bold opacity-60">メールアドレス</label>
+							<input type="email" name="email" required class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light" placeholder="example@mail.com" />
+						</div>
+						<div class="space-y-2">
+							<label class="block text-xs uppercase tracking-widest font-bold opacity-60">希望コース</label>
+							<select name="course" class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent cursor-pointer">
+								<option>出張体験レッスン</option>
+								<option>こどもピアノ出張レッスン</option>
 								<option>大人の趣味ピアノ</option>
-								<option>その他</option>
+								<option>その他（ご相談など）</option>
 							</select>
 						</div>
-						<div>
-							<label class="block text-sm font-medium mb-2">メッセージ</label>
-							<textarea name="message" rows="4" class="w-full px-4 py-3 rounded-lg border border-stone-200 focus:ring-2 focus:ring-[#C5A059] focus:outline-none transition-all" placeholder="ご相談や希望の日時など"></textarea>
+						<div class="space-y-2">
+							<label class="block text-xs uppercase tracking-widest font-bold opacity-60">メッセージ</label>
+							<textarea name="message" rows="3" class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light resize-none" placeholder="レッスンへのご要望やご住所の目安など"></textarea>
 						</div>
-						<button type="submit" id="submit-btn" class="w-full bg-[#4A4238] text-white py-4 rounded-lg font-bold hover:bg-[#383129] transition-colors shadow-lg">
-							この内容で送信する
+						<button type="submit" id="submit-btn" class="w-full bg-[#544A40] text-white py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.3em] text-xs uppercase">
+							Send Message
 						</button>
 					</form>
 				</div>
 			</div>
 		</section>
 
-		<footer class="py-10 text-center text-xs opacity-50 border-t border-stone-200">
-			&copy; 2025 Taka-chan Piano School. All Rights Reserved.
+		<footer class="py-16 text-center text-[10px] tracking-[0.2em] opacity-40 uppercase">
+			&copy; 2025 Taka-chan Piano School.
 		</footer>
 	</main>
 </Layout>
@@ -193,12 +226,12 @@ const newsContents = [
 <script is:inline>
   const form = document.getElementById('contact-form');
   const btn = document.getElementById('submit-btn');
-  const GAS_URL = "https://script.google.com/macros/s/AKfycbyVKxWKitgsw9mxAaGztgRIFH7iZpDmpsW4cVcObw5SKx7aX-U-l3y2QdHrV4n7MLfH/exec";
+  const GAS_URL = "https://script.google.com/macros/s/AKfycbyVKxWKitgsw9mxAaGztgRIFH7iZpDmpsW4cVcObw5SKx7aX-U-l3y2QdHrV4n7MLfH/exec"; //
 
   form.addEventListener('submit', async (e) => {
     e.preventDefault();
     btn.disabled = true;
-    btn.innerText = '送信中...';
+    btn.innerText = 'Sending...';
     const formData = new FormData(form);
     const data = Object.fromEntries(formData.entries());
 
@@ -206,19 +239,17 @@ const newsContents = [
       await fetch(GAS_URL, {
         method: 'POST',
         mode: 'no-cors',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(data),
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(data), //
       });
-      alert('お問い合わせありがとうございます！送信が完了しました。');
+      alert('お問い合わせありがとうございます。内容を確認し、折り返しご連絡いたします。');
       form.reset();
     } catch (error) {
       console.error('Error:', error);
       alert('送信中にエラーが発生しました。');
     } finally {
       btn.disabled = false;
-      btn.innerText = 'この内容で送信する';
+      btn.innerText = 'Send Message';
     }
   });
 </script>
