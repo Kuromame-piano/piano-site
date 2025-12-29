@@ -5,8 +5,6 @@ body {
   /* 文字を滑らかにする設定 */
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  /* 自動で文字詰めを行う（数字や約物の隙間がきれいになります） */
-  font-feature-settings: "palt";
 }
 
 /* Tailwindの font-serif クラスが Shippori Mincho を優先して使うように設定 */
