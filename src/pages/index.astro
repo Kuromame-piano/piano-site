@@ -124,42 +124,101 @@ const newsContents = [
 			</div>
 		</section>
 
-		<section class="py-24 px-6 max-w-4xl mx-auto">
-			<h2 class="text-3xl font-serif mb-12 text-center">出張コース・料金案内</h2>
-			<div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#F1EBE4]">
-				<table class="w-full text-left border-collapse">
-					<thead>
-						<tr class="bg-[#A88B58] text-white">
-							<th class="py-5 px-8 font-serif font-normal">Course</th>
-							<th class="py-5 px-8 font-serif font-normal text-right">Fee</th>
-						</tr>
-					</thead>
-					<tbody class="divide-y divide-[#F1EBE4]">
-						<tr>
-							<td class="py-8 px-8">
-								<span class="block text-lg font-serif mb-1 text-[#8B7355]">こどもピアノ出張レッスン</span>
-								<span class="text-xs opacity-60">30分 / 月3〜4回（江東区内・出張料込）</span>
-							</td>
-							<td class="py-8 px-8 text-right font-serif text-xl">8,000円〜</td>
-						</tr>
-						<tr>
-							<td class="py-8 px-8">
-								<span class="block text-lg font-serif mb-1 text-[#8B7355]">大人のための嗜みピアノ</span>
-								<span class="text-xs opacity-60">45分 / 月2回（初心者・再開者歓迎）</span>
-							</td>
-							<td class="py-8 px-8 text-right font-serif text-xl">10,000円〜</td>
-						</tr>
-						<tr>
-							<td class="py-8 px-8">
-								<span class="block text-lg font-serif mb-1 text-[#8B7355]">本格演奏・専門コース</span>
-								<span class="text-xs opacity-60">60分 / 月3〜4回（音大受験・コンクール等）</span>
-							</td>
-							<td class="py-8 px-8 text-right font-serif text-xl">15,000円〜</td>
-						</tr>
-					</tbody>
-				</table>
-				<div class="bg-[#FCFAF7] p-6 text-center text-xs opacity-60 italic">
-					※清澄白河駅から片道30分圏内を目安に伺っております。
+		<section class="py-24 px-6 max-w-5xl mx-auto">
+			<div class="text-center mb-16">
+				<h2 class="text-3xl font-serif mb-4">レッスン料金・システム</h2>
+				<p class="text-[#A88B58] text-sm tracking-widest font-serif">Fees & System</p>
+			</div>
+
+			<div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#F1EBE4] mb-16 max-w-3xl mx-auto">
+				<div class="bg-[#A88B58] py-4 text-center">
+					<h3 class="text-white font-serif text-lg tracking-wide">1レッスンあたりの料金</h3>
+				</div>
+				<div class="p-8 md:p-10">
+					<div class="divide-y divide-[#F1EBE4]">
+						<div class="flex justify-between items-center py-6">
+							<span class="text-xl font-serif text-[#6B5F54]">30分</span>
+							<span class="text-2xl font-serif">5,000円</span>
+						</div>
+						<div class="flex justify-between items-center py-6">
+							<span class="text-xl font-serif text-[#6B5F54]">45分</span>
+							<span class="text-2xl font-serif">7,500円</span>
+						</div>
+						<div class="flex justify-between items-center py-6">
+							<span class="text-xl font-serif text-[#6B5F54]">60分</span>
+							<span class="text-2xl font-serif">10,000円</span>
+						</div>
+					</div>
+				</div>
+			</div>
+
+			<div class="mb-16">
+				<h3 class="text-xl font-serif text-center mb-8 text-[#6B5F54]">
+					<span class="border-b-2 border-[#A88B58]/30 pb-2">レッスン回数について</span>
+				</h3>
+				<p class="text-center mb-10 text-sm leading-loose opacity-80">
+					月1回〜4回から、生徒さまのペースに合わせてお選びいただけます。
+				</p>
+				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+					<div class="bg-white p-6 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow">
+						<span class="block text-[#A88B58] font-bold mb-3">月1回</span>
+						<p class="text-xs leading-relaxed text-[#6B5F54]">まずはゆっくり<br/>始めたい方へ</p>
+					</div>
+					<div class="bg-white p-6 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow">
+						<span class="block text-[#A88B58] font-bold mb-3">月2回</span>
+						<p class="text-xs leading-relaxed text-[#6B5F54]">忙しい中でも<br/>無理なく続けたい方へ</p>
+					</div>
+					<div class="bg-white p-6 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow">
+						<span class="block text-[#A88B58] font-bold mb-3">月3回</span>
+						<p class="text-xs leading-relaxed text-[#6B5F54]">安定したペースで<br/>力をつけたい方へ</p>
+					</div>
+					<div class="bg-white p-6 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow">
+						<span class="block text-[#A88B58] font-bold mb-3">月4回</span>
+						<p class="text-xs leading-relaxed text-[#6B5F54]">目標に向けて<br/>しっかり取り組みたい方へ</p>
+					</div>
+				</div>
+			</div>
+
+			<div class="grid md:grid-cols-2 gap-8">
+				<div class="bg-[#F7F3EE] p-8 rounded-2xl border border-[#E8E2D9]">
+					<h3 class="font-serif text-[#A88B58] mb-4 flex items-center gap-2">
+						<span class="text-lg">💰</span> 月謝の例
+					</h3>
+					<div class="space-y-4 mb-6">
+						<div class="bg-white p-4 rounded-lg shadow-sm">
+							<p class="text-xs text-[#8B7355] mb-1">無理なく続けるなら</p>
+							<p class="text-base">30分 × 月3回 <span class="mx-2">→</span> <span class="font-bold text-lg">15,000円</span></p>
+						</div>
+						<div class="bg-white p-4 rounded-lg shadow-sm">
+							<p class="text-xs text-[#8B7355] mb-1">じっくり学ぶなら</p>
+							<p class="text-base">60分 × 月2回 <span class="mx-2">→</span> <span class="font-bold text-lg">20,000円</span></p>
+						</div>
+					</div>
+					<p class="text-xs opacity-60">※別途教材費がかかる場合がございます。</p>
+				</div>
+
+				<div class="bg-[#F7F3EE] p-8 rounded-2xl border border-[#E8E2D9]">
+					<h3 class="font-serif text-[#A88B58] mb-4 flex items-center gap-2">
+						<span class="text-lg">📍</span> レッスン会場について
+					</h3>
+					<ul class="space-y-4 text-sm leading-relaxed text-[#6B5F54]">
+						<li class="flex items-start gap-2">
+							<span class="text-[#A88B58] mt-1">●</span>
+							<span>ご自宅への出張レッスンを行っております。</span>
+						</li>
+						<li class="flex items-start gap-2">
+							<span class="text-[#A88B58] mt-1">●</span>
+							<span>会場をレンタルしてのレッスンも可能です。<br/>
+							<span class="text-xs opacity-70">※練習室レンタルの場合、別途会場費がかかります。</span></span>
+						</li>
+						<li class="flex items-start gap-2">
+							<span class="text-[#A88B58] mt-1">●</span>
+							<span>場所の詳細は、生徒さまのご希望や状況に合わせて検討いたします。</span>
+						</li>
+					</ul>
+					<div class="mt-6 pt-6 border-t border-[#E8E2D9]">
+						<p class="text-sm font-light">分からないことや聞いておきたいことがございましたら、遠慮なくご連絡ください♪</p>
+					</div>
 				</div>
 			</div>
 		</section>
@@ -200,8 +259,9 @@ const newsContents = [
 							<label class="block text-xs uppercase tracking-widest font-bold opacity-60">希望コース</label>
 							<select name="course" class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent cursor-pointer">
 								<option>出張体験レッスン</option>
-								<option>こどもピアノ出張レッスン</option>
-								<option>大人の趣味ピアノ</option>
+								<option>30分レッスン</option>
+								<option>45分レッスン</option>
+								<option>60分レッスン</option>
 								<option>その他（ご相談など）</option>
 							</select>
 						</div>
