@@ -2,7 +2,6 @@
 // Tailwind CSS の設定を読み込みます
 import '../styles/global.css';
 
-// 修正点：Props（部品への引数）を定義して、ページごとにタイトルや説明文を変えられるようにします
 interface Props {
 	title: string;
 	description?: string;
@@ -12,7 +11,8 @@ const { title, description = "たかちゃんピアノ教室のホームペー�
 ---
 
 <!doctype html>
-<html lang="ja"> <head>
+<html lang="ja">
+	<head>
 		<meta charset="UTF-8" />
 		<meta name="google-site-verification" content="9OciN0dhouQGJ7dVkUYUnU7EcxUUND1TFpahlQIRFQI" />
 		<meta name="viewport" content="width=device-width" />
@@ -20,6 +20,10 @@ const { title, description = "たかちゃんピアノ教室のホームペー�
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+
+		<link rel="preconnect" href="https://fonts.googleapis.com">
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
 	</head>
 	<body>
 		<slot />
