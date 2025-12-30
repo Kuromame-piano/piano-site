@@ -1,0 +1,51 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "よくある質問 | 髙橋遊月ピアノ教室";
+
+const faqs = [
+    {
+        q: "家にアップライトピアノやグランドピアノがなくても大丈夫ですか？",
+        a: "はい、大丈夫です。電子ピアノ（88鍵盤あり、タッチによる強弱がつくもの推奨）をお持ちであればレッスン可能です。楽器の購入のご相談にも乗りますので、お気軽にお尋ねください。"
+    },
+    {
+        q: "まったくの初心者で楽譜も読めませんが、レッスンを受けられますか？",
+        a: "もちろんです！楽譜の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。大人になってから初めてピアノに触れる方も多くいらっしゃいますのでご安心ください。"
+    },
+    {
+        q: "出張費や交通費は別途かかりますか？",
+        a: "基本的には江東区内（清澄白河・門前仲町周辺）の対応エリア内であれば、レッスン料金に交通費が含まれております。エリア外への出張をご希望の場合は、別途交通費をご相談させていただく場合がございます。"
+    },
+    {
+        q: "レッスンの振替はできますか？",
+        a: "前日までにご連絡をいただければ、月内でスケジュールの調整がつく限り振替対応をいたします。当日のキャンセルにつきましては、原則として1回分のレッスン消化となりますのでご了承ください。"
+    },
+    {
+        q: "発表会はありますか？",
+        a: "年に1回程度、自由参加の発表会や交流会を企画しております。日頃の練習の成果を披露する場として、また他の生徒さんとの交流の場としてお楽しみいただけます。"
+    }
+];
+---
+
+<Layout title={pageTitle}>
+    <section class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-3xl font-serif mb-4">FAQ</h1>
+            <p class="text-[#A88B58] text-sm tracking-widest font-serif">よくある質問</p>
+        </div>
+
+        <div class="space-y-6">
+            {faqs.map((faq) => (
+                <div class="bg-white rounded-xl border border-[#F1EBE4] p-6 md:p-8 shadow-sm">
+                    <h3 class="font-serif font-bold text-[#544A40] flex items-start gap-3 mb-4">
+                        <span class="text-[#A88B58] text-lg">Q.</span>
+                        <span class="pt-[2px]">{faq.q}</span>
+                    </h3>
+                    <div class="pl-8 text-sm leading-loose text-[#6B5F54] border-l-2 border-[#F1EBE4]">
+                        <p>{faq.a}</p>
+                    </div>
+                </div>
+            ))}
+        </div>
+    </section>
+</Layout>

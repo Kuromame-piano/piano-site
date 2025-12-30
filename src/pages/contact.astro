@@ -1,0 +1,106 @@
+---
+import Layout from '../layouts/Layout.astro';
+
+const pageTitle = "お問い合わせ | 髙橋遊月ピアノ教室";
+---
+
+<Layout title={pageTitle}>
+    <section class="py-24 bg-[#EAE3DA] min-h-screen">
+        <div class="max-w-2xl mx-auto px-6">
+            <div class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7]">
+                <h1 class="text-3xl font-serif font-bold mb-4 text-center">Contact</h1>
+                <p class="text-center mb-12 text-sm tracking-widest">まずは無料体験レッスンからお気軽に。</p>
+                
+                <form id="contact-form" class="space-y-8">
+                    <div class="grid md:grid-cols-2 gap-8">
+                        <div class="space-y-2">
+                            <label class="block text-xs uppercase tracking-widest font-bold text-[#544A40]">お名前</label>
+                            <input type="text" name="name" required class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light" placeholder="山田 佳子" />
+                        </div>
+                        <div class="space-y-2">
+                            <label class="block text-xs uppercase tracking-widest font-bold text-[#544A40]">お電話番号</label>
+                            <input type="tel" name="tel" class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light" placeholder="090-0000-0000" />
+                        </div>
+                    </div>
+                    <div class="space-y-2">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-[#544A40]">メールアドレス</label>
+                        <input type="email" name="email" required class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light" placeholder="example@mail.com" />
+                    </div>
+                    
+                    {/* お問い合わせ内容（ボタン形式） */}
+                    <div class="space-y-3">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-[#544A40]">お問い合わせ内容</label>
+                        <div class="flex flex-wrap gap-3">
+                            <label class="cursor-pointer">
+                                <input type="radio" name="category" value="出張体験レッスン" class="peer sr-only" checked />
+                                <span class="inline-block px-5 py-3 rounded-full border border-[#E8E2D9] bg-white text-sm text-[#544A40] transition-all hover:bg-[#F7F3EE] peer-checked:bg-[#A88B58] peer-checked:text-white peer-checked:border-[#A88B58] peer-checked:shadow-md">
+                                    出張体験レッスン
+                                </span>
+                            </label>
+                            
+                            <label class="cursor-pointer">
+                                <input type="radio" name="category" value="オンライン相談" class="peer sr-only" />
+                                <span class="inline-block px-5 py-3 rounded-full border border-[#E8E2D9] bg-white text-sm text-[#544A40] transition-all hover:bg-[#F7F3EE] peer-checked:bg-[#A88B58] peer-checked:text-white peer-checked:border-[#A88B58] peer-checked:shadow-md">
+                                    オンライン相談
+                                </span>
+                            </label>
+                            
+                            <label class="cursor-pointer">
+                                <input type="radio" name="category" value="その他・ご質問" class="peer sr-only" />
+                                <span class="inline-block px-5 py-3 rounded-full border border-[#E8E2D9] bg-white text-sm text-[#544A40] transition-all hover:bg-[#F7F3EE] peer-checked:bg-[#A88B58] peer-checked:text-white peer-checked:border-[#A88B58] peer-checked:shadow-md">
+                                    その他・ご質問
+                                </span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="space-y-2">
+                        <label class="block text-xs uppercase tracking-widest font-bold text-[#544A40]">メッセージ</label>
+                        <textarea name="message" rows="3" class="w-full border-b border-[#E8E2D9] py-2 focus:border-[#A88B58] outline-none transition-colors bg-transparent placeholder:text-[#DCD3C7] placeholder:font-light resize-none" placeholder="レッスンへのご要望やご住所の目安など"></textarea>
+                    </div>
+                    <button 
+                        type="submit" id="submit-btn" class="w-full bg-[#544A40] text-white py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.3em] text-xs uppercase">
+                        送信する
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script is:inline>
+        const form = document.getElementById('contact-form');
+        const btn = document.getElementById('submit-btn');
+        // GASウェブアプリURL
+        const GAS_URL = "https://script.google.com/macros/s/AKfycbwruAuBvHur-ZGDyQcKIPqKCoBRDDhwBPy2a-Y11vH1htI0Yj1dCgg9y4xIqLfK_u7yTQ/exec";
+        
+        if (form) {
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                btn.disabled = true;
+                btn.innerText = 'Sending...';
+                const formData = new FormData(form);
+                const data = Object.fromEntries(formData.entries());
+
+                try {
+                    await fetch(GAS_URL, {
+                        method: 'POST',
+                        mode: 'no-cors',
+                        headers: { 
+                            'Content-Type': 'text/plain' 
+                        },
+                        body: JSON.stringify(data),
+                    });
+                    
+                    alert('お問い合わせありがとうございます。内容を確認し、折り返しご連絡いたします。');
+                    form.reset();
+                } catch (error) {
+                    console.error('Error:', error);
+                    alert('送信中にエラーが発生しました。');
+                } finally {
+                    btn.disabled = false;
+                    btn.innerText = '送信する';
+                }
+            });
+        }
+    </script>
+</Layout>

@@ -1,0 +1,47 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { client } from '../../lib/microcms';
+import type { Blog } from '../../lib/microcms';
+
+// 詳細ページのパスを生成（ビルド時に全記事分を作成）
+export async function getStaticPaths() {
+  const response = await client.get({ endpoint: "news" });
+  return response.contents.map((content: any) => ({
+    params: {
+      blogId: content.id,
+    },
+    props: {
+      blog: content,
+    },
+  }));
+}
+
+// 記事データを取得
+const { blog } = Astro.props;
+---
+
+<Layout title={`${blog.title} | 髙橋遊月ピアノ教室`}>
+  <main class="py-24 px-6 max-w-3xl mx-auto bg-white/90 min-h-screen">
+    <div class="mb-12 text-center">
+      <p class="text-sm text-[#A88B58] mb-2 font-mono">
+        {new Date(blog.publishedAt).toLocaleDateString('ja-JP')}
+      </p>
+      <h1 class="text-2xl md:text-3xl font-serif font-bold text-[#544A40]">
+        {blog.title}
+      </h1>
+    </div>
+
+    {/* 記事本文（リッチエディタの内容）を表示エリア */}
+    <div class="prose prose-stone max-w-none text-[#544A40] leading-loose
+      prose-headings:font-serif prose-headings:text-[#544A40]
+      prose-a:text-[#A88B58] prose-img:rounded-xl"
+      set:html={blog.content}
+    />
+
+    <div class="mt-16 text-center">
+      <a href="/" class="inline-block border border-[#A88B58] text-[#A88B58] px-8 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-colors text-sm tracking-widest">
+        HOMEへ戻る
+      </a>
+    </div>
+  </main>
+</Layout>
