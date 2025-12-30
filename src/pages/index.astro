@@ -44,7 +44,6 @@ const newsContents = [
 					あなただけの音色を一緒に奏でます。
 				</p>
 
-				{/* 修正: animate-bounce(上下の動き)を animate-pulse(点滅)に変更して控えめに */}
 				<div class="animate-pulse mt-8 opacity-60">
 					<span class="block text-xs tracking-[0.3em] mb-2 uppercase font-serif">Scroll</span>
 					<svg class="w-6 h-6 mx-auto text-[#A88B58]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +81,8 @@ const newsContents = [
 				</div>
 				<div>
 					<h2 class="text-sm tracking-[0.3em] text-[#C5A059] mb-4 uppercase">Instructor Profile</h2>
-					<h3 class="text-3xl font-serif mb-6 leading-snug">高橋　遊月 <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Takahashi Yuzuki</span></h3>
+					{/* 修正: 名前の間のスペースを全角から半角に変更して狭くした */}
+					<h3 class="text-3xl font-serif mb-6 leading-snug">高橋 遊月 <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Takahashi Yuzuki</span></h3>
 					<div class="space-y-6 text-[#544A40] leading-relaxed">
 						<p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
 							東京音楽大学 卒業
@@ -107,7 +107,10 @@ const newsContents = [
 		<section class="py-24 bg-[#F7F3EE]">
 			<div class="max-w-6xl mx-auto px-6">
 				<div class="text-center mb-16">
-					<h2 class="text-3xl font-serif mb-4">出張レッスンの3つのメリット</h2>
+					{/* 修正: 改行位置調整のため inline-block を使用 */}
+					<h2 class="text-3xl font-serif mb-4">
+						<span class="inline-block">出張レッスンの</span><span class="inline-block">3つのメリット</span>
+					</h2>
 					<p class="text-[#A88B58] text-sm tracking-widest font-serif">3 Benefits of Home Lessons</p>
 				</div>
 				<div class="grid md:grid-cols-3 gap-12">
@@ -162,8 +165,9 @@ const newsContents = [
 				<h3 class="text-xl font-serif text-center mb-8 text-[#6B5F54]">
 					<span class="border-b-2 border-[#A88B58]/30 pb-2">レッスン回数について</span>
 				</h3>
+				{/* 修正: 改行位置調整のため inline-block を使用 */}
 				<p class="text-center mb-10 text-sm md:text-base leading-loose">
-					月1回〜4回から、生徒さまのペースに合わせてお選びいただけます。
+					月1回〜4回から、<span class="inline-block">生徒さまのペースに合わせて</span><span class="inline-block">お選びいただけます。</span>
 				</p>
 				<div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
 					<div class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center">
@@ -208,22 +212,24 @@ const newsContents = [
 						<span class="text-lg">📍</span> レッスン会場について
 					</h3>
 					<ul class="space-y-4 text-sm leading-relaxed text-[#6B5F54]">
+						{/* 修正: 丸ポチ(●)を小さく(text-xs)、位置調整(mt-1.5)して文章とのズレを解消 */}
 						<li class="flex items-start gap-2">
-							<span class="text-[#A88B58] mt-1">●</span>
+							<span class="text-[#A88B58] mt-1.5 text-xs">●</span>
 							<span>ご自宅への出張レッスンを行っております。</span>
 						</li>
 						<li class="flex items-start gap-2">
-							<span class="text-[#A88B58] mt-1">●</span>
+							<span class="text-[#A88B58] mt-1.5 text-xs">●</span>
 							<span>会場をレンタルしてのレッスンも可能です。<br/>
 							<span class="text-xs text-[#6B5F54]">※練習室レンタルの場合、別途会場費がかかります。</span></span>
 						</li>
 						<li class="flex items-start gap-2">
-							<span class="text-[#A88B58] mt-1">●</span>
+							<span class="text-[#A88B58] mt-1.5 text-xs">●</span>
 							<span>場所の詳細は、生徒さまのご希望や状況に合わせて検討いたします。</span>
 						</li>
 					</ul>
 					<div class="mt-6 pt-6 border-t border-[#E8E2D9]">
-						<p class="text-sm">分からないことや聞いておきたいことがございましたら、<span class="inline-block">遠慮なくご連絡ください♪</span></p>
+						{/* 修正: 文末の♪を削除 */}
+						<p class="text-sm">分からないことや聞いておきたいことがございましたら、<span class="inline-block">遠慮なくご連絡ください</span></p>
 					</div>
 				</div>
 			</div>
@@ -348,4 +354,3 @@ const newsContents = [
     }
   });
 </script>
-
