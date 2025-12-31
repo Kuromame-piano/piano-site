@@ -7,7 +7,7 @@ import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yzk-piano-site.pages.dev', // ← ここを追加（自分のURL）
+  site: 'https://playon-music.jp',
   vite: {
     plugins: [tailwindcss()]
   },
