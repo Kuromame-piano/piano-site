@@ -6,6 +6,13 @@ import { client } from '../lib/microcms';
 const pageTitle = "江東区・清澄白河の出張ピアノレッスン | 髙橋遊月ピアノ教室";
 const pageDescription = "江東区・清澄白河エリアを中心に活動する講師による出張ピアノ教室です。";
 
+// YouTube動画のIDリスト（3本）
+const videoIds = [
+  "OIRmBSviWrw", // 1本目（左）
+  "xh65ftmaIgc", // 2本目（中央・初期表示）
+  "31muaoyHDuo", // 3本目（右）
+];
+
 // microCMSからお知らせを取得（最新3件）
 const response = await client.get({
   endpoint: "news",
@@ -35,7 +42,7 @@ const newsContents = response.contents;
         <h1 class="text-3xl md:text-5xl font-serif font-bold mb-10 leading-tight tracking-wider text-[#544A40]">
           日常に彩りを添える、<br/>心豊かなピアノの時間
         </h1>
-        
+    
         <p class="text-base md:text-lg mb-16 leading-loose">
           講師がご自宅へ伺い、あなたの大切なピアノで、<br/>
           あなただけの音色を一緒に奏でます。
@@ -66,7 +73,7 @@ const newsContents = response.contents;
           <p class="text-sm opacity-60 text-center">現在お知らせはありません。</p>
         )}
       </div>
-    
+ 
       <div class="mt-8 text-right">
         <a href="/news" class="text-xs font-bold tracking-widest text-[#A88B58] hover:text-[#8B7347] border-b border-[#A88B58] pb-1 transition-colors">
           お知らせ一覧を見る →
@@ -112,32 +119,77 @@ const newsContents = response.contents;
       </div>
     </section>
 
-    {/* --- 動画セクションの追加 --- */}
-    <section class="py-24 bg-[#FCFAF7]">
-      <div class="max-w-4xl mx-auto px-6">
-        <div class="text-center mb-16">
+    {/* --- 動画セクション --- */}
+    <section class="py-24 bg-[#FCFAF7] overflow-hidden">
+      <div class="w-full max-w-[1400px] mx-auto">
+        <div class="text-center mb-12 px-6">
           <h2 class="text-3xl font-serif mb-4">Introduction Movie</h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">紹介動画</p>
         </div>
         
-        <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9]">
-          <iframe 
-            src="https://www.youtube.com/embed/8iY5cbtwxiM?si=zOM7JXIwvIrbpg-_" 
-            title="YouTube video player" 
-            class="w-full h-full"
-            frameborder="0" 
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-            referrerpolicy="strict-origin-when-cross-origin" 
-            allowfullscreen>
-          </iframe>
+        <div class="relative group py-4">
+          {/* iPhone対策: 最初は visibility: hidden で隠す */}
+          <div 
+            id="video-slider" 
+            class="flex overflow-x-auto gap-6 px-[7.5%] md:px-[15%] pb-8 items-center transition-opacity duration-500" 
+            style="scrollbar-width: none; -ms-overflow-style: none; visibility: hidden; opacity: 0;"
+          >
+            {videoIds.map((id, index) => (
+              <div class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[60%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 origin-center relative" data-index={index}>
+                <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
+                  
+                  <iframe 
+                    src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`} 
+                    title="YouTube video player" 
+                    class="w-full h-full relative z-10"
+                    frameborder="0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+                    referrerpolicy="strict-origin-when-cross-origin" 
+                    allowfullscreen>
+                  </iframe>
+
+                  <img 
+                    src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+                    alt="Video thumbnail"
+                    class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300"
+                    onload={`if (this.naturalWidth === 120) this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';`}
+                    onerror={`
+                      if (this.src.includes('maxresdefault')) {
+                        this.src = 'https://i.ytimg.com/vi/${id}/sddefault.jpg';
+                      } else if (this.src.includes('sddefault')) {
+                        this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';
+                      } else {
+                        this.style.display = 'none';
+                      }
+                    `}
+                  />
+
+                  <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer group-hover:bg-black/5 transition-colors">
+                    <button class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 hover:scale-110" aria-label="再生する">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 md:w-10 md:h-10 pl-1">
+                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
+                      </svg>
+                    </button>
+                  </div>
+
+                </div>
+              </div>
+            ))}
+          </div>
+          
+          <div class="flex justify-center gap-3 mt-2">
+            {videoIds.map((_, index) => (
+              <button class="slider-dot w-2 h-2 rounded-full bg-[#E8E2D9] transition-all duration-300 hover:bg-[#A88B58]/50" data-index={index} aria-label={`${index + 1}番目の動画へ`}></button>
+            ))}
+          </div>
         </div>
         
-        <p class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif">
-          レッスンの雰囲気や演奏の様子を動画でご覧いただけます。
+        <p class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif px-6">
+          レッスンの雰囲気や演奏の様子を動画でご覧いただけます。<br/>
+          <span class="text-xs opacity-70">※左右にスワイプして他の動画をご覧になれます</span>
         </p>
       </div>
     </section>
-    {/* --- 動画セクションの追加終了 --- */}
 
     <section class="py-24 bg-[#F7F3EE]">
       <div class="max-w-5xl mx-auto px-6">
@@ -187,16 +239,15 @@ const newsContents = response.contents;
           江東区の<span class="font-bold text-[#A88B58]">清澄白河駅・門前仲町駅</span>周辺を中心に、<br class="hidden md:inline"/>
           講師が自転車または公共交通機関で伺える範囲で活動しています。
         </p>
-        
+
         <div class="grid md:grid-cols-2 gap-8 items-start text-left mb-12">
-          {/* 修正点：hidden md:block を追加してモバイルでは非表示に */}
           <div class="hidden md:block aspect-video w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]">
             <iframe 
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.066480572621!2d139.79634597628873!3d35.682701130107765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188944510b6563%3A0xc3f7a63d91965a39!2z5riF5r6E55m95rKz6aeF!5e0!3m2!1sja!2sjp!4v1711234567890!5m2!1sja!2sjp" 
               width="100%" 
               height="100%" 
               style="border:0;"
-              allowfullscreen="" 
+              allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
               title="清澄白河駅周辺地図">
@@ -241,3 +292,176 @@ const newsContents = response.contents;
 
   </main>
 </Layout>
+
+<style>
+  #video-slider::-webkit-scrollbar {
+    display: none;
+  }
+  
+  .video-slide iframe {
+    pointer-events: none;
+  }
+
+  .video-slide.is-playing iframe {
+    pointer-events: auto;
+  }
+  
+  .video-slide.is-playing .video-overlay,
+  .video-slide.is-playing .video-poster {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  .video-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+  }
+</style>
+
+<script>
+  const slider = document.getElementById('video-slider');
+  const dots = document.querySelectorAll('.slider-dot');
+  const slides = document.querySelectorAll('.video-slide');
+
+  if (slider && slides.length > 0) {
+    const getActiveIndex = () => {
+       const sliderRect = slider.getBoundingClientRect();
+       const sliderCenter = sliderRect.left + sliderRect.width / 2;
+       let minDistance = Infinity;
+       let index = 0;
+       slides.forEach((slide, i) => {
+         const slideRect = slide.getBoundingClientRect();
+         const slideCenter = slideRect.left + slideRect.width / 2;
+         const distance = Math.abs(sliderCenter - slideCenter);
+         if (distance < minDistance) {
+           minDistance = distance;
+           index = i;
+         }
+       });
+       return index;
+    };
+
+    const postMessageToIframe = (iframe, command) => {
+      if (iframe && iframe.contentWindow) {
+        iframe.contentWindow.postMessage(JSON.stringify({
+          'event': 'command',
+          'func': command,
+          'args': []
+        }), '*');
+      }
+    };
+
+    const resetVideo = (slide) => {
+        slide.classList.remove('is-playing');
+        const iframe = slide.querySelector('iframe');
+        postMessageToIframe(iframe, 'pauseVideo');
+    };
+
+    const updateStyles = () => {
+      const activeIndex = getActiveIndex();
+      slides.forEach((slide, index) => {
+        if (index === activeIndex) {
+          slide.classList.add('active');
+          slide.classList.remove('opacity-40', 'scale-95');
+        } else {
+          slide.classList.remove('active');
+          slide.classList.add('opacity-40', 'scale-95');
+          if (slide.classList.contains('is-playing')) {
+            resetVideo(slide);
+          }
+        }
+      });
+      dots.forEach((dot, index) => {
+        if (index === activeIndex) {
+          dot.classList.add('bg-[#A88B58]', 'w-4');
+          dot.classList.remove('bg-[#E8E2D9]', 'w-2');
+        } else {
+          dot.classList.remove('bg-[#A88B58]', 'w-4');
+          dot.classList.add('bg-[#E8E2D9]', 'w-2');
+        }
+      });
+    };
+
+    // 初期位置セット（iPhone対応版）
+    const initScroll = () => {
+        if (!slides[1] || !slider) return;
+
+        // レイアウトを安定させるためスナップを一時解除
+        slider.style.scrollSnapType = 'none';
+        slider.style.scrollBehavior = 'auto';
+
+        const setPosition = () => {
+            const slide = slides[1];
+            const sliderRect = slider.getBoundingClientRect();
+            const slideRect = slide.getBoundingClientRect();
+            
+            const currentOffset = slideRect.left - sliderRect.left;
+            const centerOffset = (sliderRect.width - slideRect.width) / 2;
+            
+            // 強制的にスクロール位置をセット
+            slider.scrollLeft += (currentOffset - centerOffset);
+            updateStyles();
+
+            // 描画が完了した次のフレームで表示
+            requestAnimationFrame(() => {
+                slider.style.visibility = 'visible';
+                slider.style.opacity = '1';
+                
+                // iPhoneで位置がリセットされないよう少し待ってからスナップを戻す
+                setTimeout(() => {
+                    slider.style.scrollSnapType = 'x mandatory';
+                    slider.style.scrollBehavior = 'smooth';
+                }, 50);
+            });
+        };
+
+        // iPhone/Safari向けに複数フレーム待機
+        requestAnimationFrame(() => {
+            requestAnimationFrame(setPosition);
+        });
+    };
+    
+    // DOM構築後すぐに計算開始
+    if (document.readyState === 'loading') {
+        document.addEventListener('DOMContentLoaded', initScroll);
+    } else {
+        initScroll();
+    }
+
+    slides.forEach((slide, index) => {
+        const overlay = slide.querySelector('.video-overlay');
+        const iframe = slide.querySelector('iframe');
+        if (overlay) {
+            overlay.addEventListener('click', () => {
+                const activeIndex = getActiveIndex();
+                if (index === activeIndex) {
+                    slide.classList.add('is-playing');
+                    postMessageToIframe(iframe, 'playVideo');
+                } else {
+                    slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+                    setTimeout(() => {
+                        if (getActiveIndex() === index) {
+                            slide.classList.add('is-playing');
+                            postMessageToIframe(iframe, 'playVideo');
+                        }
+                    }, 600);
+                }
+            });
+        }
+    });
+
+    let isScrolling;
+    slider.addEventListener('scroll', () => {
+      window.clearTimeout(isScrolling);
+      requestAnimationFrame(updateStyles);
+      isScrolling = setTimeout(updateStyles, 66);
+    });
+
+    dots.forEach((dot, i) => {
+       dot.addEventListener('click', () => {
+         slides[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+       });
+    });
+  }
+</script>
