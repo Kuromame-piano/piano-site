@@ -1,8 +1,6 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-
 import tailwindcss from '@tailwindcss/vite';
-
 import sitemap from '@astrojs/sitemap';
 
 // https://astro.build/config
@@ -11,6 +9,9 @@ export default defineConfig({
   vite: {
     plugins: [tailwindcss()]
   },
-
-  integrations: [sitemap()]
+  integrations: [sitemap()],
+  // ▼ ここを追加：Unsplashの画像を最適化できるように許可
+  image: {
+    domains: ["images.unsplash.com"],
+  },
 });

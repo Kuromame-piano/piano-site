@@ -1,50 +1,64 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { client } from '../../lib/microcms';
-import type { Blog } from '../../lib/microcms';
 
-// 記事をすべて取得（件数制限なし）
+// ページの基本設定
+const pageTitle = "お知らせ一覧 | 髙橋遊月ピアノ教室";
+const pageDescription = "教室からのお知らせや、日々のレッスンの様子をお届けします。";
+
+// microCMSからお知らせを取得（件数を多めに取得）
 const response = await client.get({
   endpoint: "news",
-  queries: { fields: ["id", "title", "publishedAt"] }
+  queries: { 
+    limit: 20, // 一覧に表示する最大件数
+    fields: ["id", "title", "publishedAt"] 
+  }
 });
 const newsContents = response.contents;
-const pageTitle = "お知らせ一覧 | 髙橋遊月ピアノ教室";
 ---
 
-<Layout title={pageTitle}>
-    <section class="py-24 px-6 max-w-4xl mx-auto min-h-screen">
-        <div class="text-center mb-16">
-            <h1 class="text-3xl font-serif mb-4">News</h1>
-            <p class="text-[#A88B58] text-sm tracking-widest font-serif">お知らせ一覧</p>
-        </div>
-
-        <div class="space-y-4">
-            {newsContents.length > 0 ? (
-                newsContents.map((item: any) => (
-                    <a href={`/news/${item.id}`} class="block group">
-                        <div class="bg-white p-6 rounded-xl border border-[#F1EBE4] hover:shadow-md transition-all flex flex-col md:flex-row md:items-center gap-4">
-                            <span class="text-sm text-[#A88B58] font-mono">
-                                {new Date(item.publishedAt).toLocaleDateString('ja-JP')}
-                            </span>
-                            <h2 class="text-base font-medium group-hover:text-[#A88B58] transition-colors flex-1">
-                                {item.title}
-                            </h2>
-                            <span class="text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
-                                Read more &rarr;
-                            </span>
-                        </div>
-                    </a>
-                ))
-            ) : (
-                <p class="text-center opacity-60">現在お知らせはありません。</p>
-            )}
-        </div>
-        
-        <div class="mt-16 text-center">
-            <a href="/" class="inline-block border border-[#A88B58] text-[#A88B58] px-8 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-colors text-sm tracking-widest">
-                HOMEへ戻る
-            </a>
-        </div>
+<Layout title={pageTitle} description={pageDescription}>
+  <main class="bg-[#FCFAF7] text-[#544A40] font-sans min-h-screen">
+    
+    {/* ヘッダーエリア */}
+    <section class="pt-32 pb-12 px-6 text-center">
+      <h1 class="text-3xl font-serif font-bold mb-4 text-[#544A40]">News</h1>
+      <p class="text-[#A88B58] text-sm tracking-widest font-serif">お知らせ一覧</p>
     </section>
+
+    {/* お知らせリストエリア */}
+    <section class="pb-24 px-6 max-w-4xl mx-auto">
+      <div class="space-y-4">
+        {newsContents.length > 0 ? (
+          newsContents.map((item: any) => (
+            <a href={`/news/${item.id}`} class="block group">
+              <div class="bg-white p-6 rounded-xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-all flex flex-col md:flex-row md:items-center gap-4 group-hover:border-[#A88B58]/50">
+                <span class="text-xs opacity-60 font-mono italic text-[#8B7355]">
+                  {new Date(item.publishedAt).toLocaleDateString('ja-JP')}
+                </span>
+                <span class="text-base font-medium tracking-wide group-hover:text-[#A88B58] transition-colors">
+                  {item.title}
+                </span>
+                <span class="hidden md:block ml-auto text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity transform group-hover:translate-x-1">
+                  Read more →
+                </span>
+              </div>
+            </a>
+          ))
+        ) : (
+          <div class="text-center py-12 text-[#6B5F54] opacity-60">
+            <p>現在お知らせはありません。</p>
+          </div>
+        )}
+      </div>
+
+      {/* トップページへ戻るボタン */}
+      <div class="mt-16 text-center">
+        <a href="/" class="inline-block px-8 py-3 rounded-full border border-[#A88B58] text-[#A88B58] text-sm hover:bg-[#A88B58] hover:text-white transition-all tracking-widest">
+          TOPへ戻る
+        </a>
+      </div>
+    </section>
+
+  </main>
 </Layout>

@@ -1,6 +1,9 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { client } from '../lib/microcms';
+// ▼ 追加：画像最適化用のコンポーネントと画像を読み込み
+import { Image } from 'astro:assets';
+import senzaiImage from '../assets/senzai.png';
 
 // SEO用の設定
 const pageTitle = "江東区・清澄白河の出張ピアノレッスン | 髙橋遊月ピアノ教室";
@@ -12,7 +15,6 @@ const videoIds = [
   "xh65ftmaIgc", // 2本目（中央・初期表示）
   "31muaoyHDuo", // 3本目（右）
 ];
-
 // microCMSからお知らせを取得（最新3件）
 const response = await client.get({
   endpoint: "news",
@@ -26,9 +28,11 @@ const newsContents = response.contents;
     
     <section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
       <div class="absolute inset-0 z-0">
-        <img 
+        <Image 
           src="https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop" 
           alt="落ち着いた空間でのピアノレッスン" 
+          width={2000}
+          height={1200}
           class="w-full h-full object-cover opacity-50"
         />
         <div class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"></div>
@@ -91,7 +95,7 @@ const newsContents = response.contents;
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div class="relative">
             <div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl">
-              <img src="/senzai.png" alt="高橋遊月" class="w-full h-full object-cover"/>
+              <Image src={senzaiImage} alt="高橋遊月" class="w-full h-full object-cover"/>
             </div>
             <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"></div>
           </div>
@@ -99,7 +103,7 @@ const newsContents = response.contents;
             <h3 class="text-3xl font-serif mb-6 leading-snug">高橋 遊月 <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Takahashi Yuzuki</span></h3>
             <div class="space-y-6 text-[#544A40] leading-relaxed">
               <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
-                東京音楽大学 卒業
+                 東京音楽大学 卒業
               </p>
               <p>
                 江東区・清澄白河を中心に、ご自宅への出張ピアノレッスンを行っております。
@@ -386,11 +390,9 @@ const newsContents = response.contents;
     // 初期位置セット（iPhone対応版）
     const initScroll = () => {
         if (!slides[1] || !slider) return;
-
         // レイアウトを安定させるためスナップを一時解除
         slider.style.scrollSnapType = 'none';
         slider.style.scrollBehavior = 'auto';
-
         const setPosition = () => {
             const slide = slides[1];
             const sliderRect = slider.getBoundingClientRect();
@@ -436,7 +438,7 @@ const newsContents = response.contents;
             overlay.addEventListener('click', () => {
                 const activeIndex = getActiveIndex();
                 if (index === activeIndex) {
-                    slide.classList.add('is-playing');
+                     slide.classList.add('is-playing');
                     postMessageToIframe(iframe, 'playVideo');
                 } else {
                     slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
@@ -444,20 +446,18 @@ const newsContents = response.contents;
                         if (getActiveIndex() === index) {
                             slide.classList.add('is-playing');
                             postMessageToIframe(iframe, 'playVideo');
-                        }
+                         }
                     }, 600);
                 }
             });
         }
     });
-
     let isScrolling;
     slider.addEventListener('scroll', () => {
       window.clearTimeout(isScrolling);
       requestAnimationFrame(updateStyles);
       isScrolling = setTimeout(updateStyles, 66);
     });
-
     dots.forEach((dot, i) => {
        dot.addEventListener('click', () => {
          slides[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
