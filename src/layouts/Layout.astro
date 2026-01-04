@@ -18,9 +18,25 @@ const { title, description = "たかちゃんピアノ教室のホームペー�
 		<meta name="viewport" content="width=device-width" />
 		<meta name="google-site-verification" content="9OciN0dhouQGJ7dVkUYUnU7EcxUUND1TFpahlQIRFQI" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 		<meta name="description" content={description} />
+		<link rel="canonical" href={Astro.url} />
+
+		<!-- OGP Tags -->
+		<meta property="og:type" content="website" />
+		<meta property="og:title" content={title} />
+		<meta property="og:description" content={description} />
+		<meta property="og:url" content={Astro.url} />
+		<meta property="og:site_name" content="たかちゃんピアノ教室" />
+		<meta property="og:image" content={new URL("/og-image.png", Astro.url)} />
+
+		<!-- Twitter Card -->
+		<meta name="twitter:card" content="summary_large_image" />
+		<meta name="twitter:title" content={title} />
+		<meta name="twitter:description" content={description} />
+		<meta name="twitter:image" content={new URL("/og-image.png", Astro.url)} />
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
