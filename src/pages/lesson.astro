@@ -1,56 +1,126 @@
 ---
-import Layout from '../layouts/Layout.astro';
+import Layout from "../layouts/Layout.astro";
 
-const pageTitle = "レッスンについて | 髙橋遊月ピアノ教室";
+const pageTitle =
+    "ピアノ訪問・出張レッスンの流れ・料金 | 江東区・清澄白河 | 髙橋遊月ピアノ教室";
+const pageDescription =
+    "江東区のピアノ家庭教師「髙橋遊月ピアノ教室」の訪問レッスンの流れ・料金ご案内。マンツーマン個人指導、送迎不要で仕事帰りにも便利。体験レッスン受付中。";
+
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://playon-music.jp",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "レッスンについて",
+            item: "https://playon-music.jp/lesson",
+        },
+    ],
+});
 ---
 
-<Layout title={pageTitle}>
+<Layout title={pageTitle} description={pageDescription}>
+    <script type="application/ld+json" set:html={schema} slot="head" />
     <section class="py-20 px-6 max-w-4xl mx-auto">
         <div class="text-center mb-16">
             <h1 class="text-3xl font-serif mb-4">Lesson Flow</h1>
-            <p class="text-[#A88B58] text-sm tracking-widest font-serif">レッスンの流れ</p>
+            <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+                レッスンの流れ
+            </p>
         </div>
 
-        <div class="space-y-12 relative before:absolute before:left-[15px] before:top-4 before:bottom-4 before:w-[2px] before:bg-[#E8E2D9] before:content-[''] md:before:left-1/2 md:before:-ml-[1px]">
-            
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 group">
+        <div
+            class="space-y-12 relative before:absolute before:left-[15px] before:top-4 before:bottom-4 before:w-[2px] before:bg-[#E8E2D9] before:content-[''] md:before:left-1/2 md:before:-ml-[1px]"
+        >
+            <div
+                class="relative flex flex-col md:flex-row items-center justify-between gap-8 group"
+            >
                 <div class="pl-12 md:pl-0 md:w-[45%] md:text-right">
-                    <h3 class="text-xl font-serif text-[#A88B58] mb-2">01. お問い合わせ</h3>
+                    <h2 class="text-xl font-serif text-[#A88B58] mb-2">
+                        01. お問い合わせ
+                    </h2>
                     <p class="text-sm leading-loose">
-                        まずは<a href="/contact" class="underline hover:text-[#A88B58]">お問い合わせフォーム</a>よりご連絡ください。ご希望のコースや、体験レッスンの日時についてご相談させていただきます。
+                        まずは<a
+                            href="/contact"
+                            class="underline hover:text-[#A88B58]"
+                            >お問い合わせフォーム</a
+                        >よりご連絡ください。ご希望のコースや、体験レッスンの日時についてご相談させていただきます。
                     </p>
                 </div>
-                <div class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4">1</div>
+                <div
+                    class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4"
+                >
+                    1
+                </div>
                 <div class="hidden md:block md:w-[45%]"></div>
             </div>
 
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 group">
+            <div
+                class="relative flex flex-col md:flex-row items-center justify-between gap-8 group"
+            >
                 <div class="hidden md:block md:w-[45%]"></div>
-                <div class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4">2</div>
+                <div
+                    class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4"
+                >
+                    2
+                </div>
                 <div class="pl-12 md:pl-0 md:w-[45%]">
-                    <h3 class="text-xl font-serif text-[#A88B58] mb-2">02. 体験レッスン</h3>
+                    <h2 class="text-xl font-serif text-[#A88B58] mb-2">
+                        02. 体験レッスン
+                    </h2>
                     <p class="text-sm leading-loose">
                         実際に講師がご自宅へ伺います。30分程度のレッスンと、カウンセリングを行います。初めての方も、経験者の方も、まずはピアノに触れてみましょう。
                     </p>
                 </div>
             </div>
 
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 group">
+            <div
+                class="relative flex flex-col md:flex-row items-center justify-between gap-8 group"
+            >
                 <div class="pl-12 md:pl-0 md:w-[45%] md:text-right">
-                    <h3 class="text-xl font-serif text-[#A88B58] mb-2">03. プランのご提案</h3>
+                    <h2 class="text-xl font-serif text-[#A88B58] mb-2">
+                        03. プランのご提案
+                    </h2>
                     <p class="text-sm leading-loose">
-                        体験レッスンの様子を踏まえ、お一人おひとりに合った教材やレッスンの進め方をご提案いたします。システムや料金についても詳しくご説明します。
+                        <span class="inline-block"
+                            >体験レッスンの様子を踏まえ、</span
+                        ><span class="inline-block"
+                            >お一人おひとりに合った教材や</span
+                        ><span class="inline-block"
+                            >レッスンの進め方をご提案いたします。</span
+                        ><span class="inline-block"
+                            >システムや料金についても</span
+                        ><span class="inline-block">詳しくご説明します。</span>
                     </p>
                 </div>
-                <div class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4">3</div>
+                <div
+                    class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4"
+                >
+                    3
+                </div>
                 <div class="hidden md:block md:w-[45%]"></div>
             </div>
 
-            <div class="relative flex flex-col md:flex-row items-center justify-between gap-8 group">
+            <div
+                class="relative flex flex-col md:flex-row items-center justify-between gap-8 group"
+            >
                 <div class="hidden md:block md:w-[45%]"></div>
-                <div class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4">4</div>
+                <div
+                    class="absolute left-0 top-0 w-8 h-8 bg-[#A88B58] rounded-full text-white flex items-center justify-center font-bold text-sm z-10 md:left-1/2 md:-ml-4"
+                >
+                    4
+                </div>
                 <div class="pl-12 md:pl-0 md:w-[45%]">
-                    <h3 class="text-xl font-serif text-[#A88B58] mb-2">04. レッスン開始</h3>
+                    <h2 class="text-xl font-serif text-[#A88B58] mb-2">
+                        04. レッスン開始
+                    </h2>
                     <p class="text-sm leading-loose">
                         内容にご納得いただけましたら、正式に入会となります。あなたのためのオーダーメイドな音楽の時間の始まりです。
                     </p>
@@ -61,16 +131,24 @@ const pageTitle = "レッスンについて | 髙橋遊月ピアノ教室";
 
     <section class="py-20 bg-[#F7F3EE]">
         <div class="max-w-4xl mx-auto px-6">
-             <div class="text-center mb-16">
+            <div class="text-center mb-16">
                 <h2 class="text-3xl font-serif mb-4">Voice</h2>
-                <p class="text-[#A88B58] text-sm tracking-widest font-serif">生徒様の声</p>
+                <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+                    生徒様の声
+                </p>
             </div>
-           
+
             <div class="grid md:grid-cols-2 gap-8">
                 {/* 絵文字を削除 */}
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-[#E8E2D9]">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-[#E8E2D9]"
+                >
                     <div class="mb-4">
-                        <p class="font-bold text-sm border-b border-[#E8E2D9] pb-2 inline-block">小学生のお母様</p>
+                        <p
+                            class="font-bold text-sm border-b border-[#E8E2D9] pb-2 inline-block"
+                        >
+                            小学生のお母様
+                        </p>
                         <p class="text-xs opacity-60 mt-1">ピアノ歴 1年</p>
                     </div>
                     <p class="text-sm leading-loose text-[#6B5F54]">
@@ -78,9 +156,15 @@ const pageTitle = "レッスンについて | 髙橋遊月ピアノ教室";
                     </p>
                 </div>
 
-                <div class="bg-white p-8 rounded-2xl shadow-sm border border-[#E8E2D9]">
+                <div
+                    class="bg-white p-8 rounded-2xl shadow-sm border border-[#E8E2D9]"
+                >
                     <div class="mb-4">
-                        <p class="font-bold text-sm border-b border-[#E8E2D9] pb-2 inline-block">30代 女性</p>
+                        <p
+                            class="font-bold text-sm border-b border-[#E8E2D9] pb-2 inline-block"
+                        >
+                            30代 女性
+                        </p>
                         <p class="text-xs opacity-60 mt-1">大人の趣味コース</p>
                     </div>
                     <p class="text-sm leading-loose text-[#6B5F54]">
@@ -93,27 +177,53 @@ const pageTitle = "レッスンについて | 髙橋遊月ピアノ教室";
 
     <section class="py-20 px-6 max-w-5xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="text-3xl font-serif mb-4">料金・システム</h2>
-            <p class="text-[#A88B58] text-sm tracking-widest font-serif">Fees & System</p>
+            <h2 class="text-3xl font-serif mb-4">Fees & System</h2>
+            <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+                料金・システム
+            </p>
         </div>
 
-        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#F1EBE4] mb-16 max-w-lg mx-auto">
+        <div
+            class="bg-white rounded-3xl shadow-xl overflow-hidden border border-[#F1EBE4] mb-16 max-w-lg mx-auto"
+        >
             <div class="bg-[#A88B58] py-4 text-center">
-                <h3 class="text-white font-serif font-bold text-lg tracking-wide">1レッスンあたりの料金</h3>
+                <h3
+                    class="text-white font-serif font-bold text-lg tracking-wide"
+                >
+                    1レッスンあたりの料金
+                </h3>
             </div>
             <div class="p-6 md:p-10">
                 <div class="divide-y divide-[#F1EBE4]">
                     <div class="flex justify-between items-center py-5 md:py-6">
-                        <span class="text-lg md:text-xl font-serif text-[#544A40]">30分</span>
-                        <span class="text-xl md:text-2xl font-serif font-medium text-[#544A40]">5,000円</span>
+                        <span
+                            class="text-lg md:text-xl font-serif text-[#544A40]"
+                            >30分</span
+                        >
+                        <span
+                            class="text-xl md:text-2xl font-serif font-medium text-[#544A40]"
+                            >5,000円</span
+                        >
                     </div>
                     <div class="flex justify-between items-center py-5 md:py-6">
-                        <span class="text-lg md:text-xl font-serif text-[#544A40]">45分</span>
-                        <span class="text-xl md:text-2xl font-serif font-medium text-[#544A40]">7,500円</span>
+                        <span
+                            class="text-lg md:text-xl font-serif text-[#544A40]"
+                            >45分</span
+                        >
+                        <span
+                            class="text-xl md:text-2xl font-serif font-medium text-[#544A40]"
+                            >7,500円</span
+                        >
                     </div>
                     <div class="flex justify-between items-center py-5 md:py-6">
-                        <span class="text-lg md:text-xl font-serif text-[#544A40]">60分</span>
-                        <span class="text-xl md:text-2xl font-serif font-medium text-[#544A40]">10,000円</span>
+                        <span
+                            class="text-lg md:text-xl font-serif text-[#544A40]"
+                            >60分</span
+                        >
+                        <span
+                            class="text-xl md:text-2xl font-serif font-medium text-[#544A40]"
+                            >10,000円</span
+                        >
                     </div>
                 </div>
             </div>
@@ -121,52 +231,111 @@ const pageTitle = "レッスンについて | 髙橋遊月ピアノ教室";
 
         <div class="mb-16">
             <h3 class="text-xl font-serif text-center mb-8 text-[#6B5F54]">
-                <span class="border-b-2 border-[#A88B58]/30 pb-2">レッスン回数について</span>
+                <span class="border-b-2 border-[#A88B58]/30 pb-2"
+                    >レッスン回数について</span
+                >
             </h3>
             <p class="text-center mb-10 text-sm md:text-base leading-loose">
-                月1回〜4回から、<span class="inline-block">生徒さまのペースに合わせて</span><span class="inline-block">お選びいただけます。</span>
+                月1回〜4回から、<span class="inline-block"
+                    >生徒さまのペースに合わせて</span
+                ><span class="inline-block">お選びいただけます。</span>
             </p>
             <div class="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-                <div class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center">
-                    <span class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest">月1回</span>
-                    <p class="text-sm md:text-base leading-relaxed text-[#6B5F54]">まずはゆっくり<br/>始めたい方へ</p>
+                <div
+                    class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center"
+                >
+                    <span
+                        class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest"
+                        >月1回</span
+                    >
+                    <p
+                        class="text-sm md:text-base leading-relaxed text-[#6B5F54]"
+                    >
+                        まずはゆっくり<br />始めたい方へ
+                    </p>
                 </div>
-                <div class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center">
-                    <span class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest">月2回</span>
-                    <p class="text-sm md:text-base leading-relaxed text-[#6B5F54]">忙しい中でも<br/>無理なく続けたい方へ</p>
+                <div
+                    class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center"
+                >
+                    <span
+                        class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest"
+                        >月2回</span
+                    >
+                    <p
+                        class="text-sm md:text-base leading-relaxed text-[#6B5F54]"
+                    >
+                        忙しい中でも<br />無理なく続けたい方へ
+                    </p>
                 </div>
-                <div class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center">
-                    <span class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest">月3回</span>
-                    <p class="text-sm md:text-base leading-relaxed text-[#6B5F54]">安定したペースで<br/>力をつけたい方へ</p>
+                <div
+                    class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center"
+                >
+                    <span
+                        class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest"
+                        >月3回</span
+                    >
+                    <p
+                        class="text-sm md:text-base leading-relaxed text-[#6B5F54]"
+                    >
+                        安定したペースで<br />力をつけたい方へ
+                    </p>
                 </div>
-                <div class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center">
-                    <span class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest">月4回</span>
-                    <p class="text-sm md:text-base leading-relaxed text-[#6B5F54]">目標に向けて<br/>しっかり取り組みたい方へ</p>
+                <div
+                    class="bg-white p-6 md:p-8 rounded-xl border border-[#F1EBE4] text-center shadow-sm hover:shadow-md transition-shadow flex flex-col justify-center"
+                >
+                    <span
+                        class="block text-[#A88B58] font-serif font-bold mb-4 text-xl md:text-2xl tracking-widest"
+                        >月4回</span
+                    >
+                    <p
+                        class="text-sm md:text-base leading-relaxed text-[#6B5F54]"
+                    >
+                        目標に向けて<br />しっかり取り組みたい方へ
+                    </p>
                 </div>
             </div>
         </div>
 
-        <div class="flex flex-col gap-8"> {/* GridをやめてFlex(縦並び)に変更 */}
+        <div class="flex flex-col gap-8">
+            {/* GridをやめてFlex(縦並び)に変更 */}
             <div class="bg-[#F7F3EE] p-8 rounded-2xl border border-[#E8E2D9]">
-                <h3 class="font-serif font-bold text-[#A88B58] mb-4 flex items-center gap-2">
-                     月謝の例
+                <h3
+                    class="font-serif font-bold text-[#A88B58] mb-4 flex items-center gap-2"
+                >
+                    月謝の例
                 </h3>
-                 <div class="grid md:grid-cols-2 gap-4 mb-2"> {/* 中身を横並びにして見やすく調整 */}
+                <div class="grid md:grid-cols-2 gap-4 mb-2">
+                    {/* 中身を横並びにして見やすく調整 */}
                     <div class="bg-white p-4 rounded-lg shadow-sm font-serif">
-                        <p class="text-xs text-[#8B7355] mb-1 font-sans">無理なく続けるなら</p>
-                        <p class="text-base text-[#544A40]">30分 × 月3回 <span class="mx-2">→</span> <span class="font-bold text-lg">15,000円</span></p>
+                        <p class="text-xs text-[#8B7355] mb-1 font-sans">
+                            無理なく続けるなら
+                        </p>
+                        <p class="text-base text-[#544A40]">
+                            30分 × 月3回 <span class="mx-2">→</span>
+                            <span class="font-bold text-lg">15,000円</span>
+                        </p>
                     </div>
                     <div class="bg-white p-4 rounded-lg shadow-sm font-serif">
-                        <p class="text-xs text-[#8B7355] mb-1 font-sans">じっくり学ぶなら</p>
-                        <p class="text-base text-[#544A40]">60分 × 月2回 <span class="mx-2">→</span> <span class="font-bold text-lg">20,000円</span></p>
+                        <p class="text-xs text-[#8B7355] mb-1 font-sans">
+                            じっくり学ぶなら
+                        </p>
+                        <p class="text-base text-[#544A40]">
+                            60分 × 月2回 <span class="mx-2">→</span>
+                            <span class="font-bold text-lg">20,000円</span>
+                        </p>
                     </div>
                 </div>
-                <p class="text-xs text-[#6B5F54] mt-2">※別途教材費がかかる場合がございます。</p>
+                <p class="text-xs text-[#6B5F54] mt-2">
+                    ※別途教材費がかかる場合がございます。
+                </p>
             </div>
 
             <div class="bg-[#F7F3EE] p-8 rounded-2xl border border-[#E8E2D9]">
-                <h3 class="font-serif font-bold text-[#A88B58] mb-4 flex items-center gap-2 text-xl"> {/* 文字サイズを少し大きく */}
-                     レッスン会場について
+                <h3
+                    class="font-serif font-bold text-[#A88B58] mb-4 flex items-center gap-2 text-xl"
+                >
+                    {/* 文字サイズを少し大きく */}
+                    レッスン会場について
                 </h3>
                 <ul class="space-y-4 text-sm leading-relaxed text-[#6B5F54]">
                     <li class="flex items-start gap-2">
@@ -175,25 +344,37 @@ const pageTitle = "レッスンについて | 髙橋遊月ピアノ教室";
                     </li>
                     <li class="flex items-start gap-2">
                         <span class="text-[#A88B58] mt-1.5 text-xs">●</span>
-                        <span>会場をレンタルしてのレッスンも可能です。<br/>
-                        <span class="text-xs text-[#6B5F54]">※練習室レンタルの場合、別途会場費がかかります。</span></span>
+                        <span
+                            >会場をレンタルしてのレッスンも可能です。<br />
+                            <span class="text-xs text-[#6B5F54]"
+                                >※練習室レンタルの場合、別途会場費がかかります。</span
+                            ></span
+                        >
                     </li>
                     <li class="flex items-start gap-2">
                         <span class="text-[#A88B58] mt-1.5 text-xs">●</span>
-                        <span>場所の詳細は、生徒さまのご希望や状況に合わせて検討いたします。</span>
+                        <span
+                            >場所の詳細は、生徒さまのご希望や状況に合わせて検討いたします。</span
+                        >
                     </li>
-                 </ul>
+                </ul>
                 <div class="mt-6 pt-6 border-t border-[#E8E2D9]">
-                    <p class="text-sm">分からないことや聞いておきたいことがございましたら、<span class="inline-block">遠慮なくご連絡ください。</span></p>
+                    <p class="text-sm">
+                        分からないことや聞いておきたいことがございましたら、<span
+                            class="inline-block">遠慮なくご連絡ください。</span
+                        >
+                    </p>
                 </div>
             </div>
         </div>
     </section>
 
     <div class="text-center py-16">
-        <a href="/contact" class="inline-block bg-[#544A40] text-white px-12 py-4 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.2em] text-sm">
+        <a
+            href="/contact"
+            class="inline-block bg-[#544A40] text-white px-12 py-4 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.2em] text-sm"
+        >
             体験レッスンを申し込む
         </a>
     </div>
-
 </Layout>

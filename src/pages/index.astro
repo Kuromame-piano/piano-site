@@ -1,10 +1,16 @@
 ---
-import Layout from '../layouts/Layout.astro';
-import { client } from '../lib/microcms';
+import Layout from "../layouts/Layout.astro";
+import { client } from "../lib/microcms";
+// ▼ 追加: Imageコンポーネントのインポート
+import { Image } from "astro:assets";
 
 // SEO用の設定
-const pageTitle = "江東区・清澄白河の出張ピアノレッスン | 髙橋遊月ピアノ教室";
-const pageDescription = "江東区・清澄白河エリアを中心に活動する講師による出張ピアノ教室です。";
+const pageTitle =
+  "江東区のピアノ家庭教師・訪問レッスン | マンツーマン個人指導 | 髙橋遊月ピアノ教室";
+const pageDescription =
+  "江東区・清澄白河エリアで訪問ピアノレッスン。大江戸線・半蔵門線・東西線沿線（清澄白河駅・門前仲町駅・木場駅周辺）へ出張。マンツーマン個人指導で送迎不要、仕事帰りにも便利。体験レッスン受付中。";
+const heroImage =
+  "https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop";
 
 // YouTube動画のIDリスト（3本）
 const videoIds = [
@@ -12,70 +18,180 @@ const videoIds = [
   "xh65ftmaIgc", // 2本目（中央・初期表示）
   "31muaoyHDuo", // 3本目（右）
 ];
-
 // microCMSからお知らせを取得（最新3件）
 const response = await client.get({
   endpoint: "news",
-  queries: { limit: 3, fields: ["id", "title", "publishedAt"] }
+  queries: { limit: 3, fields: ["id", "title", "publishedAt"] },
 });
 const newsContents = response.contents;
+
+// 構造化データ（JSON-LD）の作成
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MusicSchool",
+      name: "髙橋遊月ピアノ教室",
+      description: pageDescription,
+      image: heroImage,
+      url: "https://playon-music.jp",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "東京都",
+        addressLocality: "江東区",
+      },
+      areaServed: [
+        "江東区",
+        "清澄白河",
+        "門前仲町",
+        "木場",
+        "深川",
+        "森下",
+        "白河",
+        "三好",
+        "平野",
+        "佐賀",
+        "永代",
+        "福住",
+        "冬木",
+        "牡丹",
+        "古石場",
+        "越中島",
+        "菊川",
+        "千歳",
+        "中央区",
+        "水天宮前",
+        "茅場町",
+        "人形町",
+        "日本橋浜町",
+        "日本橋中洲",
+        "日本橋蛎殻町",
+        "日本橋箱崎町",
+        "墨田区",
+        "立川",
+        "緑",
+        "清澄白河駅",
+        "門前仲町駅",
+        "木場駅",
+        "水天宮前駅",
+        "茅場町駅",
+        "人形町駅",
+        "大江戸線沿線",
+        "半蔵門線沿線",
+        "東西線沿線",
+      ],
+      serviceType: [
+        "ピアノ家庭教師",
+        "ピアノ訪問レッスン",
+        "ピアノ出張レッスン",
+        "マンツーマンレッスン",
+        "個人指導",
+      ],
+      priceRange: "5,000円〜",
+      instructor: {
+        "@type": "Person",
+        name: "髙橋 遊月",
+        alumniOf: "東京音楽大学",
+      },
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://playon-music.jp",
+        },
+      ],
+    },
+  ],
+});
 ---
 
-<Layout title={pageTitle} description={pageDescription}>
+<Layout title={pageTitle} description={pageDescription} image={heroImage}>
+  {/* ヘッド内に構造化データを注入 */}
+  <script type="application/ld+json" set:html={schema} slot="head" />
+
   <main class="bg-[#FCFAF7] text-[#544A40] font-sans relative">
-    
-    <section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+    <section
+      class="relative h-[85vh] flex items-center justify-center overflow-hidden"
+    >
       <div class="absolute inset-0 z-0">
-        <img 
-          src="https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop" 
-          alt="落ち着いた空間でのピアノレッスン" 
+        {/* ▼ 修正: imgタグをImageコンポーネントに変更 */}
+        {/* これによりWebP形式への変換や適切なサイズ調整が自動で行われます */}
+        <Image
+          src={heroImage}
+          alt="落ち着いた空間でのピアノレッスン"
+          width={2070}
+          height={1380}
           class="w-full h-full object-cover opacity-50"
+          loading="eager"
+          fetchpriority="high"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"
+        >
+        </div>
       </div>
 
       <div class="relative z-10 text-center px-4 max-w-5xl">
-        <span class="inline-block mb-6 text-[#544A40] font-bold drop-shadow-md tracking-[0.2em] text-xl md:text-2xl font-serif">
-          <span class="inline-block">江東区・清澄白河エリアの</span><span class="inline-block">出張レッスン</span>
+        <span
+          class="inline-block mb-6 text-[#544A40] font-bold drop-shadow-md tracking-[0.2em] text-xl md:text-2xl font-serif"
+        >
+          <span class="inline-block">江東区・清澄白河エリアの</span><span
+            class="inline-block">出張ピアノレッスン</span
+          >
         </span>
-        
-        <h1 class="text-3xl md:text-5xl font-serif font-bold mb-10 leading-tight tracking-wider text-[#544A40]">
-          日常に彩りを添える、<br/>心豊かなピアノの時間
+
+        <h1
+          class="text-3xl md:text-5xl font-serif font-bold mb-10 leading-tight tracking-wider text-[#544A40]"
+        >
+          日常に彩りを添える、<br />心豊かなピアノの時間
         </h1>
-    
+
         <p class="text-base md:text-lg mb-16 leading-loose">
-          講師がご自宅へ伺い、あなたの大切なピアノで、<br/>
+          講師がご自宅へ伺い、あなたの大切なピアノで、<br />
           あなただけの音色を一緒に奏でます。
         </p>
       </div>
     </section>
-    
+
     <section class="py-12 px-6 max-w-4xl mx-auto">
-      <h2 class="text-xl font-serif font-bold mb-8 text-center text-[#A88B58]">News</h2>
+      <h2 class="text-xl font-serif font-bold mb-8 text-center text-[#A88B58]">
+        News
+      </h2>
       <div class="space-y-3">
-        {newsContents.length > 0 ? (
-          newsContents.map((item: any) => (
-            <a href={`/news/${item.id}`} class="block group">
-              <div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-[#E8E2D9] flex flex-col md:flex-row md:items-center gap-4 transition-all group-hover:bg-white group-hover:shadow-md">
-                <span class="text-xs opacity-50 font-mono italic">
-                  {new Date(item.publishedAt).toLocaleDateString('ja-JP')}
-                </span>
-                <span class="text-sm tracking-wide group-hover:text-[#A88B58] transition-colors">
-                  {item.title}
-                </span>
-                <span class="hidden md:block ml-auto text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
-                  Read more →
-                </span>
-              </div>
-            </a>
-          ))
-        ) : (
-          <p class="text-sm opacity-60 text-center">現在お知らせはありません。</p>
-        )}
+        {
+          newsContents.length > 0 ? (
+            newsContents.map((item: any) => (
+              <a href={`/news/${item.id}`} class="block group">
+                <div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-[#E8E2D9] flex flex-col md:flex-row md:items-center gap-4 transition-all group-hover:bg-white group-hover:shadow-md">
+                  <span class="text-xs opacity-50 font-mono italic">
+                    {new Date(item.publishedAt).toLocaleDateString("ja-JP")}
+                  </span>
+                  <span class="text-sm tracking-wide group-hover:text-[#A88B58] transition-colors">
+                    {item.title}
+                  </span>
+                  <span class="hidden md:block ml-auto text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
+                    Read more →
+                  </span>
+                </div>
+              </a>
+            ))
+          ) : (
+            <p class="text-sm opacity-60 text-center">
+              現在お知らせはありません。
+            </p>
+          )
+        }
       </div>
- 
+
       <div class="mt-8 text-right">
-        <a href="/news" class="text-xs font-bold tracking-widest text-[#A88B58] hover:text-[#8B7347] border-b border-[#A88B58] pb-1 transition-colors">
+        <a
+          href="/news"
+          class="text-xs font-bold tracking-widest text-[#A88B58] hover:text-[#8B7347] border-b border-[#A88B58] pb-1 transition-colors"
+        >
           お知らせ一覧を見る →
         </a>
       </div>
@@ -84,25 +200,44 @@ const newsContents = response.contents;
     <section class="py-24 bg-white">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif mb-4">講師紹介</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">Instructor Profile</p>
+          <h2 class="text-3xl font-serif mb-4">Instructor Profile</h2>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            講師紹介
+          </p>
         </div>
 
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div class="relative">
-            <div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl">
-              <img src="/senzai.png" alt="高橋遊月" class="w-full h-full object-cover"/>
+            <div
+              class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl"
+            >
+              <Image
+                src="/senzai.png"
+                alt="髙橋遊月"
+                width={600}
+                height={750}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"></div>
+            <div
+              class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"
+            >
+            </div>
           </div>
           <div>
-            <h3 class="text-3xl font-serif mb-6 leading-snug">高橋 遊月 <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Takahashi Yuzuki</span></h3>
+            <h3 class="text-3xl font-serif mb-6 leading-snug">
+              髙橋 遊月 <span
+                class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]"
+                >Takahashi Yuzuki</span
+              >
+            </h3>
             <div class="space-y-6 text-[#544A40] leading-relaxed">
               <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
                 東京音楽大学 卒業
               </p>
               <p>
-                江東区・清澄白河を中心に、ご自宅への出張ピアノレッスンを行っております。
+                江東区・清澄白河を中心に、ご自宅へのピアノ家庭教師（出張レッスン）を行っております。
                 これまで多くの門下生を指導し、音楽を通じた心の交流を大切にしてきました。
               </p>
               <p>
@@ -110,121 +245,351 @@ const newsContents = response.contents;
                 きめ細やかな指導で、技術だけでなく、音楽を一生のパートナーにするお手伝いをいたします。
               </p>
             </div>
-            <div class="mt-10 p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4] relative">
-              <span class="absolute top-4 left-4 text-4xl text-[#A88B58]/20 font-serif italic">"</span>
-              <p class="italic text-sm leading-loose">音楽は、言葉にできない感情を表現してくれる大切な友。技術の習得はもちろん、お一人おひとりの生活に寄り添う、穏やかで上質な時間を提供いたします。</p>
+            <div
+              class="mt-10 p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4] relative"
+            >
+              <span
+                class="absolute top-4 left-4 text-4xl text-[#A88B58]/20 font-serif italic"
+                >"</span
+              >
+              <p class="italic text-sm leading-loose">
+                音楽は、言葉にできない感情を表現してくれる大切な友。技術の習得はもちろん、お一人おひとりの生活に寄り添う、穏やかで上質な時間を提供いたします。
+              </p>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    {/* --- 動画セクション --- */}
+    {/* --- 動画セクション（元の実装を維持） --- */}
     <section class="py-24 bg-[#FCFAF7] overflow-hidden">
       <div class="w-full max-w-[1400px] mx-auto">
         <div class="text-center mb-12 px-6">
           <h2 class="text-3xl font-serif mb-4">Introduction Movie</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">紹介動画</p>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            紹介動画
+          </p>
         </div>
-        
+
         <div class="relative group py-4">
-          {/* iPhone対策: 最初は visibility: hidden で隠す */}
-          <div 
-            id="video-slider" 
-            class="flex overflow-x-auto gap-6 px-[7.5%] md:px-[15%] pb-8 items-center transition-opacity duration-500" 
+          <div
+            id="video-slider"
+            class="flex overflow-x-auto gap-6 px-[7.5%] md:px-[15%] pb-8 items-center transition-opacity duration-500"
             style="scrollbar-width: none; -ms-overflow-style: none; visibility: hidden; opacity: 0;"
           >
-            {videoIds.map((id, index) => (
-              <div class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[60%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 origin-center relative" data-index={index}>
-                <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
-                  
-                  <iframe 
-                    src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`} 
-                    title="YouTube video player" 
-                    class="w-full h-full relative z-10"
-                    frameborder="0" 
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
-                    referrerpolicy="strict-origin-when-cross-origin" 
-                    allowfullscreen>
-                  </iframe>
+            {
+              videoIds.map((id, index) => (
+                <div
+                  class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[60%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 origin-center relative"
+                  data-index={index}
+                >
+                  <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
+                    <iframe
+                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
+                      title="YouTube video player"
+                      class="w-full h-full relative z-10"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                      loading="lazy"
+                    />
 
-                  <img 
-                    src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-                    alt="Video thumbnail"
-                    class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300"
-                    onload={`if (this.naturalWidth === 120) this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';`}
-                    onerror={`
-                      if (this.src.includes('maxresdefault')) {
-                        this.src = 'https://i.ytimg.com/vi/${id}/sddefault.jpg';
-                      } else if (this.src.includes('sddefault')) {
-                        this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';
-                      } else {
-                        this.style.display = 'none';
-                      }
+                    <img
+                      src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+                      alt="Video thumbnail"
+                      class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300"
+                      loading="lazy"
+                      onload={`if (this.naturalWidth === 120) this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';`}
+                      onerror={`
+                        if (this.src.includes('maxresdefault')) {
+                            this.src = 'https://i.ytimg.com/vi/${id}/sddefault.jpg';
+                        } else if (this.src.includes('sddefault')) {
+                            this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';
+                        } else {
+                            this.style.display = 'none';
+                        }
                     `}
-                  />
+                    />
 
-                  <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer group-hover:bg-black/5 transition-colors">
-                    <button class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 hover:scale-110" aria-label="再生する">
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 md:w-10 md:h-10 pl-1">
-                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
+                    <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer group-hover:bg-black/5 transition-colors">
+                      <button
+                        class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 hover:scale-110"
+                        aria-label="再生する"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="w-8 h-8 md:w-10 md:h-10 pl-1"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
-
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
-          
+
           <div class="flex justify-center gap-3 mt-2">
-            {videoIds.map((_, index) => (
-              <button class="slider-dot w-2 h-2 rounded-full bg-[#E8E2D9] transition-all duration-300 hover:bg-[#A88B58]/50" data-index={index} aria-label={`${index + 1}番目の動画へ`}></button>
-            ))}
+            {
+              videoIds.map((_, index) => (
+                <button
+                  class="slider-dot w-2 h-2 rounded-full bg-[#E8E2D9] transition-all duration-300 hover:bg-[#A88B58]/50"
+                  data-index={index}
+                  aria-label={`${index + 1}番目の動画へ`}
+                />
+              ))
+            }
           </div>
         </div>
-        
-        <p class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif px-6">
-          レッスンの雰囲気や演奏の様子を動画でご覧いただけます。<br/>
-          <span class="text-xs opacity-70">※左右にスワイプして他の動画をご覧になれます</span>
+
+        <p
+          class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif px-6"
+        >
+          レッスンの雰囲気や演奏の様子を動画でご覧いただけます。<br />
+          <span class="text-xs opacity-70"
+            >※左右にスワイプして他の動画をご覧になれます</span
+          >
         </p>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white">
+      <div class="max-w-5xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-3xl font-serif mb-4">For Everyone</h2>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            どなたでも大歓迎です
+          </p>
+        </div>
+
+        <div class="grid md:grid-cols-3 gap-10">
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">
+              初心者の方も安心
+            </h3>
+            <p class="text-sm leading-loose text-[#6B5F54]">
+              楽譜が読めなくても大丈夫です。<br />
+              <span class="inline-block">基礎から丁寧に、</span><span
+                class="inline-block">あなたのペースに合わせて</span
+              ><span class="inline-block">サポートいたします。</span>
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">
+              年齢不問
+            </h3>
+            <p class="text-sm leading-loose text-[#6B5F54]">
+              3歳のお子様からシニアの方まで。<br />
+              <span class="inline-block"
+                >「弾きたい」と思ったその時が、始めどきです。</span
+              ><span class="inline-block">年齢制限はありません。</span>
+            </p>
+          </div>
+
+          <div class="flex flex-col items-center text-center">
+            <div
+              class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"
+                ></path>
+              </svg>
+            </div>
+            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">
+              それぞれの目的で
+            </h3>
+            <p class="text-sm leading-loose text-[#6B5F54]">
+              趣味として楽しみたい、あの曲を弾けるようになりたい、本格的に学びたい。ご希望に寄り添います。
+            </p>
+          </div>
+        </div>
       </div>
     </section>
 
     <section class="py-24 bg-[#F7F3EE]">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif mb-4">レッスン料金・システム</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">Fees & System</p>
+          <h2 class="text-3xl font-serif mb-4">Lesson Style</h2>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            レッスンスタイル
+          </p>
         </div>
 
-        <div class="bg-white p-10 rounded-2xl shadow-sm border border-[#E8E2D9] text-center max-w-2xl mx-auto">
-          <div class="mb-8 font-serif text-[#544A40]">
-            <p class="mb-4 text-sm tracking-widest opacity-80">- 1レッスンあたりの料金 -</p>
-            <div class="flex justify-center gap-6 md:gap-10 text-base md:text-lg">
-              <div class="flex flex-col items-center">
-                <span class="text-xs text-[#A88B58] mb-1">30分</span>
-                <span>5,000円</span>
-              </div>
-              <div class="flex flex-col items-center border-l border-[#E8E2D9] pl-6 md:pl-10">
-                <span class="text-xs text-[#A88B58] mb-1">45分</span>
-                <span>7,500円</span>
-              </div>
-              <div class="flex flex-col items-center border-l border-[#E8E2D9] pl-6 md:pl-10">
-                <span class="text-xs text-[#A88B58] mb-1">60分</span>
-                <span>10,000円</span>
-              </div>
+        <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+          <div
+            class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
+          >
+            <h3 class="text-xl font-bold font-serif mb-4 text-[#544A40]">
+              ご自宅への訪問レッスン
+            </h3>
+            <p class="text-base leading-loose text-[#6B5F54] flex-1">
+              講師がご自宅へ出張し、いつものピアノでマンツーマンの個人指導を行います。<span
+                class="font-bold text-[#A88B58]">送迎不要</span
+              >で保護者の方の負担も軽減。仕事帰りの時間帯も対応可能です。
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >送迎不要</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >マンツーマン</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >仕事帰りOK</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >体験レッスンあり</span
+              >
             </div>
           </div>
 
-          <p class="text-sm leading-relaxed mb-8 text-[#6B5F54]">
-            ご希望に合わせて、30分・45分・60分のコースをご用意しております。<br/>
-            月1回〜4回まで、ライフスタイルに合わせて受講頻度をお選びいただけます。
-          </p>
-          <a href="/lesson" class="inline-block border border-[#A88B58] text-[#A88B58] px-10 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-all text-sm tracking-widest">
-            詳しい料金プランを見る →
-          </a>
+          <div
+            class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
+          >
+            <h3 class="text-xl font-bold font-serif mb-4 text-[#544A40]">
+              スタジオレッスン
+            </h3>
+            <p class="text-base leading-loose text-[#6B5F54] flex-1">
+              ご自宅にピアノがない場合や、グランドピアノで練習したい場合は、近隣のレンタルスタジオ等でのレッスンも可能です。<br
+              />
+              <span class="text-xs text-[#A88B58] mt-3 block"
+                >※練習室レンタルの場合、別途会場費がかかります。</span
+              >
+            </p>
+            <div class="mt-4 flex flex-wrap gap-2">
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >マンツーマン</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >仕事帰りOK</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >体験レッスンあり</span
+              >
+            </div>
+          </div>
         </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-[#FCFAF7]">
+      <div class="max-w-5xl mx-auto px-6 text-center mb-12">
+        <h2 class="text-3xl font-serif mb-4">Fees & System</h2>
+        <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+          レッスン料金・システム
+        </p>
+      </div>
+
+      <div
+        class="bg-white p-6 md:p-8 rounded-2xl shadow-sm border border-[#E8E2D9] text-center max-w-2xl mx-auto"
+      >
+        <div class="mb-6 font-serif text-[#544A40]">
+          <p class="mb-4 text-sm tracking-widest opacity-80">
+            - 1レッスンあたりの料金 -
+          </p>
+          <div
+            class="flex flex-col md:flex-row justify-center items-center gap-6 md:gap-10"
+          >
+            <div class="flex flex-col items-center">
+              <span class="text-base text-[#A88B58] mb-1 font-medium">30分</span
+              >
+              <span class="text-xl"
+                >5,000<span class="text-sm ml-1">円</span></span
+              >
+            </div>
+            <div
+              class="flex flex-col items-center border-t md:border-t-0 md:border-l border-[#E8E2D9] pt-4 md:pt-0 md:pl-6 lg:pl-10 w-full md:w-auto"
+            >
+              <span class="text-base text-[#A88B58] mb-1 font-medium">45分</span
+              >
+              <span class="text-xl"
+                >7,500<span class="text-sm ml-1">円</span></span
+              >
+            </div>
+            <div
+              class="flex flex-col items-center border-t md:border-t-0 md:border-l border-[#E8E2D9] pt-4 md:pt-0 md:pl-6 lg:pl-10 w-full md:w-auto"
+            >
+              <span class="text-base text-[#A88B58] mb-1 font-medium">60分</span
+              >
+              <span class="text-xl"
+                >10,000<span class="text-sm ml-1">円</span></span
+              >
+            </div>
+          </div>
+        </div>
+
+        <p class="text-sm leading-relaxed mb-6 text-[#6B5F54]">
+          ご希望に合わせて、30分・45分・60分のコースをご用意しております。<br />
+          月1回〜4回まで、ライフスタイルに合わせて受講頻度をお選びいただけます。
+        </p>
+        <a
+          href="/lesson"
+          class="inline-block border border-[#A88B58] text-[#A88B58] px-8 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-all text-sm tracking-widest font-medium"
+        >
+          詳しい料金プランを見る →
+        </a>
       </div>
     </section>
 
@@ -232,39 +597,108 @@ const newsContents = response.contents;
       <div class="max-w-5xl mx-auto text-center">
         <div class="mb-16">
           <h2 class="text-3xl font-serif mb-4">Service Area</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">出張対応エリア</p>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            出張対応エリア
+          </p>
         </div>
-        
+
         <p class="text-sm leading-loose mb-10 text-[#6B5F54] max-w-2xl mx-auto">
-          江東区の<span class="font-bold text-[#A88B58]">清澄白河駅・門前仲町駅</span>周辺を中心に、<br class="hidden md:inline"/>
+          江東区の<span class="font-bold text-[#A88B58]"
+            >清澄白河駅・門前仲町駅</span
+          >周辺を中心に、<br class="hidden md:inline" />
           講師が自転車または公共交通機関で伺える範囲で活動しています。
         </p>
 
         <div class="grid md:grid-cols-2 gap-8 items-start text-left mb-12">
-          <div class="hidden md:block aspect-video w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]">
-            <iframe 
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.066480572621!2d139.79634597628873!3d35.682701130107765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188944510b6563%3A0xc3f7a63d91965a39!2z5riF5r6E55m95rKz6aeF!5e0!3m2!1sja!2sjp!4v1711234567890!5m2!1sja!2sjp" 
-              width="100%" 
-              height="100%" 
+          <div
+            class="hidden md:block aspect-square w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]"
+          >
+            <iframe
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.066480572621!2d139.79634597628873!3d35.682701130107765!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x60188944510b6563%3A0xc3f7a63d91965a39!2z5riF5r6E55m95rKz6aeF!5e0!3m2!1sja!2sjp!4v1711234567890!5m2!1sja!2sjp"
+              width="100%"
+              height="100%"
               style="border:0;"
               allowfullscreen=""
               loading="lazy"
               referrerpolicy="no-referrer-when-downgrade"
-              title="清澄白河駅周辺地図">
+              title="清澄白河駅周辺地図"
+            >
             </iframe>
           </div>
           <div>
-            <div class="flex flex-wrap gap-3 mb-8">
-              {["清澄白河", "門前仲町", "木場", "深川", "森下", "白河", "三好", "平野", "佐賀", "永代", "福住", "冬木", "牡丹", "古石場"].map(area => (
-                <span class="inline-block px-4 py-2 bg-[#F7F3EE] text-[#544A40] text-sm rounded-full border border-[#E8E2D9] cursor-default">
-                  {area}
-                </span>
-              ))}
+            <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">
+              江東区
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {
+                [
+                  "清澄白河",
+                  "門前仲町",
+                  "木場",
+                  "深川",
+                  "森下",
+                  "白河",
+                  "三好",
+                  "平野",
+                  "佐賀",
+                  "永代",
+                  "福住",
+                  "冬木",
+                  "牡丹",
+                  "古石場",
+                  "越中島",
+                  "菊川",
+                  "千歳",
+                ].map((area) => (
+                  <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
+                    {area}
+                  </span>
+                ))
+              }
+            </div>
+            <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">
+              中央区・墨田区（近郊）
+            </p>
+            <div class="flex flex-wrap gap-2 mb-4">
+              {
+                [
+                  "水天宮前",
+                  "茅場町",
+                  "人形町",
+                  "日本橋浜町",
+                  "日本橋中洲",
+                  "日本橋蛎殻町",
+                  "日本橋箱崎町",
+                  "立川",
+                  "緑",
+                ].map((area) => (
+                  <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
+                    {area}
+                  </span>
+                ))
+              }
+            </div>
+            <p class="text-xs text-[#A88B58] font-bold mb-4 tracking-wide">
+              アクセス路線
+            </p>
+            <div class="flex flex-wrap gap-2 mb-8">
+              {
+                ["大江戸線", "半蔵門線", "東西線"].map((line) => (
+                  <span class="inline-block px-3 py-1.5 bg-[#A88B58]/10 text-[#A88B58] text-xs rounded-full font-medium">
+                    {line}
+                  </span>
+                ))
+              }
             </div>
             <div class="bg-[#F7F3EE] p-6 rounded-xl border border-[#E8E2D9]">
-              <p class="text-base font-bold text-[#544A40] mb-2 font-serif border-l-2 border-[#A88B58] pl-3">その他の地域について</p>
+              <p
+                class="text-base font-bold text-[#544A40] mb-2 font-serif border-l-2 border-[#A88B58] pl-3"
+              >
+                その他の地域について
+              </p>
               <p class="text-sm leading-loose text-[#6B5F54]">
-                上記以外の地域（中央区や墨田区の一部など）でも、近隣であれば対応可能な場合がございます。<br/>
+                上記以外の地域（中央区や墨田区の一部など）でも、近隣であれば対応可能な場合がございます。<br
+                />
                 「自宅まで来てもらえるかな？」と迷われた際は、まずはお気軽にご相談ください。
               </p>
             </div>
@@ -275,21 +709,26 @@ const newsContents = response.contents;
 
     <section id="contact" class="py-24 bg-[#EAE3DA]">
       <div class="max-w-2xl mx-auto px-6">
-        <div class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] text-center">
+        <div
+          class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] text-center"
+        >
           <h2 class="text-3xl font-serif font-bold mb-8">Contact</h2>
+
           <p class="mb-10 text-sm leading-loose tracking-widest">
-            体験レッスンのお申し込みや、<br/>
-            レッスンに関するご質問など、<br/>
+            体験レッスンのお申し込みや、<br />
+            レッスンに関するご質問など、<br />
             お気軽にお問い合わせください。
           </p>
-          
-          <a href="/contact" class="inline-block bg-[#544A40] text-white px-12 py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.2em] text-sm transform hover:-translate-y-1">
+
+          <a
+            href="/contact"
+            class="inline-block bg-[#544A40] text-white px-12 py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.2em] text-sm transform hover:-translate-y-1"
+          >
             お問い合わせフォームへ
           </a>
         </div>
       </div>
     </section>
-
   </main>
 </Layout>
 
@@ -297,7 +736,7 @@ const newsContents = response.contents;
   #video-slider::-webkit-scrollbar {
     display: none;
   }
-  
+
   .video-slide iframe {
     pointer-events: none;
   }
@@ -305,7 +744,7 @@ const newsContents = response.contents;
   .video-slide.is-playing iframe {
     pointer-events: auto;
   }
-  
+
   .video-slide.is-playing .video-overlay,
   .video-slide.is-playing .video-poster {
     opacity: 0;
@@ -320,148 +759,160 @@ const newsContents = response.contents;
 </style>
 
 <script>
-  const slider = document.getElementById('video-slider');
-  const dots = document.querySelectorAll('.slider-dot');
-  const slides = document.querySelectorAll('.video-slide');
+  const slider = document.getElementById("video-slider");
+  const dots = document.querySelectorAll(".slider-dot");
+  const slides = document.querySelectorAll(".video-slide");
 
   if (slider && slides.length > 0) {
     const getActiveIndex = () => {
-       const sliderRect = slider.getBoundingClientRect();
-       const sliderCenter = sliderRect.left + sliderRect.width / 2;
-       let minDistance = Infinity;
-       let index = 0;
-       slides.forEach((slide, i) => {
-         const slideRect = slide.getBoundingClientRect();
-         const slideCenter = slideRect.left + slideRect.width / 2;
-         const distance = Math.abs(sliderCenter - slideCenter);
-         if (distance < minDistance) {
-           minDistance = distance;
-           index = i;
-         }
-       });
-       return index;
+      const sliderRect = slider.getBoundingClientRect();
+      const sliderCenter = sliderRect.left + sliderRect.width / 2;
+      let minDistance = Infinity;
+      let index = 0;
+      slides.forEach((slide, i) => {
+        const slideRect = slide.getBoundingClientRect();
+        const slideCenter = slideRect.left + slideRect.width / 2;
+        const distance = Math.abs(sliderCenter - slideCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          index = i;
+        }
+      });
+      return index;
     };
 
-    const postMessageToIframe = (iframe, command) => {
+    const postMessageToIframe = (
+      iframe: HTMLIFrameElement | null,
+      command: string,
+    ) => {
       if (iframe && iframe.contentWindow) {
-        iframe.contentWindow.postMessage(JSON.stringify({
-          'event': 'command',
-          'func': command,
-          'args': []
-        }), '*');
+        iframe.contentWindow.postMessage(
+          JSON.stringify({
+            event: "command",
+            func: command,
+            args: [],
+          }),
+          "*",
+        );
       }
     };
 
-    const resetVideo = (slide) => {
-        slide.classList.remove('is-playing');
-        const iframe = slide.querySelector('iframe');
-        postMessageToIframe(iframe, 'pauseVideo');
+    const resetVideo = (slide: Element) => {
+      slide.classList.remove("is-playing");
+      const iframe = slide.querySelector("iframe");
+      postMessageToIframe(iframe, "pauseVideo");
     };
 
     const updateStyles = () => {
       const activeIndex = getActiveIndex();
       slides.forEach((slide, index) => {
         if (index === activeIndex) {
-          slide.classList.add('active');
-          slide.classList.remove('opacity-40', 'scale-95');
+          slide.classList.add("active");
+          slide.classList.remove("opacity-40", "scale-95");
         } else {
-          slide.classList.remove('active');
-          slide.classList.add('opacity-40', 'scale-95');
-          if (slide.classList.contains('is-playing')) {
+          slide.classList.remove("active");
+          slide.classList.add("opacity-40", "scale-95");
+          if (slide.classList.contains("is-playing")) {
             resetVideo(slide);
           }
         }
       });
       dots.forEach((dot, index) => {
         if (index === activeIndex) {
-          dot.classList.add('bg-[#A88B58]', 'w-4');
-          dot.classList.remove('bg-[#E8E2D9]', 'w-2');
+          dot.classList.add("bg-[#A88B58]", "w-4");
+          dot.classList.remove("bg-[#E8E2D9]", "w-2");
         } else {
-          dot.classList.remove('bg-[#A88B58]', 'w-4');
-          dot.classList.add('bg-[#E8E2D9]', 'w-2');
+          dot.classList.remove("bg-[#A88B58]", "w-4");
+          dot.classList.add("bg-[#E8E2D9]", "w-2");
         }
       });
     };
 
     // 初期位置セット（iPhone対応版）
     const initScroll = () => {
-        if (!slides[1] || !slider) return;
+      if (!slides[1] || !slider) return;
+      // レイアウトを安定させるためスナップを一時解除
+      slider.style.scrollSnapType = "none";
+      slider.style.scrollBehavior = "auto";
+      const setPosition = () => {
+        const slide = slides[1];
+        const sliderRect = slider.getBoundingClientRect();
+        const slideRect = slide.getBoundingClientRect();
 
-        // レイアウトを安定させるためスナップを一時解除
-        slider.style.scrollSnapType = 'none';
-        slider.style.scrollBehavior = 'auto';
+        const currentOffset = slideRect.left - sliderRect.left;
+        const centerOffset = (sliderRect.width - slideRect.width) / 2;
 
-        const setPosition = () => {
-            const slide = slides[1];
-            const sliderRect = slider.getBoundingClientRect();
-            const slideRect = slide.getBoundingClientRect();
-            
-            const currentOffset = slideRect.left - sliderRect.left;
-            const centerOffset = (sliderRect.width - slideRect.width) / 2;
-            
-            // 強制的にスクロール位置をセット
-            slider.scrollLeft += (currentOffset - centerOffset);
-            updateStyles();
+        // 強制的にスクロール位置をセット
+        slider.scrollLeft += currentOffset - centerOffset;
+        updateStyles();
 
-            // 描画が完了した次のフレームで表示
-            requestAnimationFrame(() => {
-                slider.style.visibility = 'visible';
-                slider.style.opacity = '1';
-                
-                // iPhoneで位置がリセットされないよう少し待ってからスナップを戻す
-                setTimeout(() => {
-                    slider.style.scrollSnapType = 'x mandatory';
-                    slider.style.scrollBehavior = 'smooth';
-                }, 50);
-            });
-        };
-
-        // iPhone/Safari向けに複数フレーム待機
+        // 描画が完了した次のフレームで表示
         requestAnimationFrame(() => {
-            requestAnimationFrame(setPosition);
+          slider.style.visibility = "visible";
+          slider.style.opacity = "1";
+
+          // iPhoneで位置がリセットされないよう少し待ってからスナップを戻す
+          setTimeout(() => {
+            slider.style.scrollSnapType = "x mandatory";
+            slider.style.scrollBehavior = "smooth";
+          }, 50);
         });
+      };
+
+      // iPhone/Safari向けに複数フレーム待機
+      requestAnimationFrame(() => {
+        requestAnimationFrame(setPosition);
+      });
     };
-    
+
     // DOM構築後すぐに計算開始
-    if (document.readyState === 'loading') {
-        document.addEventListener('DOMContentLoaded', initScroll);
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initScroll);
     } else {
-        initScroll();
+      initScroll();
     }
 
     slides.forEach((slide, index) => {
-        const overlay = slide.querySelector('.video-overlay');
-        const iframe = slide.querySelector('iframe');
-        if (overlay) {
-            overlay.addEventListener('click', () => {
-                const activeIndex = getActiveIndex();
-                if (index === activeIndex) {
-                    slide.classList.add('is-playing');
-                    postMessageToIframe(iframe, 'playVideo');
-                } else {
-                    slides[index].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-                    setTimeout(() => {
-                        if (getActiveIndex() === index) {
-                            slide.classList.add('is-playing');
-                            postMessageToIframe(iframe, 'playVideo');
-                        }
-                    }, 600);
-                }
+      const overlay = slide.querySelector(".video-overlay");
+      const iframe = slide.querySelector("iframe");
+      if (overlay) {
+        overlay.addEventListener("click", () => {
+          const activeIndex = getActiveIndex();
+          if (index === activeIndex) {
+            slide.classList.add("is-playing");
+            postMessageToIframe(iframe, "playVideo");
+          } else {
+            slides[index].scrollIntoView({
+              behavior: "smooth",
+              block: "nearest",
+              inline: "center",
             });
-        }
+            setTimeout(() => {
+              if (getActiveIndex() === index) {
+                slide.classList.add("is-playing");
+                postMessageToIframe(iframe, "playVideo");
+              }
+            }, 600);
+          }
+        });
+      }
     });
 
-    let isScrolling;
-    slider.addEventListener('scroll', () => {
+    let isScrolling: any;
+    slider.addEventListener("scroll", () => {
       window.clearTimeout(isScrolling);
       requestAnimationFrame(updateStyles);
       isScrolling = setTimeout(updateStyles, 66);
     });
 
     dots.forEach((dot, i) => {
-       dot.addEventListener('click', () => {
-         slides[i].scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-       });
+      dot.addEventListener("click", () => {
+        slides[i].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      });
     });
   }
 </script>
