@@ -1,8 +1,7 @@
 ---
-import Layout from '../../layouts/Layout.astro';
-import { client } from '../../lib/microcms';
-import type { Blog } from '../../lib/microcms';
-
+import Layout from "../../layouts/Layout.astro";
+import { client } from "../../lib/microcms";
+import type { Blog } from "../../lib/microcms";
 // 詳細ページのパスを生成（ビルド時に全記事分を作成）
 export async function getStaticPaths() {
   const response = await client.get({ endpoint: "news" });
@@ -17,14 +16,81 @@ export async function getStaticPaths() {
 }
 
 // 記事データを取得
+interface Props {
+  blog: Blog;
+}
 const { blog } = Astro.props;
+
+// ディスクリプションを生成（HTMLタグを除去できない環境なのでシンプルにタイトルを使用）
+const description = `${blog.title} - 髙橋遊月ピアノ教室のお知らせです。`;
+
+// 公開日をフォーマット
+const publishedAt = new Date(blog.publishedAt).toISOString();
+const dateJa = new Date(blog.publishedAt).toLocaleDateString("ja-JP");
+
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://playon-music.jp",
+        },
+        {
+          "@type": "ListItem",
+          position: 2,
+          name: "お知らせ一覧",
+          item: "https://playon-music.jp/news",
+        },
+        {
+          "@type": "ListItem",
+          position: 3,
+          name: blog.title,
+          item: `https://playon-music.jp/news/${blog.id}`,
+        },
+      ],
+    },
+    {
+      "@type": "Article",
+      headline: blog.title,
+      image: "https://playon-music.jp/senzai.png", // 記事固有の画像がないためデフォルト画像を指定
+      datePublished: publishedAt,
+      dateModified: blog.updatedAt
+        ? new Date(blog.updatedAt).toISOString()
+        : publishedAt,
+      author: {
+        "@type": "Person",
+        name: "髙橋 遊月",
+        url: "https://playon-music.jp",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "髙橋遊月ピアノ教室",
+        logo: {
+          "@type": "ImageObject",
+          url: "https://playon-music.jp/favicon.svg",
+        },
+      },
+      description: description,
+    },
+  ],
+});
 ---
 
-<Layout title={`${blog.title} | 髙橋遊月ピアノ教室`}>
+<Layout
+  title={`${blog.title} | 髙橋遊月ピアノ教室`}
+  description={description}
+  article={true}
+>
+  <script type="application/ld+json" set:html={schema} slot="head" />
   <main class="py-24 px-6 max-w-3xl mx-auto bg-white/90 min-h-screen">
     <div class="mb-12 text-center">
       <p class="text-sm text-[#A88B58] mb-2 font-mono">
-        {new Date(blog.publishedAt).toLocaleDateString('ja-JP')}
+        {new Date(blog.publishedAt).toLocaleDateString("ja-JP")}
       </p>
       <h1 class="text-2xl md:text-3xl font-serif font-bold text-[#544A40]">
         {blog.title}
@@ -32,15 +98,19 @@ const { blog } = Astro.props;
     </div>
 
     {/* 記事本文（リッチエディタの内容）を表示エリア */}
-    <div class="prose prose-stone max-w-none text-[#544A40] leading-loose
+    <div
+      class="prose prose-stone max-w-none text-[#544A40] leading-loose
       prose-headings:font-serif prose-headings:text-[#544A40]
       prose-a:text-[#A88B58] prose-img:rounded-xl"
       set:html={blog.content}
     />
 
     <div class="mt-16 text-center">
-      <a href="/news" class="inline-block border border-[#A88B58] text-[#A88B58] px-8 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-colors text-sm tracking-widest">
-        お知らせ一覧へ戻る
+      <a
+        href="/"
+        class="inline-block border border-[#A88B58] text-[#A88B58] px-8 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-colors text-sm tracking-widest"
+      >
+        HOMEへ戻る
       </a>
     </div>
   </main>

@@ -1,34 +1,83 @@
 ---
-import '../styles/global.css';
-import Header from '../components/Header.astro';
-import Footer from '../components/Footer.astro'; // 追加
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
 
 interface Props {
-	title: string;
-	description?: string;
+    title: string;
+    description?: string;
+    image?: string;
+    article?: boolean;
+    robots?: string;
 }
 
-const { title, description = "たかちゃんピアノ教室のホームページです。" } = Astro.props;
+const {
+    title,
+    description = "江東区・清澄白河のピアノ家庭教師・訪問レッスン「髙橋遊月ピアノ教室」。東京音楽大学卒の女性講師が、ご自宅へ出張してマンツーマンの個人指導を行います。送迎不要で仕事帰りにも便利。体験レッスン受付中。",
+    image = "/senzai.png", // デフォルトのOGP画像（プロフィール画像を使用）
+    article = false,
+    robots = "index, follow", // デフォルトはインデックスさせる
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
+const type = article ? "article" : "website";
+const siteName = "髙橋遊月ピアノ教室";
 ---
 
 <!doctype html>
 <html lang="ja" class="scroll-smooth">
-	<head>
-		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="google-site-verification" content="9OciN0dhouQGJ7dVkUYUnU7EcxUUND1TFpahlQIRFQI" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="generator" content={Astro.generator} />
-		<title>{title}</title>
-		<meta name="description" content={description} />
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap" rel="stylesheet">
-	</head>
-	<body class="bg-[#FCFAF7] text-[#544A40] font-sans flex flex-col min-h-screen">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta
+            name="google-site-verification"
+            content="9OciN0dhouQGJ7dVkUYUnU7EcxUUND1TFpahlQIRFQI"
+        />
+        <link rel="icon" type="image/png" href="/favicon.png" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        <meta name="generator" content={Astro.generator} />
+
+        <link rel="canonical" href={canonicalURL} />
+        <meta name="robots" content={robots} />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta
+            name="keywords"
+            content="ピアノ家庭教師,ピアノ出張レッスン,ピアノ訪問レッスン,自宅ピアノレッスン,派遣ピアノ講師,マンツーマンピアノ,個人指導ピアノ,江東区,清澄白河,門前仲町,木場,深川,森下,白河,三好,平野,佐賀,永代,福住,冬木,牡丹,古石場,越中島,菊川,千歳,中央区,水天宮前,茅場町,人形町,日本橋浜町,日本橋中洲,日本橋蛎殻町,日本橋箱崎町,墨田区,立川,緑,清澄白河駅,門前仲町駅,木場駅,水天宮前駅,茅場町駅,人形町駅,大江戸線,半蔵門線,東西線,送迎不要,仕事帰り,体験レッスン,ピアノ教室,東京"
+        />
+
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={socialImageURL} />
+        <meta property="og:site_name" content={siteName} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={socialImageURL} />
+
+        {/* 各ページから構造化データ等を挿入するためのスロットを追加 */}
+        <slot name="head" />
+
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+            href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap"
+            rel="stylesheet"
+        />
+    </head>
+    <body
+        class="bg-[#FCFAF7] text-[#544A40] font-sans flex flex-col min-h-screen"
+    >
         <Header />
-		<main class="flex-1">
+        <main class="flex-1">
             <slot />
         </main>
-        <Footer /> </body>
+        <Footer />
+    </body>
 </html>
