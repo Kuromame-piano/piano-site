@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+<<<<<<< HEAD
 Sitemap: https://playon-music.jp/sitemap-index.xml
+=======
+Sitemap: https://playon-music.jp/sitemap-index.xml
+>>>>>>> origin/main
