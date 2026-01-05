@@ -145,7 +145,7 @@ const schema = JSON.stringify({
         </span>
 
         <h1
-          class="text-3xl md:text-5xl font-serif font-bold mb-10 leading-tight tracking-wider text-[#544A40]"
+          class="text-2xl md:text-5xl font-serif font-bold mb-10 leading-tight tracking-wider text-[#544A40]"
         >
           日常に彩りを添える、<br />心豊かなピアノの時間
         </h1>
@@ -200,7 +200,7 @@ const schema = JSON.stringify({
     <section class="py-24 bg-white">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif mb-4">講師紹介</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4">講師紹介</h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Instructor Profile
           </p>
@@ -265,7 +265,7 @@ const schema = JSON.stringify({
     <section class="py-24 bg-[#FCFAF7] overflow-hidden">
       <div class="w-full max-w-[1400px] mx-auto">
         <div class="text-center mb-12 px-6">
-          <h2 class="text-3xl font-serif mb-4">紹介動画</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4">紹介動画</h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Introduction Movie
           </p>
@@ -353,7 +353,7 @@ const schema = JSON.stringify({
         <p
           class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif px-6"
         >
-          レッスンの雰囲気や演奏の様子を動画でご覧いただけます。<br />
+          レッスンの雰囲気や演奏の様子を<br class="md:hidden" />動画でご覧いただけます。<br />
           <span class="text-xs opacity-70"
             >※左右にスワイプして他の動画をご覧になれます</span
           >
@@ -364,7 +364,7 @@ const schema = JSON.stringify({
     <section class="py-24 bg-white">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif mb-4">あなたに合わせたレッスンを</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4 whitespace-nowrap">あなたに合わせたレッスンを</h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Personalized Lesson
           </p>
@@ -464,7 +464,7 @@ const schema = JSON.stringify({
     <section class="py-24 bg-[#F7F3EE]">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-3xl font-serif mb-4">レッスンスタイル</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4">レッスンスタイル</h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Lesson Style
           </p>
@@ -474,10 +474,10 @@ const schema = JSON.stringify({
           <div
             class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
           >
-            <h3 class="text-xl font-bold font-serif mb-4 text-[#544A40]">
+            <h3 class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]">
               ご自宅への訪問レッスン
             </h3>
-            <p class="text-base leading-loose text-[#6B5F54] flex-1">
+            <p class="text-sm md:text-base leading-loose text-[#6B5F54] flex-1">
               講師がご自宅へ出張し、いつものピアノでマンツーマンの個人指導を行います。<span class="font-bold text-[#A88B58]">送迎不要</span>で保護者の方の負担も軽減。仕事帰りの時間帯も対応可能です。
             </p>
             <div class="mt-4 flex flex-wrap gap-2">
@@ -503,10 +503,10 @@ const schema = JSON.stringify({
           <div
             class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
           >
-            <h3 class="text-xl font-bold font-serif mb-4 text-[#544A40]">
+            <h3 class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]">
               スタジオレッスン
             </h3>
-            <p class="text-base leading-loose text-[#6B5F54] flex-1">
+            <p class="text-sm md:text-base leading-loose text-[#6B5F54] flex-1">
               ご自宅にピアノがない場合や、グランドピアノで練習したい場合は、近隣のレンタルスタジオ等でのレッスンも可能です。<br
               />
               <span class="text-xs text-[#A88B58] mt-3 block"
@@ -534,17 +534,17 @@ const schema = JSON.stringify({
 
     <section class="py-24 bg-[#FCFAF7]">
       <div class="max-w-5xl mx-auto px-6 text-center mb-12">
-          <h2 class="text-3xl font-serif mb-4">レッスン料金・システム</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4">レッスン料金・システム</h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Fees & System
           </p>
       </div>
 
       <div
-        class="bg-white p-8 md:p-10 rounded-2xl shadow-sm border border-[#E8E2D9] text-center max-w-2xl mx-auto"
+        class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-[#E8E2D9] text-center max-w-md md:max-w-2xl mx-auto"
       >
         <div class="mb-10 font-serif text-[#544A40]">
-          <p class="mb-8 text-lg tracking-widest text-[#544A40] font-bold">
+          <p class="mb-8 text-lg tracking-widest text-[#544A40]">
             - 1レッスンあたりの料金 -
           </p>
           <div
@@ -594,7 +594,7 @@ const schema = JSON.stringify({
     <section class="py-24 px-6 bg-white border-t border-[#F1EBE4]">
       <div class="max-w-5xl mx-auto text-center">
         <div class="mb-16">
-          <h2 class="text-3xl font-serif mb-4">出張対応エリア</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4">出張対応エリア</h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Service Area
           </p>
