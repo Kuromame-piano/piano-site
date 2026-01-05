@@ -8,23 +8,15 @@ const pageDescription =
 const faqs = [
     {
         q: "家にアップライトピアノやグランドピアノがなくても大丈夫ですか？",
-        a: "はい、大丈夫です。電子ピアノ（88鍵盤あり、タッチによる強弱がつくもの推奨）をお持ちであればレッスン可能です。楽器の購入のご相談にも乗りますので、お気軽にお尋ねください。",
+        a: `はい、大丈夫です。電子ピアノ<span class="inline-block">（88鍵盤あり、</span><span class="inline-block">タッチによる強弱がつくもの推奨）</span>をお持ちであれば<span class="inline-block">レッスン可能です。</span>ご自宅でのレッスンが難しい場合は、<span class="inline-block">スタジオをレンタルしての</span><span class="inline-block">レッスンも承っております。</span><span class="inline-block">（別途会場費がかかります。）</span>楽器の購入のご相談にも乗りますので、<span class="inline-block">お気軽にお尋ねください。</span>`,
     },
     {
         q: "まったくの初心者で楽譜も読めませんが、レッスンを受けられますか？",
-        a: "もちろんです！楽譜の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。大人になってから初めてピアノに触れる方も多くいらっしゃいますのでご安心ください。",
+        a: `もちろんです！<span class="inline-block">楽譜の読み方や</span><span class="inline-block">指の動かし方など、</span><span class="inline-block">基礎の基礎から</span><span class="inline-block">丁寧に指導いたします。</span>大人になってから初めてピアノに触れる方も<span class="inline-block">多くいらっしゃいますので</span><span class="inline-block">ご安心ください。</span>`,
     },
     {
         q: "出張費や交通費は別途かかりますか？",
-        a: "基本的には江東区内（清澄白河・門前仲町周辺）の対応エリア内であれば、レッスン料金に交通費が含まれております。エリア外への出張をご希望の場合は、別途交通費をご相談させていただく場合がございます。",
-    },
-    {
-        q: "レッスンの振替はできますか？",
-        a: "前日までにご連絡をいただければ、月内でスケジュールの調整がつく限り振替対応をいたします。当日のキャンセルにつきましては、原則として1回分のレッスン消化となりますのでご了承ください。",
-    },
-    {
-        q: "発表会はありますか？",
-        a: "年に1回程度、自由参加の発表会や交流会を企画しております。日頃の練習の成果を披露する場として、また他の生徒さんとの交流の場としてお楽しみいただけます。",
+        a: `基本的には<span class="inline-block">江東区内</span><span class="inline-block">（清澄白河・門前仲町周辺）</span>の<span class="inline-block">対応エリア内であれば、</span><span class="inline-block">レッスン料金に</span><span class="inline-block">交通費が含まれております。</span>エリア外への出張をご希望の場合は、<span class="inline-block">別途交通費をご相談させて</span><span class="inline-block">いただく場合がございます。</span>`,
     },
 ];
 
@@ -55,7 +47,7 @@ const schema = JSON.stringify({
                 name: faq.q,
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: faq.a,
+                    text: faq.a.replace(/<[^>]*>?/gm, ''),
                 },
             })),
         },
@@ -67,9 +59,9 @@ const schema = JSON.stringify({
     <script type="application/ld+json" set:html={schema} slot="head" />
     <section class="py-24 px-6 max-w-3xl mx-auto">
         <div class="text-center mb-16">
-            <h1 class="text-3xl font-serif mb-4">FAQ</h1>
+            <h1 class="text-3xl font-serif mb-4">よくある質問</h1>
             <p class="text-[#A88B58] text-sm tracking-widest font-serif">
-                よくある質問
+                FAQ
             </p>
         </div>
 
@@ -82,7 +74,7 @@ const schema = JSON.stringify({
                             <span class="pt-[2px]">{faq.q}</span>
                         </h2>
                         <div class="pl-8 text-sm leading-loose text-[#6B5F54] border-l-2 border-[#F1EBE4]">
-                            <p>{faq.a}</p>
+                            <p set:html={faq.a} />
                         </div>
                     </div>
                 ))
