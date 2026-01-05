@@ -882,8 +882,14 @@ const schema = JSON.stringify({
     slides.forEach((slide, index) => {
       const overlay = slide.querySelector(".video-overlay");
       const iframe = slide.querySelector("iframe");
+
       if (overlay) {
-        overlay.addEventListener("click", () => {
+        const handlePlay = (e) => {
+          // タッチイベントの場合はクリックイベントの重複発火を防ぐ
+          if (e.type === 'touchend') {
+            e.preventDefault();
+          }
+
           const activeIndex = getActiveIndex();
           if (index === activeIndex) {
             slide.classList.add("is-playing");
@@ -901,7 +907,11 @@ const schema = JSON.stringify({
               }
             }, 600);
           }
-        });
+        };
+
+        // クリックイベントとタッチイベントの両方をリッスン
+        overlay.addEventListener("click", handlePlay);
+        overlay.addEventListener("touchend", handlePlay);
       }
     });
 
