@@ -285,7 +285,8 @@ const schema = JSON.stringify({
                 >
                   <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
                     <iframe
-                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
+                      data-src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
+                      src=""
                       title="YouTube video player"
                       class="w-full h-full relative z-10"
                       frameborder="0"
@@ -884,22 +885,27 @@ const schema = JSON.stringify({
       const iframe = slide.querySelector("iframe");
 
       if (overlay) {
-        const handlePlay = (e) => {
-          // タッチイベントの場合はクリックイベントの重複発火を防ぐ
-          if (e.type === 'touchend') {
-            e.preventDefault();
-          }
-
+        overlay.addEventListener("click", () => {
           const activeIndex = getActiveIndex();
-          if (index === activeIndex) {
+          
+          const playVideo = () => {
             slide.classList.add("is-playing");
-            // Android等での確実な再生のため、srcを更新してautoplayを有効化
+            const dataSrc = iframe.getAttribute("data-src");
             const currentSrc = iframe.getAttribute("src");
-            if (currentSrc && !currentSrc.includes("autoplay=1")) {
-              iframe.setAttribute("src", currentSrc + "&autoplay=1");
+            
+            // まだ再生されていない（srcが空）場合、またはautoplayが含まれていない場合にsrcを設定
+            if (dataSrc && (!currentSrc || currentSrc === "")) {
+              iframe.setAttribute("src", dataSrc + "&autoplay=1");
+            } else if (currentSrc && !currentSrc.includes("autoplay=1")) {
+               iframe.setAttribute("src", currentSrc + "&autoplay=1");
             } else {
-              postMessageToIframe(iframe, "playVideo");
+               // 既にロード済みならpostMessageで再生（念のため）
+               postMessageToIframe(iframe, "playVideo");
             }
+          };
+
+          if (index === activeIndex) {
+            playVideo();
           } else {
             slides[index].scrollIntoView({
               behavior: "smooth",
@@ -908,21 +914,11 @@ const schema = JSON.stringify({
             });
             setTimeout(() => {
               if (getActiveIndex() === index) {
-                slide.classList.add("is-playing");
-                const currentSrc = iframe.getAttribute("src");
-                if (currentSrc && !currentSrc.includes("autoplay=1")) {
-                  iframe.setAttribute("src", currentSrc + "&autoplay=1");
-                } else {
-                  postMessageToIframe(iframe, "playVideo");
-                }
+                playVideo();
               }
             }, 600);
           }
-        };
-
-        // クリックイベントとタッチイベントの両方をリッスン
-        overlay.addEventListener("click", handlePlay);
-        overlay.addEventListener("touchend", handlePlay);
+        });
       }
     });
 
