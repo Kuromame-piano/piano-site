@@ -893,7 +893,13 @@ const schema = JSON.stringify({
           const activeIndex = getActiveIndex();
           if (index === activeIndex) {
             slide.classList.add("is-playing");
-            postMessageToIframe(iframe, "playVideo");
+            // Android等での確実な再生のため、srcを更新してautoplayを有効化
+            const currentSrc = iframe.getAttribute("src");
+            if (currentSrc && !currentSrc.includes("autoplay=1")) {
+              iframe.setAttribute("src", currentSrc + "&autoplay=1");
+            } else {
+              postMessageToIframe(iframe, "playVideo");
+            }
           } else {
             slides[index].scrollIntoView({
               behavior: "smooth",
@@ -903,7 +909,12 @@ const schema = JSON.stringify({
             setTimeout(() => {
               if (getActiveIndex() === index) {
                 slide.classList.add("is-playing");
-                postMessageToIframe(iframe, "playVideo");
+                const currentSrc = iframe.getAttribute("src");
+                if (currentSrc && !currentSrc.includes("autoplay=1")) {
+                  iframe.setAttribute("src", currentSrc + "&autoplay=1");
+                } else {
+                  postMessageToIframe(iframe, "playVideo");
+                }
               }
             }, 600);
           }
