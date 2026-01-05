@@ -18,6 +18,7 @@ const videoIds = [
   "OIRmBSviWrw", // 2本目（中央・初期表示：papillon）
   "31muaoyHDuo", // 3本目（右）
 ];
+
 // microCMSからお知らせを取得（最新3件）
 const response = await client.get({
   endpoint: "news",
@@ -261,7 +262,7 @@ const schema = JSON.stringify({
       </div>
     </section>
 
-    {/* --- 動画セクション（元の実装を維持） --- */}
+    {/* --- 動画セクション --- */}
     <section class="py-24 bg-[#FCFAF7] overflow-hidden">
       <div class="w-full max-w-[1400px] mx-auto">
         <div class="text-center mb-12 px-6">
@@ -284,16 +285,16 @@ const schema = JSON.stringify({
                   data-index={index}
                 >
                   <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
+                    {/* ▼ 修正: loading="lazy" を "eager" に変更して即時読み込み */}
                     <iframe
-                      data-src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
-                      src=""
+                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
                       title="YouTube video player"
                       class="w-full h-full relative z-10"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
                       allowfullscreen
-                      loading="lazy"
+                      loading="eager"
                     />
 
                     <img
@@ -365,7 +366,9 @@ const schema = JSON.stringify({
     <section class="py-24 bg-white">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-2xl md:text-3xl font-serif mb-4 whitespace-nowrap">あなたに合わせたレッスンを</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4 whitespace-nowrap">
+            あなたに合わせたレッスンを
+          </h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Personalized Lesson
           </p>
@@ -465,7 +468,9 @@ const schema = JSON.stringify({
     <section class="py-24 bg-[#F7F3EE]">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-2xl md:text-3xl font-serif mb-4">レッスンスタイル</h2>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4">
+            レッスンスタイル
+          </h2>
           <p class="text-[#A88B58] text-sm tracking-widest font-serif">
             Lesson Style
           </p>
@@ -475,11 +480,15 @@ const schema = JSON.stringify({
           <div
             class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
           >
-            <h3 class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]">
+            <h3
+              class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]"
+            >
               ご自宅への訪問レッスン
             </h3>
             <p class="text-sm md:text-base leading-loose text-[#6B5F54] flex-1">
-              講師がご自宅へ出張し、いつものピアノでマンツーマンの個人指導を行います。<span class="font-bold text-[#A88B58]">送迎不要</span>で保護者の方の負担も軽減。仕事帰りの時間帯も対応可能です。
+              講師がご自宅へ出張し、いつものピアノでマンツーマンの個人指導を行います。<span
+                class="font-bold text-[#A88B58]">送迎不要</span
+              >で保護者の方の負担も軽減。仕事帰りの時間帯も対応可能です。
             </p>
             <div class="mt-4 flex flex-wrap gap-2">
               <span
@@ -504,7 +513,9 @@ const schema = JSON.stringify({
           <div
             class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
           >
-            <h3 class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]">
+            <h3
+              class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]"
+            >
               スタジオレッスン
             </h3>
             <p class="text-sm md:text-base leading-loose text-[#6B5F54] flex-1">
@@ -535,14 +546,16 @@ const schema = JSON.stringify({
 
     <section class="py-24 bg-[#FCFAF7]">
       <div class="max-w-5xl mx-auto px-6 text-center mb-12">
-          <h2 class="text-2xl md:text-3xl font-serif mb-4">レッスン料金・システム</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
-            Fees & System
-          </p>
+        <h2 class="text-2xl md:text-3xl font-serif mb-4">
+          レッスン料金・システム
+        </h2>
+        <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+          Fees & System
+        </p>
       </div>
 
       <div
-        class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-[#E8E2D9] text-center w-[90%] md:w-full max-w-md md:max-w-2xl mx-auto"
+        class="bg-white p-6 md:p-10 rounded-2xl shadow-sm border border-[#E8E2D9] text-center max-w-md md:max-w-2xl mx-auto"
       >
         <div class="mb-10 font-serif text-[#544A40]">
           <p class="mb-8 text-lg tracking-widest text-[#544A40]">
@@ -551,29 +564,55 @@ const schema = JSON.stringify({
           <div
             class="flex flex-row justify-center items-center gap-6 md:gap-10"
           >
-            <div class="flex flex-col items-center min-w-[80px] md:min-w-[90px]">
-              <span class="text-base md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium">30分</span>
+            <div
+              class="flex flex-col items-center min-w-[80px] md:min-w-[90px]"
+            >
+              <span
+                class="text-base md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium"
+                >30分</span
+              >
               <div class="flex items-baseline justify-center">
-                <span class="text-2xl md:text-3xl font-medium font-serif text-[#544A40]">5,000</span>
-                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold">円</span>
+                <span
+                  class="text-2xl md:text-3xl font-medium font-serif text-[#544A40]"
+                  >5,000</span
+                >
+                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold"
+                  >円</span
+                >
               </div>
             </div>
             <div
               class="flex flex-col items-center border-l border-[#E8E2D9] pl-6 md:pl-10 min-w-[80px] md:min-w-[90px]"
             >
-              <span class="text-base md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium">45分</span>
+              <span
+                class="text-base md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium"
+                >45分</span
+              >
               <div class="flex items-baseline justify-center">
-                <span class="text-2xl md:text-3xl font-medium font-serif text-[#544A40]">7,500</span>
-                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold">円</span>
+                <span
+                  class="text-2xl md:text-3xl font-medium font-serif text-[#544A40]"
+                  >7,500</span
+                >
+                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold"
+                  >円</span
+                >
               </div>
             </div>
             <div
               class="flex flex-col items-center border-l border-[#E8E2D9] pl-6 md:pl-10 min-w-[80px] md:min-w-[90px]"
             >
-              <span class="text-base md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium">60分</span>
+              <span
+                class="text-base md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium"
+                >60分</span
+              >
               <div class="flex items-baseline justify-center">
-                <span class="text-2xl md:text-3xl font-medium font-serif text-[#544A40]">10,000</span>
-                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold">円</span>
+                <span
+                  class="text-2xl md:text-3xl font-medium font-serif text-[#544A40]"
+                  >10,000</span
+                >
+                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold"
+                  >円</span
+                >
               </div>
             </div>
           </div>
@@ -601,7 +640,9 @@ const schema = JSON.stringify({
           </p>
         </div>
 
-        <p class="text-sm leading-loose mb-10 text-[#6B5F54] max-w-2xl mx-auto">
+        <p
+          class="text-sm leading-loose mb-10 text-[#6B5F54] max-w-2xl mx-auto"
+        >
           江東区の<span class="font-bold text-[#A88B58]"
             >清澄白河駅・門前仲町駅</span
           >周辺を中心に、<br class="hidden md:inline" />
@@ -746,7 +787,7 @@ const schema = JSON.stringify({
   }
 
   .video-slide iframe {
-    pointer-events: none;
+    /* pointer-events: none; */ /* ▼ 修正: Android対策でコメントアウト */
   }
 
   .video-slide.is-playing iframe {
@@ -882,30 +923,24 @@ const schema = JSON.stringify({
 
     slides.forEach((slide, index) => {
       const overlay = slide.querySelector(".video-overlay");
-      const iframe = slide.querySelector("iframe");
-
-      if (overlay) {
+      const iframe = slide.querySelector("iframe"); // as HTMLIFrameElement;
+      
+      if (overlay && iframe) {
         overlay.addEventListener("click", () => {
           const activeIndex = getActiveIndex();
-          
-          const playVideo = () => {
-            slide.classList.add("is-playing");
-            const dataSrc = iframe.getAttribute("data-src");
-            const currentSrc = iframe.getAttribute("src");
-            
-            // まだ再生されていない（srcが空）場合、またはautoplayが含まれていない場合にsrcを設定
-            if (dataSrc && (!currentSrc || currentSrc === "")) {
-              iframe.setAttribute("src", dataSrc + "&autoplay=1");
-            } else if (currentSrc && !currentSrc.includes("autoplay=1")) {
-               iframe.setAttribute("src", currentSrc + "&autoplay=1");
-            } else {
-               // 既にロード済みならpostMessageで再生（念のため）
-               postMessageToIframe(iframe, "playVideo");
-            }
-          };
-
           if (index === activeIndex) {
-            playVideo();
+            slide.classList.add("is-playing");
+
+            // ▼ 追加: Android対策 - URLにautoplay=1を強制付与してリロード
+            // これにより「ユーザーアクションによる再生」として認識させる
+            const currentSrc = iframe.getAttribute('src') || "";
+            if (!currentSrc.includes("autoplay=1")) {
+                const separator = currentSrc.includes("?") ? "&" : "?";
+                iframe.setAttribute('src', currentSrc + separator + "autoplay=1");
+            }
+            // -------------------------------------------------------
+
+            postMessageToIframe(iframe as HTMLIFrameElement, "playVideo");
           } else {
             slides[index].scrollIntoView({
               behavior: "smooth",
@@ -914,7 +949,16 @@ const schema = JSON.stringify({
             });
             setTimeout(() => {
               if (getActiveIndex() === index) {
-                playVideo();
+                slide.classList.add("is-playing");
+                
+                // ▼ スクロール後の自動再生時も同様に処理
+                const currentSrc = iframe.getAttribute('src') || "";
+                if (!currentSrc.includes("autoplay=1")) {
+                    const separator = currentSrc.includes("?") ? "&" : "?";
+                    iframe.setAttribute('src', currentSrc + separator + "autoplay=1");
+                }
+                
+                postMessageToIframe(iframe as HTMLIFrameElement, "playVideo");
               }
             }, 600);
           }
@@ -928,7 +972,6 @@ const schema = JSON.stringify({
       requestAnimationFrame(updateStyles);
       isScrolling = setTimeout(updateStyles, 66);
     });
-
     dots.forEach((dot, i) => {
       dot.addEventListener("click", () => {
         slides[i].scrollIntoView({
