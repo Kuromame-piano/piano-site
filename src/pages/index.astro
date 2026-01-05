@@ -119,8 +119,6 @@ const schema = JSON.stringify({
       class="relative h-[85vh] flex items-center justify-center overflow-hidden"
     >
       <div class="absolute inset-0 z-0">
-        {/* ▼ 修正: imgタグをImageコンポーネントに変更 */}
-        {/* これによりWebP形式への変換や適切なサイズ調整が自動で行われます */}
         <Image
           src={heroImage}
           alt="落ち着いた空間でのピアノレッスン"
@@ -283,20 +281,13 @@ const schema = JSON.stringify({
                 <div
                   class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[60%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 origin-center relative"
                   data-index={index}
+                  data-video-id={id}
                 >
-                  <div class="aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
-                    {/* ▼ 修正: loading="lazy" を "eager" に変更して即時読み込み */}
-                    <iframe
-                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
-                      title="YouTube video player"
-                      class="w-full h-full relative z-10"
-                      frameborder="0"
-                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                      referrerpolicy="strict-origin-when-cross-origin"
-                      allowfullscreen
-                      loading="eager"
-                    />
-
+                  <div class="video-wrapper aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
+                    
+                    {/* ▼ 修正: ここにあった iframeタグ を削除し、JSで後から生成するように変更 */}
+                    
+                    {/* サムネイル画像 */}
                     <img
                       src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
                       alt="Video thumbnail"
@@ -314,6 +305,7 @@ const schema = JSON.stringify({
                     `}
                     />
 
+                    {/* カスタム再生ボタンオーバーレイ */}
                     <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer group-hover:bg-black/5 transition-colors">
                       <button
                         class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 hover:scale-110"
@@ -786,14 +778,17 @@ const schema = JSON.stringify({
     display: none;
   }
 
+  /* ▼ 修正: pointer-eventsは制御しない（iframe生成前は関係ないため） */
   .video-slide iframe {
-    /* pointer-events: none; */ /* ▼ 修正: Android対策でコメントアウト */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
   }
 
-  .video-slide.is-playing iframe {
-    pointer-events: auto;
-  }
-
+  /* is-playingクラスがついたらオーバーレイを消す */
   .video-slide.is-playing .video-overlay,
   .video-slide.is-playing .video-poster {
     opacity: 0;
@@ -849,7 +844,10 @@ const schema = JSON.stringify({
     const resetVideo = (slide: Element) => {
       slide.classList.remove("is-playing");
       const iframe = slide.querySelector("iframe");
-      postMessageToIframe(iframe, "pauseVideo");
+      // iframeが存在する場合のみpauseを送る
+      if (iframe) {
+          postMessageToIframe(iframe, "pauseVideo");
+      }
     };
 
     const updateStyles = () => {
@@ -880,85 +878,100 @@ const schema = JSON.stringify({
     // 初期位置セット（iPhone対応版）
     const initScroll = () => {
       if (!slides[1] || !slider) return;
-      // レイアウトを安定させるためスナップを一時解除
       slider.style.scrollSnapType = "none";
       slider.style.scrollBehavior = "auto";
       const setPosition = () => {
         const slide = slides[1];
         const sliderRect = slider.getBoundingClientRect();
         const slideRect = slide.getBoundingClientRect();
-
         const currentOffset = slideRect.left - sliderRect.left;
         const centerOffset = (sliderRect.width - slideRect.width) / 2;
 
-        // 強制的にスクロール位置をセット
         slider.scrollLeft += currentOffset - centerOffset;
         updateStyles();
 
-        // 描画が完了した次のフレームで表示
         requestAnimationFrame(() => {
           slider.style.visibility = "visible";
           slider.style.opacity = "1";
-
-          // iPhoneで位置がリセットされないよう少し待ってからスナップを戻す
           setTimeout(() => {
             slider.style.scrollSnapType = "x mandatory";
             slider.style.scrollBehavior = "smooth";
           }, 50);
         });
       };
-
-      // iPhone/Safari向けに複数フレーム待機
       requestAnimationFrame(() => {
         requestAnimationFrame(setPosition);
       });
     };
 
-    // DOM構築後すぐに計算開始
     if (document.readyState === "loading") {
       document.addEventListener("DOMContentLoaded", initScroll);
     } else {
       initScroll();
     }
 
+    // ▼ 修正: クリックハンドラのロジックを大幅変更（Lazy Load Iframe）
     slides.forEach((slide, index) => {
       const overlay = slide.querySelector(".video-overlay");
-      const iframe = slide.querySelector("iframe"); // as HTMLIFrameElement;
+      const videoWrapper = slide.querySelector(".video-wrapper");
       
-      if (overlay && iframe) {
+      if (overlay) {
         overlay.addEventListener("click", () => {
           const activeIndex = getActiveIndex();
+          
           if (index === activeIndex) {
-            slide.classList.add("is-playing");
-
-            // ▼ 追加: Android対策 - URLにautoplay=1を強制付与してリロード
-            // これにより「ユーザーアクションによる再生」として認識させる
-            const currentSrc = iframe.getAttribute('src') || "";
-            if (!currentSrc.includes("autoplay=1")) {
-                const separator = currentSrc.includes("?") ? "&" : "?";
-                iframe.setAttribute('src', currentSrc + separator + "autoplay=1");
+            // 現在アクティブなスライドがクリックされた場合
+            
+            // 1. iframeがまだない場合は作成して挿入
+            let iframe = slide.querySelector("iframe");
+            if (!iframe && videoWrapper) {
+                // data属性からIDを取得（HTML側に追加済み）
+                const videoId = slide.getAttribute('data-video-id');
+                if (videoId) {
+                    // iframeを動的に生成（autoplay=1必須）
+                    const iframeHTML = `
+                        <iframe
+                            src="https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0"
+                            title="YouTube video player"
+                            class="w-full h-full absolute top-0 left-0 z-10"
+                            frameborder="0"
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                            referrerpolicy="strict-origin-when-cross-origin"
+                            allowfullscreen
+                        ></iframe>
+                    `;
+                    // wrapperの先頭に挿入（overlayの下に入る）
+                    videoWrapper.insertAdjacentHTML('afterbegin', iframeHTML);
+                    iframe = slide.querySelector("iframe");
+                }
+            } else if (iframe) {
+                // 既にiframeがある場合は再生コマンドを送る（一時停止からの復帰など）
+                postMessageToIframe(iframe, "playVideo");
             }
-            // -------------------------------------------------------
 
-            postMessageToIframe(iframe as HTMLIFrameElement, "playVideo");
+            // 2. クラスを付与してオーバーレイを消す（CSSで制御）
+            slide.classList.add("is-playing");
+            
           } else {
+            // 違うスライドならそこへスクロール
             slides[index].scrollIntoView({
               behavior: "smooth",
               block: "nearest",
               inline: "center",
             });
+            // スクロール完了後に再生（Androidではここは2タップ必要になるかもしれないが、UX上許容範囲）
             setTimeout(() => {
               if (getActiveIndex() === index) {
-                slide.classList.add("is-playing");
-                
-                // ▼ スクロール後の自動再生時も同様に処理
-                const currentSrc = iframe.getAttribute('src') || "";
-                if (!currentSrc.includes("autoplay=1")) {
-                    const separator = currentSrc.includes("?") ? "&" : "?";
-                    iframe.setAttribute('src', currentSrc + separator + "autoplay=1");
-                }
-                
-                postMessageToIframe(iframe as HTMLIFrameElement, "playVideo");
+                  // スクロール後も同様にLazy Load処理
+                  let iframe = slide.querySelector("iframe");
+                  if (!iframe && videoWrapper) {
+                      const videoId = slide.getAttribute('data-video-id');
+                      if (videoId) {
+                          const iframeHTML = `<iframe src="https://www.youtube.com/embed/${videoId}?autoplay=1&enablejsapi=1&rel=0" class="w-full h-full absolute top-0 left-0 z-10" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>`;
+                          videoWrapper.insertAdjacentHTML('afterbegin', iframeHTML);
+                      }
+                  }
+                  slide.classList.add("is-playing");
               }
             }, 600);
           }
