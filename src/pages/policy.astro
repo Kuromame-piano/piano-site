@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 const pageTitle = "プライバシーポリシー | 髙橋遊月ピアノ教室";
 const pageDescription =
     "髙橋遊月ピアノ教室のプライバシーポリシー（個人情報保護方針）に関するページです。";
-
 const schema = JSON.stringify({
     "@context": "https://schema.org",
     "@type": "BreadcrumbList",
@@ -27,9 +26,13 @@ const schema = JSON.stringify({
 <Layout title={pageTitle} description={pageDescription}>
     <script type="application/ld+json" set:html={schema} slot="head" />
     <section class="py-24 px-6 max-w-3xl mx-auto text-[#544A40]">
-        <h1 class="text-2xl font-serif font-bold mb-12 text-center">
-            プライバシーポリシー
-        </h1>
+        
+        <div class="text-center mb-16">
+            <h1 class="text-2xl md:text-3xl font-serif font-bold mb-4 text-[#544A40]">
+                個人情報の取り扱い
+            </h1>
+            <p class="text-[#A88B58] text-sm tracking-widest font-serif">Privacy Policy</p>
+        </div>
 
         <div class="space-y-10 text-sm leading-loose">
             <div>
