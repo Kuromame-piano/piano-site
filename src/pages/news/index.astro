@@ -9,6 +9,7 @@ const response = await client.get({
     queries: { fields: ["id", "title", "publishedAt"] },
 });
 const newsContents = response.contents;
+
 const pageTitle = "お知らせ一覧 | 髙橋遊月ピアノ教室";
 const pageDescription =
     "髙橋遊月ピアノ教室からのお知らせ一覧です。レッスンの様子やスケジュールなど、最新情報をお届けします。";
@@ -54,7 +55,7 @@ const schema = JSON.stringify({
                                         item.publishedAt,
                                     ).toLocaleDateString("ja-JP")}
                                 </span>
-                                <h2 class="text-base font-medium group-hover:text-[#A88B58] transition-colors flex-1">
+                                <h2 class="text-base font-normal group-hover:text-[#A88B58] transition-colors flex-1">
                                     {item.title}
                                 </h2>
                                 <span class="text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
