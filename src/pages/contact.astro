@@ -32,10 +32,17 @@ const schema = JSON.stringify({
             <div
                 class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7]"
             >
-                <h1 class="text-3xl font-serif font-bold mb-4 text-center">
-                    Contact
+                <h1 class="text-3xl font-serif mb-2 text-center">
+                    お問い合わせ
                 </h1>
-                <p class="text-center mb-12 text-sm tracking-widest whitespace-nowrap">
+                <div
+                    class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase mb-12"
+                >
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Contact
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+                <p class="text-center mb-12 text-sm tracking-widest">
                     まずは無料体験レッスンからお気軽に。
                 </p>
 
@@ -156,7 +163,7 @@ const schema = JSON.stringify({
                     <button
                         type="submit"
                         id="submit-btn"
-                        class="w-full bg-[#544A40] text-white py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.3em] text-xs uppercase"
+                        class="min-w-[240px] px-12 bg-[#544A40] text-white py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.3em] text-sm uppercase mx-auto block"
                     >
                         送信する
                     </button>
