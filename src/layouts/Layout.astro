@@ -28,6 +28,22 @@ const siteName = "髙橋遊月ピアノ教室";
 <!doctype html>
 <html lang="ja" class="scroll-smooth">
     <head>
+        {/* ▼▼▼ ここから追加 ▼▼▼ */}
+        {/* Google tag (gtag.js) */}
+        <script
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-FCM36GL4CP"
+        ></script>
+        <script is:inline>
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-FCM36GL4CP");
+        </script>
+        {/* ▲▲▲ ここまで追加 ▲▲▲ */}
+
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width" />
         <meta
