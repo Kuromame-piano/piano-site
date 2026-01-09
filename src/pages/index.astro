@@ -280,7 +280,7 @@ const schema = JSON.stringify({
                       id={`player-${index}`}
                       src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
                       title="YouTube video player"
-                      class="w-full h-full absolute top-0 left-0 z-10"
+                      class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02]"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
@@ -316,9 +316,9 @@ const schema = JSON.stringify({
                       class="hidden md:block absolute inset-0 z-40 bg-transparent cursor-pointer slide-click-area"
                       data-index={index}
                     />
-                    <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer pointer-events-none">
+                    <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer video-trigger-area">
                       <button
-                        class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110"
+                        class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110 pointer-events-none"
                         aria-label="再生する"
                       >
                         <svg
@@ -852,7 +852,15 @@ const schema = JSON.stringify({
         } else {
           slide.classList.remove("active");
           slide.classList.add("opacity-40", "scale-95");
-          // 非アクティブになったら一時停止するなどの処理はここに追加可能
+
+          // 非アクティブになったら動画を停止する
+          if (
+            typeof players !== "undefined" &&
+            players[index] &&
+            typeof players[index].pauseVideo === "function"
+          ) {
+            players[index].pauseVideo();
+          }
         }
       });
       dots.forEach((dot, index) => {
@@ -979,6 +987,19 @@ const schema = JSON.stringify({
         });
 
         // 2. その動画を再生 (少し遅延させてスクロール安定後に再生開始などの調整も可能だが、即時でもOK)
+        if (players[index] && typeof players[index].playVideo === "function") {
+          players[index].playVideo();
+        }
+      });
+    });
+
+    // モバイル・全デバイス共通: 再生ボタン（オーバーレイ）をクリックした時の処理
+    // オーバーレイが pointer-events: auto になったため、ここでのクリックで再生を開始させる。
+    const triggerAreas = document.querySelectorAll(".video-trigger-area");
+    triggerAreas.forEach((area) => {
+      area.addEventListener("click", () => {
+        const index = Number((area as HTMLElement).dataset.index);
+        // オーバーレイがクリックされたら再生
         if (players[index] && typeof players[index].playVideo === "function") {
           players[index].playVideo();
         }
