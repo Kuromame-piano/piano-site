@@ -280,7 +280,7 @@ const schema = JSON.stringify({
                       id={`player-${index}`}
                       src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
                       title="YouTube video player"
-                      class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02]"
+                      class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02] md:scale-100"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
@@ -316,9 +316,12 @@ const schema = JSON.stringify({
                       class="hidden md:block absolute inset-0 z-40 bg-transparent cursor-pointer slide-click-area"
                       data-index={index}
                     />
-                    <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer video-trigger-area">
+                    <div
+                      class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer pointer-events-auto md:pointer-events-none video-trigger-area"
+                      data-index={index}
+                    >
                       <button
-                        class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110 pointer-events-none"
+                        class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110"
                         aria-label="再生する"
                       >
                         <svg
@@ -852,14 +855,19 @@ const schema = JSON.stringify({
         } else {
           slide.classList.remove("active");
           slide.classList.add("opacity-40", "scale-95");
+          slide.classList.add("opacity-40", "scale-95");
 
-          // 非アクティブになったら動画を停止する
-          if (
-            typeof players !== "undefined" &&
-            players[index] &&
-            typeof players[index].pauseVideo === "function"
-          ) {
-            players[index].pauseVideo();
+          // モバイルのみ: スワイプで非アクティブになったら動画を停止
+          if (window.innerWidth < 768) {
+            // @ts-ignore
+            if (
+              typeof players !== "undefined" &&
+              players[index] &&
+              typeof players[index].pauseVideo === "function"
+            ) {
+              // @ts-ignore
+              players[index].pauseVideo();
+            }
           }
         }
       });
@@ -993,13 +1001,15 @@ const schema = JSON.stringify({
       });
     });
 
-    // モバイル・全デバイス共通: 再生ボタン（オーバーレイ）をクリックした時の処理
-    // オーバーレイが pointer-events: auto になったため、ここでのクリックで再生を開始させる。
+    // モバイル用: オーバーレイ（再生ボタン）タップで再生開始
+    // PCでは pointer-events-none なので発火しない
     const triggerAreas = document.querySelectorAll(".video-trigger-area");
     triggerAreas.forEach((area) => {
-      area.addEventListener("click", () => {
+      area.addEventListener("click", (e) => {
+        // バブリングなどで2回着火しないよう念の為
+        e.stopPropagation();
         const index = Number((area as HTMLElement).dataset.index);
-        // オーバーレイがクリックされたら再生
+
         if (players[index] && typeof players[index].playVideo === "function") {
           players[index].playVideo();
         }
