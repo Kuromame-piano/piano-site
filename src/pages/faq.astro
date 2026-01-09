@@ -47,7 +47,7 @@ const schema = JSON.stringify({
                 name: faq.q,
                 acceptedAnswer: {
                     "@type": "Answer",
-                    text: faq.a.replace(/<[^>]*>?/gm, ''),
+                    text: faq.a.replace(/<[^>]*>?/gm, ""),
                 },
             })),
         },
@@ -60,9 +60,13 @@ const schema = JSON.stringify({
     <section class="py-24 px-6 max-w-3xl mx-auto">
         <div class="text-center mb-16">
             <h1 class="text-3xl font-serif mb-4">よくある質問</h1>
-            <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                 FAQ
-            </p>
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
         </div>
 
         <div class="space-y-6">
