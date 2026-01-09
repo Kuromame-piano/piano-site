@@ -11,8 +11,16 @@ const pageDescription =
 const heroImage =
   "https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop";
 
-// YouTube動画のIDリスト
-const videoIds = ["xh65ftmaIgc", "OIRmBSviWrw", "31muaoyHDuo"];
+// YouTube動画のデータ構成
+import thumb1 from "../assets/images/thumbnails/xh65ftmaIgc.jpg";
+import thumb2 from "../assets/images/thumbnails/OIRmBSviWrw.jpg";
+import thumb3 from "../assets/images/thumbnails/31muaoyHDuo.jpg";
+
+const videos = [
+  { id: "xh65ftmaIgc", thumbnail: thumb1 },
+  { id: "OIRmBSviWrw", thumbnail: thumb2 },
+  { id: "31muaoyHDuo", thumbnail: thumb3 },
+];
 
 // microCMSからお知らせを取得
 const response = await client.get({
@@ -259,7 +267,6 @@ const schema = JSON.stringify({
             Introduction Movie
           </p>
         </div>
-
         <div class="relative py-4">
           <div
             id="video-slider"
@@ -267,9 +274,9 @@ const schema = JSON.stringify({
             style="scrollbar-width: none; -ms-overflow-style: none; visibility: hidden; opacity: 0;"
           >
             {
-              videoIds.map((id, index) => (
+              videos.map((video, index) => (
                 <div
-                  class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[60%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 origin-center relative"
+                  class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[55%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 lg:scale-[0.93] origin-center relative"
                   data-index={index}
                 >
                   <div class="video-wrapper group aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
@@ -278,9 +285,9 @@ const schema = JSON.stringify({
                   */}
                     <iframe
                       id={`player-${index}`}
-                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0&modestbranding=1&controls=1`}
+                      src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1&rel=0&modestbranding=1&controls=1`}
                       title="YouTube video player"
-                      class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02] md:scale-100"
+                      class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02]"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
@@ -288,24 +295,11 @@ const schema = JSON.stringify({
                       loading="eager"
                     />
 
-                    {/* ▼ 独自のサムネイル画像 
-                     pointer-events-none でクリックを貫通させる
-                  */}
-                    <img
-                      src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+                    {/* ▼ 独自のサムネイル画像（ローカル資産を使用） */}
+                    <Image
+                      src={video.thumbnail}
                       alt="Video thumbnail"
                       class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300 pointer-events-none"
-                      loading="lazy"
-                      onload={`if (this.naturalWidth === 120) this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';`}
-                      onerror={`
-                        if (this.src.includes('maxresdefault')) {
-                            this.src = 'https://i.ytimg.com/vi/${id}/sddefault.jpg';
-                        } else if (this.src.includes('sddefault')) {
-                            this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';
-                        } else {
-                            this.style.display = 'none';
-                        }
-                    `}
                     />
 
                     {/* ▼ 独自の再生ボタン（オーバーレイ）
@@ -346,7 +340,7 @@ const schema = JSON.stringify({
 
           <div class="flex justify-center gap-3 mt-2">
             {
-              videoIds.map((_, index) => (
+              videos.map((_, index) => (
                 <button
                   class="slider-dot w-2 h-2 rounded-full bg-[#E8E2D9] transition-all duration-300 hover:bg-[#A88B58]/50"
                   data-index={index}
@@ -785,6 +779,10 @@ const schema = JSON.stringify({
     display: none;
   }
 
+  .video-slide {
+    will-change: transform, opacity;
+  }
+
   /* pointer-events-noneユーティリティが効かない場合のための念の為のCSS */
   .video-slide .video-overlay,
   .video-slide .video-poster {
@@ -872,11 +870,13 @@ const schema = JSON.stringify({
       slides.forEach((slide, index) => {
         if (index === activeIndex) {
           slide.classList.add("active");
-          slide.classList.remove("opacity-40", "scale-95");
+          slide.classList.remove("opacity-40", "scale-95", "lg:scale-[0.93]");
         } else {
           slide.classList.remove("active");
           slide.classList.add("opacity-40", "scale-95");
-          slide.classList.add("opacity-40", "scale-95");
+          if (window.innerWidth >= 1024) {
+            slide.classList.add("lg:scale-[0.93]");
+          }
 
           // モバイルのみ: スワイプで非アクティブになったら動画を停止
           if (window.innerWidth < 768) {
@@ -1015,10 +1015,15 @@ const schema = JSON.stringify({
           inline: "center",
         });
 
-        // 2. その動画を再生 (少し遅延させてスクロール安定後に再生開始などの調整も可能だが、即時でもOK)
-        if (players[index] && typeof players[index].playVideo === "function") {
-          players[index].playVideo();
-        }
+        // 2. その動画を再生 (スクロール完了を待ってから再生開始)
+        setTimeout(() => {
+          if (
+            players[index] &&
+            typeof players[index].playVideo === "function"
+          ) {
+            players[index].playVideo();
+          }
+        }, 400);
       });
     });
 
