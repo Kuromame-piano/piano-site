@@ -12,11 +12,7 @@ const heroImage =
   "https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop";
 
 // YouTube動画のIDリスト
-const videoIds = [
-  "xh65ftmaIgc",
-  "OIRmBSviWrw",
-  "31muaoyHDuo",
-];
+const videoIds = ["xh65ftmaIgc", "OIRmBSviWrw", "31muaoyHDuo"];
 
 // microCMSからお知らせを取得
 const response = await client.get({
@@ -41,13 +37,52 @@ const schema = JSON.stringify({
         addressLocality: "江東区",
       },
       areaServed: [
-        "江東区", "清澄白河", "門前仲町", "木場", "深川", "森下", "白河", "三好", "平野", "佐賀", "永代", "福住", "冬木", "牡丹", "古石場", "越中島", "菊川", "千歳",
-        "中央区", "水天宮前", "茅場町", "人形町", "日本橋浜町", "日本橋中洲", "日本橋蛎殻町", "日本橋箱崎町",
-        "墨田区", "立川", "緑",
-        "清澄白河駅", "門前仲町駅", "木場駅", "水天宮前駅", "茅場町駅", "人形町駅",
-        "大江戸線沿線", "半蔵門線沿線", "東西線沿線",
+        "江東区",
+        "清澄白河",
+        "門前仲町",
+        "木場",
+        "深川",
+        "森下",
+        "白河",
+        "三好",
+        "平野",
+        "佐賀",
+        "永代",
+        "福住",
+        "冬木",
+        "牡丹",
+        "古石場",
+        "越中島",
+        "菊川",
+        "千歳",
+        "中央区",
+        "水天宮前",
+        "茅場町",
+        "人形町",
+        "日本橋浜町",
+        "日本橋中洲",
+        "日本橋蛎殻町",
+        "日本橋箱崎町",
+        "墨田区",
+        "立川",
+        "緑",
+        "清澄白河駅",
+        "門前仲町駅",
+        "木場駅",
+        "水天宮前駅",
+        "茅場町駅",
+        "人形町駅",
+        "大江戸線沿線",
+        "半蔵門線沿線",
+        "東西線沿線",
       ],
-      serviceType: ["ピアノ家庭教師", "ピアノ訪問レッスン", "ピアノ出張レッスン", "マンツーマンレッスン", "個人指導"],
+      serviceType: [
+        "ピアノ家庭教師",
+        "ピアノ訪問レッスン",
+        "ピアノ出張レッスン",
+        "マンツーマンレッスン",
+        "個人指導",
+      ],
       priceRange: "5,000円〜",
       instructor: {
         "@type": "Person",
@@ -74,7 +109,9 @@ const schema = JSON.stringify({
   <script type="application/ld+json" set:html={schema} slot="head" />
 
   <main class="bg-[#FCFAF7] text-[#544A40] font-sans relative">
-    <section class="relative h-[85vh] flex items-center justify-center overflow-hidden">
+    <section
+      class="relative h-[85vh] flex items-center justify-center overflow-hidden"
+    >
       <div class="absolute inset-0 z-0">
         <Image
           src={heroImage}
@@ -85,14 +122,23 @@ const schema = JSON.stringify({
           loading="eager"
           fetchpriority="high"
         />
-        <div class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"></div>
+        <div
+          class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"
+        >
+        </div>
       </div>
 
       <div class="relative z-10 text-center px-4 max-w-5xl">
-        <span class="inline-block mb-6 text-[#544A40] font-bold drop-shadow-md tracking-[0.2em] text-xl md:text-2xl font-serif">
-          <span class="inline-block">江東区・清澄白河エリアの</span><span class="inline-block">出張ピアノレッスン</span>
+        <span
+          class="inline-block mb-6 text-[#544A40] font-bold drop-shadow-md tracking-[0.2em] text-xl md:text-2xl font-serif"
+        >
+          <span class="inline-block">江東区・清澄白河エリアの</span><span
+            class="inline-block">出張ピアノレッスン</span
+          >
         </span>
-        <h1 class="text-2xl md:text-5xl font-serif font-bold mb-10 leading-tight tracking-wider text-[#544A40]">
+        <h1
+          class="text-2xl md:text-5xl font-serif font-bold mb-10 leading-tight tracking-wider text-[#544A40]"
+        >
           日常に彩りを添える、<br />心豊かなピアノの時間
         </h1>
         <p class="text-base md:text-lg mb-16 leading-loose">
@@ -103,30 +149,39 @@ const schema = JSON.stringify({
     </section>
 
     <section class="py-12 px-6 max-w-4xl mx-auto">
-      <h2 class="text-xl font-serif font-bold mb-8 text-center text-[#A88B58]">News</h2>
+      <h2 class="text-xl font-serif font-bold mb-8 text-center text-[#A88B58]">
+        News
+      </h2>
       <div class="space-y-3">
-        {newsContents.length > 0 ? (
-          newsContents.map((item: any) => (
-            <a href={`/news/${item.id}`} class="block group">
-              <div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-[#E8E2D9] flex flex-col md:flex-row md:items-center gap-4 transition-all group-hover:bg-white group-hover:shadow-md">
-                <span class="text-xs opacity-50 font-mono italic">
-                  {new Date(item.publishedAt).toLocaleDateString("ja-JP")}
-                </span>
-                <span class="text-sm tracking-wide group-hover:text-[#A88B58] transition-colors">
-                  {item.title}
-                </span>
-                <span class="hidden md:block ml-auto text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
-                  Read more →
-                </span>
-              </div>
-            </a>
-          ))
-        ) : (
-          <p class="text-sm opacity-60 text-center">現在お知らせはありません。</p>
-        )}
+        {
+          newsContents.length > 0 ? (
+            newsContents.map((item: any) => (
+              <a href={`/news/${item.id}`} class="block group">
+                <div class="bg-white/60 backdrop-blur-sm p-4 rounded-lg border border-[#E8E2D9] flex flex-col md:flex-row md:items-center gap-4 transition-all group-hover:bg-white group-hover:shadow-md">
+                  <span class="text-xs opacity-50 font-mono italic">
+                    {new Date(item.publishedAt).toLocaleDateString("ja-JP")}
+                  </span>
+                  <span class="text-sm tracking-wide group-hover:text-[#A88B58] transition-colors">
+                    {item.title}
+                  </span>
+                  <span class="hidden md:block ml-auto text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
+                    Read more →
+                  </span>
+                </div>
+              </a>
+            ))
+          ) : (
+            <p class="text-sm opacity-60 text-center">
+              現在お知らせはありません。
+            </p>
+          )
+        }
       </div>
       <div class="mt-8 text-right">
-        <a href="/news" class="text-xs font-bold tracking-widest text-[#A88B58] hover:text-[#8B7347] border-b border-[#A88B58] pb-1 transition-colors">
+        <a
+          href="/news"
+          class="text-xs font-bold tracking-widest text-[#A88B58] hover:text-[#8B7347] border-b border-[#A88B58] pb-1 transition-colors"
+        >
           お知らせ一覧を見る →
         </a>
       </div>
@@ -136,21 +191,40 @@ const schema = JSON.stringify({
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-2xl md:text-3xl font-serif mb-4">講師紹介</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">Instructor Profile</p>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            Instructor Profile
+          </p>
         </div>
         <div class="grid md:grid-cols-2 gap-16 items-center">
           <div class="relative">
-            <div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl">
-              <Image src="/senzai.png" alt="髙橋遊月" width={600} height={750} class="w-full h-full object-cover" loading="lazy" />
+            <div
+              class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl"
+            >
+              <Image
+                src="/senzai.png"
+                alt="髙橋遊月"
+                width={600}
+                height={750}
+                class="w-full h-full object-cover"
+                loading="lazy"
+              />
             </div>
-            <div class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"></div>
+            <div
+              class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"
+            >
+            </div>
           </div>
           <div>
             <h3 class="text-3xl font-serif mb-6 leading-snug">
-              髙橋 遊月 <span class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]">Takahashi Yuzuki</span>
+              髙橋 遊月 <span
+                class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]"
+                >Takahashi Yuzuki</span
+              >
             </h3>
             <div class="space-y-6 text-[#544A40] leading-relaxed">
-              <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">東京音楽大学 卒業</p>
+              <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
+                東京音楽大学 卒業
+              </p>
               <p>
                 江東区・清澄白河を中心に、ご自宅へのピアノ家庭教師（出張レッスン）を行っております。
                 これまで多くの門下生を指導し、音楽を通じた心の交流を大切にしてきました。
@@ -160,8 +234,13 @@ const schema = JSON.stringify({
                 きめ細やかな指導で、技術だけでなく、音楽を一生のパートナーにするお手伝いをいたします。
               </p>
             </div>
-            <div class="mt-10 p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4] relative">
-              <span class="absolute top-4 left-4 text-4xl text-[#A88B58]/20 font-serif italic">"</span>
+            <div
+              class="mt-10 p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4] relative"
+            >
+              <span
+                class="absolute top-4 left-4 text-4xl text-[#A88B58]/20 font-serif italic"
+                >"</span
+              >
               <p class="italic text-sm leading-loose">
                 音楽は、言葉にできない感情を表現してくれる大切な友。技術の習得はもちろん、お一人おひとりの生活に寄り添う、穏やかで上質な時間を提供いたします。
               </p>
@@ -176,46 +255,49 @@ const schema = JSON.stringify({
       <div class="w-full max-w-[1400px] mx-auto">
         <div class="text-center mb-12 px-6">
           <h2 class="text-2xl md:text-3xl font-serif mb-4">紹介動画</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">Introduction Movie</p>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            Introduction Movie
+          </p>
         </div>
 
-        <div class="relative group py-4">
+        <div class="relative py-4">
           <div
             id="video-slider"
             class="flex overflow-x-auto gap-6 px-[7.5%] md:px-[15%] pb-8 items-center transition-opacity duration-500"
             style="scrollbar-width: none; -ms-overflow-style: none; visibility: hidden; opacity: 0;"
           >
-            {videoIds.map((id, index) => (
-              <div
-                class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[60%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 origin-center relative"
-                data-index={index}
-              >
-                <div class="video-wrapper aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
-                  {/* ▼ iframeを最初から表示（ユーザーが直接タップできるようにする）。
+            {
+              videoIds.map((id, index) => (
+                <div
+                  class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[60%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 origin-center relative"
+                  data-index={index}
+                >
+                  <div class="video-wrapper group aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
+                    {/* ▼ iframeを最初から表示（ユーザーが直接タップできるようにする）。
                     idを付与してJSから制御できるようにする。
                   */}
-                  <iframe
-                    id={`player-${index}`}
-                    src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
-                    title="YouTube video player"
-                    class="w-full h-full absolute top-0 left-0 z-10"
-                    frameborder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                    referrerpolicy="strict-origin-when-cross-origin"
-                    allowfullscreen
-                    loading="eager" 
-                  />
+                    <iframe
+                      id={`player-${index}`}
+                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
+                      title="YouTube video player"
+                      class="w-full h-full absolute top-0 left-0 z-10"
+                      frameborder="0"
+                      allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                      referrerpolicy="strict-origin-when-cross-origin"
+                      allowfullscreen
+                      loading="eager"
+                    />
 
-                  {/* ▼ 独自のサムネイル画像 
+                    {/* ▼ 独自のサムネイル画像 
                      pointer-events-none でクリックを貫通させる
                   */}
-                  <img
-                    src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
-                    alt="Video thumbnail"
-                    class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300 pointer-events-none"
-                    loading="lazy"
-                    onload={`if (this.naturalWidth === 120) this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';`}
-                    onerror={`
+                    <img
+                      src={`https://i.ytimg.com/vi/${id}/maxresdefault.jpg`}
+                      alt="Video thumbnail"
+                      class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300 pointer-events-none"
+                      loading="lazy"
+                      onload={`if (this.naturalWidth === 120) this.src = 'https://i.ytimg.com/vi/${id}/hqdefault.jpg';`}
+                      onerror={`
                         if (this.src.includes('maxresdefault')) {
                             this.src = 'https://i.ytimg.com/vi/${id}/sddefault.jpg';
                         } else if (this.src.includes('sddefault')) {
@@ -224,41 +306,63 @@ const schema = JSON.stringify({
                             this.style.display = 'none';
                         }
                     `}
-                  />
+                    />
 
-                  {/* ▼ 独自の再生ボタン（オーバーレイ）
+                    {/* ▼ 独自の再生ボタン（オーバーレイ）
                      pointer-events-none でクリックを貫通させる。
                      これでユーザーのタップは直接iframeに届く。
                   */}
-                  <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer pointer-events-none">
-                    <button
-                      class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110"
-                      aria-label="再生する"
-                    >
-                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="w-8 h-8 md:w-10 md:h-10 pl-1">
-                        <path fill-rule="evenodd" d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z" clip-rule="evenodd" />
-                      </svg>
-                    </button>
+                    <div
+                      class="hidden md:block absolute inset-0 z-40 bg-transparent cursor-pointer slide-click-area"
+                      data-index={index}
+                    />
+                    <div class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer pointer-events-none">
+                      <button
+                        class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110"
+                        aria-label="再生する"
+                      >
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          viewBox="0 0 24 24"
+                          fill="currentColor"
+                          class="w-8 h-8 md:w-10 md:h-10 pl-1"
+                        >
+                          <path
+                            fill-rule="evenodd"
+                            d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                            clip-rule="evenodd"
+                          />
+                        </svg>
+                      </button>
+                    </div>
                   </div>
                 </div>
-              </div>
-            ))}
+              ))
+            }
           </div>
 
           <div class="flex justify-center gap-3 mt-2">
-            {videoIds.map((_, index) => (
-              <button
-                class="slider-dot w-2 h-2 rounded-full bg-[#E8E2D9] transition-all duration-300 hover:bg-[#A88B58]/50"
-                data-index={index}
-                aria-label={`${index + 1}番目の動画へ`}
-              />
-            ))}
+            {
+              videoIds.map((_, index) => (
+                <button
+                  class="slider-dot w-2 h-2 rounded-full bg-[#E8E2D9] transition-all duration-300 hover:bg-[#A88B58]/50"
+                  data-index={index}
+                  aria-label={`${index + 1}番目の動画へ`}
+                />
+              ))
+            }
           </div>
         </div>
 
-        <p class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif px-6">
-          レッスンの雰囲気や演奏の様子を<br class="md:hidden" />動画でご覧いただけます。<br />
-          <span class="text-xs opacity-70">※左右にスワイプして他の動画をご覧になれます。</span>
+        <p
+          class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif px-6"
+        >
+          レッスンの雰囲気や演奏の様子を<br
+            class="md:hidden"
+          />動画でご覧いただけます。<br />
+          <span class="text-xs opacity-70"
+            >※左右にスワイプして他の動画をご覧になれます。</span
+          >
         </p>
       </div>
     </section>
@@ -266,41 +370,94 @@ const schema = JSON.stringify({
     <section class="py-24 bg-white">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
-          <h2 class="text-2xl md:text-3xl font-serif mb-4 whitespace-nowrap">あなたに合わせたレッスンを</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">Personalized Lesson</p>
+          <h2 class="text-2xl md:text-3xl font-serif mb-4 whitespace-nowrap">
+            あなたに合わせたレッスンを
+          </h2>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            Personalized Lesson
+          </p>
         </div>
         <div class="grid md:grid-cols-3 gap-10">
           <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+            <div
+              class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 12.75L11.25 15 15 9.75M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">初心者の方も安心</h3>
+            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">
+              初心者の方も安心
+            </h3>
             <p class="text-sm leading-loose text-[#6B5F54]">
               楽譜が読めなくても大丈夫です。<br />
-              <span class="inline-block">基礎から丁寧に、</span><span class="inline-block">あなたのペースに合わせて</span><span class="inline-block">サポートいたします。</span>
+              <span class="inline-block">基礎から丁寧に、</span><span
+                class="inline-block">あなたのペースに合わせて</span
+              ><span class="inline-block">サポートいたします。</span>
             </p>
           </div>
           <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"></path>
+            <div
+              class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M15.75 6a3.75 3.75 0 11-7.5 0 3.75 3.75 0 017.5 0zM4.501 20.118a7.5 7.5 0 0114.998 0A17.933 17.933 0 0112 21.75c-2.676 0-5.216-.584-7.499-1.632z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">年齢不問</h3>
+            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">
+              年齢不問
+            </h3>
             <p class="text-sm leading-loose text-[#6B5F54]">
               3歳のお子様からシニアの方まで。<br />
-              <span class="inline-block">「弾きたい」と思ったその時が、始めどきです。</span><span class="inline-block">年齢制限はありません。</span>
+              <span class="inline-block"
+                >「弾きたい」と思ったその時が、始めどきです。</span
+              ><span class="inline-block">年齢制限はありません。</span>
             </p>
           </div>
           <div class="flex flex-col items-center text-center">
-            <div class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]">
-              <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-8 h-8">
-                <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"></path>
+            <div
+              class="w-16 h-16 bg-[#F7F3EE] rounded-full flex items-center justify-center mb-6 text-[#A88B58]"
+            >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="currentColor"
+                class="w-8 h-8"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 11-.99-3.467l2.31-.66a2.25 2.25 0 001.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 01-1.632 2.163l-1.32.377a1.803 1.803 0 01-.99-3.467l2.31-.66A2.25 2.25 0 009 15.553z"
+                ></path>
               </svg>
             </div>
-            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">それぞれの目的で</h3>
+            <h3 class="text-lg font-bold text-[#544A40] mb-4 font-serif">
+              それぞれの目的で
+            </h3>
             <p class="text-sm leading-loose text-[#6B5F54]">
               趣味として楽しみたい、あの曲を弾けるようになりたい、本格的に学びたい。ご希望に寄り添います。
             </p>
@@ -313,31 +470,71 @@ const schema = JSON.stringify({
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-2xl md:text-3xl font-serif mb-4">レッスンスタイル</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">Lesson Style</p>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            Lesson Style
+          </p>
         </div>
         <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm">
-            <h3 class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]">ご自宅への訪問レッスン</h3>
+          <div
+            class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
+          >
+            <h3
+              class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]"
+            >
+              ご自宅への訪問レッスン
+            </h3>
             <p class="text-sm md:text-base leading-loose text-[#6B5F54] flex-1">
-              講師がご自宅へ出張し、いつものピアノでマンツーマンの個人指導を行います。<span class="font-bold text-[#A88B58]">送迎不要</span>で保護者の方の負担も軽減。仕事帰りの時間帯も対応可能です。
+              講師がご自宅へ出張し、いつものピアノでマンツーマンの個人指導を行います。<span
+                class="font-bold text-[#A88B58]">送迎不要</span
+              >で保護者の方の負担も軽減。仕事帰りの時間帯も対応可能です。
             </p>
             <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium">送迎不要</span>
-              <span class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium">マンツーマン</span>
-              <span class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium">仕事帰りOK</span>
-              <span class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium">体験レッスンあり</span>
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >送迎不要</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >マンツーマン</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >仕事帰りOK</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >体験レッスンあり</span
+              >
             </div>
           </div>
-          <div class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm">
-            <h3 class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]">スタジオレッスン</h3>
+          <div
+            class="bg-white p-8 rounded-xl border border-[#E8E2D9] flex flex-col items-start h-full shadow-sm"
+          >
+            <h3
+              class="text-lg md:text-xl font-bold font-serif mb-4 text-[#544A40]"
+            >
+              スタジオレッスン
+            </h3>
             <p class="text-sm md:text-base leading-loose text-[#6B5F54] flex-1">
-              ご自宅にピアノがない場合や、グランドピアノで練習したい場合は、近隣のレンタルスタジオ等でのレッスンも可能です。<br />
-              <span class="text-xs text-[#A88B58] mt-3 block">※練習室レンタルの場合、別途会場費がかかります。</span>
+              ご自宅にピアノがない場合や、グランドピアノで練習したい場合は、近隣のレンタルスタジオ等でのレッスンも可能です。<br
+              />
+              <span class="text-xs text-[#A88B58] mt-3 block"
+                >※練習室レンタルの場合、別途会場費がかかります。</span
+              >
             </p>
             <div class="mt-4 flex flex-wrap gap-2">
-              <span class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium">マンツーマン</span>
-              <span class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium">仕事帰りOK</span>
-              <span class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium">体験レッスンあり</span>
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >マンツーマン</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >仕事帰りOK</span
+              >
+              <span
+                class="text-xs bg-[#A88B58]/10 text-[#A88B58] px-3 py-1 rounded-full font-medium"
+                >体験レッスンあり</span
+              >
             </div>
           </div>
         </div>
@@ -346,41 +543,86 @@ const schema = JSON.stringify({
 
     <section class="py-24 bg-[#FCFAF7]">
       <div class="max-w-5xl mx-auto px-6 text-center mb-12">
-        <h2 class="text-2xl md:text-3xl font-serif mb-4">レッスン料金・システム</h2>
-        <p class="text-[#A88B58] text-sm tracking-widest font-serif">Fees & System</p>
+        <h2 class="text-2xl md:text-3xl font-serif mb-4">
+          レッスン料金・システム
+        </h2>
+        <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+          Fees & System
+        </p>
       </div>
-      <div class="bg-white p-5 md:p-10 rounded-2xl shadow-sm border border-[#E8E2D9] text-center w-[90%] md:w-auto max-w-md md:max-w-2xl mx-auto">
+      <div
+        class="bg-white p-5 md:p-10 rounded-2xl shadow-sm border border-[#E8E2D9] text-center w-[90%] md:w-auto max-w-md md:max-w-2xl mx-auto"
+      >
         <div class="mb-10 font-serif text-[#544A40]">
-          <p class="mb-8 text-lg tracking-widest text-[#544A40]">- 1レッスンあたりの料金 -</p>
-          <div class="flex flex-row justify-center items-center gap-2 md:gap-10">
-            <div class="flex flex-col items-center min-w-[70px] md:min-w-[90px]">
-              <span class="text-sm md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium">30分</span>
+          <p class="mb-8 text-lg tracking-widest text-[#544A40]">
+            - 1レッスンあたりの料金 -
+          </p>
+          <div
+            class="flex flex-row justify-center items-center gap-2 md:gap-10"
+          >
+            <div
+              class="flex flex-col items-center min-w-[70px] md:min-w-[90px]"
+            >
+              <span
+                class="text-sm md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium"
+                >30分</span
+              >
               <div class="flex items-baseline justify-center">
-                <span class="text-xl md:text-3xl font-medium font-serif text-[#544A40]">5,000</span>
-                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold">円</span>
+                <span
+                  class="text-xl md:text-3xl font-medium font-serif text-[#544A40]"
+                  >5,000</span
+                >
+                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold"
+                  >円</span
+                >
               </div>
             </div>
-            <div class="flex flex-col items-center border-l border-[#E8E2D9] pl-2 md:pl-10 min-w-[70px] md:min-w-[90px]">
-              <span class="text-sm md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium">45分</span>
+            <div
+              class="flex flex-col items-center border-l border-[#E8E2D9] pl-2 md:pl-10 min-w-[70px] md:min-w-[90px]"
+            >
+              <span
+                class="text-sm md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium"
+                >45分</span
+              >
               <div class="flex items-baseline justify-center">
-                <span class="text-xl md:text-3xl font-medium font-serif text-[#544A40]">7,500</span>
-                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold">円</span>
+                <span
+                  class="text-xl md:text-3xl font-medium font-serif text-[#544A40]"
+                  >7,500</span
+                >
+                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold"
+                  >円</span
+                >
               </div>
             </div>
-            <div class="flex flex-col items-center border-l border-[#E8E2D9] pl-2 md:pl-10 min-w-[70px] md:min-w-[90px]">
-              <span class="text-sm md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium">60分</span>
+            <div
+              class="flex flex-col items-center border-l border-[#E8E2D9] pl-2 md:pl-10 min-w-[70px] md:min-w-[90px]"
+            >
+              <span
+                class="text-sm md:text-lg text-[#A88B58] mb-1 md:mb-2 font-medium"
+                >60分</span
+              >
               <div class="flex items-baseline justify-center">
-                <span class="text-xl md:text-3xl font-medium font-serif text-[#544A40]">10,000</span>
-                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold">円</span>
+                <span
+                  class="text-xl md:text-3xl font-medium font-serif text-[#544A40]"
+                  >10,000</span
+                >
+                <span class="text-xs md:text-sm text-[#544A40] ml-0.5 font-bold"
+                  >円</span
+                >
               </div>
             </div>
           </div>
         </div>
-        <p class="text-sm leading-loose tracking-wide mb-10 text-[#6B5F54] text-left md:text-center">
+        <p
+          class="text-sm leading-loose tracking-wide mb-10 text-[#6B5F54] text-left md:text-center"
+        >
           ご希望に合わせて、30分・45分・60分のコースをご用意しております。<br />
           月1回〜4回まで、ライフスタイルに合わせて受講頻度をお選びいただけます。
         </p>
-        <a href="/lesson" class="inline-block border border-[#A88B58] text-[#A88B58] px-10 py-4 rounded-full hover:bg-[#A88B58] hover:text-white transition-all text-sm tracking-widest font-medium">
+        <a
+          href="/lesson"
+          class="inline-block border border-[#A88B58] text-[#A88B58] px-10 py-4 rounded-full hover:bg-[#A88B58] hover:text-white transition-all text-sm tracking-widest font-medium"
+        >
           詳しい料金プランを見る →
         </a>
       </div>
@@ -390,14 +632,22 @@ const schema = JSON.stringify({
       <div class="max-w-5xl mx-auto text-center">
         <div class="mb-16">
           <h2 class="text-2xl md:text-3xl font-serif mb-4">出張対応エリア</h2>
-          <p class="text-[#A88B58] text-sm tracking-widest font-serif">Service Area</p>
+          <p class="text-[#A88B58] text-sm tracking-widest font-serif">
+            Service Area
+          </p>
         </div>
-        <p class="text-base leading-loose mb-10 text-[#6B5F54] max-w-2xl mx-auto">
-          江東区の<span class="font-bold text-[#A88B58]">清澄白河駅・門前仲町駅</span>周辺を中心に、<br class="hidden md:inline" />
+        <p
+          class="text-base leading-loose mb-10 text-[#6B5F54] max-w-2xl mx-auto"
+        >
+          江東区の<span class="font-bold text-[#A88B58]"
+            >清澄白河駅・門前仲町駅</span
+          >周辺を中心に、<br class="hidden md:inline" />
           公共交通機関で伺える範囲で活動しています。
         </p>
         <div class="grid md:grid-cols-2 gap-8 items-start text-left mb-12">
-          <div class="hidden md:block aspect-square w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]">
+          <div
+            class="hidden md:block aspect-square w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]"
+          >
             <iframe
               src="https://maps.google.com/maps?q=%E6%B8%85%E6%BE%84%E7%99%BD%E6%B2%B3%E9%A7%85&t=m&z=15&output=embed&iwloc=near"
               width="100%"
@@ -411,29 +661,89 @@ const schema = JSON.stringify({
             </iframe>
           </div>
           <div>
-            <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">江東区</p>
+            <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">
+              江東区
+            </p>
             <div class="flex flex-wrap gap-2 mb-4">
-              {["清澄白河", "門前仲町", "木場", "深川", "森下", "白河", "三好", "平野", "佐賀", "永代", "福住", "冬木", "牡丹", "古石場", "越中島", "菊川", "千歳"].map((area) => (
-                <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">{area}</span>
-              ))}
+              {
+                [
+                  "清澄白河",
+                  "門前仲町",
+                  "木場",
+                  "深川",
+                  "森下",
+                  "白河",
+                  "三好",
+                  "平野",
+                  "佐賀",
+                  "永代",
+                  "福住",
+                  "冬木",
+                  "牡丹",
+                  "古石場",
+                  "越中島",
+                  "菊川",
+                  "千歳",
+                ].map((area) => (
+                  <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
+                    {area}
+                  </span>
+                ))
+              }
             </div>
-            <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">中央区・墨田区（近郊）</p>
+            <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">
+              中央区・墨田区（近郊）
+            </p>
             <div class="flex flex-wrap gap-2 mb-4">
-              {["水天宮前", "茅場町", "人形町", "日本橋浜町", "日本橋中洲", "日本橋蛎殻町", "日本橋箱崎町", "立川", "緑"].map((area) => (
-                <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">{area}</span>
-              ))}
+              {
+                [
+                  "水天宮前",
+                  "茅場町",
+                  "人形町",
+                  "日本橋浜町",
+                  "日本橋中洲",
+                  "日本橋蛎殻町",
+                  "日本橋箱崎町",
+                  "立川",
+                  "緑",
+                ].map((area) => (
+                  <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
+                    {area}
+                  </span>
+                ))
+              }
             </div>
-            <p class="text-xs text-[#A88B58] font-bold mb-4 tracking-wide">アクセス路線</p>
+            <p class="text-xs text-[#A88B58] font-bold mb-4 tracking-wide">
+              アクセス路線
+            </p>
             <div class="flex flex-wrap gap-2 mb-8">
-              {["都営大江戸線", "東京メトロ半蔵門線", "東京メトロ東西線", "都営新宿線"].map((line) => (
-                <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">{line}</span>
-              ))}
+              {
+                [
+                  "都営大江戸線",
+                  "東京メトロ半蔵門線",
+                  "東京メトロ東西線",
+                  "都営新宿線",
+                ].map((line) => (
+                  <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
+                    {line}
+                  </span>
+                ))
+              }
             </div>
             <div class="bg-[#F7F3EE] p-6 rounded-xl border border-[#E8E2D9]">
-              <p class="text-base font-bold text-[#544A40] mb-2 font-serif border-l-2 border-[#A88B58] pl-3">その他の地域について</p>
+              <p
+                class="text-base font-bold text-[#544A40] mb-2 font-serif border-l-2 border-[#A88B58] pl-3"
+              >
+                その他の地域について
+              </p>
               <p class="text-sm leading-loose text-[#6B5F54]">
-                上記以外の地域（中央区や墨田区の一部など）でも、近隣であれば対応可能な場合がございます。<br />
-                「自宅まで来てもらえるかな？」と迷われた際は、まずはお気軽に<a href="/contact" class="underline hover:text-[#A88B58] transition-colors">お問い合わせフォーム</a>からご相談ください。
+                上記以外の地域（中央区や墨田区の一部など）でも、近隣であれば対応可能な場合がございます。<br
+                />
+                「自宅まで来てもらえるかな？」と迷われた際は、まずはお気軽に<a
+                  href="/contact"
+                  class="underline hover:text-[#A88B58] transition-colors"
+                  >お問い合わせフォーム</a
+                >からご相談ください。
               </p>
             </div>
           </div>
@@ -443,14 +753,19 @@ const schema = JSON.stringify({
 
     <section id="contact" class="py-24 bg-[#EAE3DA]">
       <div class="max-w-2xl mx-auto px-6">
-        <div class="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] text-center">
+        <div
+          class="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] text-center"
+        >
           <h2 class="text-3xl font-serif font-bold mb-8">Contact</h2>
           <p class="mb-10 text-sm leading-loose tracking-widest">
             体験レッスンのお申し込みや、<br />
             レッスンに関するご質問など、<br />
             お気軽にお問い合わせください。
           </p>
-          <a href="/contact" class="inline-block bg-[#544A40] text-white px-8 md:px-12 py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.2em] text-sm transform hover:-translate-y-1 whitespace-nowrap">
+          <a
+            href="/contact"
+            class="inline-block bg-[#544A40] text-white px-8 md:px-12 py-5 rounded-full font-bold hover:bg-[#3D352E] transition-all shadow-lg tracking-[0.2em] text-sm transform hover:-translate-y-1 whitespace-nowrap"
+          >
             お問い合わせフォームへ
           </a>
         </div>
@@ -469,7 +784,7 @@ const schema = JSON.stringify({
   .video-slide .video-poster {
     pointer-events: none;
   }
-  
+
   /* iframeはクリック可能 */
   .video-slide iframe {
     pointer-events: auto;
@@ -480,13 +795,20 @@ const schema = JSON.stringify({
     opacity: 0;
     /* 再生中は完全に非表示にする */
     visibility: hidden;
-    transition: opacity 0.5s ease, visibility 0.5s;
+    transition:
+      opacity 0.5s ease,
+      visibility 0.5s;
   }
 
   .video-slide.active {
     opacity: 1;
     transform: scale(1);
     z-index: 10;
+  }
+
+  /* PCのみ: アクティブなスライドではクリック判定エリアを消してiframeを操作可能にする */
+  .video-slide.active .slide-click-area {
+    display: none;
   }
 </style>
 
@@ -593,37 +915,74 @@ const schema = JSON.stringify({
         });
       });
     });
-    
+
     // --- ここからYouTube制御ロジック ---
-    
+
+    // プレーヤーインスタンスを保持する配列
+    const players: any[] = [];
+
     // YouTube Iframe APIの読み込み
-    const tag = document.createElement('script');
+    const tag = document.createElement("script");
     tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName('script')[0];
-    if(firstScriptTag && firstScriptTag.parentNode) {
-        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+    const firstScriptTag = document.getElementsByTagName("script")[0];
+    if (firstScriptTag && firstScriptTag.parentNode) {
+      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
     }
 
     // プレーヤー初期化
     window.onYouTubeIframeAPIReady = () => {
       slides.forEach((slide, index) => {
-        const iframe = slide.querySelector('iframe');
+        const iframe = slide.querySelector("iframe");
         if (iframe) {
           // 各スライドのiframeをYT.Playerとして登録
-          new window.YT.Player(iframe.id, {
+          players[index] = new window.YT.Player(iframe.id, {
             events: {
-              'onStateChange': (event: any) => {
+              onStateChange: (event: any) => {
                 // 再生中(1) または バッファリング中(3) になったらオーバーレイを消す
-                if (event.data === window.YT.PlayerState.PLAYING || event.data === window.YT.PlayerState.BUFFERING) {
-                  slide.classList.add('is-playing');
-                  
-                  // 他のスライドに移動したら動画を止める制御を入れる場合はここに記述
+                if (
+                  event.data === window.YT.PlayerState.PLAYING ||
+                  event.data === window.YT.PlayerState.BUFFERING
+                ) {
+                  slide.classList.add("is-playing");
+
+                  // 再生が始まったら他の動画を停止する
+                  if (event.data === window.YT.PlayerState.PLAYING) {
+                    players.forEach((p, i) => {
+                      if (
+                        i !== index &&
+                        p &&
+                        typeof p.pauseVideo === "function"
+                      ) {
+                        p.pauseVideo();
+                      }
+                    });
+                  }
                 }
-              }
-            }
+              },
+            },
           });
         }
       });
     };
+
+    // PC用: 左右の動画をクリックした時の処理
+    const clickAreas = document.querySelectorAll(".slide-click-area");
+    clickAreas.forEach((area) => {
+      area.addEventListener("click", () => {
+        const index = Number((area as HTMLElement).dataset.index);
+
+        // 1. 中央に移動
+        slides[index].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+
+        // 2. その動画を再生 (少し遅延させてスクロール安定後に再生開始などの調整も可能だが、即時でもOK)
+        if (players[index] && typeof players[index].playVideo === "function") {
+          players[index].playVideo();
+        }
+      });
+    });
   }
 </script>
