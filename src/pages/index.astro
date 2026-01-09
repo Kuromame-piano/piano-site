@@ -278,7 +278,7 @@ const schema = JSON.stringify({
                   */}
                     <iframe
                       id={`player-${index}`}
-                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0`}
+                      src={`https://www.youtube.com/embed/${id}?enablejsapi=1&rel=0&modestbranding=1&controls=1`}
                       title="YouTube video player"
                       class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02] md:scale-100"
                       frameborder="0"
@@ -363,8 +363,11 @@ const schema = JSON.stringify({
           レッスンの雰囲気や演奏の様子を<br
             class="md:hidden"
           />動画でご覧いただけます。<br />
-          <span class="text-xs opacity-70"
+          <span class="text-xs opacity-70 md:hidden"
             >※左右にスワイプして他の動画をご覧になれます。</span
+          >
+          <span class="text-xs opacity-70 hidden md:inline"
+            >※左右の動画をクリックして他の動画をご覧になれます。</span
           >
         </p>
       </div>
