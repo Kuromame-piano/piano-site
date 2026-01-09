@@ -816,6 +816,24 @@ const schema = JSON.stringify({
   .video-slide.active .slide-click-area {
     display: none;
   }
+
+  /* モバイル動画UX改善 */
+  @media (max-width: 767px) {
+    /* 再生前はiframeへのタッチを無効化（スワイプ優先） */
+    .video-slide:not(.is-playing) iframe {
+      pointer-events: none;
+    }
+
+    /* 再生中はiframeのコントロールを有効に */
+    .video-slide.is-playing iframe {
+      pointer-events: auto;
+    }
+
+    /* 再生前のオーバーレイはタップ可能 */
+    .video-slide:not(.is-playing) .video-overlay {
+      pointer-events: auto;
+    }
+  }
 </style>
 
 <script>
