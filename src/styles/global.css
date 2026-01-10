@@ -12,3 +12,8 @@ body {
 .font-serif {
   font-family: 'Shippori Mincho', 'Yu Mincho', 'YuMincho', serif !important;
 }
+
+/* microCMSの空行（空のpタグ）を表示するためのスタイル */
+.prose p:empty {
+  min-height: 1.5em;
+}
