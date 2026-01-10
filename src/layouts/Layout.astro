@@ -23,6 +23,14 @@ const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 const socialImageURL = new URL(image, Astro.site);
 const type = article ? "article" : "website";
 const siteName = "髙橋遊月ピアノ教室";
+
+// 検索結果にサイト名を表示するための構造化データ
+const websiteSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    url: Astro.site?.toString() || "https://playon-music.jp",
+});
 ---
 
 <!doctype html>
@@ -77,6 +85,9 @@ const siteName = "髙橋遊月ピアノ教室";
         <meta property="twitter:title" content={title} />
         <meta property="twitter:description" content={description} />
         <meta property="twitter:image" content={socialImageURL} />
+
+        {/* サイト名を検索結果に表示するための構造化データ */}
+        <script type="application/ld+json" set:html={websiteSchema} />
 
         {/* 各ページから構造化データ等を挿入するためのスロットを追加 */}
         <slot name="head" />
