@@ -116,6 +116,14 @@ const schema = JSON.stringify({
 <Layout title={pageTitle} description={pageDescription} image={heroImage}>
   <script type="application/ld+json" set:html={schema} slot="head" />
 
+  <link
+    rel="preload"
+    as="image"
+    href={heroImage}
+    fetchpriority="high"
+    slot="preload"
+  />
+
   <main class="bg-[#FCFAF7] text-[#544A40] font-sans relative">
     <section
       class="relative h-[85vh] flex items-center justify-center overflow-hidden"
