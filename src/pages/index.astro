@@ -7,8 +7,8 @@ import { Image } from "astro:assets";
 const pageTitle = "江東区・清澄白河の出張専門ピアノ教室 | 髙橋遊月ピアノ教室";
 const pageDescription =
   "江東区・清澄白河でピアノ教室をお探しの方へ。当教室は講師がご自宅へ伺う「出張型」のピアノ教室です。お子様の送り迎えの負担もゼロに。仕事帰りにいつもの環境でリラックスしてレッスンを受けられます。東京音大卒の女性講師によるマンツーマン指導。";
-const heroImage =
-  "https://images.unsplash.com/photo-1552422535-c45813c61732?q=60&w=1200&auto=format&fit=crop";
+import heroPiano from "../assets/images/hero-piano.webp";
+const heroImage = heroPiano.src;
 
 // YouTube動画のデータ構成
 import thumb1 from "../assets/images/thumbnails/xh65ftmaIgc.jpg";
@@ -130,7 +130,7 @@ const schema = JSON.stringify({
     >
       <div class="absolute inset-0 z-0">
         <Image
-          src={heroImage}
+          src={heroPiano}
           alt="落ち着いた空間でのピアノレッスン"
           width={1200}
           height={800}
