@@ -1,6 +1,11 @@
 @import "tailwindcss";
 @plugin "@tailwindcss/typography";
 
+/* フォントのセルフホスティング設定（日本語サブセット） */
+@import "@fontsource/shippori-mincho/400.css";
+@import "@fontsource/shippori-mincho/500.css";
+@import "@fontsource/shippori-mincho/700.css";
+
 /* サイト全体の文字設定 */
 body {
   /* 文字を滑らかにする設定 */
