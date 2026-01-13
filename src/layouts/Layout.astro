@@ -97,7 +97,15 @@ const websiteSchema = JSON.stringify({
         <link
             href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap"
             rel="stylesheet"
+            media="print"
+            onload="this.media='all'"
         />
+        <noscript>
+            <link
+                href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600;700&display=swap"
+                rel="stylesheet"
+            />
+        </noscript>
     </head>
     <body
         class="bg-[#FCFAF7] text-[#544A40] font-sans flex flex-col min-h-screen"
