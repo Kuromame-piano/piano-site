@@ -314,8 +314,8 @@ const schema = JSON.stringify({
                     <Image
                       src={video.thumbnail}
                       alt="Video thumbnail"
-                      width={600}
-                      height={338}
+                      width={520}
+                      height={293}
                       class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300 pointer-events-none"
                     />
 
@@ -1002,11 +1002,14 @@ const schema = JSON.stringify({
 
     // プレーヤーインスタンスを保持する配列
     const players: any[] = [];
-
-    // YouTube Iframe APIの読み込みをPromise化
+    let ytApiResolve: any;
     const ytApiPromise = new Promise((resolve) => {
+      ytApiResolve = resolve;
+    });
+
+    const loadYouTubeAPI = () => {
       if ((window as any).YT && (window as any).YT.Player) {
-        resolve((window as any).YT);
+        ytApiResolve((window as any).YT);
         return;
       }
 
@@ -1018,9 +1021,24 @@ const schema = JSON.stringify({
       }
 
       window.onYouTubeIframeAPIReady = () => {
-        resolve((window as any).YT);
+        ytApiResolve((window as any).YT);
       };
-    });
+    };
+
+    // Intersection Observer でビデオセクションが見えたら API を読み込む
+    const videoSection = document.getElementById("video-slider");
+    if (videoSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            loadYouTubeAPI();
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "200px" },
+      );
+      observer.observe(videoSection);
+    }
 
     // プレーヤー初期化
     const initPlayer = async (index: number) => {
