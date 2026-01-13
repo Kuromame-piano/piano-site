@@ -8,7 +8,7 @@ const pageTitle = "江東区・清澄白河の出張専門ピアノ教室 | 髙�
 const pageDescription =
   "江東区・清澄白河でピアノ教室をお探しの方へ。当教室は講師がご自宅へ伺う「出張型」のピアノ教室です。お子様の送り迎えの負担もゼロに。仕事帰りにいつもの環境でリラックスしてレッスンを受けられます。東京音大卒の女性講師によるマンツーマン指導。";
 const heroImage =
-  "https://images.unsplash.com/photo-1552422535-c45813c61732?q=80&w=2070&auto=format&fit=crop";
+  "https://images.unsplash.com/photo-1552422535-c45813c61732?q=60&w=1200&auto=format&fit=crop";
 
 // YouTube動画のデータ構成
 import thumb1 from "../assets/images/thumbnails/xh65ftmaIgc.jpg";
@@ -124,8 +124,8 @@ const schema = JSON.stringify({
         <Image
           src={heroImage}
           alt="落ち着いた空間でのピアノレッスン"
-          width={2070}
-          height={1380}
+          width={1200}
+          height={800}
           class="w-full h-full object-cover opacity-50"
           loading="eager"
           fetchpriority="high"
@@ -314,6 +314,8 @@ const schema = JSON.stringify({
                     <Image
                       src={video.thumbnail}
                       alt="Video thumbnail"
+                      width={600}
+                      height={338}
                       class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300 pointer-events-none"
                     />
 
