@@ -14,6 +14,7 @@ const heroImage =
 import thumb1 from "../assets/images/thumbnails/xh65ftmaIgc.jpg";
 import thumb2 from "../assets/images/thumbnails/OIRmBSviWrw.jpg";
 import thumb3 from "../assets/images/thumbnails/31muaoyHDuo.jpg";
+import senzaiWebp from "../assets/images/senzai.webp";
 
 const videos = [
   { id: "xh65ftmaIgc", thumbnail: thumb1 },
@@ -219,7 +220,7 @@ const schema = JSON.stringify({
               class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl"
             >
               <Image
-                src="/senzai.png"
+                src={senzaiWebp}
                 alt="髙橋遊月"
                 width={600}
                 height={750}
@@ -299,14 +300,14 @@ const schema = JSON.stringify({
                   */}
                     <iframe
                       id={`player-${index}`}
-                      src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1&rel=0&modestbranding=1&controls=1`}
+                      data-src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1&rel=0&modestbranding=1&controls=1`}
                       title="YouTube video player"
                       class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02]"
                       frameborder="0"
                       allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                       referrerpolicy="strict-origin-when-cross-origin"
                       allowfullscreen
-                      loading="eager"
+                      loading="lazy"
                     />
 
                     {/* ▼ 独自のサムネイル画像（ローカル資産を使用） */}
@@ -847,9 +848,14 @@ const schema = JSON.stringify({
     z-index: 10;
   }
 
-  /* PCのみ: アクティブなスライドではクリック判定エリアを消してiframeを操作可能にする */
+  /* PCのみ: アクティブなスライドではスライド全体のクリック判定を消して、再生ボタン付きのオーバーレイを優先する */
   .video-slide.active .slide-click-area {
     display: none;
+  }
+
+  /* PCのみ: 非再生時はオーバーレイをクリック可能にする */
+  .video-slide:not(.is-playing) .video-overlay {
+    pointer-events: auto;
   }
 
   /* モバイル動画UX改善 */
@@ -995,32 +1001,50 @@ const schema = JSON.stringify({
     // プレーヤーインスタンスを保持する配列
     const players: any[] = [];
 
-    // YouTube Iframe APIの読み込み
-    const tag = document.createElement("script");
-    tag.src = "https://www.youtube.com/iframe_api";
-    const firstScriptTag = document.getElementsByTagName("script")[0];
-    if (firstScriptTag && firstScriptTag.parentNode) {
-      firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
-    }
+    // YouTube Iframe APIの読み込みをPromise化
+    const ytApiPromise = new Promise((resolve) => {
+      if ((window as any).YT && (window as any).YT.Player) {
+        resolve((window as any).YT);
+        return;
+      }
+
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      }
+
+      window.onYouTubeIframeAPIReady = () => {
+        resolve((window as any).YT);
+      };
+    });
 
     // プレーヤー初期化
-    window.onYouTubeIframeAPIReady = () => {
-      slides.forEach((slide, index) => {
+    const initPlayer = async (index: number) => {
+      if (players[index]) return players[index];
+
+      // APIの読み込みを待つ
+      const YT = await ytApiPromise;
+
+      return new Promise((resolve) => {
+        const slide = slides[index];
         const iframe = slide.querySelector("iframe");
-        if (iframe) {
-          // 各スライドのiframeをYT.Playerとして登録
-          players[index] = new window.YT.Player(iframe.id, {
+        if (iframe && iframe.dataset.src) {
+          iframe.src = iframe.dataset.src;
+
+          players[index] = new (YT as any).Player(iframe.id, {
             events: {
+              onReady: () => {
+                resolve(players[index]);
+              },
               onStateChange: (event: any) => {
-                // 再生中(1) または バッファリング中(3) になったらオーバーレイを消す
                 if (
-                  event.data === window.YT.PlayerState.PLAYING ||
-                  event.data === window.YT.PlayerState.BUFFERING
+                  event.data === (YT as any).PlayerState.PLAYING ||
+                  event.data === (YT as any).PlayerState.BUFFERING
                 ) {
                   slide.classList.add("is-playing");
-
-                  // 再生が始まったら他の動画を停止する
-                  if (event.data === window.YT.PlayerState.PLAYING) {
+                  if (event.data === (YT as any).PlayerState.PLAYING) {
                     players.forEach((p, i) => {
                       if (
                         i !== index &&
@@ -1039,10 +1063,15 @@ const schema = JSON.stringify({
       });
     };
 
+    // 初期状態で中央の動画(index=1)をプリロード
+    ytApiPromise.then(() => {
+      initPlayer(1);
+    });
+
     // PC用: 左右の動画をクリックした時の処理
     const clickAreas = document.querySelectorAll(".slide-click-area");
     clickAreas.forEach((area) => {
-      area.addEventListener("click", () => {
+      area.addEventListener("click", async () => {
         const index = Number((area as HTMLElement).dataset.index);
 
         // 1. 中央に移動
@@ -1052,29 +1081,45 @@ const schema = JSON.stringify({
           inline: "center",
         });
 
-        // 2. その動画を再生 (スクロール完了を待ってから再生開始)
+        // 2. プレーヤーを初期化して再生
+        const player = await initPlayer(index);
         setTimeout(() => {
-          if (
-            players[index] &&
-            typeof players[index].playVideo === "function"
-          ) {
-            players[index].playVideo();
+          if (player && typeof (player as any).playVideo === "function") {
+            (player as any).playVideo();
           }
         }, 400);
       });
     });
 
-    // モバイル用: オーバーレイ（再生ボタン）タップで再生開始
-    // PCでは pointer-events-none なので発火しない
+    // モバイル用（またはPCオーバーレイ）: 再生ボタンタップで再生開始
     const triggerAreas = document.querySelectorAll(".video-trigger-area");
     triggerAreas.forEach((area) => {
-      area.addEventListener("click", (e) => {
-        // バブリングなどで2回着火しないよう念の為
+      area.addEventListener("click", async (e) => {
         e.stopPropagation();
         const index = Number((area as HTMLElement).dataset.index);
 
-        if (players[index] && typeof players[index].playVideo === "function") {
-          players[index].playVideo();
+        // アクティブでないスライドがクリックされた場合はまずスクロール
+        const slide = slides[index];
+        if (!slide.classList.contains("active")) {
+          slide.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+
+          // スクロール完了を待ってから再生
+          const player = await initPlayer(index);
+          setTimeout(() => {
+            if (player && typeof (player as any).playVideo === "function") {
+              (player as any).playVideo();
+            }
+          }, 400);
+        } else {
+          // すでにアクティブなら即座に再生
+          const player = await initPlayer(index);
+          if (player && typeof (player as any).playVideo === "function") {
+            (player as any).playVideo();
+          }
         }
       });
     });
