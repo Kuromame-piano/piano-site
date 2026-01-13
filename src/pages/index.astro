@@ -1091,9 +1091,10 @@ const schema = JSON.stringify({
       });
     };
 
-    // 初期状態で中央の動画(index=1)をプリロード
+    // 初期状態で動画をプリロード
     ytApiPromise.then(() => {
-      initPlayer(1);
+      // 全動画をプリロードして、どの動画をタップしても即再生可能に
+      slides.forEach((_, i) => initPlayer(i));
     });
 
     // PC用: 左右の動画をクリックした時の処理
