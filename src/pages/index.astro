@@ -54,6 +54,8 @@ const schema = JSON.stringify({
         "白河",
         "三好",
         "平野",
+        "住吉",
+        "豊洲",
         "佐賀",
         "永代",
         "福住",
@@ -64,6 +66,9 @@ const schema = JSON.stringify({
         "菊川",
         "千歳",
         "中央区",
+        "月島",
+        "晴海",
+        "勝どき",
         "水天宮前",
         "茅場町",
         "人形町",
@@ -74,6 +79,8 @@ const schema = JSON.stringify({
         "墨田区",
         "立川",
         "緑",
+        "台東区",
+        "蔵前",
         "清澄白河駅",
         "門前仲町駅",
         "木場駅",
@@ -685,9 +692,9 @@ const schema = JSON.stringify({
           >周辺を中心に、<br class="hidden md:inline" />
           公共交通機関で伺える範囲で活動しています。
         </p>
-        <div class="grid md:grid-cols-2 gap-8 items-start text-left mb-12">
+        <div class="grid md:grid-cols-2 gap-8 items-stretch text-left mb-12">
           <div
-            class="hidden md:block aspect-square w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]"
+            class="hidden md:block w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]"
           >
             <iframe
               src="https://maps.google.com/maps?q=%E6%B8%85%E6%BE%84%E7%99%BD%E6%B2%B3%E9%A7%85&t=m&z=15&output=embed&iwloc=near"
@@ -716,6 +723,8 @@ const schema = JSON.stringify({
                   "白河",
                   "三好",
                   "平野",
+                  "住吉",
+                  "豊洲",
                   "佐賀",
                   "永代",
                   "福住",
@@ -733,11 +742,14 @@ const schema = JSON.stringify({
               }
             </div>
             <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">
-              中央区・墨田区（近郊）
+              中央区・墨田区・台東区（近郊）
             </p>
             <div class="flex flex-wrap gap-2 mb-4">
               {
                 [
+                  "月島",
+                  "晴海",
+                  "勝どき",
                   "水天宮前",
                   "茅場町",
                   "人形町",
@@ -747,6 +759,7 @@ const schema = JSON.stringify({
                   "日本橋箱崎町",
                   "立川",
                   "緑",
+                  "蔵前（台東区）",
                 ].map((area) => (
                   <span class="inline-block px-3 py-1.5 bg-[#F7F3EE] text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
                     {area}
@@ -778,7 +791,7 @@ const schema = JSON.stringify({
                 その他の地域について
               </p>
               <p class="text-sm leading-loose text-[#6B5F54]">
-                上記以外の地域（中央区や墨田区の一部など）でも、近隣であれば対応可能な場合がございます。<br
+                上記以外の地域（中央区や墨田区、台東区の一部など）でも、近隣であれば対応可能な場合がございます。<br
                 />
                 「自宅まで来てもらえるかな？」と迷われた際は、まずはお気軽に<a
                   href="/contact"
