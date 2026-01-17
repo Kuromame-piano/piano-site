@@ -146,6 +146,19 @@ const schema = JSON.stringify({
 >
     <!-- Structured Data -->
     <script slot="head" type="application/ld+json" set:html={schema} />
+    <!-- hreflang for Japanese SEO -->
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="ja"
+        href={Astro.url.toString()}
+    />
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="x-default"
+        href={Astro.url.toString()}
+    />
     <!-- Preload Critical Image -->
     <link slot="head" rel="preload" as="image" href={area.mainImage} />
 
@@ -406,26 +419,41 @@ const schema = JSON.stringify({
         </div>
     </section>
 
-    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-xl font-serif mb-8 text-[#544A40] opacity-60">
-            他のエリアを見る
-        </h2>
-        <div class="flex flex-wrap justify-center gap-4 text-sm">
-            {
-                areas.map(
-                    (a) =>
-                        a.slug !== area.slug && (
-                            <a
-                                href={`/area/${a.slug}`}
-                                class="block px-6 py-3 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-colors duration-300"
-                            >
-                                {a.name}
-                            </a>
-                        ),
-                )
-            }
-        </div>
-    </section>
+    {/* 関連エリアセクション - SEO最適化のため2-3エリアに絞る */}
+    {
+        area.relatedAreas && area.relatedAreas.length > 0 && (
+            <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+                <h2 class="text-xl font-serif mb-8 text-[#544A40] opacity-60">
+                    近隣エリアのご案内
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    {area.relatedAreas.map((relatedSlug) => {
+                        const relatedArea = areas.find(
+                            (a) => a.slug === relatedSlug,
+                        );
+                        return (
+                            relatedArea && (
+                                <a
+                                    href={`/area/${relatedArea.slug}`}
+                                    class="block px-6 py-3 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-colors duration-300"
+                                >
+                                    {relatedArea.name}
+                                </a>
+                            )
+                        );
+                    })}
+                </div>
+                <p class="mt-6 text-sm text-[#544A40]/60">
+                    <a
+                        href="/area"
+                        class="underline hover:text-[#A88B58] transition-colors"
+                    >
+                        すべての対応エリアを見る
+                    </a>
+                </p>
+            </section>
+        )
+    }
 </Layout>
 
 <style>

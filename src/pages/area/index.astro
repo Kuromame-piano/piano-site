@@ -54,6 +54,19 @@ const schema = JSON.stringify({
 <Layout title={pageTitle} description={pageDescription}>
     <!-- Structured Data -->
     <script slot="head" type="application/ld+json" set:html={schema} />
+    <!-- hreflang for Japanese SEO -->
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="ja"
+        href={Astro.url.toString()}
+    />
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="x-default"
+        href={Astro.url.toString()}
+    />
 
     <div
         class="relative h-[40vh] flex items-center justify-center overflow-hidden"
