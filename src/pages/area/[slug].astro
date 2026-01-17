@@ -20,9 +20,74 @@ const pageTitle = `${area.name}の出張ピアノ教室 | 髙橋遊月ピアノ�
 const pageDescription = `${area.name}（${area.subAreas.join(
     "・",
 )}）での出張ピアノレッスン。${area.lead}`;
+
+// Schema.org Structured Data
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    item: {
+                        "@id": Astro.site?.toString(),
+                        name: "ホーム",
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    item: {
+                        "@id": new URL("/#areas", Astro.site).toString(),
+                        name: "出張エリア",
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 3,
+                    item: {
+                        "@id": Astro.url.toString(),
+                        name: area.name,
+                    },
+                },
+            ],
+        },
+        {
+            "@type": "Service",
+            name: `${area.name}の出張ピアノ教室`,
+            provider: {
+                "@type": "MusicSchool",
+                name: "髙橋遊月ピアノ教室",
+                url: Astro.site?.toString(),
+                image: new URL("/senzai.png", Astro.site).toString(),
+            },
+            areaServed: [
+                {
+                    "@type": "City",
+                    name: area.name,
+                },
+                ...area.subAreas.map((sub) => ({
+                    "@type": "Place",
+                    name: sub,
+                })),
+            ],
+            description: area.lead,
+            url: Astro.url.toString(),
+        },
+    ],
+});
 ---
 
-<Layout title={pageTitle} description={pageDescription} image={area.mainImage}>
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    image={area.mainImage}
+    keywords={area.keywords}
+>
+    <!-- Structured Data -->
+    <script slot="head" type="application/ld+json" set:html={schema} />
     <div
         class="relative h-[60vh] flex items-center justify-center overflow-hidden"
     >
@@ -32,7 +97,28 @@ const pageDescription = `${area.name}（${area.subAreas.join(
                 alt={`${area.name}の街並み`}
                 class="w-full h-full object-cover opacity-60"
             />
-            <div class="absolute inset-0 bg-[#544A40]/20"></div>
+            <div class="absolute inset-0 bg-[#544A40]/30"></div>
+        </div>
+
+        {/* Breadcrumbs (Visual) */}
+        <div class="absolute top-24 left-0 right-0 z-20 px-6">
+            <nav
+                class="max-w-4xl mx-auto text-sm text-white/90 font-light"
+                aria-label="Breadcrumb"
+            >
+                <ol class="flex items-center space-x-2">
+                    <li>
+                        <a href="/" class="hover:text-white transition-colors"
+                            >ホーム</a>
+                    </li>
+                    <li><span class="opacity-60">/</span></li>
+                    <li><span class="opacity-60">出張エリア</span></li>
+                    <li><span class="opacity-60">/</span></li>
+                    <li class="font-medium text-white" aria-current="page">
+                        {area.name}
+                    </li>
+                </ol>
+            </nav>
         </div>
         <div class="relative z-10 text-center text-white px-6">
             <h1 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider">
