@@ -1,0 +1,85 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { areas } from "../../data/areas";
+
+const pageTitle = "出張エリア一覧 | 髙橋遊月ピアノ教室";
+const pageDescription =
+    "髙橋遊月ピアノ教室の出張レッスン対応エリア一覧ページです。豊洲、晴海、勝どき、月島、清澄白河、門前仲町、日本橋、森下などのエリアに対応しています。";
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <div
+        class="relative h-[40vh] flex items-center justify-center overflow-hidden"
+    >
+        <div class="absolute inset-0 z-0 bg-[#544A40]">
+            <div class="absolute inset-0 bg-black/20"></div>
+        </div>
+        <div class="relative z-10 text-center text-white px-6">
+            <h1 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider">
+                出張エリア一覧
+            </h1>
+            <p class="text-lg md:text-xl font-light opacity-90">Area List</p>
+        </div>
+    </div>
+
+    <section class="py-20 px-6 max-w-6xl mx-auto">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                areas.map((area) => (
+                    <a
+                        href={`/area/${area.slug}`}
+                        class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                        <div class="relative h-48 overflow-hidden">
+                            <img
+                                src={area.mainImage}
+                                alt={area.name}
+                                class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
+                            />
+                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors">
+                                {area.name}
+                            </h2>
+                            <p class="text-sm text-[#544A40]/60 mb-4 line-clamp-2">
+                                {area.catchphrase}
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                {area.subAreas.slice(0, 3).map((sub) => (
+                                    <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded">
+                                        {sub}
+                                    </span>
+                                ))}
+                                {area.subAreas.length > 3 && (
+                                    <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded">
+                                        ...
+                                    </span>
+                                )}
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="bg-[#F3EFE9] py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-serif mb-6 text-[#544A40]">
+                その他のエリアについてもご相談ください
+            </h2>
+            <p class="mb-10 text-[#544A40]/80 leading-relaxed">
+                記載のないエリアでも、近隣であれば対応可能な場合がございます。<br
+                />
+                まずはお気軽にお問い合わせください。
+            </p>
+            <a
+                href="/contact"
+                class="inline-block bg-[#A88B58] hover:bg-[#8A7246] text-white font-medium py-3 px-8 rounded-full transition-all duration-300 tracking-wider"
+            >
+                お問い合わせはこちら
+            </a>
+        </div>
+    </section>
+</Layout>

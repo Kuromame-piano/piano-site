@@ -1,67 +1,107 @@
 ---
 // メニュー項目の定義
 const navItems = [
-  { href: '/', label: 'HOME' },
-  { href: '/lesson', label: 'LESSON' },
-  { href: '/news', label: 'NEWS' },
-  { href: '/faq', label: 'FAQ' },
-  { href: '/contact', label: 'CONTACT' },
+  { href: "/", label: "HOME" },
+  { href: "/lesson", label: "LESSON" },
+  { href: "/area", label: "AREA" },
+  { href: "/news", label: "NEWS" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/contact", label: "CONTACT" },
 ];
 ---
 
-<header class="bg-white/90 backdrop-blur-md fixed w-full top-0 z-50 border-b border-[#F1EBE4]">
-  <div class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative z-50">
+<header
+  class="bg-white/90 backdrop-blur-md fixed w-full top-0 z-50 border-b border-[#F1EBE4]"
+>
+  <div
+    class="max-w-6xl mx-auto px-6 h-16 flex items-center justify-between relative z-50"
+  >
     {/* ロゴ */}
-    <a href="/" class="text-[#544A40] font-serif font-bold tracking-widest text-lg">
+    <a
+      href="/"
+      class="text-[#544A40] font-serif font-bold tracking-widest text-lg"
+    >
       Yuzuki Piano
     </a>
 
     {/* PC用ナビゲーション（スマホでは非表示） */}
     <div class="hidden md:flex items-center gap-8">
       <nav class="flex gap-8">
-        {navItems.map(item => (
-          <a href={item.href} class="text-[#544A40] hover:text-[#A88B58] text-sm tracking-widest font-sans transition-colors">
-            {item.label}
-          </a>
-        ))}
+        {
+          navItems.map((item) => (
+            <a
+              href={item.href}
+              class="text-[#544A40] hover:text-[#A88B58] text-sm tracking-widest font-sans transition-colors"
+            >
+              {item.label}
+            </a>
+          ))
+        }
       </nav>
-      <a href="/contact" class="bg-[#A88B58] text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest hover:bg-[#8B7347] transition-colors">
+      <a
+        href="/contact"
+        class="bg-[#A88B58] text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest hover:bg-[#8B7347] transition-colors"
+      >
         無料体験レッスン申込
       </a>
     </div>
-    
+
     {/* スマホ用ヘッダー右側（PCでは非表示） */}
     <div class="md:hidden flex items-center gap-4">
-      <a href="/contact" class="bg-[#A88B58] text-white px-4 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8B7347] transition-colors">
+      <a
+        href="/contact"
+        class="bg-[#A88B58] text-white px-4 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8B7347] transition-colors"
+      >
         無料体験申込
       </a>
 
       {/* ハンバーガーボタン */}
-      <button id="menu-toggle" class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50" aria-label="メニューを開く">
-        <span class="hamburger-line block w-6 h-0.5 bg-[#544A40] transition-transform duration-300 origin-center"></span>
-        <span class="hamburger-line block w-6 h-0.5 bg-[#544A40] transition-opacity duration-300"></span>
-        <span class="hamburger-line block w-6 h-0.5 bg-[#544A40] transition-transform duration-300 origin-center"></span>
+      <button
+        id="menu-toggle"
+        class="flex flex-col justify-center items-center w-8 h-8 space-y-1.5 focus:outline-none z-50"
+        aria-label="メニューを開く"
+      >
+        <span
+          class="hamburger-line block w-6 h-0.5 bg-[#544A40] transition-transform duration-300 origin-center"
+        ></span>
+        <span
+          class="hamburger-line block w-6 h-0.5 bg-[#544A40] transition-opacity duration-300"
+        ></span>
+        <span
+          class="hamburger-line block w-6 h-0.5 bg-[#544A40] transition-transform duration-300 origin-center"
+        ></span>
       </button>
     </div>
   </div>
 
   {/* スマホ用全画面メニュー（初期状態は非表示） */}
-  <nav id="mobile-menu" class="fixed inset-0 bg-[#FCFAF7] z-40 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 md:hidden h-screen w-screen">
+  <nav
+    id="mobile-menu"
+    class="fixed inset-0 bg-[#FCFAF7] z-40 flex flex-col items-center justify-center opacity-0 pointer-events-none transition-all duration-300 md:hidden h-screen w-screen"
+  >
     <ul class="space-y-8 text-center">
-      {navItems.map(item => (
-        <li>
-          <a href={item.href} class="mobile-link text-xl font-serif tracking-widest text-[#544A40] hover:text-[#A88B58] transition-colors block py-2 font-bold">
-            {item.label}
-          </a>
-        </li>
-      ))}
+      {
+        navItems.map((item) => (
+          <li>
+            <a
+              href={item.href}
+              class="mobile-link text-xl font-serif tracking-widest text-[#544A40] hover:text-[#A88B58] transition-colors block py-2 font-bold"
+            >
+              {item.label}
+            </a>
+          </li>
+        ))
+      }
     </ul>
-    
+
     {/* メニュー内の追加ボタン（必要であれば） */}
     <div class="mt-12">
-       <a href="/contact" class="mobile-link inline-block bg-[#A88B58] text-white px-8 py-3 rounded-full text-sm font-bold tracking-widest">
-         無料体験レッスン申込
-       </a>
+      <a
+        href="/contact"
+        class="mobile-link inline-block bg-[#A88B58] text-white px-8 py-3 rounded-full text-sm font-bold tracking-widest"
+      >
+        無料体験レッスン申込
+      </a>
     </div>
   </nav>
 </header>
@@ -69,43 +109,43 @@ const navItems = [
 <div class="h-16"></div>
 
 <script>
-  const menuToggle = document.getElementById('menu-toggle');
-  const mobileMenu = document.getElementById('mobile-menu');
-  const mobileLinks = document.querySelectorAll('.mobile-link');
-  const lines = document.querySelectorAll('.hamburger-line');
+  const menuToggle = document.getElementById("menu-toggle");
+  const mobileMenu = document.getElementById("mobile-menu");
+  const mobileLinks = document.querySelectorAll(".mobile-link");
+  const lines = document.querySelectorAll(".hamburger-line");
 
   let isOpen = false;
 
   if (menuToggle && mobileMenu) {
-    menuToggle.addEventListener('click', () => {
+    menuToggle.addEventListener("click", () => {
       isOpen = !isOpen;
-      
+
       if (isOpen) {
         // メニューを開く
-        mobileMenu.classList.remove('opacity-0', 'pointer-events-none');
-        mobileMenu.classList.add('opacity-100', 'pointer-events-auto');
-        document.body.style.overflow = 'hidden'; // 背景のスクロールを止める
+        mobileMenu.classList.remove("opacity-0", "pointer-events-none");
+        mobileMenu.classList.add("opacity-100", "pointer-events-auto");
+        document.body.style.overflow = "hidden"; // 背景のスクロールを止める
 
         // ハンバーガーを×印にするアニメーション
-        lines[0].classList.add('rotate-45', 'translate-y-2');
-        lines[1].classList.add('opacity-0');
-        lines[2].classList.add('-rotate-45', '-translate-y-2');
+        lines[0].classList.add("rotate-45", "translate-y-2");
+        lines[1].classList.add("opacity-0");
+        lines[2].classList.add("-rotate-45", "-translate-y-2");
       } else {
         // メニューを閉じる
-        mobileMenu.classList.add('opacity-0', 'pointer-events-none');
-        mobileMenu.classList.remove('opacity-100', 'pointer-events-auto');
-        document.body.style.overflow = ''; // スクロール解除
+        mobileMenu.classList.add("opacity-0", "pointer-events-none");
+        mobileMenu.classList.remove("opacity-100", "pointer-events-auto");
+        document.body.style.overflow = ""; // スクロール解除
 
         // ハンバーガーを元に戻す
-        lines[0].classList.remove('rotate-45', 'translate-y-2');
-        lines[1].classList.remove('opacity-0');
-        lines[2].classList.remove('-rotate-45', '-translate-y-2');
+        lines[0].classList.remove("rotate-45", "translate-y-2");
+        lines[1].classList.remove("opacity-0");
+        lines[2].classList.remove("-rotate-45", "-translate-y-2");
       }
     });
 
     // リンクをクリックしたら自動で閉じる
-    mobileLinks.forEach(link => {
-      link.addEventListener('click', () => {
+    mobileLinks.forEach((link) => {
+      link.addEventListener("click", () => {
         if (isOpen) menuToggle.click();
       });
     });
