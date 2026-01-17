@@ -54,6 +54,41 @@ const schema = JSON.stringify({
                 },
             ],
         },
+        // LocalBusiness Schema for mobile business
+        {
+            "@type": "LocalBusiness",
+            "@id": Astro.site?.toString() + "#business",
+            name: "髙橋遊月ピアノ教室",
+            description: `${area.name}での出張ピアノレッスン。${area.lead}`,
+            url: Astro.site?.toString(),
+            image: new URL("/senzai.png", Astro.site).toString(),
+            telephone: "", // 電話番号があれば追加
+            priceRange: "￥5,000～",
+            areaServed: [
+                {
+                    "@type": "City",
+                    name: area.name,
+                },
+                ...area.subAreas.map((sub) => ({
+                    "@type": "Place",
+                    name: sub,
+                })),
+            ],
+            serviceType: "出張ピアノレッスン",
+            hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "ピアノレッスン",
+                itemListElement: [
+                    {
+                        "@type": "Offer",
+                        itemOffered: {
+                            "@type": "Service",
+                            name: "無料体験レッスン",
+                        },
+                    },
+                ],
+            },
+        },
         {
             "@type": "Service",
             name: `${area.name}の出張ピアノ教室`,
@@ -87,10 +122,10 @@ const schema = JSON.stringify({
                 },
             },
         },
-        // FAQPage Schema for rich results
+        // FAQPage Schema for rich results (最大3つまで)
         {
             "@type": "FAQPage",
-            mainEntity: area.faqs.map((faq) => ({
+            mainEntity: area.faqs.slice(0, 3).map((faq) => ({
                 "@type": "Question",
                 name: faq.question,
                 acceptedAnswer: {
@@ -115,7 +150,7 @@ const schema = JSON.stringify({
     <link slot="head" rel="preload" as="image" href={area.mainImage} />
 
     <div
-        class="relative h-[60vh] flex items-center justify-center overflow-hidden"
+        class="relative h-[50vh] flex items-center justify-center overflow-hidden"
     >
         <div class="absolute inset-0 z-0">
             <img
@@ -211,22 +246,100 @@ const schema = JSON.stringify({
         )
     }
 
-    <section class="bg-[#F3EFE9] py-20 px-6">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl font-serif mb-8 text-[#544A40]">
-                {area.name}のアクセス・対応エリア
+    {/* 教室について詳しく知る */}
+    <section class="bg-[#F3EFE9] py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-serif mb-8 text-[#544A40] text-center">
+                教室について詳しく知る
             </h2>
-            <p class="mb-4 text-[#544A40]/90 font-medium">
-                {area.access}
-            </p>
-            <div class="flex flex-wrap justify-center gap-2 mb-8">
-                {
-                    area.keywords.map((keyword) => (
-                        <span class="bg-white px-3 py-1 text-sm text-[#A88B58] rounded-full border border-[#A88B58]/20">
-                            #{keyword}
-                        </span>
-                    ))
-                }
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a
+                    href="/#profile"
+                    class="flex items-center gap-3 p-4 rounded-lg bg-white border border-[#F1EBE4] hover:border-[#A88B58] hover:shadow-md transition-all group"
+                >
+                    <div
+                        class="w-10 h-10 rounded-full bg-[#F3EFE9] flex items-center justify-center text-[#A88B58] group-hover:bg-[#A88B58] group-hover:text-white transition-colors"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-[#544A40]">講師紹介</p>
+                        <p class="text-xs text-[#544A40]/60">
+                            東京音大卒の講師プロフィール
+                        </p>
+                    </div>
+                </a>
+                <a
+                    href="/lesson#price"
+                    class="flex items-center gap-3 p-4 rounded-lg bg-white border border-[#F1EBE4] hover:border-[#A88B58] hover:shadow-md transition-all group"
+                >
+                    <div
+                        class="w-10 h-10 rounded-full bg-[#F3EFE9] flex items-center justify-center text-[#A88B58] group-hover:bg-[#A88B58] group-hover:text-white transition-colors"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-[#544A40]">料金案内</p>
+                        <p class="text-xs text-[#544A40]/60">
+                            レッスン料金・出張費について
+                        </p>
+                    </div>
+                </a>
+                <a
+                    href="/contact"
+                    class="flex items-center gap-3 p-4 rounded-lg bg-white border border-[#F1EBE4] hover:border-[#A88B58] hover:shadow-md transition-all group"
+                >
+                    <div
+                        class="w-10 h-10 rounded-full bg-[#F3EFE9] flex items-center justify-center text-[#A88B58] group-hover:bg-[#A88B58] group-hover:text-white transition-colors"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-[#544A40]">お問い合わせ</p>
+                        <p class="text-xs text-[#544A40]/60">
+                            無料体験レッスンのお申し込み
+                        </p>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
@@ -238,7 +351,7 @@ const schema = JSON.stringify({
         </h2>
         <div class="space-y-4">
             {
-                area.faqs.map((faq, index) => (
+                area.faqs.slice(0, 3).map((faq, index) => (
                     <details class="group bg-white rounded-lg shadow-sm border border-[#F1EBE4] overflow-hidden">
                         <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
                             <span class="font-medium text-[#544A40] pr-4 text-left">

@@ -8,6 +8,12 @@ export interface Area {
     subAreas: string[];
     keywords: string[];
     access: string;
+    accessDetails: {
+        station: string;
+        line: string;
+        walkTime?: string;
+        note?: string;
+    }[];
     features: {
         title: string;
         description: string;
@@ -30,6 +36,11 @@ export const areas: Area[] = [
         subAreas: ["豊洲", "有明", "東雲"],
         keywords: ["タワーマンション", "出張ピアノ教室", "豊洲", "有明", "東雲", "子供の習い事"],
         access: "豊洲駅・有明駅を中心に、エリア内のタワーマンションへ伺います。",
+        accessDetails: [
+            { station: "豊洲駅", line: "東京メトロ有楽町線・ゆりかもめ", walkTime: "徒歩5〜15分", note: "豊洲シエルタワー、パークシティ豊洲など主要マンションへアクセス良好" },
+            { station: "有明駅", line: "ゆりかもめ", walkTime: "徒歩5〜10分", note: "ブリリアマーレ有明、有明ガーデンエリア対応" },
+            { station: "東雲駅", line: "りんかい線", walkTime: "徒歩10〜15分", note: "東雲キャナルコート周辺のマンションへ対応" }
+        ],
         features: [
             {
                 title: "タワーマンション対応",
@@ -66,6 +77,11 @@ export const areas: Area[] = [
         subAreas: ["晴海", "勝どき", "月島"],
         keywords: ["晴海フラッグ", "ドゥ・トゥール", "勝どきザ・タワー", "KTT", "PTK"],
         access: "大江戸線勝どき駅を中心に、バス・BRTで晴海全域へスムーズに伺えます。",
+        accessDetails: [
+            { station: "勝どき駅", line: "都営大江戸線", walkTime: "徒歩5〜10分", note: "勝どきザ・タワー、ドゥ・トゥールへアクセス良好" },
+            { station: "月島駅", line: "東京メトロ有楽町線・都営大江戸線", walkTime: "徒歩5〜8分", note: "月島の住宅街全域対応" },
+            { station: "晴海BRT", line: "東京 BRT", walkTime: "徒歩5〜15分", note: "捴海フラッグへはBRTを利用して訪問" }
+        ],
         features: [
             {
                 title: "晴海フラッグ対応",
@@ -102,6 +118,10 @@ export const areas: Area[] = [
         subAreas: ["清澄白河", "白河", "三好", "平野"],
         keywords: ["清澄白河", "おしゃれ", "ピアノ教室", "木場公園", "現代美術館"],
         access: "半蔵門線・大江戸線 清澄白河駅周辺の住宅街へ伺います。",
+        accessDetails: [
+            { station: "清澄白河駅", line: "東京メトロ半蔵門線・都営大江戸線", walkTime: "徒歩5〜10分", note: "カフェ街や清澄庭園周辺の住宅地全域対応" },
+            { station: "木場駅", line: "東京メトロ東西線", walkTime: "徒歩8〜12分", note: "木場公園周辺のマンションへ対応" }
+        ],
         features: [
             {
                 title: "感性を磨く",
@@ -138,6 +158,11 @@ export const areas: Area[] = [
         subAreas: ["門前仲町", "木場", "牡丹", "古石場", "越中島", "冬木"],
         keywords: ["門前仲町", "木場", "東西線", "深川", "ピアノレッスン"],
         access: "東西線・大江戸線 門前仲町駅、東西線 木場駅周辺へ幅広く対応します。",
+        accessDetails: [
+            { station: "門前仲町駅", line: "東京メトロ東西線・都営大江戸線", walkTime: "徒歩5〜10分", note: "富岡八幡宮周辺、商店街エリア全域対応" },
+            { station: "木場駅", line: "東京メトロ東西線", walkTime: "徒歩5〜12分", note: "木場公園周辺の住宅地に対応" },
+            { station: "越中島駅", line: "JR京葉線", walkTime: "徒歩10〜15分", note: "越中島・古石場エリアに対応" }
+        ],
         features: [
             {
                 title: "地域密着の安心感",
@@ -174,6 +199,11 @@ export const areas: Area[] = [
         subAreas: ["人形町", "水天宮前", "浜町", "箱崎町"],
         keywords: ["日本橋", "人形町", "水天宮前", "私立小学校", "受験"],
         access: "日比谷線・浅草線 人形町駅、半蔵門線 水天宮前駅周辺へ伺います。",
+        accessDetails: [
+            { station: "人形町駅", line: "東京メトロ日比谷線・都営浅草線", walkTime: "徒歩3〜8分", note: "人形町商店街周辺の住宅地全域対応" },
+            { station: "水天宮前駅", line: "東京メトロ半蔵門線", walkTime: "徒歩3〜10分", note: "箱崎・浜町方面のマンションへ対応" },
+            { station: "茅場町駅", line: "東京メトロ日比谷線・東西線", walkTime: "徒歩10〜15分", note: "日本橋蛤殿町エリアにも対応" }
+        ],
         features: [
             {
                 title: "質の高い指導",
@@ -210,6 +240,11 @@ export const areas: Area[] = [
         subAreas: ["森下", "住吉", "菊川", "千歳", "緑", "立川"],
         keywords: ["森下", "住吉", "菊川", "共働き", "保育園", "習い事"],
         access: "都営新宿線・大江戸線 森下駅、半蔵門線 住吉駅周辺のファミリー層が多いエリアです。",
+        accessDetails: [
+            { station: "森下駅", line: "都営新宿線・都営大江戸線", walkTime: "徒歩5〜10分", note: "森下商店街周辺の住宅地全域対応" },
+            { station: "住吉駅", line: "東京メトロ半蔵門線・都営新宿線", walkTime: "徒歩5〜8分", note: "猪牡丹橋周辺のファミリーマンション対応" },
+            { station: "菊川駅", line: "都営新宿線", walkTime: "徒歩5〜10分", note: "菊川・緑エリアの住宅街へ対応" }
+        ],
         features: [
             {
                 title: "送迎負担ゼロ",
