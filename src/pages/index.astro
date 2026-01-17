@@ -2,6 +2,7 @@
 import Layout from "../layouts/Layout.astro";
 import { client } from "../lib/microcms";
 import { Image } from "astro:assets";
+import { areas } from "../data/areas";
 
 // SEO用の設定
 const pageTitle = "江東区・清澄白河の出張専門ピアノ教室 | 髙橋遊月ピアノ教室";
@@ -801,6 +802,41 @@ const schema = JSON.stringify({
               </p>
             </div>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="py-24 bg-white">
+      <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+          <h2 class="text-2xl md:text-3xl font-serif mb-4">出張対応エリア</h2>
+          <div
+            class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+          >
+            <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            Service Area
+            <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+          </div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {
+            areas.map((area) => (
+              <a
+                href={`/area/${area.slug}`}
+                class="group block p-6 border border-[#F1EBE4] rounded-xl hover:border-[#A88B58] hover:bg-[#FCFAF7] transition-all duration-300"
+              >
+                <h3 class="text-lg font-serif mb-2 group-hover:text-[#A88B58] transition-colors">
+                  {area.name}
+                </h3>
+                <p class="text-xs text-[#544A40]/60 mb-3">
+                  {area.subAreas.join("・")}
+                </p>
+                <p class="text-sm text-[#544A40]/80 leading-relaxed">
+                  {area.catchphrase}
+                </p>
+              </a>
+            ))
+          }
         </div>
       </div>
     </section>
