@@ -40,7 +40,7 @@ const schema = JSON.stringify({
                     "@type": "ListItem",
                     position: 2,
                     item: {
-                        "@id": new URL("/#areas", Astro.site).toString(),
+                        "@id": new URL("/area", Astro.site).toString(),
                         name: "出張エリア",
                     },
                 },
@@ -87,6 +87,18 @@ const schema = JSON.stringify({
                 },
             },
         },
+        // FAQPage Schema for rich results
+        {
+            "@type": "FAQPage",
+            mainEntity: area.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: faq.answer,
+                },
+            })),
+        },
     ],
 });
 ---
@@ -108,7 +120,7 @@ const schema = JSON.stringify({
         <div class="absolute inset-0 z-0">
             <img
                 src={area.mainImage}
-                alt={`${area.name}の街並み`}
+                alt={area.mainImageAlt || `${area.name}の街並み`}
                 class="w-full h-full object-cover opacity-60"
             />
             <div class="absolute inset-0 bg-[#544A40]/30"></div>
@@ -127,7 +139,13 @@ const schema = JSON.stringify({
                         >
                     </li>
                     <li><span class="opacity-60">/</span></li>
-                    <li><span class="opacity-60">出張エリア</span></li>
+                    <li>
+                        <a
+                            href="/area"
+                            class="hover:text-white transition-colors"
+                            >出張エリア</a
+                        >
+                    </li>
                     <li><span class="opacity-60">/</span></li>
                     <li class="font-medium text-white" aria-current="page">
                         {area.name}
@@ -177,6 +195,22 @@ const schema = JSON.stringify({
         </div>
     </section>
 
+    {/* Unique Content Section */}
+    {
+        area.uniqueContent && (
+            <section class="py-16 px-6 bg-white">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-serif mb-8 text-[#544A40] text-center">
+                        {area.name}でピアノを始める
+                    </h2>
+                    <p class="text-[#544A40]/80 leading-8 text-justify">
+                        {area.uniqueContent}
+                    </p>
+                </div>
+            </section>
+        )
+    }
+
     <section class="bg-[#F3EFE9] py-20 px-6">
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-2xl font-serif mb-8 text-[#544A40]">
@@ -194,6 +228,51 @@ const schema = JSON.stringify({
                     ))
                 }
             </div>
+        </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section class="py-20 px-6 max-w-4xl mx-auto" id="faq">
+        <h2 class="text-2xl font-serif mb-12 text-[#544A40] text-center">
+            {area.name}でよくあるご質問
+        </h2>
+        <div class="space-y-4">
+            {
+                area.faqs.map((faq, index) => (
+                    <details class="group bg-white rounded-lg shadow-sm border border-[#F1EBE4] overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
+                            <span class="font-medium text-[#544A40] pr-4 text-left">
+                                <span class="text-[#A88B58] mr-2">Q.</span>
+                                {faq.question}
+                            </span>
+                            <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#F1EBE4]">
+                            <p class="pt-4">
+                                <span class="text-[#A88B58] font-medium mr-2">
+                                    A.
+                                </span>
+                                {faq.answer}
+                            </p>
+                        </div>
+                    </details>
+                ))
+            }
         </div>
     </section>
 
@@ -235,3 +314,14 @@ const schema = JSON.stringify({
         </div>
     </section>
 </Layout>
+
+<style>
+    /* FAQ accordion animation */
+    details[open] summary {
+        border-bottom: none;
+    }
+
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+</style>
