@@ -26,7 +26,7 @@ export const areas: Area[] = [
         catchphrase: "タワーマンションでの出張レッスンに特化",
         lead: "豊洲・有明・東雲エリアのタワーマンションにお住まいの方へ。セキュリティや駐車場の事情にも精通しており、スムーズな訪問レッスンが可能です。",
         mainImage: "/images/areas/toyosu.png",
-        mainImageAlt: "豊洲の高層タワーマンション群と運河の風景",
+        mainImageAlt: "豊洲のタワーマンションからの眺望とピアノレッスン風景",
         subAreas: ["豊洲", "有明", "東雲"],
         keywords: ["タワーマンション", "出張ピアノ教室", "豊洲", "有明", "東雲", "子供の習い事"],
         features: [
@@ -61,8 +61,8 @@ export const areas: Area[] = [
         name: "晴海・勝どき・月島",
         catchphrase: "送り迎え不要、ご自宅で質の高いレッスンを",
         lead: "新しい街並みが広がる晴海・勝どきエリア。駅から距離がある場所でも、出張レッスンなら送迎の負担なく、お子様は安心してレッスンを受けられます。",
-        mainImage: "/images/areas/harumi-kachidoki.png",
-        mainImageAlt: "晴海フラッグと勝どきの街並み",
+        mainImage: "/images/areas/harumi_katidoki.png",
+        mainImageAlt: "晴海・勝どきエリアの子供のピアノレッスン風景",
         subAreas: ["晴海", "勝どき", "月島"],
         keywords: ["晴海フラッグ", "ドゥ・トゥール", "勝どきザ・タワー", "KTT", "PTK"],
         features: [
@@ -97,8 +97,8 @@ export const areas: Area[] = [
         name: "清澄白河エリア",
         catchphrase: "アートとカフェの街に似合う、感性を育むピアノ",
         lead: "清澄白河・白河・三好・平野エリア。洗練された街の雰囲気の中で、豊かな感性と表現力を育てるピアノレッスンを提供します。",
-        mainImage: "/images/areas/kiyosumi-shirakawa.png",
-        mainImageAlt: "清澄白河のカフェ街と清澄庭園",
+        mainImage: "/images/areas/kiyosumisirakawa.png",
+        mainImageAlt: "清澄白河での女性のピアノレッスン風景",
         subAreas: ["清澄白河", "白河", "三好", "平野"],
         keywords: ["清澄白河", "おしゃれ", "ピアノ教室", "木場公園", "現代美術館"],
         features: [
@@ -133,8 +133,8 @@ export const areas: Area[] = [
         name: "門前仲町・木場",
         catchphrase: "下町の温かさと信頼、地域に根差したピアノ教室",
         lead: "門前仲町・木場・牡丹・古石場・越中島・冬木エリア。古くからの住宅地と新しいマンションが共存するこの街で、信頼関係を大切にしたレッスンを行います。",
-        mainImage: "/images/areas/monzen-nakacho.png",
-        mainImageAlt: "門前仲町の商店街と富岡八幡宮",
+        mainImage: "/images/areas/monnzennnakatyou.png",
+        mainImageAlt: "門前仲町の温かい家庭での子供のピアノレッスン",
         subAreas: ["門前仲町", "木場", "牡丹", "古石場", "越中島", "冬木"],
         keywords: ["門前仲町", "木場", "東西線", "深川", "ピアノレッスン"],
         features: [
@@ -169,8 +169,8 @@ export const areas: Area[] = [
         name: "日本橋・人形町",
         catchphrase: "都心の教育熱心なご家庭に、本物の音楽教育を",
         lead: "人形町・水天宮前・浜町・箱崎町エリア。歴史と伝統ある日本橋で、質の高い教育を求めるご家庭のご要望にお応えします。",
-        mainImage: "/images/areas/nihonbashi.png",
-        mainImageAlt: "日本橋の街並みと人形町の商店街",
+        mainImage: "/images/areas/nihonnbasi.png",
+        mainImageAlt: "日本橋での大人のピアノレッスン風景",
         subAreas: ["人形町", "水天宮前", "浜町", "箱崎町"],
         keywords: ["日本橋", "人形町", "水天宮前", "私立小学校", "受験"],
         features: [
@@ -205,8 +205,8 @@ export const areas: Area[] = [
         name: "森下・住吉・菊川",
         catchphrase: "共働きファミリーの味方、夕方の時間を有効活用",
         lead: "森下・住吉・菊川・千歳・緑・立川エリア。保育園やマンションが多く、共働き世帯が多いこのエリアで、送迎負担のない出張レッスンが喜ばれています。",
-        mainImage: "/images/areas/morishita-sumiyoshi.png",
-        mainImageAlt: "森下・住吉エリアの住宅街と公園",
+        mainImage: "/images/areas/morisita_sumiyosi.png",
+        mainImageAlt: "森下・住吉エリアのアットホームな子供のピアノレッスン",
         subAreas: ["森下", "住吉", "菊川", "千歳", "緑", "立川"],
         keywords: ["森下", "住吉", "菊川", "共働き", "保育園", "習い事"],
         features: [
