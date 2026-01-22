@@ -69,37 +69,41 @@ const schema = JSON.stringify({
     />
 
     <div
-        class="relative h-[40vh] flex items-center justify-center overflow-hidden"
+        class="relative h-[40vh] flex items-center justify-center overflow-hidden bg-[#F3EFE9]"
     >
-        <div class="absolute inset-0 z-0 bg-[#544A40]">
-            <div class="absolute inset-0 bg-black/20"></div>
-        </div>
-
         {/* Breadcrumbs (Visual) */}
         <div class="absolute top-24 left-0 right-0 z-20 px-6">
             <nav
-                class="max-w-4xl mx-auto text-sm text-white/90 font-light"
+                class="max-w-4xl mx-auto text-sm text-[#544A40]/60 font-light"
                 aria-label="Breadcrumb"
             >
                 <ol class="flex items-center space-x-2">
                     <li>
-                        <a href="/" class="hover:text-white transition-colors"
+                        <a
+                            href="/"
+                            class="hover:text-[#A88B58] transition-colors"
                             >ホーム</a
                         >
                     </li>
-                    <li><span class="opacity-60">/</span></li>
-                    <li class="font-medium text-white" aria-current="page">
+                    <li><span class="opacity-40">/</span></li>
+                    <li class="font-medium text-[#544A40]" aria-current="page">
                         出張エリア
                     </li>
                 </ol>
             </nav>
         </div>
 
-        <div class="relative z-10 text-center text-white px-6">
-            <h1 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider">
+        <div class="relative z-10 text-center px-6 pt-10">
+            <h1
+                class="text-3xl md:text-5xl font-serif mb-4 tracking-wider text-[#544A40]"
+            >
                 出張エリア一覧
             </h1>
-            <p class="text-lg md:text-xl font-light opacity-90">Area List</p>
+            <p
+                class="text-lg md:text-xl font-light text-[#A88B58] tracking-widest font-serif"
+            >
+                Area List
+            </p>
         </div>
     </div>
 
@@ -118,14 +122,14 @@ const schema = JSON.stringify({
                         href={`/area/${area.slug}`}
                         class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
                     >
-                        <div class="relative h-48 overflow-hidden">
+                        <div class="relative h-48 overflow-hidden bg-gray-100">
                             <img
                                 src={area.mainImage}
                                 alt={area.mainImageAlt || area.name}
-                                class="w-full h-full object-cover transition-transform duration-500 scale-110 group-hover:scale-125"
+                                class="w-full h-full object-cover transition-transform duration-500 scale-110 group-hover:scale-125 opacity-80 group-hover:opacity-100"
                                 loading="lazy"
                             />
-                            <div class="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors" />
                         </div>
                         <div class="p-6">
                             <h2 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors">

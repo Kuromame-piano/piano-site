@@ -14,7 +14,24 @@ interface Props {
     area: Area;
 }
 
+// ... (existing imports)
+
 const { area } = Astro.props;
+
+// 画像の表示位置をエリアごとに調整
+const getObjectPosition = (slug: string) => {
+    // 下の方（手元など）を映したいエリア
+    if (["kiyosumi-shirakawa", "monzen-nakacho"].includes(slug)) {
+        return "50% 55%";
+    }
+    // 引き（全体）を映したいエリア（中央揃えでバランスをとる）
+    if (["nihonbashi", "morishita-sumiyoshi"].includes(slug)) {
+        return "50% 50%";
+    }
+    // デフォルト（やや上寄り＝顔重視）
+    return "50% 35%";
+};
+const objectPosition = getObjectPosition(area.slug);
 
 const pageTitle = `${area.name}の出張ピアノ教室 | 無料体験レッスン受付中`;
 const pageDescription = `${area.name}（${area.subAreas.join(
@@ -169,7 +186,8 @@ const schema = JSON.stringify({
             <img
                 src={area.mainImage}
                 alt={area.mainImageAlt || `${area.name}の街並み`}
-                class="w-full h-full object-cover opacity-60 scale-110"
+                class="w-full h-full object-cover opacity-60"
+                style={`object-position: ${objectPosition}`}
             />
             <div class="absolute inset-0 bg-[#544A40]/30"></div>
         </div>
