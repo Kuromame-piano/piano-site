@@ -193,32 +193,7 @@ const schema = JSON.stringify({
         </div>
 
         {/* Breadcrumbs (Visual) */}
-        <div class="absolute top-24 left-0 right-0 z-20 px-6">
-            <nav
-                class="max-w-4xl mx-auto text-sm text-white/90 font-light"
-                aria-label="Breadcrumb"
-            >
-                <ol class="flex items-center space-x-2">
-                    <li>
-                        <a href="/" class="hover:text-white transition-colors"
-                            >ホーム</a
-                        >
-                    </li>
-                    <li><span class="opacity-60">/</span></li>
-                    <li>
-                        <a
-                            href="/area"
-                            class="hover:text-white transition-colors"
-                            >出張エリア</a
-                        >
-                    </li>
-                    <li><span class="opacity-60">/</span></li>
-                    <li class="font-medium text-white" aria-current="page">
-                        {area.name}
-                    </li>
-                </ol>
-            </nav>
-        </div>
+
         <div class="relative z-10 text-center text-white px-6">
             <h1 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider">
                 {area.name}の出張ピアノ教室

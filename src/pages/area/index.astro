@@ -69,29 +69,25 @@ const schema = JSON.stringify({
     />
 
     <div
-        class="relative h-[40vh] flex items-center justify-center overflow-hidden bg-[#F3EFE9]"
+        class="relative h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#F8F5F0] to-[#E8E0D6]"
     >
-        {/* Breadcrumbs (Visual) */}
-        <div class="absolute top-24 left-0 right-0 z-20 px-6">
-            <nav
-                class="max-w-4xl mx-auto text-sm text-[#544A40]/60 font-light"
-                aria-label="Breadcrumb"
+        {/* Decorative animated background circles */}
+        <div class="absolute inset-0 overflow-hidden">
+            <div
+                class="absolute -top-20 -right-20 w-64 h-64 bg-[#A88B58]/10 rounded-full blur-3xl animate-pulse"
             >
-                <ol class="flex items-center space-x-2">
-                    <li>
-                        <a
-                            href="/"
-                            class="hover:text-[#A88B58] transition-colors"
-                            >ホーム</a
-                        >
-                    </li>
-                    <li><span class="opacity-40">/</span></li>
-                    <li class="font-medium text-[#544A40]" aria-current="page">
-                        出張エリア
-                    </li>
-                </ol>
-            </nav>
+            </div>
+            <div
+                class="absolute -bottom-20 -left-20 w-80 h-80 bg-[#A88B58]/8 rounded-full blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
+            >
+            </div>
+            <div
+                class="absolute top-1/2 left-1/4 w-48 h-48 bg-[#A88B58]/5 rounded-full blur-2xl animate-[pulse_6s_ease-in-out_infinite]"
+            >
+            </div>
         </div>
+
+        {/* Breadcrumbs (Visual) */}
 
         <div class="relative z-10 text-center px-6 pt-10">
             <h1
