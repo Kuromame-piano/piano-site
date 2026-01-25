@@ -94,37 +94,19 @@ const metaKeywords = keywords
         <Footer />
 
         {/* GTMの積極的遅延読み込み（ユーザー操作または3秒後に読み込み） */}
-        <script is:inline>
-            (function () {
-                var loaded = false;
-                function loadGTM() {
-                    if (loaded) return;
-                    loaded = true;
-                    var gtmScript = document.createElement("script");
-                    gtmScript.src =
-                        "https://www.googletagmanager.com/gtag/js?id=G-FCM36GL4CP";
-                    gtmScript.async = true;
-                    document.head.appendChild(gtmScript);
-                    window.dataLayer = window.dataLayer || [];
-                    function gtag() {
-                        dataLayer.push(arguments);
-                    }
-                    window.gtag = gtag;
-                    gtag("js", new Date());
-                    gtag("config", "G-FCM36GL4CP");
-                }
-                // ユーザー操作があれば読み込む
-                ["scroll", "click", "touchstart", "mousemove"].forEach(
-                    function (e) {
-                        window.addEventListener(e, loadGTM, {
-                            once: true,
-                            passive: true,
-                        });
-                    },
-                );
-                // 操作がなくても3秒後には読み込む（保険）
-                setTimeout(loadGTM, 3000);
-            })();
+        {/* Google Analytics (GA4) */}
+        <script
+            type="text/javascript"
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-FCM36GL4CP"
+        ></script>
+        <script type="text/javascript">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-FCM36GL4CP");
         </script>
     </body>
 </html>
