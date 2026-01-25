@@ -211,7 +211,9 @@ const schema = JSON.stringify({
             >
                 {area.catchphrase}
             </h2>
-            <p class="text-[#544A40]/80 leading-8">
+            <p
+                class="text-[#544A40]/80 leading-relaxed text-left md:text-center"
+            >
                 {area.lead}
             </p>
         </div>
@@ -226,7 +228,7 @@ const schema = JSON.stringify({
                             <h3 class="text-xl font-serif text-[#A88B58] border-l-4 border-[#A88B58] pl-4">
                                 {feature.title}
                             </h3>
-                            <p class="text-[#544A40]/80 leading-7 text-justify">
+                            <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify">
                                 {feature.description}
                             </p>
                         </div>
@@ -244,7 +246,7 @@ const schema = JSON.stringify({
                     <h2 class="text-2xl font-serif mb-8 text-[#544A40] text-center">
                         {area.name}でピアノを始める
                     </h2>
-                    <p class="text-[#544A40]/80 leading-8 text-justify">
+                    <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify">
                         {area.uniqueContent}
                     </p>
                 </div>
@@ -400,8 +402,12 @@ const schema = JSON.stringify({
         <div class="max-w-4xl mx-auto text-center">
             <h2 class="text-3xl font-serif mb-6">まずは無料体験レッスンから</h2>
             <p class="mb-10 text-lg opacity-90 leading-relaxed">
-                {area.name}でピアノ教室をお探しの方へ。<br />
-                ご自宅でのリラックスしたレッスンを体験してみませんか？
+                <span class="inline-block">{area.name}でピアノ教室を</span><span
+                    class="inline-block">お探しの方へ。</span
+                ><br class="hidden md:block" />
+                <span class="inline-block">ご自宅でのリラックスした</span><span
+                    class="inline-block">レッスンを体験してみませんか？</span
+                >
             </p>
             <a
                 href="/contact"

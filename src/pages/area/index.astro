@@ -69,47 +69,34 @@ const schema = JSON.stringify({
     />
 
     <div
-        class="relative h-[40vh] flex items-center justify-center overflow-hidden bg-gradient-to-b from-[#F8F5F0] to-[#E8E0D6]"
+        class="relative h-[40vh] flex items-center justify-center overflow-hidden bg-[#F3EFE9]"
     >
-        {/* Decorative animated background circles */}
-        <div class="absolute inset-0 overflow-hidden">
-            <div
-                class="absolute -top-20 -right-20 w-64 h-64 bg-[#A88B58]/10 rounded-full blur-3xl animate-pulse"
-            >
-            </div>
-            <div
-                class="absolute -bottom-20 -left-20 w-80 h-80 bg-[#A88B58]/8 rounded-full blur-3xl animate-[pulse_4s_ease-in-out_infinite]"
-            >
-            </div>
-            <div
-                class="absolute top-1/2 left-1/4 w-48 h-48 bg-[#A88B58]/5 rounded-full blur-2xl animate-[pulse_6s_ease-in-out_infinite]"
-            >
-            </div>
-        </div>
-
         {/* Breadcrumbs (Visual) */}
 
         <div class="relative z-10 text-center px-6 pt-10">
             <h1
                 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider text-[#544A40]"
             >
-                出張エリア一覧
+                出張エリア
             </h1>
-            <p
-                class="text-lg md:text-xl font-light text-[#A88B58] tracking-widest font-serif"
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-xs md:text-sm tracking-[0.2em] font-serif uppercase"
             >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                 Area List
-            </p>
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
         </div>
     </div>
 
-    <section class="py-20 px-6 max-w-6xl mx-auto">
+    <section class="pt-12 pb-20 px-6 max-w-6xl mx-auto">
         <p
-            class="text-center text-[#544A40]/80 mb-12 max-w-2xl mx-auto leading-relaxed"
+            class="text-[#544A40]/80 mb-12 max-w-2xl mx-auto leading-relaxed text-left md:text-center"
         >
-            江東区・中央区を中心に、ご自宅への出張ピアノレッスンを承っております。<br
-            />
-            各エリアの詳細ページでは、地域に合わせたレッスンのご案内をしています。
+            江東区・中央区を中心に、<wbr />ご自宅への出張ピアノレッスンを<wbr
+            />承っております。<br class="hidden md:block" />
+            各エリアの詳細ページでは、<wbr />地域に合わせたレッスンの<wbr
+            />ご案内をしています。
         </p>
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
             {
@@ -135,16 +122,11 @@ const schema = JSON.stringify({
                                 {area.catchphrase}
                             </p>
                             <div class="flex flex-wrap gap-2">
-                                {area.subAreas.slice(0, 3).map((sub) => (
+                                {area.subAreas.slice(0, 4).map((sub) => (
                                     <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded">
                                         {sub}
                                     </span>
                                 ))}
-                                {area.subAreas.length > 3 && (
-                                    <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded">
-                                        +{area.subAreas.length - 3}
-                                    </span>
-                                )}
                             </div>
                         </div>
                     </a>
@@ -158,8 +140,11 @@ const schema = JSON.stringify({
             <h2 class="text-2xl font-serif mb-6 text-[#544A40]">
                 その他のエリアについてもご相談ください
             </h2>
-            <p class="mb-10 text-[#544A40]/80 leading-relaxed">
+            <p
+                class="mb-10 text-[#544A40]/80 leading-relaxed text-left md:text-center"
+            >
                 記載のないエリアでも、近隣であれば対応可能な場合がございます。<br
+                    class="hidden md:block"
                 />
                 まずはお気軽にお問い合わせください。
             </p>
