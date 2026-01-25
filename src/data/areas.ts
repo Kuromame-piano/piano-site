@@ -23,7 +23,7 @@ export const areas: Area[] = [
     {
         slug: "toyosu",
         name: "豊洲エリア",
-        catchphrase: "送迎なしで、いつものリビングがピアノ教室に",
+        catchphrase: "いつものリビングがピアノ教室に",
         lead: "経験豊富な講師が、ご自宅までお伺いします。お子様は安心できるいつもの場所で、のびのびとピアノを学べます。",
         mainImage: "/images/areas/toyosu_saiyou.webp",
         mainImageAlt: "豊洲エリアでの子供のピアノレッスン風景",
@@ -59,7 +59,7 @@ export const areas: Area[] = [
     {
         slug: "harumi-kachidoki",
         name: "月島・勝どき・晴海",
-        catchphrase: "「通わない」選択。ゆとりと上達を",
+        catchphrase: "「通わない」選択。<br class='md:hidden' />ゆとりと上達を",
         lead: "送迎の負担がないから、忙しい毎日でも心にゆとりを持って、質の高いレッスンを続けられます。",
         mainImage: "/images/areas/harumi_saiyou.webp",
         mainImageAlt: "晴海・勝どきエリアの子供のピアノレッスン風景",
@@ -95,7 +95,7 @@ export const areas: Area[] = [
     {
         slug: "kiyosumi-shirakawa",
         name: "清澄白河エリア",
-        catchphrase: "無理なく、心地よく、音楽を暮らしの一部に。",
+        catchphrase: "無理なく、心地よく、<br class='md:hidden' />音楽を暮らしの一部に。",
         lead: "移動の負担がない出張レッスンなら、忙しい毎日の中でも、自然と音楽が生活に溶け込みます。",
         mainImage: "/images/areas/kiyosumisirakawa_saiyou.webp",
         mainImageAlt: "清澄白河での女性のピアノレッスン風景",
@@ -131,7 +131,7 @@ export const areas: Area[] = [
     {
         slug: "monzen-nakacho",
         name: "門前仲町・木場",
-        catchphrase: "「続けられる」を、一番近くで。",
+        catchphrase: "「続けられる」を、<br class='md:hidden' />一番近くで。",
         lead: "生徒様のご希望を大切にしながら、ピアノを長く楽しんでいただけるレッスンをお届けします。",
         mainImage: "/images/areas/monnzennnakatyou_saiyou.webp",
         mainImageAlt: "門前仲町の温かい家庭での子供のピアノレッスン",
@@ -167,7 +167,7 @@ export const areas: Area[] = [
     {
         slug: "nihonbashi",
         name: "日本橋・人形町",
-        catchphrase: "忙しい日々に、ピアノという癒しの時間を",
+        catchphrase: "忙しい日々に、<br class='md:hidden' />ピアノという癒しの時間を",
         lead: "お仕事帰りや休日のひととき、ご自宅でリラックスしながらピアノを楽しみませんか。",
         mainImage: "/images/areas/nihonnbasi_saiyou.webp",
         mainImageAlt: "日本橋での大人のピアノレッスン風景",
@@ -203,7 +203,7 @@ export const areas: Area[] = [
     {
         slug: "morishita-sumiyoshi",
         name: "森下・住吉・菊川",
-        catchphrase: "日常に溶け込む、心地よいピアノの響き",
+        catchphrase: "日常に溶け込む、<br class='md:hidden' />心地よいピアノの響き",
         lead: "移動時間ゼロの出張レッスンなら、夕方の貴重な時間を有効に使いながら、お子様の成長を見守れます。",
         mainImage: "/images/areas/morisita_saiyou.webp",
         mainImageAlt: "森下・住吉エリアのアットホームな子供のピアノレッスン",
