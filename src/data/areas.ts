@@ -23,7 +23,7 @@ export const areas: Area[] = [
     {
         slug: "toyosu",
         name: "豊洲エリア",
-        catchphrase: "いつものリビングがピアノ教室に",
+        catchphrase: "いつものリビングが<br class='md:hidden' />ピアノ教室に",
         lead: "経験豊富な講師が、ご自宅までお伺いします。お子様は安心できるいつもの場所で、のびのびとピアノを学べます。",
         mainImage: "/images/areas/toyosu_saiyou.webp",
         mainImageAlt: "豊洲エリアでの子供のピアノレッスン風景",
