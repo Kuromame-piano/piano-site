@@ -1,0 +1,467 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { areas } from "../../data/areas";
+import { type Area } from "../../data/areas";
+
+export async function getStaticPaths() {
+    return areas.map((area) => ({
+        params: { slug: area.slug },
+        props: { area },
+    }));
+}
+
+interface Props {
+    area: Area;
+}
+
+// ... (existing imports)
+
+const { area } = Astro.props;
+
+// 画像の表示位置をエリアごとに調整
+const getObjectPosition = (slug: string) => {
+    // 下の方（手元など）を映したいエリア
+    if (["kiyosumi-shirakawa", "monzen-nakacho"].includes(slug)) {
+        return "50% 55%";
+    }
+    // 引き（全体）を映したいエリア（中央揃えでバランスをとる）
+    if (["nihonbashi", "morishita-sumiyoshi"].includes(slug)) {
+        return "50% 50%";
+    }
+    // デフォルト（やや上寄り＝顔重視）
+    return "50% 35%";
+};
+const objectPosition = getObjectPosition(area.slug);
+
+const pageTitle = `${area.name}の出張ピアノ教室 | 無料体験レッスン受付中`;
+const pageDescription = `${area.name}（${area.subAreas.join(
+    "・",
+)}）での出張ピアノレッスン。${area.lead}`;
+
+// Schema.org Structured Data
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    item: {
+                        "@id": Astro.site?.toString(),
+                        name: "ホーム",
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    item: {
+                        "@id": new URL("/area", Astro.site).toString(),
+                        name: "出張エリア",
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 3,
+                    item: {
+                        "@id": Astro.url.toString(),
+                        name: area.name,
+                    },
+                },
+            ],
+        },
+        // LocalBusiness Schema for mobile business
+        {
+            "@type": "LocalBusiness",
+            "@id": Astro.site?.toString() + "#business",
+            name: "髙橋遊月ピアノ教室",
+            description: `${area.name}での出張ピアノレッスン。${area.lead}`,
+            url: Astro.site?.toString(),
+            image: new URL("/senzai.png", Astro.site).toString(),
+            telephone: "", // 電話番号があれば追加
+            priceRange: "￥5,000～",
+            areaServed: [
+                {
+                    "@type": "City",
+                    name: area.name,
+                },
+                ...area.subAreas.map((sub) => ({
+                    "@type": "Place",
+                    name: sub,
+                })),
+            ],
+            serviceType: "出張ピアノレッスン",
+            hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "ピアノレッスン",
+                itemListElement: [
+                    {
+                        "@type": "Offer",
+                        itemOffered: {
+                            "@type": "Service",
+                            name: "無料体験レッスン",
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            "@type": "Service",
+            name: `${area.name}の出張ピアノ教室`,
+            provider: {
+                "@type": "MusicSchool",
+                name: "髙橋遊月ピアノ教室",
+                url: Astro.site?.toString(),
+                image: new URL("/senzai.png", Astro.site).toString(),
+            },
+            areaServed: [
+                {
+                    "@type": "City",
+                    name: area.name,
+                },
+                ...area.subAreas.map((sub) => ({
+                    "@type": "Place",
+                    name: sub,
+                })),
+            ],
+            description: area.lead,
+            url: Astro.url.toString(),
+            potentialAction: {
+                "@type": "ReserveAction",
+                target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: new URL("/contact", Astro.site).toString(),
+                },
+                result: {
+                    "@type": "Reservation",
+                    name: "体験レッスン",
+                },
+            },
+        },
+        // FAQPage Schema for rich results (最大3つまで)
+        {
+            "@type": "FAQPage",
+            mainEntity: area.faqs.slice(0, 3).map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: faq.answer,
+                },
+            })),
+        },
+    ],
+});
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    image={area.mainImage}
+    keywords={area.keywords}
+>
+    <!-- Structured Data -->
+    <script slot="head" type="application/ld+json" set:html={schema} />
+    <!-- hreflang for Japanese SEO -->
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="ja"
+        href={Astro.url.toString()}
+    />
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="x-default"
+        href={Astro.url.toString()}
+    />
+    <!-- Preload Critical Image -->
+    <link slot="head" rel="preload" as="image" href={area.mainImage} />
+
+    <div
+        class="relative h-[50vh] flex items-center justify-center overflow-hidden"
+    >
+        <div class="absolute inset-0 z-0">
+            <img
+                src={area.mainImage}
+                alt={area.mainImageAlt || `${area.name}の街並み`}
+                class="w-full h-full object-cover opacity-60"
+                style={`object-position: ${objectPosition}`}
+            />
+            <div class="absolute inset-0 bg-[#544A40]/30"></div>
+        </div>
+
+        {/* Breadcrumbs (Visual) */}
+
+        <div class="relative z-10 text-center text-white px-6">
+            <h1 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider">
+                {area.name}の出張ピアノ教室
+            </h1>
+            <p class="text-lg md:text-xl font-light opacity-90">
+                Area Information
+            </p>
+        </div>
+    </div>
+
+    <section class="py-20 px-6 max-w-4xl mx-auto">
+        <div class="text-center mb-16">
+            <h2
+                class="text-2xl md:text-3xl font-serif mb-8 text-[#544A40] leading-relaxed"
+            >
+                {area.catchphrase}
+            </h2>
+            <p
+                class="text-[#544A40]/80 leading-relaxed text-left md:text-center"
+            >
+                {area.lead}
+            </p>
+        </div>
+
+        <div class="space-y-16">
+            {
+                area.features.map((feature, index) => (
+                    <div
+                        class={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
+                    >
+                        <div class="flex-1 space-y-4">
+                            <h3 class="text-xl font-serif text-[#A88B58] border-l-4 border-[#A88B58] pl-4">
+                                {feature.title}
+                            </h3>
+                            <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify">
+                                {feature.description}
+                            </p>
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    {/* Unique Content Section */}
+    {
+        area.uniqueContent && (
+            <section class="py-16 px-6 bg-white">
+                <div class="max-w-4xl mx-auto">
+                    <h2 class="text-2xl font-serif mb-8 text-[#544A40] text-center">
+                        {area.name}でピアノを始める
+                    </h2>
+                    <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify">
+                        {area.uniqueContent}
+                    </p>
+                </div>
+            </section>
+        )
+    }
+
+    {/* 教室について詳しく知る */}
+    <section class="bg-[#F3EFE9] py-16 px-6">
+        <div class="max-w-4xl mx-auto">
+            <h2 class="text-2xl font-serif mb-8 text-[#544A40] text-center">
+                教室について詳しく知る
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                <a
+                    href="/#profile"
+                    class="flex items-center gap-3 p-4 rounded-lg bg-white border border-[#F1EBE4] hover:border-[#A88B58] hover:shadow-md transition-all group"
+                >
+                    <div
+                        class="w-10 h-10 rounded-full bg-[#F3EFE9] flex items-center justify-center text-[#A88B58] group-hover:bg-[#A88B58] group-hover:text-white transition-colors"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-[#544A40]">講師紹介</p>
+                        <p class="text-xs text-[#544A40]/60">
+                            東京音大卒の講師プロフィール
+                        </p>
+                    </div>
+                </a>
+                <a
+                    href="/lesson#price"
+                    class="flex items-center gap-3 p-4 rounded-lg bg-white border border-[#F1EBE4] hover:border-[#A88B58] hover:shadow-md transition-all group"
+                >
+                    <div
+                        class="w-10 h-10 rounded-full bg-[#F3EFE9] flex items-center justify-center text-[#A88B58] group-hover:bg-[#A88B58] group-hover:text-white transition-colors"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-[#544A40]">料金案内</p>
+                        <p class="text-xs text-[#544A40]/60">
+                            レッスン料金・出張費について
+                        </p>
+                    </div>
+                </a>
+                <a
+                    href="/contact"
+                    class="flex items-center gap-3 p-4 rounded-lg bg-white border border-[#F1EBE4] hover:border-[#A88B58] hover:shadow-md transition-all group"
+                >
+                    <div
+                        class="w-10 h-10 rounded-full bg-[#F3EFE9] flex items-center justify-center text-[#A88B58] group-hover:bg-[#A88B58] group-hover:text-white transition-colors"
+                    >
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            class="w-5 h-5"
+                            fill="none"
+                            viewBox="0 0 24 24"
+                            stroke="currentColor"
+                        >
+                            <path
+                                stroke-linecap="round"
+                                stroke-linejoin="round"
+                                stroke-width="2"
+                                d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                            ></path>
+                        </svg>
+                    </div>
+                    <div>
+                        <p class="font-medium text-[#544A40]">お問い合わせ</p>
+                        <p class="text-xs text-[#544A40]/60">
+                            無料体験レッスンのお申し込み
+                        </p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {/* FAQ Section */}
+    <section class="py-20 px-6 max-w-4xl mx-auto" id="faq">
+        <h2 class="text-2xl font-serif mb-12 text-[#544A40] text-center">
+            {area.name}でよくあるご質問
+        </h2>
+        <div class="space-y-4">
+            {
+                area.faqs.slice(0, 3).map((faq, index) => (
+                    <details class="group bg-white rounded-lg shadow-sm border border-[#F1EBE4] overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
+                            <span class="font-medium text-[#544A40] pr-4 text-left">
+                                <span class="text-[#A88B58] mr-2">Q.</span>
+                                {faq.question}
+                            </span>
+                            <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#F1EBE4]">
+                            <p class="pt-4">
+                                <span class="text-[#A88B58] font-medium mr-2">
+                                    A.
+                                </span>
+                                {faq.answer}
+                            </p>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+    </section>
+
+    {/* Trial Lesson CTA */}
+    <section class="py-20 px-6 bg-[#544A40] text-white">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-3xl font-serif mb-6">まずは無料体験レッスンから</h2>
+            <p class="mb-10 text-lg opacity-90 leading-relaxed">
+                <span class="inline-block">{area.name}でピアノ教室を</span><span
+                    class="inline-block">お探しの方へ。</span
+                ><br class="hidden md:block" />
+                <span class="inline-block">ご自宅でのリラックスした</span><span
+                    class="inline-block">レッスンを体験してみませんか？</span
+                >
+            </p>
+            <a
+                href="/contact"
+                class="inline-block bg-[#A88B58] hover:bg-[#8A7246] text-white font-medium py-4 px-12 rounded-full transition-all duration-300 tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            >
+                無料体験レッスンに申し込む
+            </a>
+        </div>
+    </section>
+
+    {/* 関連エリアセクション - SEO最適化のため2-3エリアに絞る */}
+    {
+        area.relatedAreas && area.relatedAreas.length > 0 && (
+            <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+                <h2 class="text-xl font-serif mb-8 text-[#544A40] opacity-60">
+                    近隣エリアのご案内
+                </h2>
+                <div class="flex flex-wrap justify-center gap-4 text-sm">
+                    {area.relatedAreas.map((relatedSlug) => {
+                        const relatedArea = areas.find(
+                            (a) => a.slug === relatedSlug,
+                        );
+                        return (
+                            relatedArea && (
+                                <a
+                                    href={`/area/${relatedArea.slug}`}
+                                    class="block px-6 py-3 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-colors duration-300"
+                                >
+                                    {relatedArea.name}
+                                </a>
+                            )
+                        );
+                    })}
+                </div>
+                <p class="mt-6 text-sm text-[#544A40]/60">
+                    <a
+                        href="/area"
+                        class="underline hover:text-[#A88B58] transition-colors"
+                    >
+                        すべての対応エリアを見る
+                    </a>
+                </p>
+            </section>
+        )
+    }
+</Layout>
+
+<style>
+    /* FAQ accordion animation */
+    details[open] summary {
+        border-bottom: none;
+    }
+
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+</style>

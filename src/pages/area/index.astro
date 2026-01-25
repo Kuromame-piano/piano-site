@@ -1,0 +1,159 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { areas } from "../../data/areas";
+
+const pageTitle = "出張エリア一覧 | 髙橋遊月ピアノ教室";
+const pageDescription =
+    "髙橋遊月ピアノ教室の出張レッスン対応エリア一覧。豊洲、晴海、勝どき、月島、清澄白河、門前仲町、日本橋、森下など江東区・中央区エリアに対応。送迎不要の出張ピアノレッスンで忙しいご家庭をサポートします。";
+
+// ItemList Schema for area index
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    item: {
+                        "@id": Astro.site?.toString(),
+                        name: "ホーム",
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    item: {
+                        "@id": new URL("/area", Astro.site).toString(),
+                        name: "出張エリア",
+                    },
+                },
+            ],
+        },
+        {
+            "@type": "ItemList",
+            name: "出張ピアノレッスン対応エリア一覧",
+            description: pageDescription,
+            numberOfItems: areas.length,
+            itemListElement: areas.map((area, index) => ({
+                "@type": "ListItem",
+                position: index + 1,
+                item: {
+                    "@type": "Service",
+                    name: `${area.name}の出張ピアノ教室`,
+                    url: new URL(`/area/${area.slug}`, Astro.site).toString(),
+                    description: area.catchphrase,
+                },
+            })),
+        },
+    ],
+});
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <!-- Structured Data -->
+    <script slot="head" type="application/ld+json" set:html={schema} />
+    <!-- hreflang for Japanese SEO -->
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="ja"
+        href={Astro.url.toString()}
+    />
+    <link
+        slot="head"
+        rel="alternate"
+        hreflang="x-default"
+        href={Astro.url.toString()}
+    />
+
+    <div
+        class="relative h-[40vh] flex items-center justify-center overflow-hidden bg-[#F3EFE9]"
+    >
+        {/* Breadcrumbs (Visual) */}
+
+        <div class="relative z-10 text-center px-6 pt-10">
+            <h1
+                class="text-3xl md:text-5xl font-serif mb-4 tracking-wider text-[#544A40]"
+            >
+                出張エリア
+            </h1>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-xs md:text-sm tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                Area List
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+    </div>
+
+    <section class="pt-12 pb-20 px-6 max-w-6xl mx-auto">
+        <p
+            class="text-[#544A40]/80 mb-12 max-w-2xl mx-auto leading-relaxed text-left md:text-center"
+        >
+            江東区・中央区を中心に、<wbr />ご自宅への出張ピアノレッスンを<wbr
+            />承っております。<br class="hidden md:block" />
+            各エリアの詳細ページでは、<wbr />地域に合わせたレッスンの<wbr
+            />ご案内をしています。
+        </p>
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {
+                areas.map((area) => (
+                    <a
+                        href={`/area/${area.slug}`}
+                        class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                    >
+                        <div class="relative h-48 overflow-hidden bg-gray-100">
+                            <img
+                                src={area.mainImage}
+                                alt={area.mainImageAlt || area.name}
+                                class="w-full h-full object-cover transition-transform duration-500 scale-110 group-hover:scale-125 opacity-80 group-hover:opacity-100"
+                                loading="lazy"
+                            />
+                            <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors" />
+                        </div>
+                        <div class="p-6">
+                            <h2 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors">
+                                {area.name}
+                            </h2>
+                            <p class="text-sm text-[#544A40]/60 mb-4 line-clamp-2">
+                                {area.catchphrase}
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                {area.subAreas.slice(0, 4).map((sub) => (
+                                    <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded">
+                                        {sub}
+                                    </span>
+                                ))}
+                            </div>
+                        </div>
+                    </a>
+                ))
+            }
+        </div>
+    </section>
+
+    <section class="bg-[#F3EFE9] py-20 px-6">
+        <div class="max-w-4xl mx-auto text-center">
+            <h2 class="text-2xl font-serif mb-6 text-[#544A40]">
+                その他のエリアについてもご相談ください
+            </h2>
+            <p
+                class="mb-10 text-[#544A40]/80 leading-relaxed text-left md:text-center"
+            >
+                記載のないエリアでも、近隣であれば対応可能な場合がございます。<br
+                    class="hidden md:block"
+                />
+                まずはお気軽にお問い合わせください。
+            </p>
+            <a
+                href="/contact"
+                class="inline-block bg-[#A88B58] hover:bg-[#8A7246] text-white font-medium py-3 px-8 rounded-full transition-all duration-300 tracking-wider"
+            >
+                お問い合わせはこちら
+            </a>
+        </div>
+    </section>
+</Layout>
