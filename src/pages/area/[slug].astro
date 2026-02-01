@@ -196,9 +196,10 @@ const schema = JSON.stringify({
 
         {/* Breadcrumbs (Visual) */}
 
-        <div class="relative z-10 text-center text-white px-6">
-            <h1 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider">
-                {area.name}の<br class="md:hidden" />出張ピアノ教室
+        <div class="relative z-10 text-center text-white px-2 md:px-6">
+            <h1 class="text-2xl md:text-5xl font-serif mb-4 tracking-wider">
+                <span class="inline-block">{area.name}の</span><br />
+                <span class="inline-block">出張ピアノ教室</span>
             </h1>
             <p class="text-lg md:text-xl font-light opacity-90">
                 Area Information
@@ -251,7 +252,7 @@ const schema = JSON.stringify({
                             <span class="inline-block">ピアノを始める</span>
                         </h2>
                     </div>
-                    <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify">
+                    <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify max-w-2xl mx-auto">
                         {area.uniqueContent}
                     </p>
                 </div>
@@ -283,13 +284,69 @@ const schema = JSON.stringify({
 
             {/* 追加の訴求コメント */}
             <p class="mt-8 text-center text-sm text-[#6B5F54]">
-                {area.name}エリアは出張費込みの料金で対応しております。<br
+                <span class="inline-block">{area.name}エリアは</span><span
+                    class="inline-block">出張費込みの料金で</span
+                ><span class="inline-block">対応しております。</span><br
                     class="md:hidden"
                 />
-                スタジオレンタルの場合は別途費用がかかります。
+                <span class="inline-block">スタジオレンタルの場合は</span><span
+                    class="inline-block">別途費用がかかります。</span
+                >
             </p>
         </div>
     </section>
+
+    {/* FAQ Section */}
+    {/* Map & Landmarks Section - NEW */}
+    {
+        area.googleMapUrl && (
+            <section class="py-20 px-6 max-w-5xl mx-auto text-center bg-[#FCFAF7]">
+                <h2 class="text-2xl font-serif mb-12 text-[#544A40]">
+                    <>
+                        <span class="inline-block">{area.name}周辺の</span>
+                        <br class="md:hidden" />
+                        <span class="inline-block">出張エリア</span>
+                    </>
+                </h2>
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    {/* Map (Left) */}
+                    <div class="w-full md:w-3/5 rounded-xl overflow-hidden shadow-sm border border-[#F1EBE4] bg-white p-2">
+                        <iframe
+                            src={area.googleMapUrl}
+                            width="100%"
+                            height="300"
+                            style="border:0; border-radius: 0.5rem;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title={`${area.name}の出張ピアノ教室対応エリア`}
+                        />
+                    </div>
+                    {/* Landmarks (Right) */}
+                    {area.landmarks && area.landmarks.length > 0 && (
+                        <div class="w-full md:w-2/5 text-left">
+                            <div class="bg-white p-6 rounded-xl border border-[#F1EBE4] shadow-sm h-full">
+                                <p class="mb-4 text-[#A88B58] tracking-widest text-sm border-b border-[#F1EBE4] pb-2">
+                                    - 主な出張訪問可能スポット -
+                                </p>
+                                <ul class="space-y-3">
+                                    {area.landmarks.map((landmark) => (
+                                        <li class="flex items-start text-sm text-[#544A40]/90">
+                                            <span class="mr-2 mt-0.5 w-1.5 h-1.5 bg-[#A88B58] rounded-full flex-shrink-0 translate-y-1" />
+                                            {landmark}周辺
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p class="mt-6 text-xs text-[#544A40]/60 leading-relaxed">
+                                    ※上記は目安です。詳細な対応エリアについてはお気軽にご相談ください。
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                </div>
+            </section>
+        )
+    }
 
     {/* FAQ Section */}
     <section class="py-20 px-6 max-w-4xl mx-auto" id="faq">

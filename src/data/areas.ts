@@ -18,6 +18,8 @@ export interface Area {
     uniqueContent: string; // 必須化（200文字以上推奨）
     instructorIntroduction: string; // 講師紹介文
     relatedAreas: string[]; // 関連エリアのslug配列
+    googleMapUrl?: string; // Google Maps入め込みURL
+    landmarks?: string[]; // エリア内の主要施設・マンション名
 }
 
 export const areas: Area[] = [
@@ -58,7 +60,9 @@ export const areas: Area[] = [
         instructorIntroduction: `お子様の教育に熱心なご家庭が多く、習い事の選択肢も豊富な豊洲・有明・東雲エリア。 この街で多忙な毎日を送る親御様のために、移動時間ゼロの出張レッスンで時間を有効活用するお手伝いをします。
 
 私はこれまで、基礎技術の習得はもちろん、一人ひとりの感性を尊重する指導を大切にしてきました。習い事の送迎にかかる負担をなくすことで、ご家庭での団らんや学習の時間もしっかり確保できます。いつものリラックスできる環境だからこそ、お子様の集中力も自然と高まります。豊洲・有明・東雲での暮らしに合った、質の高いピアノ教室体験をご提供いたします。`,
-        relatedAreas: ["harumi-kachidoki", "kiyosumi-shirakawa"]
+        relatedAreas: ["harumi-kachidoki", "kiyosumi-shirakawa"],
+        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12965!2d139.7950!3d35.6450!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp",
+        landmarks: ["豊洲シエルタワー", "アーバンドック ららぽーと豊洲", "ブリリア有明シティタワー", "プラウドタワー東雲キャナルコート"]
     },
     {
         slug: "harumi-kachidoki",
@@ -97,7 +101,9 @@ export const areas: Area[] = [
         instructorIntroduction: `共働きで忙しくされているご家庭や、職住近接のライフスタイルを選ぶ方が多い月島・勝どき・晴海エリア。 お仕事や学校でお忙しい毎日だからこそ、ご自宅で完結する出張レッスンが選ばれています。
 
 東京音楽大学で培った専門知識を活かし、クラシックからポップスまで、生徒様の「弾きたい」気持ちに寄り添うオーダーメイドのレッスンを行います。雨の日も風の日も、移動の心配はいりません。月島・勝どき・晴海の皆様のライフスタイルに溶け込む、心豊かなピアノ教室の時間をお届けします。`,
-        relatedAreas: ["toyosu", "nihonbashi"]
+        relatedAreas: ["toyosu", "nihonbashi"],
+        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12965!2d139.7750!3d35.6600!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp",
+        landmarks: ["THE TOKYO TOWERS", "勝どきザ・タワー", "晴海トリトンスクエア", "DEUX TOURS（ドゥ・トゥール）"]
     },
     {
         slug: "kiyosumi-shirakawa",
@@ -136,7 +142,9 @@ export const areas: Area[] = [
         instructorIntroduction: `静かな住宅街が広がり、ご自身のペースや時間を大切に暮らす方が多い清澄白河・平野エリア。 画一的な指導ではなく、一人ひとりの感性を大切にするレッスンを行っています。
 
 型にはめるのではなく、生徒様が持つ「表現したい」という種を、対話を通じて大きく育てます。出張レッスンなら、リラックスした空間で音楽とじっくり向き合えます。清澄白河・平野・三好で暮らす皆様の日常に、ピアノという彩りを添えるお手伝いをさせてください。感性を刺激する、あなただけのピアノ教室です。`,
-        relatedAreas: ["monzen-nakacho", "morishita-sumiyoshi"]
+        relatedAreas: ["monzen-nakacho", "morishita-sumiyoshi"],
+        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12965!2d139.8020!3d35.6780!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp",
+        landmarks: ["清澄庭園", "東京都現代美術館", "深川江戸資料館", "パークハウス清澄白河タワー"]
     },
     {
         slug: "monzen-nakacho",
@@ -175,7 +183,9 @@ export const areas: Area[] = [
         instructorIntroduction: `生活の利便性が高く、この街に長く住み続けるご家庭も多い門前仲町・木場エリア・越中島。 地域に根ざした暮らしの中で、長く愛される音楽のパートナーでありたいと願っています
 
 「憧れの曲を弾けるようになりたい」「基礎からしっかり学びたい」。そんな皆様の想いに、東京音楽大学卒業の確かな技術でお応えします。ご自宅のピアノで学ぶ出張レッスンは、通学の負担がないため、無理なく長く続けられるのが魅力です。門前仲町・木場・越中島の皆様の毎日に、音楽の喜びをお届けするピアノ教室です。`,
-        relatedAreas: ["kiyosumi-shirakawa", "nihonbashi"]
+        relatedAreas: ["kiyosumi-shirakawa", "nihonbashi"],
+        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12965!2d139.7980!3d35.6720!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp",
+        landmarks: ["富岡八幡宮", "深川ギャザリア", "プラウドタワー門前仲町", "木場公園", "越中島公園"]
     },
     {
         slug: "nihonbashi",
@@ -214,7 +224,9 @@ export const areas: Area[] = [
         instructorIntroduction: `オフィスと住まいが近く、仕事とプライベートの両立を大切にされている人形町・水天宮前・浜町エリア。 お忙しい日々の隙間時間に、心安らぐピアノのひとときを取り入れませんか？
 
 大人の方の趣味の再開から、お子様の初めてのレッスンまで。ご自宅に講師が伺う出張レッスンなら、移動時間を気にせず、プライベートな空間で質の高い指導を受けられます。東京音楽大学出身の講師が、それぞれのペースに合わせて丁寧にサポート。人形町・水天宮前・浜町での上質な暮らしに寄り添う、特別なピアノ教室です。`,
-        relatedAreas: ["harumi-kachidoki", "monzen-nakacho"]
+        relatedAreas: ["harumi-kachidoki", "monzen-nakacho"],
+        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12965!2d139.7850!3d35.6850!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp",
+        landmarks: ["水天宮", "浜町公園", "トルナーレ日本橋浜町", "リガーレ日本橋人形町"]
     },
     {
         slug: "morishita-sumiyoshi",
@@ -253,6 +265,8 @@ export const areas: Area[] = [
         instructorIntroduction: `保育園や学校、スーパーが身近にあり、飾らない日常がある住宅街、森下・住吉・菊川。 共働きなどでご多忙なご家庭こそ、送迎不要の出張レッスンがお役に立てると確信しています。
 
 夕食前や保育園・学校の後の時間を有効活用し、お子様が安心して学べる環境をご提供します。慣れ親しんだご自宅だからこそ、リラックスして楽しみながら上達できます。一人ひとりの成長に合わせたきめ細やかな指導で、森下・住吉・菊川のお子様たちの「できた！」という自信を育みます。生活に無理なく組み込めるピアノ教室です。`,
-        relatedAreas: ["kiyosumi-shirakawa", "monzen-nakacho"]
+        relatedAreas: ["kiyosumi-shirakawa", "monzen-nakacho"],
+        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d12965!2d139.8100!3d35.6880!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sja!2sjp",
+        landmarks: ["猿江恩賜公園", "ライフ菊川店", "森下文化センター", "ティアラこうとう"]
     }
 ];
