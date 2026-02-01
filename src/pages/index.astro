@@ -5,7 +5,8 @@ import { Image } from "astro:assets";
 import { areas } from "../data/areas";
 
 // SEO用の設定
-const pageTitle = "江東区・清澄白河の出張専門ピアノ教室 | 髙橋遊月ピアノ教室";
+const pageTitle =
+  "江東区・清澄白河のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室";
 const pageDescription =
   "江東区・清澄白河でピアノ教室をお探しの方へ。当教室は講師がご自宅へ伺う「出張型」のピアノ教室です。お子様の送り迎えの負担もゼロに。仕事帰りにいつもの環境でリラックスしてレッスンを受けられます。東京音大卒の女性講師によるマンツーマン指導。";
 import heroPiano from "../assets/images/hero-piano.webp";
@@ -154,21 +155,31 @@ const schema = JSON.stringify({
       </div>
 
       <div class="relative z-10 text-center px-4 max-w-5xl">
-        <h1 class="font-serif text-[#544A40] leading-tight tracking-wider">
+        <h1 class="font-serif text-[#544A40] flex flex-col items-center">
           <span
-            class="block mb-6 font-medium md:font-bold tracking-[0.1em] md:tracking-[0.2em] text-lg md:text-2xl"
+            class="block text-lg md:text-2xl tracking-[0.1em] mb-6 text-[#433D3C] font-bold"
           >
-            <span class="inline-block">江東区・清澄白河の</span><span
-              class="inline-block">出張専門ピアノ教室</span
-            >
+            江東区・清澄白河のピアノ教室
           </span>
+
+          <span class="flex items-center gap-4 mb-8">
+            <span class="h-[1px] w-8 bg-[#8B7355]"></span>
+            <span
+              class="text-lg md:text-xl tracking-[0.1em] text-[#433D3C] font-bold"
+              >出張レッスン専門</span
+            >
+            <span class="h-[1px] w-8 bg-[#8B7355]"></span>
+          </span>
+
           <span
-            class="block text-3xl md:text-5xl font-bold mb-10 tracking-[0.05em] md:tracking-[0.05em] leading-snug md:leading-[1.2]"
+            class="block text-2xl md:text-4xl lg:text-5xl font-medium tracking-tight mb-10 leading-tight text-[#333333]"
           >
-            日常に彩りを添える、<br />心豊かなピアノの時間
+            髙橋遊月ピアノ教室
           </span>
         </h1>
-        <p class="text-base md:text-lg mb-16 leading-loose text-[#332C26]">
+        <p
+          class="font-serif text-base md:text-lg leading-[2.5] tracking-widest text-[#333333] font-medium"
+        >
           講師がご自宅へ伺い、あなたの大切なピアノで、<br />
           あなただけの音色を一緒に奏でます。
         </p>
