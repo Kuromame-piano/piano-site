@@ -117,17 +117,11 @@ const schema = JSON.stringify({
                         <div class="p-6 flex flex-col flex-grow">
                             <h2 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors flex items-center justify-between">
                                 {area.name}
-                                <span class="text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
-                                    詳細 →
-                                </span>
                             </h2>
                             <p class="text-sm text-[#544A40]/60 mb-4 line-clamp-2">
                                 {area.catchphrase.replace(/<[^>]*>/g, "")}
                             </p>
                             <div class="mt-auto">
-                                <p class="text-xs text-[#544A40]/40 mb-2 font-bold tracking-wide">
-                                    主な対応地域
-                                </p>
                                 <div class="flex flex-wrap gap-2">
                                     {area.subAreas.map((sub) => (
                                         <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded border border-transparent group-hover:border-[#A88B58]/20 transition-colors">
