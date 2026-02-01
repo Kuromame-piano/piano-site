@@ -22,7 +22,7 @@ export interface Area {
 export const areas: Area[] = [
     {
         slug: "toyosu",
-        name: "豊洲エリア",
+        name: "豊洲・有明・東雲",
         catchphrase: "いつものリビングが<br class='md:hidden' />ピアノ教室に",
         lead: "経験豊富な講師が、ご自宅までお伺いします。お子様は安心できるいつもの場所で、のびのびとピアノを学べます。",
         mainImage: "/images/areas/toyosu_saiyou.webp",
@@ -94,7 +94,7 @@ export const areas: Area[] = [
     },
     {
         slug: "kiyosumi-shirakawa",
-        name: "清澄白河エリア",
+        name: "清澄白河・平野・三好",
         catchphrase: "無理なく、心地よく、<br class='md:hidden' />音楽を暮らしの一部に。",
         lead: "移動の負担がない出張レッスンなら、忙しい毎日の中でも、自然と音楽が生活に溶け込みます。",
         mainImage: "/images/areas/kiyosumisirakawa_saiyou.webp",
@@ -130,7 +130,7 @@ export const areas: Area[] = [
     },
     {
         slug: "monzen-nakacho",
-        name: "門前仲町・木場",
+        name: "門前仲町・木場・越中島",
         catchphrase: "「続けられる」を、<br class='md:hidden' />一番近くで。",
         lead: "生徒様のご希望を大切にしながら、ピアノを長く楽しんでいただけるレッスンをお届けします。",
         mainImage: "/images/areas/monnzennnakatyou_saiyou.webp",
@@ -166,7 +166,7 @@ export const areas: Area[] = [
     },
     {
         slug: "nihonbashi",
-        name: "日本橋・人形町",
+        name: "人形町・水天宮前・浜町",
         catchphrase: "忙しい日々に、<br class='md:hidden' />ピアノという癒しの時間を",
         lead: "お仕事帰りや休日のひととき、ご自宅でリラックスしながらピアノを楽しみませんか。",
         mainImage: "/images/areas/nihonnbasi_saiyou.webp",
