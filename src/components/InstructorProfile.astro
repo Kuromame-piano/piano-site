@@ -1,6 +1,12 @@
 ---
 import { Image } from "astro:assets";
 import senzaiWebp from "../assets/images/senzai.webp";
+
+interface Props {
+    introduction?: string;
+}
+
+const { introduction } = Astro.props;
 ---
 
 <div class="grid md:grid-cols-[40%_60%] gap-12 items-center max-w-5xl mx-auto">
@@ -33,14 +39,24 @@ import senzaiWebp from "../assets/images/senzai.webp";
             <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
                 東京音楽大学 卒業
             </p>
-            <p>
-                これまで多くの門下生を指導し、音楽を通じた心の交流を大切にしてきました。
-                一人ひとりの個性に寄り添い、確かな技術と豊かな感性を育みます。
-            </p>
-            <p>
-                「出張レッスン」だからこそ、移動の負担なく、いつもの慣れ親しんだピアノでリラックスして学んでいただけます。
-                きめ細やかな指導で、技術だけでなく、音楽を一生のパートナーにするお手伝いをいたします。
-            </p>
+            {
+                introduction ? (
+                    introduction
+                        .split("\n\n")
+                        .map((paragraph) => <p>{paragraph}</p>)
+                ) : (
+                    <>
+                        <p>
+                            これまで多くの門下生を指導し、音楽を通じた心の交流を大切にしてきました。
+                            一人ひとりの個性に寄り添い、確かな技術と豊かな感性を育みます。
+                        </p>
+                        <p>
+                            「出張レッスン」だからこそ、移動の負担なく、いつもの慣れ親しんだピアノでリラックスして学んでいただけます。
+                            きめ細やかな指導で、技術だけでなく、音楽を一生のパートナーにするお手伝いをいたします。
+                        </p>
+                    </>
+                )
+            }
         </div>
         <div
             class="mt-10 p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4] relative"
