@@ -244,9 +244,13 @@ const schema = JSON.stringify({
         area.uniqueContent && (
             <section class="py-16 px-6 bg-white">
                 <div class="max-w-4xl mx-auto">
-                    <h2 class="text-2xl font-serif mb-8 text-[#544A40] text-center">
-                        {area.name}でピアノを始める
-                    </h2>
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl font-serif text-[#544A40]">
+                            <span class="inline-block">{area.name}で</span>
+                            <br class="md:hidden" />
+                            <span class="inline-block">ピアノを始める</span>
+                        </h2>
+                    </div>
                     <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify">
                         {area.uniqueContent}
                     </p>
@@ -260,21 +264,21 @@ const schema = JSON.stringify({
     {/* 講師紹介セクション */}
     <section class="py-16 px-6 bg-[#FCFAF7]">
         <div class="max-w-5xl mx-auto">
-            <h2 class="text-2xl font-serif mb-12 text-[#544A40] text-center">
-                {/* SEO対策: エリア名を含める */}
-                {area.name}担当講師のご紹介
-            </h2>
-            <InstructorProfile />
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-serif text-[#544A40]">
+                    担当講師のご紹介
+                </h2>
+            </div>
+            <InstructorProfile introduction={area.instructorIntroduction} />
         </div>
     </section>
 
     {/* 料金案内セクション */}
     <section class="py-16 px-6 bg-white">
         <div class="max-w-4xl mx-auto">
-            <h2 class="text-2xl font-serif mb-12 text-[#544A40] text-center">
-                {/* SEO対策: エリア名を含める */}
-                {area.name}でのレッスン料金
-            </h2>
+            <div class="text-center mb-12">
+                <h2 class="text-2xl font-serif text-[#544A40]">レッスン料金</h2>
+            </div>
             <FeeSystem />
 
             {/* 追加の訴求コメント */}
@@ -289,9 +293,9 @@ const schema = JSON.stringify({
 
     {/* FAQ Section */}
     <section class="py-20 px-6 max-w-4xl mx-auto" id="faq">
-        <h2 class="text-2xl font-serif mb-12 text-[#544A40] text-center">
-            {area.name}でよくあるご質問
-        </h2>
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-serif text-[#544A40]">よくあるご質問</h2>
+        </div>
         <div class="space-y-4">
             {
                 area.faqs.slice(0, 3).map((faq, index) => (
@@ -335,7 +339,9 @@ const schema = JSON.stringify({
     {/* Trial Lesson CTA */}
     <section class="py-20 px-6 bg-[#544A40] text-white">
         <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-3xl font-serif mb-6">まずは無料体験レッスンから</h2>
+            <h2 class="text-2xl md:text-3xl font-serif mb-6">
+                まずは無料体験レッスンから
+            </h2>
             <p class="mb-10 text-lg opacity-90 leading-relaxed">
                 <span class="inline-block">{area.name}でピアノ教室を</span><span
                     class="inline-block">お探しの方へ。</span
@@ -354,40 +360,31 @@ const schema = JSON.stringify({
     </section>
 
     {/* 関連エリアセクション - SEO最適化のため2-3エリアに絞る */}
-    {
-        area.relatedAreas && area.relatedAreas.length > 0 && (
-            <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-                <h2 class="text-xl font-serif mb-8 text-[#544A40] opacity-60">
-                    近隣エリアのご案内
-                </h2>
-                <div class="flex flex-wrap justify-center gap-4 text-sm">
-                    {area.relatedAreas.map((relatedSlug) => {
-                        const relatedArea = areas.find(
-                            (a) => a.slug === relatedSlug,
-                        );
-                        return (
-                            relatedArea && (
-                                <a
-                                    href={`/area/${relatedArea.slug}`}
-                                    class="block px-6 py-3 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-colors duration-300"
-                                >
-                                    {relatedArea.name}
-                                </a>
-                            )
-                        );
-                    })}
-                </div>
-                <p class="mt-6 text-sm text-[#544A40]/60">
+    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
+        <h2 class="text-xl font-serif mb-8 text-[#544A40]">対応エリア</h2>
+        <div
+            class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm max-w-2xl mx-auto"
+        >
+            {
+                areas.map((a) => (
                     <a
-                        href="/area"
-                        class="underline hover:text-[#A88B58] transition-colors"
+                        href={`/area/${a.slug}`}
+                        class="block px-6 py-4 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-all duration-300 rounded-lg hover:shadow-md"
                     >
-                        すべての対応エリアを見る
+                        {a.name}
                     </a>
-                </p>
-            </section>
-        )
-    }
+                ))
+            }
+        </div>
+        <p class="mt-8 text-sm text-[#544A40]/60">
+            <a
+                href="/area"
+                class="underline hover:text-[#A88B58] transition-colors"
+            >
+                すべての対応エリアを見る
+            </a>
+        </p>
+    </section>
 </Layout>
 
 <style>
