@@ -196,9 +196,11 @@ const schema = JSON.stringify({
 
         {/* Breadcrumbs (Visual) */}
 
-        <div class="relative z-10 text-center text-white px-6">
-            <h1 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider">
-                {area.name}の<br class="md:hidden" />出張ピアノ教室
+        <div class="relative z-10 text-center text-white px-4 md:px-6">
+            <h1 class="text-2xl md:text-5xl font-serif mb-4 tracking-wider">
+                <span class="inline-block">{area.name}の</span><br
+                    class="md:hidden"
+                /><span class="inline-block">出張ピアノ教室</span>
             </h1>
             <p class="text-lg md:text-xl font-light opacity-90">
                 Area Information
@@ -283,10 +285,14 @@ const schema = JSON.stringify({
 
             {/* 追加の訴求コメント */}
             <p class="mt-8 text-center text-sm text-[#6B5F54]">
-                {area.name}エリアは出張費込みの料金で対応しております。<br
+                <span class="inline-block">{area.name}エリアは</span><span
+                    class="inline-block">出張費込みの料金で</span
+                ><span class="inline-block">対応しております。</span><br
                     class="md:hidden"
                 />
-                スタジオレンタルの場合は別途費用がかかります。
+                <span class="inline-block">スタジオレンタルの場合は</span><span
+                    class="inline-block">別途費用がかかります。</span
+                >
             </p>
         </div>
     </section>
@@ -297,7 +303,11 @@ const schema = JSON.stringify({
         area.googleMapUrl && (
             <section class="py-20 px-6 max-w-5xl mx-auto text-center bg-[#FCFAF7]">
                 <h2 class="text-2xl font-serif mb-12 text-[#544A40]">
-                    {area.name}周辺の出張エリア
+                    <>
+                        <span class="inline-block">{area.name}周辺の</span>
+                        <br class="md:hidden" />
+                        <span class="inline-block">出張エリア</span>
+                    </>
                 </h2>
                 <div class="flex flex-col md:flex-row gap-8 items-start">
                     {/* Map (Left) */}
