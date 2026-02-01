@@ -103,9 +103,9 @@ const schema = JSON.stringify({
                 areas.map((area) => (
                     <a
                         href={`/area/${area.slug}`}
-                        class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
+                        class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col"
                     >
-                        <div class="relative h-48 overflow-hidden bg-gray-100">
+                        <div class="relative h-48 overflow-hidden bg-gray-100 flex-shrink-0">
                             <img
                                 src={area.mainImage}
                                 alt={area.mainImageAlt || area.name}
@@ -114,19 +114,21 @@ const schema = JSON.stringify({
                             />
                             <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors" />
                         </div>
-                        <div class="p-6">
-                            <h2 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors">
+                        <div class="p-6 flex flex-col flex-grow">
+                            <h2 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors flex items-center justify-between">
                                 {area.name}
                             </h2>
                             <p class="text-sm text-[#544A40]/60 mb-4 line-clamp-2">
                                 {area.catchphrase.replace(/<[^>]*>/g, "")}
                             </p>
-                            <div class="flex flex-wrap gap-2">
-                                {area.subAreas.slice(0, 4).map((sub) => (
-                                    <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded">
-                                        {sub}
-                                    </span>
-                                ))}
+                            <div class="mt-auto">
+                                <div class="flex flex-wrap gap-2">
+                                    {area.subAreas.map((sub) => (
+                                        <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded border border-transparent group-hover:border-[#A88B58]/20 transition-colors">
+                                            {sub}
+                                        </span>
+                                    ))}
+                                </div>
                             </div>
                         </div>
                     </a>

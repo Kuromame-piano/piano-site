@@ -4,14 +4,55 @@ const year = new Date().getFullYear();
 ---
 
 <footer
-    class="py-16 text-center text-[10px] tracking-[0.2em] opacity-40 uppercase border-t border-[#F1EBE4] mt-auto"
+    class="py-16 text-center text-[10px] tracking-[0.2em] uppercase border-t border-[#F1EBE4] mt-auto bg-[#FCFAF7]"
 >
-    <div class="mb-6">
+    {/* SEO対策：主要エリアへの内部リンク網羅 */}
+    <div class="max-w-7xl mx-auto px-6 mb-12 opacity-60">
+        <p class="font-serif text-[#A88B58] mb-4 text-xs">Service Areas</p>
+        <div
+            class="flex flex-wrap justify-center gap-x-4 gap-y-2 leading-relaxed"
+        >
+            {
+                areas.map((area) => (
+                    <a
+                        href={`/area/${area.slug}`}
+                        class="hover:text-[#A88B58] transition-colors inline-block"
+                    >
+                        {area.name}
+                    </a>
+                ))
+            }
+        </div>
+        <div
+            class="mt-4 pt-4 border-t border-[#A88B58]/10 flex flex-wrap justify-center gap-x-3 gap-y-2 text-[9px] tracking-normal"
+        >
+            {
+                // 全サブエリア（駅名など）を展開して表示
+                areas
+                    .flatMap((area) =>
+                        area.subAreas.map((sub) => ({
+                            name: sub,
+                            slug: area.slug,
+                        })),
+                    )
+                    .map((item) => (
+                        <a
+                            href={`/area/${item.slug}`}
+                            class="hover:text-[#A88B58] transition-colors inline-block text-[#544A40]/70"
+                        >
+                            {item.name}
+                        </a>
+                    ))
+            }
+        </div>
+    </div>
+
+    <div class="mb-6 opacity-40">
         <a
             href="/policy"
             class="hover:opacity-100 transition-opacity inline-block px-4 py-2"
             >Privacy Policy</a
         >
     </div>
-    <p>&copy; {year} Takahashi Yuzuki Piano School.</p>
+    <p class="opacity-40">&copy; {year} Takahashi Yuzuki Piano School.</p>
 </footer>
