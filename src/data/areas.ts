@@ -190,7 +190,7 @@ export const areas: Area[] = [
     {
         slug: "nihonbashi",
         name: "人形町・水天宮前・浜町",
-        catchphrase: "忙しい日々に、<br class='md:hidden' />ピアノという癒しの時間を",
+        catchphrase: "忙しい日々に<span class='hidden md:inline'>、</span><br class='md:hidden' />ピアノという<br class='md:hidden' />癒しの時間を",
         lead: "お仕事帰りや休日のひととき、ご自宅でリラックスしながらピアノを楽しみませんか。",
         mainImage: "/images/areas/nihonnbasi_saiyou.webp",
         mainImageAlt: "日本橋での大人のピアノレッスン風景",
