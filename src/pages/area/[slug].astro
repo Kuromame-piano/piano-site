@@ -35,10 +35,13 @@ const getObjectPosition = (slug: string) => {
 };
 const objectPosition = getObjectPosition(area.slug);
 
-const pageTitle = `${area.name}のピアノ教室｜出張レッスン専門・無料体験受付中`;
-const pageDescription = `${area.name}（${area.subAreas.join(
-    "・",
-)}）での出張ピアノレッスン。${area.lead}`;
+const pageTitle = `${area.subAreas.slice(0, 3).join("・")}のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室`;
+const pageDescription = `${area.subAreas
+    .slice(0, 3)
+    .map((s) => s + "のピアノ教室")
+    .join(
+        "・",
+    )}をお探しの方へ。講師がご自宅へ伺う「出張型」のピアノ教室です。${area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
 
 // Schema.org Structured Data
 const schema = JSON.stringify({
@@ -75,7 +78,7 @@ const schema = JSON.stringify({
         },
         // LocalBusiness Schema for mobile business
         {
-            "@type": "LocalBusiness",
+            "@type": ["LocalBusiness", "MusicSchool"],
             "@id": Astro.site?.toString() + "#business",
             name: "髙橋遊月ピアノ教室",
             description: `${area.name}での出張ピアノレッスン。${area.lead}`,
@@ -165,19 +168,7 @@ const schema = JSON.stringify({
 >
     <!-- Structured Data -->
     <script slot="head" type="application/ld+json" set:html={schema} />
-    <!-- hreflang for Japanese SEO -->
-    <link
-        slot="head"
-        rel="alternate"
-        hreflang="ja"
-        href={Astro.url.toString()}
-    />
-    <link
-        slot="head"
-        rel="alternate"
-        hreflang="x-default"
-        href={Astro.url.toString()}
-    />
+
     <!-- Preload Critical Image -->
     <link slot="head" rel="preload" as="image" href={area.mainImage} />
 
