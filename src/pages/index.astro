@@ -687,7 +687,7 @@ const schema = JSON.stringify({
       </div>
     </section>
 
-    <section class="py-24 bg-[#F7F3EE] border-t border-[#F1EBE4]">
+    <section class="py-16 bg-[#F7F3EE] border-t border-[#F1EBE4]">
       <div class="max-w-5xl mx-auto px-6">
         <div class="text-center mb-16">
           <h2 class="text-2xl md:text-3xl font-serif mb-4">注目の出張エリア</h2>
@@ -709,7 +709,7 @@ const schema = JSON.stringify({
             areas.map((area) => (
               <a
                 href={`/area/${area.slug}`}
-                class="group block bg-white p-8 rounded-xl border border-[#E8E2D9] hover:border-[#A88B58] transition-all duration-300 hover:shadow-lg flex flex-col h-full"
+                class="group block bg-white p-6 rounded-xl border border-[#E8E2D9] hover:border-[#A88B58] transition-all duration-300 hover:shadow-lg flex flex-col h-full"
               >
                 <h3 class="text-lg font-bold font-serif mb-3 text-[#544A40] group-hover:text-[#A88B58] transition-colors">
                   {area.name}
@@ -720,7 +720,7 @@ const schema = JSON.stringify({
                 <p class="text-sm leading-loose text-[#6B5F54] flex-grow">
                   {area.lead}
                 </p>
-                <div class="mt-6 text-right text-xs text-[#A88B58] font-medium opacity-0 group-hover:opacity-100 transition-opacity">
+                <div class="mt-6 text-right text-xs text-[#A88B58] font-medium md:opacity-0 md:group-hover:opacity-100 transition-opacity">
                   詳しく見る →
                 </div>
               </a>
