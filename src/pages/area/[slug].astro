@@ -265,7 +265,47 @@ const schema = JSON.stringify({
         )
     }
 
-    {/* 教室について詳しく知る - Deleted */}
+    {/* レッスン開始までの流れ */}
+    {
+        area.lessonFlow && area.lessonFlow.length > 0 && (
+            <section class="py-16 px-6 bg-[#FCFAF7]">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl font-serif text-[#544A40]">
+                            <span class="inline-block">レッスン開始までの</span>
+                            <br class="md:hidden" />
+                            <span class="inline-block">流れ</span>
+                        </h2>
+                    </div>
+                    <div class="relative">
+                        {/* Vertical line */}
+                        <div class="absolute left-6 md:left-8 top-0 bottom-0 w-[2px] bg-[#E8DFD4]" />
+                        <div class="space-y-8">
+                            {area.lessonFlow.map((step, index) => (
+                                <div class="relative flex items-start gap-6 md:gap-8">
+                                    {/* Step number circle */}
+                                    <div class="relative z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#A88B58] flex items-center justify-center shadow-md">
+                                        <span class="text-white font-serif text-lg md:text-xl font-bold">
+                                            {index + 1}
+                                        </span>
+                                    </div>
+                                    {/* Step content */}
+                                    <div class="flex-1 pt-1 md:pt-3">
+                                        <h3 class="text-lg font-medium text-[#544A40] mb-1">
+                                            {step.title}
+                                        </h3>
+                                        <p class="text-sm text-[#544A40]/70 leading-relaxed">
+                                            {step.description}
+                                        </p>
+                                    </div>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                </div>
+            </section>
+        )
+    }
 
     {/* 講師紹介セクション */}
     <section class="py-16 px-6 bg-[#FCFAF7]">
@@ -299,8 +339,29 @@ const schema = JSON.stringify({
         </div>
     </section>
 
-    {/* FAQ Section */}
-    {/* Map & Landmarks Section - NEW */}
+    {/* 地域で選ばれる理由 */}
+    {
+        area.areaGuide && (
+            <section class="py-16 px-6 bg-white">
+                <div class="max-w-4xl mx-auto">
+                    <div class="text-center mb-12">
+                        <h2 class="text-2xl font-serif text-[#544A40]">
+                            <span class="inline-block">{area.name}で</span>
+                            <br class="md:hidden" />
+                            <span class="inline-block">出張ピアノ教室が</span>
+                            <br class="md:hidden" />
+                            <span class="inline-block">選ばれる理由</span>
+                        </h2>
+                    </div>
+                    <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify max-w-2xl mx-auto">
+                        {area.areaGuide}
+                    </p>
+                </div>
+            </section>
+        )
+    }
+
+    {/* Map & Landmarks Section */}
     {
         area.googleMapUrl && (
             <section class="py-20 px-6 max-w-5xl mx-auto text-center bg-[#FCFAF7]">
@@ -358,7 +419,7 @@ const schema = JSON.stringify({
         </div>
         <div class="space-y-4">
             {
-                area.faqs.slice(0, 3).map((faq, index) => (
+                area.faqs.map((faq, index) => (
                     <details class="group bg-white rounded-lg shadow-sm border border-[#F1EBE4] overflow-hidden">
                         <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
                             <span class="font-medium text-[#544A40] pr-4 text-left">
