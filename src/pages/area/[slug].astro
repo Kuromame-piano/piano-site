@@ -2,8 +2,17 @@
 import Layout from "../../layouts/Layout.astro";
 import { areas } from "../../data/areas";
 import { type Area } from "../../data/areas";
-import InstructorProfile from "../../components/InstructorProfile.astro";
-import FeeSystem from "../../components/FeeSystem.astro";
+import HeroSection from "../../components/area/HeroSection.astro";
+import IntroSection from "../../components/area/IntroSection.astro";
+import UniqueContentSection from "../../components/area/UniqueContentSection.astro";
+import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
+import AreaGuideSection from "../../components/area/AreaGuideSection.astro";
+import MapSection from "../../components/area/MapSection.astro";
+import FAQSection from "../../components/area/FAQSection.astro";
+import CTASection from "../../components/area/CTASection.astro";
+import RelatedAreasSection from "../../components/area/RelatedAreasSection.astro";
+import InstructorSection from "../../components/area/InstructorSection.astro";
+import FeeSection from "../../components/area/FeeSection.astro";
 
 export async function getStaticPaths() {
     return areas.map((area) => ({
@@ -172,349 +181,25 @@ const schema = JSON.stringify({
     <!-- Preload Critical Image -->
     <link slot="head" rel="preload" as="image" href={area.mainImage} />
 
-    <div
-        class="relative h-[50vh] flex items-center justify-center overflow-hidden"
-    >
-        <div class="absolute inset-0 z-0">
-            <img
-                src={area.mainImage}
-                alt={area.mainImageAlt || `${area.name}の街並み`}
-                class="w-full h-full object-cover opacity-60"
-                style={`object-position: ${objectPosition}`}
-            />
-            <div class="absolute inset-0 bg-[#544A40]/30"></div>
-        </div>
+    <HeroSection area={area} objectPosition={objectPosition} />
 
-        {/* Breadcrumbs (Visual) */}
+    <IntroSection area={area} />
 
-        <div class="relative z-10 text-center text-white px-2 md:px-6">
-            <h1 class="font-serif tracking-wide">
-                <span
-                    class="block text-lg md:text-2xl mb-2 font-bold md:font-medium tracking-wider"
-                >
-                    {area.name}のピアノ教室
-                </span>
-                <span
-                    class="flex items-center justify-center gap-3 text-base md:text-lg mb-4 opacity-90"
-                >
-                    <span class="h-[1px] w-6 md:w-12 bg-white/80"></span>
-                    <span class="tracking-widest font-bold md:font-normal"
-                        >出張レッスン専門</span
-                    >
-                    <span class="h-[1px] w-6 md:w-12 bg-white/80"></span>
-                </span>
-                <span
-                    class="block text-3xl md:text-5xl font-medium text-shadow-sm tracking-tighter md:tracking-tight"
-                >
-                    髙橋遊月ピアノ教室
-                </span>
-            </h1>
-        </div>
-    </div>
+    <UniqueContentSection area={area} />
 
-    <section class="py-20 px-6 max-w-4xl mx-auto">
-        <div class="text-center mb-16">
-            <h2
-                class="text-2xl md:text-3xl font-serif mb-8 text-[#544A40] leading-relaxed"
-                set:html={area.catchphrase}
-            />
-            <p
-                class="text-[#544A40]/80 leading-relaxed text-left md:text-center"
-            >
-                {area.lead}
-            </p>
-        </div>
+    <LessonFlowSection area={area} />
 
-        <div class="space-y-16">
-            {
-                area.features.map((feature, index) => (
-                    <div
-                        class={`flex flex-col md:flex-row gap-8 items-center ${index % 2 === 1 ? "md:flex-row-reverse" : ""}`}
-                    >
-                        <div class="flex-1 space-y-4">
-                            <h3 class="text-xl font-serif text-[#A88B58] border-l-4 border-[#A88B58] pl-4">
-                                {feature.title}
-                            </h3>
-                            <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify">
-                                {feature.description}
-                            </p>
-                        </div>
-                    </div>
-                ))
-            }
-        </div>
-    </section>
+    <InstructorSection area={area} />
 
-    {/* Unique Content Section */}
-    {
-        area.uniqueContent && (
-            <section class="py-16 px-6 bg-white">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12">
-                        <h2 class="text-2xl font-serif text-[#544A40]">
-                            <span class="inline-block">{area.name}で</span>
-                            <br class="md:hidden" />
-                            <span class="inline-block">ピアノを始める</span>
-                        </h2>
-                    </div>
-                    <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify max-w-2xl mx-auto">
-                        {area.uniqueContent}
-                    </p>
-                </div>
-            </section>
-        )
-    }
+    <FeeSection area={area} />
 
-    {/* レッスン開始までの流れ */}
-    {
-        area.lessonFlow && area.lessonFlow.length > 0 && (
-            <section class="py-16 px-6 bg-[#FCFAF7]">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12">
-                        <h2 class="text-2xl font-serif text-[#544A40]">
-                            <span class="inline-block">レッスン開始までの</span>
-                            <br class="md:hidden" />
-                            <span class="inline-block">流れ</span>
-                        </h2>
-                    </div>
-                    <div class="relative">
-                        {/* Vertical line */}
-                        <div class="absolute left-6 md:left-8 top-0 bottom-0 w-[2px] bg-[#E8DFD4]" />
-                        <div class="space-y-8">
-                            {area.lessonFlow.map((step, index) => (
-                                <div class="relative flex items-start gap-6 md:gap-8">
-                                    {/* Step number circle */}
-                                    <div class="relative z-10 flex-shrink-0 w-12 h-12 md:w-16 md:h-16 rounded-full bg-[#A88B58] flex items-center justify-center shadow-md">
-                                        <span class="text-white font-serif text-lg md:text-xl font-bold">
-                                            {index + 1}
-                                        </span>
-                                    </div>
-                                    {/* Step content */}
-                                    <div class="flex-1 pt-1 md:pt-3">
-                                        <h3 class="text-lg font-medium text-[#544A40] mb-1">
-                                            {step.title}
-                                        </h3>
-                                        <p class="text-sm text-[#544A40]/70 leading-relaxed">
-                                            {step.description}
-                                        </p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
-                    </div>
-                </div>
-            </section>
-        )
-    }
+    <AreaGuideSection area={area} />
 
-    {/* 講師紹介セクション */}
-    <section class="py-16 px-6 bg-[#FCFAF7]">
-        <div class="max-w-5xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-serif text-[#544A40]">
-                    担当講師のご紹介
-                </h2>
-            </div>
-            <InstructorProfile introduction={area.instructorIntroduction} />
-        </div>
-    </section>
+    <MapSection area={area} />
 
-    {/* 料金案内セクション */}
-    <section class="py-16 px-6 bg-white">
-        <div class="max-w-4xl mx-auto">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl font-serif text-[#544A40]">レッスン料金</h2>
-            </div>
-            <FeeSystem />
+    <FAQSection area={area} />
 
-            {/* 追加の訴求コメント */}
-            <p class="mt-8 text-center text-sm text-[#6B5F54]">
-                <span class="inline-block">{area.name}エリアは</span><span
-                    class="inline-block"
-                    >出張費込みの料金で対応しております。</span
-                ><br class="md:hidden" /><span class="inline-block"
-                    >スタジオレンタルの場合は</span
-                ><span class="inline-block">別途費用がかかります。</span>
-            </p>
-        </div>
-    </section>
+    <CTASection area={area} />
 
-    {/* 地域で選ばれる理由 */}
-    {
-        area.areaGuide && (
-            <section class="py-16 px-6 bg-white">
-                <div class="max-w-4xl mx-auto">
-                    <div class="text-center mb-12">
-                        <h2 class="text-2xl font-serif text-[#544A40]">
-                            <span class="inline-block">{area.name}で</span>
-                            <br class="md:hidden" />
-                            <span class="inline-block">出張ピアノ教室が</span>
-                            <br class="md:hidden" />
-                            <span class="inline-block">選ばれる理由</span>
-                        </h2>
-                    </div>
-                    <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify max-w-2xl mx-auto">
-                        {area.areaGuide}
-                    </p>
-                </div>
-            </section>
-        )
-    }
-
-    {/* Map & Landmarks Section */}
-    {
-        area.googleMapUrl && (
-            <section class="py-20 px-6 max-w-5xl mx-auto text-center bg-[#FCFAF7]">
-                <h2 class="text-2xl font-serif mb-12 text-[#544A40]">
-                    <>
-                        <span class="inline-block">{area.name}周辺の</span>
-                        <br class="md:hidden" />
-                        <span class="inline-block">出張エリア</span>
-                    </>
-                </h2>
-                <div class="flex flex-col md:flex-row gap-8 items-start">
-                    {/* Map (Left) */}
-                    <div class="w-full md:w-3/5 rounded-xl overflow-hidden shadow-sm border border-[#F1EBE4] bg-white p-2">
-                        <iframe
-                            src={area.googleMapUrl}
-                            width="100%"
-                            height="300"
-                            style="border:0; border-radius: 0.5rem;"
-                            allowfullscreen=""
-                            loading="lazy"
-                            referrerpolicy="no-referrer-when-downgrade"
-                            title={`${area.name}の出張ピアノ教室対応エリア`}
-                        />
-                    </div>
-                    {/* Landmarks (Right) */}
-                    {area.landmarks && area.landmarks.length > 0 && (
-                        <div class="w-full md:w-2/5 text-left">
-                            <div class="bg-white p-6 rounded-xl border border-[#F1EBE4] shadow-sm h-full">
-                                <p class="mb-4 text-[#A88B58] tracking-widest text-sm border-b border-[#F1EBE4] pb-2">
-                                    - 主な出張訪問可能スポット -
-                                </p>
-                                <ul class="space-y-3">
-                                    {area.landmarks.map((landmark) => (
-                                        <li class="flex items-start text-sm text-[#544A40]/90">
-                                            <span class="mr-2 mt-0.5 w-1.5 h-1.5 bg-[#A88B58] rounded-full flex-shrink-0 translate-y-1" />
-                                            {landmark}周辺
-                                        </li>
-                                    ))}
-                                </ul>
-                                <p class="mt-6 text-xs text-[#544A40]/60 leading-relaxed">
-                                    ※上記は目安です。詳細な対応エリアについてはお気軽にご相談ください。
-                                </p>
-                            </div>
-                        </div>
-                    )}
-                </div>
-            </section>
-        )
-    }
-
-    {/* FAQ Section */}
-    <section class="py-20 px-6 max-w-4xl mx-auto" id="faq">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl font-serif text-[#544A40]">よくあるご質問</h2>
-        </div>
-        <div class="space-y-4">
-            {
-                area.faqs.map((faq, index) => (
-                    <details class="group bg-white rounded-lg shadow-sm border border-[#F1EBE4] overflow-hidden">
-                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                            <span class="font-medium text-[#544A40] pr-4 text-left">
-                                <span class="text-[#A88B58] mr-2">Q.</span>
-                                {faq.question}
-                            </span>
-                            <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    fill="none"
-                                    viewBox="0 0 24 24"
-                                    stroke-width="2"
-                                    stroke="currentColor"
-                                    class="w-5 h-5"
-                                >
-                                    <path
-                                        stroke-linecap="round"
-                                        stroke-linejoin="round"
-                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
-                                    />
-                                </svg>
-                            </span>
-                        </summary>
-                        <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#F1EBE4]">
-                            <p class="pt-4">
-                                <span class="text-[#A88B58] font-medium mr-2">
-                                    A.
-                                </span>
-                                {faq.answer}
-                            </p>
-                        </div>
-                    </details>
-                ))
-            }
-        </div>
-    </section>
-
-    {/* Trial Lesson CTA */}
-    <section class="py-20 px-6 bg-[#544A40] text-white">
-        <div class="max-w-4xl mx-auto text-center">
-            <h2 class="text-2xl md:text-3xl font-serif mb-6">
-                まずは無料体験レッスンから
-            </h2>
-            <p class="mb-10 text-lg opacity-90 leading-relaxed">
-                <span class="inline-block">{area.name}でピアノ教室を</span><span
-                    class="inline-block">お探しの方へ。</span
-                ><br class="hidden md:block" />
-                <span class="inline-block">ご自宅でのリラックスした</span><span
-                    class="inline-block">レッスンを体験してみませんか？</span
-                >
-            </p>
-            <a
-                href="/contact"
-                class="inline-block bg-[#A88B58] hover:bg-[#8A7246] text-white font-medium py-4 px-12 rounded-full transition-all duration-300 tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-1"
-            >
-                無料体験レッスンに申し込む
-            </a>
-        </div>
-    </section>
-
-    {/* 関連エリアセクション - SEO最適化のため2-3エリアに絞る */}
-    <section class="py-20 px-6 max-w-4xl mx-auto text-center">
-        <h2 class="text-xl font-serif mb-8 text-[#544A40]">対応エリア</h2>
-        <div
-            class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm max-w-2xl mx-auto"
-        >
-            {
-                areas.map((a) => (
-                    <a
-                        href={`/area/${a.slug}`}
-                        class="block px-6 py-4 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-all duration-300 rounded-lg hover:shadow-md"
-                    >
-                        {a.name}
-                    </a>
-                ))
-            }
-        </div>
-        <p class="mt-8 text-sm text-[#544A40]/60">
-            <a
-                href="/area"
-                class="underline hover:text-[#A88B58] transition-colors"
-            >
-                すべての対応エリアを見る
-            </a>
-        </p>
-    </section>
+    <RelatedAreasSection />
 </Layout>
-
-<style>
-    /* FAQ accordion animation */
-    details[open] summary {
-        border-bottom: none;
-    }
-
-    details summary::-webkit-details-marker {
-        display: none;
-    }
-</style>

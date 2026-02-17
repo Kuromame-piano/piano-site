@@ -1,0 +1,29 @@
+---
+import { areas } from "../../data/areas";
+---
+
+<section class="py-20 px-6 max-w-4xl mx-auto text-center">
+    <h2 class="text-xl font-serif mb-8 text-[#544A40]">対応エリア</h2>
+    <div
+        class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm max-w-2xl mx-auto"
+    >
+        {
+            areas.map((a) => (
+                <a
+                    href={`/area/${a.slug}`}
+                    class="block px-6 py-4 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-all duration-300 rounded-lg hover:shadow-md"
+                >
+                    {a.name}
+                </a>
+            ))
+        }
+    </div>
+    <p class="mt-8 text-sm text-[#544A40]/60">
+        <a
+            href="/area"
+            class="underline hover:text-[#A88B58] transition-colors"
+        >
+            すべての対応エリアを見る
+        </a>
+    </p>
+</section>

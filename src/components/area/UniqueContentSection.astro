@@ -1,0 +1,28 @@
+---
+import type { Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+}
+
+const { area } = Astro.props;
+---
+
+{
+    area.uniqueContent && (
+        <section class="py-16 px-6 bg-white">
+            <div class="max-w-4xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl font-serif text-[#544A40]">
+                        <span class="inline-block">{area.name}で</span>
+                        <br class="md:hidden" />
+                        <span class="inline-block">ピアノを始める</span>
+                    </h2>
+                </div>
+                <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify max-w-2xl mx-auto">
+                    {area.uniqueContent}
+                </p>
+            </div>
+        </section>
+    )
+}

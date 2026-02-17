@@ -1,0 +1,19 @@
+---
+import InstructorProfile from "../InstructorProfile.astro";
+import type { Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+}
+
+const { area } = Astro.props;
+---
+
+<section class="py-16 px-6 bg-[#FCFAF7]">
+    <div class="max-w-5xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-serif text-[#544A40]">担当講師のご紹介</h2>
+        </div>
+        <InstructorProfile introduction={area.instructorIntroduction} />
+    </div>
+</section>
