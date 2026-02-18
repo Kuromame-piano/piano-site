@@ -12,15 +12,12 @@ const { area } = Astro.props;
     area.lessonFlow && area.lessonFlow.length > 0 && (
         <section class="py-24 px-6 bg-[#FCFAF7]">
             <div class="max-w-3xl mx-auto">
-                <div class="text-center mb-16">
-                    <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl font-serif text-[#544A40]">
                         <span class="inline-block">レッスン開始までの</span>
                         <br class="md:hidden" />
                         <span class="inline-block">流れ</span>
                     </h2>
-                    <p class="text-[#A88B58] font-serif text-sm tracking-widest">
-                        FLOW
-                    </p>
                 </div>
 
                 <div class="relative pl-4 md:pl-0">
@@ -46,9 +43,10 @@ const { area } = Astro.props;
                                             {step.title}
                                         </h3>
                                     </div>
-                                    <p class="text-[15px] text-[#544A40]/80 leading-7 text-justify">
-                                        {step.description}
-                                    </p>
+                                    <p
+                                        class="text-[15px] text-[#544A40]/80 leading-7 text-justify"
+                                        set:html={step.description}
+                                    />
                                 </div>
                             </div>
                         ))}
