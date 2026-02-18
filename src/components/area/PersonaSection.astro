@@ -1,0 +1,67 @@
+---
+import type { Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+}
+
+const { area } = Astro.props;
+---
+
+<section class="py-20 px-6 bg-[#FCFAF7]">
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl md:text-3xl font-serif text-[#544A40]">
+                {area.name}で多いご相談タイプ
+            </h2>
+            <p class="mt-4 text-sm md:text-base text-[#6B5F54]">
+                地域特性を踏まえた主ターゲット・副ターゲット別に
+                <br class="md:hidden" />
+                継続しやすいレッスン設計をご提案します。
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            {[area.personas.primary, area.personas.secondary].map((persona) => (
+                <article class="bg-white border border-[#E8E2D9] rounded-2xl p-6 md:p-8 shadow-sm">
+                    <h3 class="text-xl font-serif text-[#544A40] mb-3">
+                        {persona.label}
+                    </h3>
+                    <p class="text-[#544A40]/80 leading-relaxed mb-6">
+                        {persona.summary}
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div>
+                            <p class="text-sm font-medium text-[#A88B58] mb-3">
+                                よくあるお悩み
+                            </p>
+                            <ul class="space-y-2 text-sm text-[#544A40]/90 leading-relaxed">
+                                {persona.painPoints.map((point) => (
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#D2A56B] flex-shrink-0" />
+                                        <span>{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+
+                        <div>
+                            <p class="text-sm font-medium text-[#A88B58] mb-3">
+                                この教室が合う理由
+                            </p>
+                            <ul class="space-y-2 text-sm text-[#544A40]/90 leading-relaxed">
+                                {persona.fitPoints.map((point) => (
+                                    <li class="flex items-start gap-2">
+                                        <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#A88B58] flex-shrink-0" />
+                                        <span>{point}</span>
+                                    </li>
+                                ))}
+                            </ul>
+                        </div>
+                    </div>
+                </article>
+            ))}
+        </div>
+    </div>
+</section>

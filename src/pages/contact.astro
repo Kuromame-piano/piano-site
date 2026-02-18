@@ -47,6 +47,18 @@ const schema = JSON.stringify({
                 </p>
 
                 <form id="contact-form" class="space-y-8">
+                    <input
+                        type="hidden"
+                        id="source_page"
+                        name="source_page"
+                        value=""
+                    />
+                    <input
+                        type="hidden"
+                        id="source_area"
+                        name="source_area"
+                        value=""
+                    />
                     <div class="grid md:grid-cols-2 gap-8">
                         <div class="space-y-2">
                             <label
@@ -175,9 +187,19 @@ const schema = JSON.stringify({
     <script is:inline>
         const form = document.getElementById("contact-form");
         const btn = document.getElementById("submit-btn");
+        const sourcePageInput = document.getElementById("source_page");
+        const sourceAreaInput = document.getElementById("source_area");
         // GASウェブアプリURL
         const GAS_URL =
             "https://script.google.com/macros/s/AKfycbwruAuBvHur-ZGDyQcKIPqKCoBRDDhwBPy2a-Y11vH1htI0Yj1dCgg9y4xIqLfK_u7yTQ/exec";
+
+        const params = new URLSearchParams(window.location.search);
+        if (sourcePageInput && params.get("from")) {
+            sourcePageInput.value = params.get("from");
+        }
+        if (sourceAreaInput && params.get("area")) {
+            sourceAreaInput.value = params.get("area");
+        }
 
         if (form) {
             form.addEventListener("submit", async (e) => {

@@ -3,15 +3,18 @@ import type { Area } from "../../data/areas";
 
 interface Props {
     area: Area;
+    variant?: "mid" | "final";
 }
 
-const { area } = Astro.props;
+const { area, variant = "final" } = Astro.props;
+const ctaHref = `/contact?from=${encodeURIComponent(`area-${area.slug}`)}&area=${encodeURIComponent(area.name)}`;
+const isMid = variant === "mid";
 ---
 
-<section class="py-20 px-6 bg-[#544A40] text-white">
+<section class={`py-20 px-6 ${isMid ? "bg-[#EAE3DA] text-[#544A40]" : "bg-[#544A40] text-white"}`}>
     <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-serif mb-6">
-            まずは無料体験レッスンから
+            {isMid ? `${area.name}の体験レッスン枠を確認する` : "まずは無料体験レッスンから"}
         </h2>
         <p class="mb-10 text-lg opacity-90 leading-relaxed">
             <span class="inline-block">{area.name}でピアノ教室を</span><span
@@ -20,11 +23,23 @@ const { area } = Astro.props;
                 >ご自宅でのリラックスした</span
             ><span class="inline-block">レッスンを体験してみませんか？</span>
         </p>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10 text-sm">
+            {area.cta.reassurance.map((point) => (
+                <div class={`rounded-full px-4 py-3 ${isMid ? "bg-white text-[#544A40] border border-[#D6CABE]" : "bg-white/10 text-white border border-white/30"}`}>
+                    {point}
+                </div>
+            ))}
+        </div>
+
         <a
-            href="/contact"
-            class="inline-block bg-[#A88B58] hover:bg-[#8A7246] text-white font-medium py-4 px-12 rounded-full transition-all duration-300 tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-1"
+            href={ctaHref}
+            class={`inline-block font-medium py-4 px-12 rounded-full transition-all duration-300 tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${isMid ? "bg-[#544A40] hover:bg-[#3D352E] text-white" : "bg-[#A88B58] hover:bg-[#8A7246] text-white"}`}
         >
             無料体験レッスンに申し込む
         </a>
+        <p class={`mt-5 text-sm leading-relaxed ${isMid ? "text-[#6B5F54]" : "text-white/80"}`}>
+            {area.cta.subcopy}
+        </p>
     </div>
 </section>

@@ -1,54 +1,49 @@
 import sharp from 'sharp';
-import fs from 'fs/promises';
+import fs from 'fs';
 import path from 'path';
 
-const VALID_SUFFIXES = ['_saiyou.png'];
-// Adding other potentially large images found in the file list
-const OTHER_LARGE_IMAGES = [
-    'harumi-kachidoki.png',
-    'kiyosumi-shirakawa.png',
-    'monzen-nakacho.png',
-    'morishita-sumiyoshi.png',
-    'nihonbashi.png',
-    'toyosu.png',
-    'harumi_katidoki.png',
-    'kiyosumisirakawa.png',
-    'monnzennnakatyou.png',
-    'nihonnbasi.png'
-];
+const inputDir = 'c:/Users/S6sak/piano-site-1/public/images/areas';
+const outputDir = 'c:/Users/S6sak/piano-site-1/public/images/areas';
 
-const TARGET_DIR = './public/images/areas';
-const QUALITY = 80;
-const MAX_WIDTH = 1200;
+const mapping = {
+    'toyosu_saiyou.webp': 'toyosu.webp',
+    'kodomo_otoko_tawamann.png': 'ariake.webp',
+    'kodomo_jyosei_mannshonn.png': 'shinonome.webp',
+    'kodomo_dannsei_kyoudai.png': 'tsukishima.webp',
+    'kodomo_jyoseii_tawamann.png': 'kachidoki.webp',
+    'harumi_saiyou.webp': 'harumi.webp',
+    'kiyosumisirakawa_saiyou.webp': 'kiyosumi-shirakawa.webp',
+    'otona_jyosei.png': 'hirano.webp',
+    'otona_dannsei.png': 'miyoshi.webp',
+    'monnzennnakatyou_saiyou.webp': 'monzen-nakacho.webp',
+    'kodomo_dannsei_2.png': 'kiba.webp',
+    'kodomo_jyosei_okanemoti.png': 'ecchujima.webp',
+    'nihonnbasi_saiyou.webp': 'ningyocho.webp',
+    'otona_jyoseii.png': 'suitengu-mae.webp',
+    'otona_dannsei_koukyuu.png': 'hamacho.webp',
+    'morisita_saiyou.webp': 'morishita.webp',
+    'kodomo_jyosei_heyakirei.png': 'sumiyoshi.webp',
+    'kodomo_dannsei.png': 'kikukawa.webp',
+};
 
-async function optimzeImages() {
-    try {
-        const files = await fs.readdir(TARGET_DIR);
+async function processImages() {
+    for (const [src, dest] of Object.entries(mapping)) {
+        const inputPath = path.join(inputDir, src);
+        const outputPath = path.join(outputDir, dest);
 
-        for (const file of files) {
-            if (!file.endsWith('.png')) continue;
-
-            const isTarget = VALID_SUFFIXES.some(suffix => file.endsWith(suffix)) || OTHER_LARGE_IMAGES.includes(file);
-
-            if (isTarget) {
-                const inputPath = path.join(TARGET_DIR, file);
-                const outputFilename = file.replace(/\.png$/, '.webp');
-                const outputPath = path.join(TARGET_DIR, outputFilename);
-
-                console.log(`Optimizing: ${file} -> ${outputFilename}`);
-
+        if (fs.existsSync(inputPath)) {
+            try {
                 await sharp(inputPath)
-                    .resize({ width: MAX_WIDTH, withoutEnlargement: true })
-                    .webp({ quality: QUALITY })
+                    .webp({ quality: 80 })
                     .toFile(outputPath);
-
-                console.log(`Done: ${outputFilename}`);
+                console.log(`Processed: ${src} -> ${dest}`);
+            } catch (err) {
+                console.error(`Error processing ${src}:`, err);
             }
+        } else {
+            console.warn(`Source file not found: ${src}`);
         }
-        console.log('All images optimized.');
-    } catch (error) {
-        console.error('Error optimizing images:', error);
     }
 }
 
-optimzeImages();
+processImages();

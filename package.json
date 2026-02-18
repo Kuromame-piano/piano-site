@@ -6,7 +6,8 @@
     "dev": "astro dev",
     "build": "astro build",
     "preview": "astro preview",
-    "astro": "astro"
+    "astro": "astro",
+    "validate:areas": "node scripts/validate-area-content.mjs"
   },
   "dependencies": {
     "@astrojs/sitemap": "^3.6.0",
