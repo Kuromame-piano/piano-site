@@ -10,20 +10,28 @@ const { area } = Astro.props;
 
 {
     area.areaGuide && (
-        <section class="py-16 px-6 bg-white">
+        <section class="py-20 px-6 bg-white">
             <div class="max-w-4xl mx-auto">
                 <div class="text-center mb-12">
-                    <h2 class="text-2xl font-serif text-[#544A40]">
+                    <h2 class="text-2xl font-serif text-[#544A40] mb-4">
                         <span class="inline-block">{area.name}で</span>
                         <br class="md:hidden" />
                         <span class="inline-block">出張ピアノ教室が</span>
                         <br class="md:hidden" />
                         <span class="inline-block">選ばれる理由</span>
                     </h2>
+                    <div class="w-16 h-[1px] bg-[#A88B58] mx-auto" />
                 </div>
-                <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify max-w-2xl mx-auto">
-                    {area.areaGuide}
-                </p>
+
+                <div class="bg-[#FCFAF7] p-8 md:p-12 rounded-2xl border border-[#F1EBE4] relative">
+                    <span class="absolute -top-3 left-8 bg-[#544A40] text-white text-xs tracking-widest px-4 py-1 rounded-full font-serif">
+                        SUMMARY
+                    </span>
+                    <div
+                        class="prose prose-brown max-w-none text-[#544A40]/80 leading-loose text-justify [&>strong]:text-[#A88B58] [&>strong]:font-medium [&>strong]:border-b [&>strong]:border-[#A88B58]/40"
+                        set:html={area.areaGuide}
+                    />
+                </div>
             </div>
         </section>
     )
