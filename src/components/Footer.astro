@@ -1,12 +1,12 @@
 ---
-import { areas } from "../data/areas";
+import { areas, areaGroups } from "../data/areas";
 const year = new Date().getFullYear();
 ---
 
 <footer
     class="py-16 text-center text-[10px] tracking-[0.2em] uppercase border-t border-[#F1EBE4] mt-auto bg-[#FCFAF7]"
 >
-    {/* SEO対策：主要エリアへの内部リンク網羅 - デザイン改善版 */}
+    {/* SEO対策：主要エリアへの内部リンク網羅 */}
     <div class="max-w-7xl mx-auto px-6 mb-12">
         <p
             class="font-serif text-[#A88B58] mb-6 text-xs tracking-widest text-center opacity-80"
@@ -18,23 +18,23 @@ const year = new Date().getFullYear();
             class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-left"
         >
             {
-                areas.map((area) => (
+                areaGroups.map((group) => (
                     <div class="flex flex-col gap-3">
-                        <a
-                            href={`/area/${area.slug}`}
-                            class="text-[#8C7B6C] hover:text-[#A88B58] transition-colors font-medium border-b border-[#A88B58]/20 pb-1"
-                        >
-                            {area.name}
-                        </a>
+                        <span class="text-[#8C7B6C] font-medium border-b border-[#A88B58]/20 pb-1">
+                            {group.district}
+                        </span>
                         <div class="flex flex-col gap-2">
-                            {area.subAreas.map((sub) => (
-                                <a
-                                    href={`/area/${area.slug}`}
-                                    class="text-[#544A40]/60 hover:text-[#A88B58] transition-colors text-[9px] tracking-wider"
-                                >
-                                    {sub}
-                                </a>
-                            ))}
+                            {group.areaSlugs.map((slug) => {
+                                const area = areas.find((a) => a.slug === slug);
+                                return area ? (
+                                    <a
+                                        href={`/area/${area.slug}`}
+                                        class="text-[#544A40]/60 hover:text-[#A88B58] transition-colors text-[9px] tracking-wider"
+                                    >
+                                        {area.name}のピアノ教室
+                                    </a>
+                                ) : null;
+                            })}
                         </div>
                     </div>
                 ))

@@ -1,11 +1,16 @@
 ---
-import type { Area } from "../../data/areas";
+import { areas, type Area } from "../../data/areas";
 
 interface Props {
     area: Area;
 }
 
 const { area } = Astro.props;
+
+// 兄弟エリア名を取得
+const siblingNames = area.siblingSlugs
+    .map((slug) => areas.find((a) => a.slug === slug)?.name)
+    .filter(Boolean);
 ---
 
 {
@@ -19,19 +24,20 @@ const { area } = Astro.props;
                 </>
             </h2>
 
-            <div class="mb-10">
-                <p class="text-sm text-[#6B5F54] mb-6">
-                    以下の地域を含む、{area.name}
-                    エリア全域へ出張レッスンにお伺いします。
-                </p>
-                <div class="flex flex-wrap justify-center gap-3">
-                    {area.subAreas.map((subArea) => (
-                        <span class="inline-block bg-white px-4 py-2 rounded-full border border-[#E8E2D9] text-[#544A40] text-sm md:text-base font-medium shadow-sm">
-                            {subArea}
-                        </span>
-                    ))}
+            {siblingNames.length > 0 && (
+                <div class="mb-10">
+                    <p class="text-sm text-[#6B5F54] mb-6">
+                        {area.name}のほか、近隣の以下のエリアへも出張レッスンにお伺いします。
+                    </p>
+                    <div class="flex flex-wrap justify-center gap-3">
+                        {siblingNames.map((name) => (
+                            <span class="inline-block bg-white px-4 py-2 rounded-full border border-[#E8E2D9] text-[#544A40] text-sm md:text-base font-medium shadow-sm">
+                                {name}
+                            </span>
+                        ))}
+                    </div>
                 </div>
-            </div>
+            )}
 
             <div class="flex flex-col md:flex-row gap-8 items-start">
                 {/* Map (Left) */}

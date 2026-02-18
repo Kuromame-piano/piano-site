@@ -1,10 +1,10 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { areas } from "../../data/areas";
+import { areas, areaGroups } from "../../data/areas";
 
 const pageTitle = "出張エリア一覧 | 髙橋遊月ピアノ教室";
 const pageDescription =
-    "髙橋遊月ピアノ教室の出張レッスン対応エリア一覧。豊洲、晴海、勝どき、月島、清澄白河、門前仲町、日本橋、森下など江東区・中央区エリアに対応。送迎不要の出張ピアノレッスンで忙しいご家庭をサポートします。";
+    "髙橋遊月ピアノ教室の出張レッスン対応エリア一覧。豊洲、有明、東雲、月島、勝どき、晴海、清澄白河、門前仲町、木場、人形町、水天宮前、浜町、森下、住吉、菊川など江東区・中央区エリアに対応。送迎不要の出張ピアノレッスンで忙しいご家庭をサポートします。";
 
 // ItemList Schema for area index
 const schema = JSON.stringify({
@@ -58,8 +58,6 @@ const schema = JSON.stringify({
     <div
         class="relative h-[40vh] flex items-center justify-center overflow-hidden bg-[#F3EFE9]"
     >
-        {/* Breadcrumbs (Visual) */}
-
         <div class="relative z-10 text-center px-6 pt-10">
             <h1
                 class="text-3xl md:text-5xl font-serif mb-4 tracking-wider text-[#544A40]"
@@ -85,43 +83,52 @@ const schema = JSON.stringify({
             各エリアの詳細ページでは、<wbr />地域に合わせたレッスンの<wbr
             />ご案内をしています。
         </p>
-        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {
-                areas.map((area) => (
-                    <a
-                        href={`/area/${area.slug}`}
-                        class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col"
-                    >
-                        <div class="relative h-48 overflow-hidden bg-gray-100 flex-shrink-0">
-                            <img
-                                src={area.mainImage}
-                                alt={area.mainImageAlt || area.name}
-                                class="w-full h-full object-cover transition-transform duration-500 scale-110 group-hover:scale-125 opacity-80 group-hover:opacity-100"
-                                loading="lazy"
-                            />
-                            <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors" />
-                        </div>
-                        <div class="p-6 flex flex-col flex-grow">
-                            <h2 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors flex items-center justify-between">
-                                {area.name}
-                            </h2>
-                            <p class="text-sm text-[#544A40]/60 mb-4 line-clamp-2">
-                                {area.catchphrase.replace(/<[^>]*>/g, "")}
-                            </p>
-                            <div class="mt-auto">
-                                <div class="flex flex-wrap gap-2">
-                                    {area.subAreas.map((sub) => (
-                                        <span class="text-xs bg-[#F3EFE9] text-[#544A40] px-2 py-1 rounded border border-transparent group-hover:border-[#A88B58]/20 transition-colors">
-                                            {sub}
-                                        </span>
-                                    ))}
-                                </div>
-                            </div>
-                        </div>
-                    </a>
-                ))
-            }
-        </div>
+
+        {
+            areaGroups.map((group) => (
+                <div class="mb-12">
+                    <h2 class="text-lg font-serif text-[#544A40] mb-6 border-l-4 border-[#A88B58] pl-4">
+                        {group.label}
+                        <span class="text-sm text-[#A88B58] ml-2 font-sans font-normal">
+                            {group.district}
+                        </span>
+                    </h2>
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                        {group.areaSlugs.map((slug) => {
+                            const area = areas.find((a) => a.slug === slug);
+                            if (!area) return null;
+                            return (
+                                <a
+                                    href={`/area/${area.slug}`}
+                                    class="group block bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 h-full flex flex-col"
+                                >
+                                    <div class="relative h-48 overflow-hidden bg-gray-100 flex-shrink-0">
+                                        <img
+                                            src={area.mainImage}
+                                            alt={area.mainImageAlt || area.name}
+                                            class="w-full h-full object-cover transition-transform duration-500 scale-110 group-hover:scale-125 opacity-80 group-hover:opacity-100"
+                                            loading="lazy"
+                                        />
+                                        <div class="absolute inset-0 bg-black/5 group-hover:bg-black/0 transition-colors" />
+                                    </div>
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <h3 class="text-xl font-serif text-[#544A40] mb-2 group-hover:text-[#A88B58] transition-colors">
+                                            {area.name}のピアノ教室
+                                        </h3>
+                                        <p class="text-sm text-[#544A40]/60 mb-4 line-clamp-2 flex-grow">
+                                            {area.catchphrase.replace(/<[^>]*>/g, "")}
+                                        </p>
+                                        <div class="text-right text-xs text-[#A88B58] font-medium md:opacity-0 md:group-hover:opacity-100 transition-opacity">
+                                            詳しく見る →
+                                        </div>
+                                    </div>
+                                </a>
+                            );
+                        })}
+                    </div>
+                </div>
+            ))
+        }
     </section>
 
     <section class="bg-[#F3EFE9] py-20 px-6">

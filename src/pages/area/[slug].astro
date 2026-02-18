@@ -13,6 +13,7 @@ import CTASection from "../../components/area/CTASection.astro";
 
 import InstructorSection from "../../components/area/InstructorSection.astro";
 import FeeSection from "../../components/area/FeeSection.astro";
+import RelatedAreasSection from "../../components/area/RelatedAreasSection.astro";
 import Breadcrumbs from "../../components/common/Breadcrumbs.astro";
 
 export async function getStaticPaths() {
@@ -26,32 +27,22 @@ interface Props {
     area: Area;
 }
 
-// ... (existing imports)
-
 const { area } = Astro.props;
 
 // 画像の表示位置をエリアごとに調整
 const getObjectPosition = (slug: string) => {
-    // 下の方（手元など）を映したいエリア
     if (["kiyosumi-shirakawa", "monzen-nakacho"].includes(slug)) {
         return "50% 55%";
     }
-    // 引き（全体）を映したいエリア（中央揃えでバランスをとる）
-    if (["nihonbashi", "morishita-sumiyoshi"].includes(slug)) {
+    if (["ningyocho", "morishita"].includes(slug)) {
         return "50% 50%";
     }
-    // デフォルト（やや上寄り＝顔重視）
     return "50% 35%";
 };
 const objectPosition = getObjectPosition(area.slug);
 
-const pageTitle = `${area.subAreas.slice(0, 3).join("・")}のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室`;
-const pageDescription = `${area.subAreas
-    .slice(0, 3)
-    .map((s) => s + "のピアノ教室")
-    .join(
-        "・",
-    )}をお探しの方へ。講師がご自宅へ伺う「出張型」のピアノ教室です。${area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
+const pageTitle = `${area.name}のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室`;
+const pageDescription = `${area.name}のピアノ教室をお探しの方へ。講師がご自宅へ伺う出張専門のピアノ教室です。${area.metaSnippet || area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
 
 // Schema.org Structured Data
 const schema = JSON.stringify({
@@ -96,16 +87,10 @@ const schema = JSON.stringify({
             image: new URL("/senzai.png", Astro.site).toString(),
             telephone: "", // 電話番号があれば追加
             priceRange: "￥5,000～",
-            areaServed: [
-                {
-                    "@type": "City",
-                    name: area.name,
-                },
-                ...area.subAreas.map((sub) => ({
-                    "@type": "Place",
-                    name: sub,
-                })),
-            ],
+            areaServed: {
+                "@type": "Place",
+                name: area.name,
+            },
             serviceType: "出張ピアノレッスン",
             hasOfferCatalog: {
                 "@type": "OfferCatalog",
@@ -130,16 +115,10 @@ const schema = JSON.stringify({
                 url: Astro.site?.toString(),
                 image: new URL("/senzai.png", Astro.site).toString(),
             },
-            areaServed: [
-                {
-                    "@type": "City",
-                    name: area.name,
-                },
-                ...area.subAreas.map((sub) => ({
-                    "@type": "Place",
-                    name: sub,
-                })),
-            ],
+            areaServed: {
+                "@type": "Place",
+                name: area.name,
+            },
             description: area.lead,
             url: Astro.url.toString(),
             potentialAction: {
@@ -154,10 +133,9 @@ const schema = JSON.stringify({
                 },
             },
         },
-        // FAQPage Schema for rich results (最大3つまで)
         {
             "@type": "FAQPage",
-            mainEntity: area.faqs.slice(0, 3).map((faq) => ({
+            mainEntity: area.faqs.map((faq) => ({
                 "@type": "Question",
                 name: faq.question,
                 acceptedAnswer: {
@@ -206,6 +184,8 @@ const schema = JSON.stringify({
     <MapSection area={area} />
 
     <AreaGuideSection area={area} />
+
+    <RelatedAreasSection area={area} />
 
     <CTASection area={area} />
 </Layout>
