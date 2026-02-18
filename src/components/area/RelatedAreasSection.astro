@@ -3,9 +3,10 @@ import { areas, type Area } from "../../data/areas";
 
 interface Props {
     area: Area;
+    className?: string;
 }
 
-const { area } = Astro.props;
+const { area, className = "bg-white" } = Astro.props;
 
 const relatedAreas = area.relatedAreas
     .map((slug) => areas.find((a) => a.slug === slug))
@@ -15,7 +16,9 @@ const relatedAreas = area.relatedAreas
 
 {
     relatedAreas.length > 0 && (
-        <section class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-[#F1EBE4]">
+        <section
+            class={`py-20 px-6 max-w-4xl mx-auto text-center border-t border-[#F1EBE4] ${className}`}
+        >
             <h2 class="text-xl font-serif mb-10 text-[#544A40]">
                 近隣・関連エリアのピアノ教室
                 <span class="block text-sm text-[#A88B58] mt-2 font-sans font-normal tracking-wide">
