@@ -57,6 +57,12 @@ const metaKeywords = keywords
 
         <link rel="canonical" href={canonicalURL} />
         <meta name="robots" content={robots} />
+        <link rel="alternate" hreflang="ja" href={canonicalURL.toString()} />
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href={canonicalURL.toString()}
+        />
 
         <title>{title}</title>
         <meta name="description" content={description} />

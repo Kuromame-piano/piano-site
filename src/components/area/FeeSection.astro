@@ -1,0 +1,28 @@
+---
+import FeeSystem from "../FeeSystem.astro";
+import type { Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+}
+
+const { area } = Astro.props;
+---
+
+<section class="py-16 px-6 bg-white">
+    <div class="max-w-4xl mx-auto">
+        <div class="text-center mb-12">
+            <h2 class="text-2xl font-serif text-[#544A40]">レッスン料金</h2>
+        </div>
+        <FeeSystem />
+
+        {/* 追加の訴求コメント */}
+        <p class="mt-8 text-center text-sm text-[#6B5F54]">
+            <span class="inline-block">{area.name}エリアは</span><span
+                class="inline-block">出張費込みの料金で対応しております。</span
+            ><br class="md:hidden" /><span class="inline-block"
+                >スタジオレンタルの場合は</span
+            ><span class="inline-block">別途費用がかかります。</span>
+        </p>
+    </div>
+</section>

@@ -1,0 +1,46 @@
+---
+import { areas, type Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+}
+
+const { area } = Astro.props;
+
+// 兄弟エリア（同じグループ内の他エリア）を取得
+const siblingAreas = areas.filter(
+    (a) => area.siblingSlugs.includes(a.slug)
+);
+---
+
+{
+    siblingAreas.length > 0 && (
+        <section class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-[#F1EBE4]">
+            <h2 class="text-xl font-serif mb-10 text-[#544A40]">
+                近隣エリアのピアノ教室
+                <span class="block text-sm text-[#A88B58] mt-2 font-sans font-normal tracking-wide">
+                    Nearby Areas
+                </span>
+            </h2>
+            <nav aria-label="Related Areas">
+                <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm max-w-2xl mx-auto">
+                    {siblingAreas.map((a) => (
+                        <li>
+                            <a
+                                href={`/area/${a.slug}`}
+                                class="block px-6 py-4 border border-[#544A40]/20 text-[#544A40] hover:bg-[#544A40] hover:text-white transition-all duration-300 rounded-lg hover:shadow-md group"
+                            >
+                                <span class="font-medium tracking-wider">
+                                    {a.name}のピアノ教室
+                                </span>
+                                <span class="block text-xs mt-1 text-[#A88B58] group-hover:text-white/80 transition-colors">
+                                    出張レッスン対応
+                                </span>
+                            </a>
+                        </li>
+                    ))}
+                </ul>
+            </nav>
+        </section>
+    )
+}

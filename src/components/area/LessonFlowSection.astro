@@ -1,0 +1,58 @@
+---
+import type { Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+}
+
+const { area } = Astro.props;
+---
+
+{
+    area.lessonFlow && area.lessonFlow.length > 0 && (
+        <section class="py-24 px-6 bg-[#FCFAF7]">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-2xl font-serif text-[#544A40]">
+                        <span class="inline-block">レッスン開始までの</span>
+                        <br class="md:hidden" />
+                        <span class="inline-block">流れ</span>
+                    </h2>
+                </div>
+
+                <div class="relative pl-4 md:pl-0">
+                    {/* Vertical line */}
+                    <div class="absolute left-[19px] top-4 bottom-8 w-[1px] bg-[#D4C5B0]/70" />
+
+                    <div class="space-y-12">
+                        {area.lessonFlow.map((step, index) => (
+                            <div class="relative flex gap-8 items-start group">
+                                {/* Number Circle */}
+                                <div class="relative z-10 flex-shrink-0 w-10 h-10 rounded-full bg-[#FCFAF7] border border-[#A88B58] flex items-center justify-center text-[#A88B58] font-serif font-medium text-lg transition-colors duration-300 group-hover:bg-[#A88B58] group-hover:text-white">
+                                    {index + 1}
+                                </div>
+
+                                {/* Content */}
+                                <div class="flex-1 pt-0.5">
+                                    <div class="flex flex-col md:flex-row md:items-baseline gap-2 md:gap-4 mb-3">
+                                        <span class="text-xs font-serif text-[#A88B58] tracking-widest">
+                                            STEP{" "}
+                                            {String(index + 1).padStart(2, "0")}
+                                        </span>
+                                        <h3 class="text-lg md:text-xl font-medium text-[#544A40]">
+                                            {step.title}
+                                        </h3>
+                                    </div>
+                                    <p
+                                        class="text-[15px] text-[#544A40]/80 leading-7 text-justify"
+                                        set:html={step.description}
+                                    />
+                                </div>
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
+}
