@@ -3,8 +3,7 @@ import Layout from "../../layouts/Layout.astro";
 import { areas } from "../../data/areas";
 import { type Area } from "../../data/areas";
 import HeroSection from "../../components/area/HeroSection.astro";
-import IntroSection from "../../components/area/IntroSection.astro";
-import PersonaSection from "../../components/area/PersonaSection.astro";
+
 import UniqueContentSection from "../../components/area/UniqueContentSection.astro";
 import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
 import MapSection from "../../components/area/MapSection.astro";
@@ -179,23 +178,19 @@ const schema = JSON.stringify({
 
     <HeroSection area={area} objectPosition={objectPosition} />
 
-    <IntroSection area={area} />
-
-    <PersonaSection area={area} />
-
     <UniqueContentSection area={area} />
 
     <NeedSolutionSection area={area} />
 
-    <InstructorSection area={area} />
+    <InstructorSection area={area} className="bg-[#FCFAF7]" />
 
-    <FeeSection area={area} />
+    <FeeSection area={area} className="bg-white" />
 
-    <LessonFlowSection area={area} />
+    <MapSection area={area} className="bg-[#FCFAF7]" />
 
-    <FAQSection area={area} />
+    <FAQSection area={area} className="bg-white" />
 
-    <MapSection area={area} />
+    <LessonFlowSection area={area} className="bg-[#FCFAF7]" />
 
     <CTASection area={area} variant="final" />
 

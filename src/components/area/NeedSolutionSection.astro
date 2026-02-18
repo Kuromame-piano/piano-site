@@ -28,13 +28,14 @@ const { area } = Astro.props;
                             <div class="p-8 md:w-2/5 bg-[#FCFAF7] border-b md:border-b-0 md:border-r border-[#F1EBE4]">
                                 <div class="flex items-center gap-3 mb-4">
                                     <span class="bg-[#544A40] text-white text-[10px] mobile-s:text-xs font-bold px-2 py-1 rounded tracking-widest">
-                                        ISSUE{" "}
-                                        {String(index + 1).padStart(2, "0")}
+                                        {item.label ||
+                                            `ISSUE ${String(index + 1).padStart(2, "0")}`}
                                     </span>
                                 </div>
-                                <h3 class="text-lg font-serif text-[#544A40] leading-snug">
-                                    {item.need}
-                                </h3>
+                                <h3
+                                    class="text-lg font-serif text-[#544A40] leading-snug"
+                                    set:html={item.need}
+                                />
                             </div>
 
                             {/* Solution Side */}
@@ -59,9 +60,10 @@ const { area } = Astro.props;
                                     </svg>
                                     Solution
                                 </p>
-                                <p class="text-[#544A40]/90 leading-relaxed text-justify">
-                                    {item.solution}
-                                </p>
+                                <div
+                                    class="text-[#544A40]/90 leading-relaxed text-justify"
+                                    set:html={item.solution}
+                                />
                             </div>
                         </div>
                     </article>

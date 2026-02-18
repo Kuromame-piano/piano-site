@@ -3,9 +3,10 @@ import { areas, type Area } from "../../data/areas";
 
 interface Props {
     area: Area;
+    className?: string;
 }
 
-const { area } = Astro.props;
+const { area, className = "bg-white" } = Astro.props;
 
 // 兄弟エリア名を取得
 const siblingNames = area.siblingSlugs
@@ -15,7 +16,7 @@ const siblingNames = area.siblingSlugs
 
 {
     area.googleMapUrl && (
-        <section class="py-20 px-6 bg-white">
+        <section class={`py-20 px-6 ${className}`}>
             <div class="max-w-5xl mx-auto text-center">
                 <h2 class="text-2xl font-serif mb-12 text-[#544A40]">
                     <>
