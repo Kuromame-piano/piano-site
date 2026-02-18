@@ -30,20 +30,6 @@ const isMid = variant === "mid";
             ><span class="inline-block">レッスンを体験してみませんか？</span>
         </p>
 
-        {
-            area.cta.reassurance && area.cta.reassurance.length > 0 && (
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10 text-sm">
-                    {area.cta.reassurance.map((point) => (
-                        <div
-                            class={`rounded-full px-4 py-3 ${isMid ? "bg-white text-[#544A40] border border-[#D6CABE]" : "bg-white/10 text-white border border-white/30"}`}
-                        >
-                            {point}
-                        </div>
-                    ))}
-                </div>
-            )
-        }
-
         <a
             href={ctaHref}
             class={`inline-block font-medium py-4 px-12 rounded-full transition-all duration-300 tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${isMid ? "bg-[#544A40] hover:bg-[#3D352E] text-white" : "bg-[#A88B58] hover:bg-[#8A7246] text-white"}`}
