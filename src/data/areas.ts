@@ -97,7 +97,7 @@ export const areas: Area[] = [
         siblingSlugs: ["ariake", "shinonome"],
         catchphrase: "いつものリビングが<br class='md:hidden' />ピアノ教室に",
         lead: "経験豊富な講師が、ご自宅までお伺いします。お子様は安心できるいつもの場所で、のびのびとピアノを学べます。",
-        mainImage: "/images/areas/toyosu_saiyou.webp",
+        mainImage: "/images/areas/toyosu.webp",
         mainImageAlt: "豊洲エリアでの子供のピアノレッスン風景",
         keywords: ["豊洲 ピアノ教室", "豊洲 ピアノ 子供", "豊洲 出張レッスン", "豊洲 ピアノレッスン", "出張ピアノ教室", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -152,7 +152,7 @@ export const areas: Area[] = [
         siblingSlugs: ["toyosu", "shinonome"],
         catchphrase: "ご自宅が、<br class='md:hidden' />お子様専用のピアノ教室に",
         lead: "有明エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/toyosu_saiyou.webp",
+        mainImage: "/images/areas/ariake.webp",
         mainImageAlt: "有明エリアでの子供のピアノレッスン風景",
         keywords: ["有明 ピアノ教室", "有明 ピアノ 子供", "有明 習い事", "有明 出張レッスン", "出張ピアノ教室", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -203,7 +203,7 @@ export const areas: Area[] = [
         siblingSlugs: ["toyosu", "ariake"],
         catchphrase: "移動時間ゼロ。<br class='md:hidden' />ご自宅でピアノレッスン",
         lead: "東雲エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/toyosu_saiyou.webp",
+        mainImage: "/images/areas/shinonome.webp",
         mainImageAlt: "東雲エリアでの子供のピアノレッスン風景",
         keywords: ["東雲 ピアノ教室", "東雲 ピアノ 子供", "東雲 ピアノレッスン", "東雲 出張レッスン", "出張ピアノ教室", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -258,7 +258,7 @@ export const areas: Area[] = [
         siblingSlugs: ["kachidoki", "harumi"],
         catchphrase: "「通わない」選択。<br class='md:hidden' />ゆとりと上達を",
         lead: "送迎の負担がないから、忙しい毎日でも心にゆとりを持って、質の高いレッスンを続けられます。",
-        mainImage: "/images/areas/harumi_saiyou.webp",
+        mainImage: "/images/areas/tsukishima.webp",
         mainImageAlt: "月島エリアの子供のピアノレッスン風景",
         keywords: ["月島 ピアノ教室", "月島 ピアノ 子供", "月島 出張レッスン", "月島 ピアノレッスン", "出張ピアノ教室", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -309,7 +309,7 @@ export const areas: Area[] = [
         siblingSlugs: ["tsukishima", "harumi"],
         catchphrase: "忙しい毎日に、<br class='md:hidden' />ピアノのある暮らしを",
         lead: "勝どきエリアにお住まいの方へ、送迎不要の出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/harumi_saiyou.webp",
+        mainImage: "/images/areas/kachidoki.webp",
         mainImageAlt: "勝どきエリアの子供のピアノレッスン風景",
         keywords: ["勝どき ピアノ教室", "勝どき ピアノ 子供", "勝どき 習い事", "勝どき 出張レッスン", "出張ピアノ教室", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -356,7 +356,7 @@ export const areas: Area[] = [
         siblingSlugs: ["tsukishima", "kachidoki"],
         catchphrase: "ご自宅で、<br class='md:hidden' />リラックスしてピアノを",
         lead: "晴海エリアにお住まいの方へ、送迎不要の出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/harumi_saiyou.webp",
+        mainImage: "/images/areas/harumi.webp",
         mainImageAlt: "晴海エリアの子供のピアノレッスン風景",
         keywords: ["晴海 ピアノ教室", "晴海 ピアノ 子供", "晴海 ピアノレッスン", "晴海 出張レッスン", "出張ピアノ教室", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -411,7 +411,7 @@ export const areas: Area[] = [
         siblingSlugs: ["hirano", "miyoshi"],
         catchphrase: "無理なく、心地よく、<br class='md:hidden' />音楽を暮らしの一部に。",
         lead: "移動の負担がない出張レッスンなら、忙しい毎日の中でも、自然と音楽が生活に溶け込みます。",
-        mainImage: "/images/areas/kiyosumisirakawa_saiyou.webp",
+        mainImage: "/images/areas/kiyosumi-shirakawa.webp",
         mainImageAlt: "清澄白河での女性のピアノレッスン風景",
         keywords: ["清澄白河 ピアノ教室", "清澄白河 ピアノ 大人", "清澄白河 ピアノ 子供", "清澄白河 出張レッスン", "出張ピアノ教室", "大人", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -466,7 +466,7 @@ export const areas: Area[] = [
         siblingSlugs: ["kiyosumi-shirakawa", "miyoshi"],
         catchphrase: "ご自宅で、<br class='md:hidden' />あなたのペースでピアノを",
         lead: "平野エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/kiyosumisirakawa_saiyou.webp",
+        mainImage: "/images/areas/hirano.webp",
         mainImageAlt: "平野エリアでのピアノレッスン風景",
         keywords: ["平野 ピアノ教室", "平野 ピアノレッスン", "平野 出張レッスン", "江東区平野 ピアノ", "出張ピアノ教室", "子供", "大人", "初心者", "ピアノレッスン"],
         features: [
@@ -513,7 +513,7 @@ export const areas: Area[] = [
         siblingSlugs: ["kiyosumi-shirakawa", "hirano"],
         catchphrase: "気軽に始める、<br class='md:hidden' />ご自宅でのピアノレッスン",
         lead: "三好エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/kiyosumisirakawa_saiyou.webp",
+        mainImage: "/images/areas/miyoshi.webp",
         mainImageAlt: "三好エリアでのピアノレッスン風景",
         keywords: ["三好 ピアノ教室", "三好 ピアノレッスン", "三好 習い事", "江東区三好 ピアノ", "出張ピアノ教室", "子供", "大人", "初心者", "ピアノレッスン"],
         features: [
@@ -564,7 +564,7 @@ export const areas: Area[] = [
         siblingSlugs: ["kiba", "ecchujima"],
         catchphrase: "「続けられる」を、<br class='md:hidden' />一番近くで。",
         lead: "生徒様のご希望を大切にしながら、ピアノを長く楽しんでいただけるレッスンをお届けします。",
-        mainImage: "/images/areas/monnzennnakatyou_saiyou.webp",
+        mainImage: "/images/areas/monzen-nakacho.webp",
         mainImageAlt: "門前仲町の温かい家庭での子供のピアノレッスン",
         keywords: ["門前仲町 ピアノ教室", "門前仲町 ピアノ 子供", "門前仲町 ピアノレッスン", "門前仲町 出張レッスン", "出張ピアノ教室", "深川 ピアノ教室", "子供", "大人", "初心者", "ピアノレッスン"],
         features: [
@@ -615,7 +615,7 @@ export const areas: Area[] = [
         siblingSlugs: ["monzen-nakacho", "ecchujima"],
         catchphrase: "ご自宅で、<br class='md:hidden' />無理なく続けるピアノ",
         lead: "木場エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/monnzennnakatyou_saiyou.webp",
+        mainImage: "/images/areas/kiba.webp",
         mainImageAlt: "木場エリアでの子供のピアノレッスン風景",
         keywords: ["木場 ピアノ教室", "木場 ピアノ 子供", "木場 ピアノレッスン", "木場 出張レッスン", "出張ピアノ教室", "子供", "大人", "初心者", "ピアノレッスン"],
         features: [
@@ -662,7 +662,7 @@ export const areas: Area[] = [
         siblingSlugs: ["monzen-nakacho", "kiba"],
         catchphrase: "通学不要。<br class='md:hidden' />ご自宅でピアノレッスン",
         lead: "越中島エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/monnzennnakatyou_saiyou.webp",
+        mainImage: "/images/areas/ecchujima.webp",
         mainImageAlt: "越中島エリアでの子供のピアノレッスン風景",
         keywords: ["越中島 ピアノ教室", "越中島 ピアノレッスン", "越中島 習い事", "越中島 出張レッスン", "出張ピアノ教室", "子供", "大人", "初心者", "ピアノレッスン"],
         features: [
@@ -713,7 +713,7 @@ export const areas: Area[] = [
         siblingSlugs: ["suitengu-mae", "hamacho"],
         catchphrase: "忙しい日々に、<br class='md:hidden' />ピアノという癒しの時間を",
         lead: "お仕事帰りや休日のひととき、ご自宅でリラックスしながらピアノを楽しみませんか。",
-        mainImage: "/images/areas/nihonnbasi_saiyou.webp",
+        mainImage: "/images/areas/ningyocho.webp",
         mainImageAlt: "人形町での大人のピアノレッスン風景",
         keywords: ["人形町 ピアノ教室", "人形町 ピアノ 大人", "人形町 ピアノレッスン", "人形町 出張レッスン", "出張ピアノ教室", "大人", "子供", "初心者", "趣味", "ピアノレッスン"],
         features: [
@@ -764,7 +764,7 @@ export const areas: Area[] = [
         siblingSlugs: ["ningyocho", "hamacho"],
         catchphrase: "プライベート空間で、<br class='md:hidden' />上質なピアノレッスンを",
         lead: "水天宮前エリアにお住まいの方へ、ご自宅でリラックスしながらピアノを楽しめる出張レッスンをお届けします。",
-        mainImage: "/images/areas/nihonnbasi_saiyou.webp",
+        mainImage: "/images/areas/suitengu-mae.webp",
         mainImageAlt: "水天宮前エリアでのピアノレッスン風景",
         keywords: ["水天宮前 ピアノ教室", "水天宮前 ピアノレッスン", "水天宮前 出張レッスン", "水天宮前 ピアノ 大人", "出張ピアノ教室", "大人", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -811,7 +811,7 @@ export const areas: Area[] = [
         siblingSlugs: ["ningyocho", "suitengu-mae"],
         catchphrase: "ご自宅で始める、<br class='md:hidden' />大人のピアノレッスン",
         lead: "浜町エリアにお住まいの方へ、送迎不要の出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/nihonnbasi_saiyou.webp",
+        mainImage: "/images/areas/hamacho.webp",
         mainImageAlt: "浜町エリアでのピアノレッスン風景",
         keywords: ["浜町 ピアノ教室", "浜町 ピアノレッスン", "浜町 習い事", "浜町 出張レッスン", "日本橋浜町 ピアノ", "出張ピアノ教室", "大人", "子供", "初心者", "ピアノレッスン"],
         features: [
@@ -862,7 +862,7 @@ export const areas: Area[] = [
         siblingSlugs: ["sumiyoshi", "kikukawa"],
         catchphrase: "日常に溶け込む、<br class='md:hidden' />心地よいピアノの響き",
         lead: "移動時間ゼロの出張レッスンなら、夕方の貴重な時間を有効に使いながら、お子様の成長を見守れます。",
-        mainImage: "/images/areas/morisita_saiyou.webp",
+        mainImage: "/images/areas/morishita.webp",
         mainImageAlt: "森下エリアのアットホームな子供のピアノレッスン",
         keywords: ["森下 ピアノ教室", "森下 ピアノ 子供", "森下 出張レッスン", "森下 ピアノレッスン", "出張ピアノ教室", "子供", "初心者", "習い事", "ピアノレッスン"],
         features: [
@@ -913,7 +913,7 @@ export const areas: Area[] = [
         siblingSlugs: ["morishita", "kikukawa"],
         catchphrase: "お子様の成長を、<br class='md:hidden' />いつもの場所で見守れます",
         lead: "住吉エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/morisita_saiyou.webp",
+        mainImage: "/images/areas/sumiyoshi.webp",
         mainImageAlt: "住吉エリアの子供のピアノレッスン風景",
         keywords: ["住吉 ピアノ教室", "住吉 ピアノ 子供", "住吉 ピアノレッスン", "住吉 出張レッスン", "出張ピアノ教室", "子供", "初心者", "習い事", "ピアノレッスン"],
         features: [
@@ -960,7 +960,7 @@ export const areas: Area[] = [
         siblingSlugs: ["morishita", "sumiyoshi"],
         catchphrase: "送迎不要。<br class='md:hidden' />ご自宅で安心のピアノレッスン",
         lead: "菊川エリアにお住まいの方へ、講師がご自宅まで伺う出張ピアノレッスンをお届けしています。",
-        mainImage: "/images/areas/morisita_saiyou.webp",
+        mainImage: "/images/areas/kikukawa.webp",
         mainImageAlt: "菊川エリアの子供のピアノレッスン風景",
         keywords: ["菊川 ピアノ教室", "菊川 ピアノ 子供", "菊川 習い事", "菊川 出張レッスン", "出張ピアノ教室", "子供", "初心者", "ピアノレッスン"],
         features: [
