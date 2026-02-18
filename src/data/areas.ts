@@ -7,8 +7,11 @@ export type PersonaCard = {
 
 export type NeedSolution = {
     label?: string;
-    need: string;
-    solution: string;
+    title: string;
+    subTitle?: string;
+    painPoints: string[];
+    solutionTitle?: string;
+    solutions: string[];
 };
 
 export type AreaSeo = {
@@ -197,46 +200,49 @@ export const areas: Area[] = [
         ],
         needSolutions: [
             {
-                need: `<span class="block text-xl mb-2 font-bold">タワマン子育て世帯の「送迎」の悩み</span>
-                       <span class="block text-sm mb-4 opacity-80">忙しい夕方の時間を、もっと有効に使いたい</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>教室への移動で、帰宅後の貴重な時間が削られる</li>
-                           <li>雨の日や猛暑・極寒の中での送り迎えが大きな負担</li>
-                           <li>送迎の間、保護者の家事や仕事が中断してしまう</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>送迎時間は「0分」：講師が自宅に伺うので、玄関を開ければレッスン開始です。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>天候に左右されない：外に出る必要がないため、天気を気にせず生活リズムを維持できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>夕方の時間を有効活用：お子様のレッスン中、保護者様は家事や在宅ワークに集中できます。</span></li>
-                           </ul>`
+                title: "タワマン子育て世帯の「送迎」の悩み",
+                subTitle: "忙しい夕方の時間を、もっと有効に使いたい",
+                painPoints: [
+                    "教室への移動で、帰宅後の貴重な時間が削られる",
+                    "雨の日や猛暑・極寒の中での送り迎えが大きな負担",
+                    "送迎の間、保護者の家事や仕事が中断してしまう"
+                ],
+                solutionTitle: "移動時間「0分」。ご自宅が教室になります",
+                solutions: [
+                    "送迎時間は「0分」：講師が自宅に伺うので、玄関を開ければレッスン開始です。",
+                    "天候に左右されない：外に出る必要がないため、天気を気にせず生活リズムを維持できます。",
+                    "夕方の時間を有効活用：お子様のレッスン中、保護者様は家事や在宅ワークに集中できます。"
+                ]
             },
             {
-                need: `<span class="block text-xl mb-2 font-bold">受験勉強とピアノを両立させたい</span>
-                       <span class="block text-sm mb-4 opacity-80">限られた時間の中で、質の高い学びを</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>塾や宿題が忙しく、平日にまとまった時間が取れない</li>
-                           <li>移動によるタイムロスが、勉強のペースを乱してしまう</li>
-                           <li>短い時間でも着実に上達できる、効率的な練習法を知りたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>30〜40分の集中メニュー：短時間で成果を出す、受験生専用のカリキュラムを作成します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>スムーズな切り替え：自宅レッスンなら、勉強からピアノへ即座にモードを切り替えられます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>柔軟なスケジュール管理：試験期間や講習の予定に合わせ、振替などの相談も承ります。</span></li>
-                           </ul>`
+                title: "受験勉強とピアノを両立させたい",
+                subTitle: "限られた時間の中で、質の高い学びを",
+                painPoints: [
+                    "塾や宿題が忙しく、平日にまとまった時間が取れない",
+                    "移動によるタイムロスが、勉強のペースを乱してしまう",
+                    "短い時間でも着実に上達できる、効率的な練習法を知りたい"
+                ],
+                solutionTitle: "勉強の合間に、30分でリフレッシュ＆上達",
+                solutions: [
+                    "30分の集中メニュー：短時間で成果を出せるようサポートします。",
+                    "スムーズな切り替え：自宅レッスンなら、勉強からピアノへ即座にモードを切り替えられます。",
+                    "柔軟なスケジュール管理：試験期間や講習の予定に合わせ、振替などの相談も承ります。"
+                ]
             },
             {
-                need: `<span class="block text-xl mb-2 font-bold">マンション・電子ピアノでの上達</span>
-                       <span class="block text-sm mb-4 opacity-80">住環境に合わせた「正しい練習」への不安を解消</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>電子ピアノ中心の環境で、変な癖がつかないか心配</li>
-                           <li>マンションでの音漏れや、集合住宅ならではのルールが不安</li>
-                           <li>自分の持っている機材で、どこまで上達できるか分からない</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>電子ピアノ特化の指導：タッチや表現を電子ピアノ環境に合わせて最適化する専門指導を行います。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>機材・環境のアドバイス：上達に必要な機材の提案や、騒音に配慮した練習法を具体的に伝授します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>個別カウンセリング：ご自宅の練習環境を拝見し、最適な練習スタイルを一緒に作り上げます。</span></li>
-                           </ul>`
+                title: "マンション・電子ピアノでの上達",
+                subTitle: "住環境に合わせた「正しい練習」への不安を解消",
+                painPoints: [
+                    "電子ピアノ中心の環境で、変な癖がつかないか心配",
+                    "マンションでの音漏れや、集合住宅ならではのルールが不安",
+                    "自分の持っている機材で、どこまで上達できるか分からない"
+                ],
+                solutionTitle: "電子ピアノのご自宅にも対応",
+                solutions: [
+                    "電子ピアノ対応：電子ピアノのご自宅にも対応しており、環境に合わせた指導を行います。",
+                    "機材・環境のアドバイス：上達に必要な機材の提案や、騒音に配慮した練習法を具体的に伝授します。",
+                    "個別カウンセリング：ご自宅の練習環境を拝見し、最適な練習スタイルを一緒に作り上げます。"
+                ]
             }
         ],
         seo: {
@@ -346,51 +352,51 @@ export const areas: Area[] = [
         needSolutions: [
             {
                 label: "ISSUE 01",
-                need: `<span class="block text-xl mb-2 font-bold">有明での「仕事・家事・送迎」の両立</span>
-                       <span class="block text-sm mb-4 opacity-80">多忙な有明ライフスタイルを支える<br>仕事も家事も妥協したくない保護者様へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>湾岸エリアの移動や送迎で、仕事後の貴重な時間が奪われる</li>
-                           <li>雨の日や海風の強い日の通室が、親子ともに大きな負担</li>
-                           <li>習い事の待ち時間で、夕飯の支度や家事がストップしてしまう</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動コストをゼロに：講師がご自宅へ伺うため、送迎の必要は一切ありません。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>生活リズムの安定：天候に左右されず、帰宅後すぐにレッスンを始められる設計をご提案します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「保護者の自由時間」を創出：お子様がレッスンを受けている間、家事や在宅ワークに集中できます。</span></li>
-                           </ul>`
+                title: "有明での「仕事・家事・送迎」の両立",
+                subTitle: "多忙な有明ライフスタイルを支える、仕事も家事も妥協したくない保護者様へ",
+                painPoints: [
+                    "湾岸エリアの移動や送迎で、仕事後の貴重な時間が奪われる",
+                    "雨の日や海風の強い日の通室が、親子ともに大きな負担",
+                    "習い事の待ち時間で、夕飯の支度や家事がストップしてしまう"
+                ],
+                solutionTitle: "レッスン時間を、親子のゆとり時間に",
+                solutions: [
+                    "移動コストをゼロに：講師がご自宅へ伺うため、送迎の必要は一切ありません。",
+                    "生活リズムの安定：天候に左右されず、帰宅後すぐにレッスンを始められる設計をご提案します。",
+                    "「保護者の自由時間」を創出：お子様がレッスンを受けている間、家事や在宅ワークに集中できます。"
+                ]
             },
             {
                 label: "ISSUE 02",
-                need: `<span class="block text-xl mb-2 font-bold">兄弟受講・多忙なスケジュールの最適化</span>
-                       <span class="block text-sm mb-4 opacity-80">塾・兄弟予定・部活とのスマートな両立<br>「枠」に縛られない、効率的な学びの形</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>兄弟で別々の教室に通うと、送迎や待機時間が倍増する</li>
-                           <li>中学受験の塾や部活が忙しく、固定のレッスン枠が作りにくい</li>
-                           <li>下のお子様の預け先調整など、家族全体の予定調整が複雑</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>兄弟連続レッスン：移動を一本化し、同じ場所で安全に受講できる環境を整えます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>柔軟なスケジュール設計：隔週運用や時間配分の調整など、学校行事や塾に合わせた計画を作ります。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>有明に合わせた時間枠：ご家庭の予定を優先し、夕方の忙しい時間帯も効率的に活用できます。</span></li>
-                           </ul>`
+                title: "兄弟受講・多忙なスケジュールの最適化",
+                subTitle: "塾・兄弟予定・部活とのスマートな両立。「枠」に縛られない、効率的な学びの形",
+                painPoints: [
+                    "兄弟で別々の教室に通うと、送迎や待機時間が倍増する",
+                    "中学受験の塾や部活が忙しく、固定のレッスン枠が作りにくい",
+                    "下のお子様の預け先調整など、家族全体の予定調整が複雑"
+                ],
+                solutionTitle: "兄弟も一緒に、家族みんなで学べる",
+                solutions: [
+                    "兄弟連続レッスン：移動を一本化し、同じ場所で安全に受講できる環境を整えます。",
+                    "柔軟なスケジュール設計：隔週運用や時間配分の調整など、学校行事や塾に合わせた計画を作ります。",
+                    "有明に合わせた時間枠：ご家庭の予定を優先し、夕方の忙しい時間帯も効率的に活用できます。"
+                ]
             },
             {
                 label: "ISSUE 03",
-                need: `<span class="block text-xl mb-2 font-bold">マンション環境での「確かな上達」</span>
-                       <span class="block text-sm mb-4 opacity-80">新築マンション×電子ピアノの練習不安<br>住環境を活かした、質の高い練習メソッド</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>電子ピアノ中心の環境で、演奏技術や表現力が身につくか不安</li>
-                           <li>集合住宅での騒音トラブルや、防音対策にどこまで配慮すべきか</li>
-                           <li>本物のピアノとのタッチの差が、上達の妨げにならないか心配</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>電子ピアノ専用指導：タッチや読譜をマンション環境に最適化させた、段階的な指導を行います。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>機材導入のプロ視点：最新の電子ピアノ選びや、必要な周辺機材を具体的にアドバイスします。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>環境に合わせた練習法：音量に配慮しつつ、しっかりと上達を実感できる「有明マンション仕様」の練習法を伝授します。</span></li>
-                           </ul>`
+                title: "マンション環境での「確かな上達」",
+                subTitle: "新築マンション×電子ピアノの練習不安。住環境を活かした、質の高い練習メソッド",
+                painPoints: [
+                    "電子ピアノ中心の環境で、演奏技術や表現力が身につくか不安",
+                    "集合住宅での騒音トラブルや、防音対策にどこまで配慮すべきか",
+                    "本物のピアノとのタッチの差が、上達の妨げにならないか心配"
+                ],
+                solutionTitle: "自宅練習を、もっと楽しく快適に",
+                solutions: [
+                    "電子ピアノ対応：タッチや読譜をマンション環境に合わせて指導を行います。",
+                    "機材導入のプロ視点：最新の電子ピアノ選びや、必要な周辺機材を具体的にアドバイスします。",
+                    "環境に合わせた練習法：音量に配慮しつつ、しっかりと上達を実感できる「有明マンション仕様」の練習法を伝授します。"
+                ]
             }
         ],
         seo: {
@@ -500,39 +506,45 @@ export const areas: Area[] = [
         needSolutions: [
             {
                 label: "ISSUE 01",
-                need: `<span class="block text-xl font-bold mb-3">帰宅後の時間を豊かな学びに</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>学校後の移動で帰宅後の時間が圧迫される</li>
-                           <li>送迎で保護者の家事・仕事が中断する</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅訪問で移動ゼロ、玄関を開けば即レッスン開始</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>天候不問でいつもの生活リズムを維持できる</span></li>
-                           </ul>`
+                title: "帰宅後の時間を豊かな学びに",
+                subTitle: "学校・保育園後の時間を有効活用",
+                painPoints: [
+                    "学校後の移動で帰宅後の時間が圧迫される",
+                    "送迎で保護者の家事・仕事が中断する"
+                ],
+                solutionTitle: "帰宅後すぐ、リラックスしてレッスン",
+                solutions: [
+                    "自宅訪問で移動ゼロ、玄関を開ければ即レッスン開始",
+                    "天候不問でいつもの生活リズムを維持できる"
+                ]
             },
             {
                 label: "ISSUE 02",
-                need: `<span class="block text-xl font-bold mb-3">可処分時間を最大化する練習設計</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>塾や宿題で平日の自由時間が限られる</li>
-                           <li>短時間でしっかり上達を実感したい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>30〜40分の高効率メニューで短時間集中学習</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>塾予定に合わせた連続受講や柔軟な振替対応</span></li>
-                           </ul>`
+                title: "自由時間を広げる練習設計",
+                subTitle: "塾や他の習い事とも無理なく両立",
+                painPoints: [
+                    "塾や宿題で平日の自由時間が限られる",
+                    "短時間でしっかり上達を実感したい"
+                ],
+                solutionTitle: "短時間集中で、確かな成果を",
+                solutions: [
+                    "30分の高効率メニューで短時間集中学習",
+                    "塾予定に合わせた連続受講や柔軟な振替対応"
+                ]
             },
             {
                 label: "ISSUE 03",
-                need: `<span class="block text-xl font-bold mb-3">マンション・電子ピアノでの演奏不安</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>電子ピアノ中心で演奏技術に偏りが出ないか</li>
-                           <li>音漏れ・最適な機材選びの対策が分からない</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>電子ピアノ専用の段階的タッチ・表現指導</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>ご自宅環境に合わせた機材提案と騒音配慮の練習法</span></li>
-                           </ul>`
+                title: "マンション・電子ピアノでの演奏不安",
+                subTitle: "電子ピアノでも本格的な演奏力を",
+                painPoints: [
+                    "電子ピアノ中心で演奏技術に偏りが出ないか",
+                    "音漏れ・最適な機材選びの対策が分からない"
+                ],
+                solutionTitle: "環境に合わせた、最適な指導法",
+                solutions: [
+                    "電子ピアノ対応の段階的タッチ・表現指導",
+                    "ご自宅環境に合わせた機材提案と騒音配慮の練習法"
+                ]
             }
         ],
         seo: {
@@ -646,39 +658,51 @@ export const areas: Area[] = [
         needSolutions: [
             {
                 label: "ISSUE 01",
-                need: `<span class="block text-xl font-bold mb-3">兄弟・家族の移動と待機をゼロに</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>兄弟別々の教室で午後の予定がすべて埋まる</li>
-                           <li>下の子の預け先が見つからず習い事を躊躇</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>兄弟連続受講で移動一本化、安全な自宅環境で効率学習</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>送迎時間を夕食準備や休息に充てられるゆとり創出</span></li>
-                           </ul>`
+                title: "タワマン・高層住宅での「移動ゼロ」",
+                subTitle: "エレベーターだけで完結する、最も安全で効率的な習い事",
+                painPoints: [
+                    "子供一人での外出やエレベーター移動に不安がある",
+                    "習い事の送迎で、夕方の家事が中断されてしまう",
+                    "雨の日や猛暑日の移動が、親子ともに大きなストレス"
+                ],
+                solutionTitle: "玄関を開ければ、そこが教室に",
+                solutions: [
+                    "完全自宅完結：講師が伺うため、お子様の外出リスクはゼロです。",
+                    "家事の継続：レッスン中も保護者様は家事や休息に時間を使えます。",
+                    "天候ストレスフリー：外の環境に関係なく、常に快適な自宅で受講できます。"
+                ]
             },
             {
                 label: "ISSUE 02",
-                need: `<span class="block text-xl font-bold mb-3">高層住宅・電子ピアノでの確かな成長</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>タワマン電子ピアノで変な癖がつかないか心配</li>
-                           <li>階下への音漏れ・近隣配慮をどうすべきか</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>電子ピアノ特性に合わせた鍵盤タッチ・音色表現指導</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>ご自宅環境確認後の機材選び・騒音抑制練習法提案</span></li>
-                           </ul>`
+                title: "兄弟・姉妹の「連続レッスン」",
+                subTitle: "2枠連続で、家族の時間を賢く使う",
+                painPoints: [
+                    "兄弟で別々の教室に通うと、送迎が2倍になり大変",
+                    "下の子を連れての待機時間が、親子の負担になっている",
+                    "土日の貴重な時間が、習い事の移動だけで潰れてしまう"
+                ],
+                solutionTitle: "家族みんなで、効率よく学ぶ",
+                solutions: [
+                    "移動時間ゼロ：兄弟が続きで受講でき、終わったらすぐフリータイム。",
+                    "待機時間ゼロ：レッスンしていないお子様は、自宅で宿題や遊びに集中。",
+                    "土日も有効活用：移動がない分、家族のお出かけや団欒の時間が増えます。"
+                ]
             },
             {
                 label: "ISSUE 03",
-                need: `<span class="block text-xl font-bold mb-3">忙しい日常にピアノを再開する喜び</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>仕事帰りに教室へ通う体力・時間が確保できない</li>
-                           <li>不規則勤務で毎週固定枠を維持しにくい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅訪問で移動負担なく仕事後すぐレッスン開始</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>月2回〜の柔軟頻度設計、目標曲ベースで達成感再構築</span></li>
-                           </ul>`
+                title: "電子ピアノ・マンションでの「上達」",
+                subTitle: "住環境に合わせた、実践的な指導メソッド",
+                painPoints: [
+                    "電子ピアノしか置けないが、しっかり上達できるか不安",
+                    "近隣への音漏れが気になり、思い切り練習できない",
+                    "基礎がおろそかになり、変な癖がつかないか心配"
+                ],
+                solutionTitle: "環境を味方にする、プロの指導",
+                solutions: [
+                    "電子ピアノ対応：機材の特性を理解し、無理のない身体の使い方を指導します。",
+                    "環境に合わせた指導：住宅環境に配慮しながら、表現力を磨くレッスンを行います。",
+                    "機材選びサポート：スペースや予算に合わせ、最適な機種をご提案します。"
+                ]
             }
         ],
         seo: {
@@ -788,39 +812,51 @@ export const areas: Area[] = [
         needSolutions: [
             {
                 label: "ISSUE 01",
-                need: `<span class="block text-xl font-bold mb-3">共働き世帯の夕方時間を効率化</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>高層住宅の移動で通室の時間効率が悪い</li>
-                           <li>保育園・学童後の限られた時間を有効活用したい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>講師訪問で移動ゼロ、帰宅後すぐレッスン開始可能</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>平日夜の固定枠で家族の生活リズムを安定化</span></li>
-                           </ul>`
+                title: "勝どきエリアの「夕方時間革命」",
+                subTitle: "帰宅後の「隙間時間」を、学びのゴールデンタイムに",
+                painPoints: [
+                    "保育園・学童のお迎え後、寝るまでの時間が戦争のよう",
+                    "習い事を入れたいが、平日の夕方に移動する余裕がない",
+                    "子供が疲れていて、通室型のレッスンだと集中力が続かない"
+                ],
+                solutionTitle: "帰宅後30分、自宅でリラックス集中",
+                solutions: [
+                    "夕食前の活用：帰宅後の隙間時間を活用し、生活リズムを整えます。",
+                    "移動疲れなし：自宅ならリラックスして、集中力を最大限に発揮できます。",
+                    "親子のゆとり：移動がない分、夕食や入浴の時間をゆっくり確保できます。"
+                ]
             },
             {
                 label: "ISSUE 02",
-                need: `<span class="block text-xl font-bold mb-3">マンション環境でしっかり上達</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>電子ピアノ中心で基礎技術が身につくか不安</li>
-                           <li>集合住宅での騒音トラブルを避けたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>タワマン環境に最適化した段階的タッチ・読譜指導</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>機材導入のプロ視点と音量配慮の練習法アドバイス</span></li>
-                           </ul>`
+                title: "過密エリアでの「スマートな選択」",
+                subTitle: "人混みやエレベーター待ちのストレスから解放",
+                painPoints: [
+                    "夕方の勝どき駅周辺やエレベーターの混雑がストレス",
+                    "通室のための移動だけで、往復30分以上ロスしてしまう",
+                    "人混みの中、子供を連れて移動するのが大変"
+                ],
+                solutionTitle: "移動時間を、練習時間に",
+                solutions: [
+                    "混雑回避：講師が訪問するため、混雑時の移動ストレスは一切ありません。",
+                    "時間創出：往復の移動時間を、予習復習や他の活動に充てられます。",
+                    "安全安心：人混みを通らず、自宅という最も安全な環境で学べます。"
+                ]
             },
             {
                 label: "ISSUE 03",
-                need: `<span class="block text-xl font-bold mb-3">多忙スケジュールの柔軟な調整</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>塾・兄弟予定が重なり固定枠が作りにくい</li>
-                           <li>家族全体の予定調整が複雑になりがち</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>兄弟連続・隔週運用など柔軟なスケジュール設計</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>学校行事・塾に合わせた時間配分の調整対応</span></li>
-                           </ul>`
+                title: "マンション・電子ピアノの「最適解」",
+                subTitle: "限られたスペースでも、本格的な音楽教育を",
+                painPoints: [
+                    "マンションで本物のピアノを置くのはハードルが高い",
+                    "電子ピアノでの練習で、耳や指の力が育つか心配",
+                    "防音室がないとピアノは習えないと思っている"
+                ],
+                solutionTitle: "住環境に合わせた、賢いピアノライフ",
+                solutions: [
+                    "省スペース提案：卓上でも本格的な練習ができる工夫をお伝えします。",
+                    "耳を育てる指導：電子ピアノでも「聴く力」を育てるメソッドがあります。",
+                    "環境への配慮：近隣へのマナーを守りながら、安心して練習できる方法を一緒に考えます。"
+                ]
             }
         ],
         seo: {
@@ -930,39 +966,51 @@ export const areas: Area[] = [
         needSolutions: [
             {
                 label: "ISSUE 01",
-                need: `<span class="block text-xl font-bold mb-3">新生活での習慣定着をスムーズに</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>引越し直後で通える教室の場所が分からない</li>
-                           <li>新しい環境で生活リズムが安定しない</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅訪問で場所探し不要、引越し後すぐに開始可能</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>生活リズム確立に合わせて柔軟に時間帯を調整</span></li>
-                           </ul>`
+                title: "晴海フラッグ・新街区の「新しい学び」",
+                subTitle: "駅遠エリアの移動負担を解消。自宅が一番の教室に",
+                painPoints: [
+                    "駅や既存の教室まで遠く、子供の足だと通うのが大変",
+                    "バス移動は時間が読みづらく、遅刻や待ち時間が心配",
+                    "新しい街で、信頼できる教室を見つけるのが難しい"
+                ],
+                solutionTitle: "距離を気にせず、一流の指導を",
+                solutions: [
+                    "距離ハンデなし：講師がご自宅へ。駅からの距離は関係ありません。",
+                    "時間通りに開始：交通事情に左右されず、定刻にレッスンを始められます。",
+                    "出張のプロ：数多くのご家庭を訪問してきた実績ある講師が担当します。"
+                ]
             },
             {
                 label: "ISSUE 02",
-                need: `<span class="block text-xl font-bold mb-3">兄弟・大人の併用受講を効率化</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>兄弟と大人で別々の教室だと時間が足りない</li>
-                           <li>家族全員の目標に合わせた指導を受けたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>同じ場所で連続受講、世代別の目標に合わせた指導</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動時間を一本化し家族の予定調整を簡素化</span></li>
-                           </ul>`
+                title: "共働き・新生活の「ペースメーカー」",
+                subTitle: "忙しい新生活。ピアノが生活リズムの整え役に",
+                painPoints: [
+                    "引越しや新生活でバタバタし、習い事が定着しない",
+                    "共働きで時間がなく、親のサポートが十分にできない",
+                    "練習をする習慣がつくか、親の方が不安に感じる"
+                ],
+                solutionTitle: "無理なく続く、生活の一部へ",
+                solutions: [
+                    "習慣化サポート：生活リズムに合わせた練習タイミングをご提案します。",
+                    "自立学習：一人でも練習できるよう、わかりやすい課題を出します。",
+                    "柔軟な対応：急な残業や体調不良時の振替も、柔軟に対応します。"
+                ]
             },
             {
                 label: "ISSUE 03",
-                need: `<span class="block text-xl font-bold mb-3">タワマン環境での練習不安を解消</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>電子ピアノで本格的に上達できるか不安</li>
-                           <li>新築マンションの音漏れルールが心配</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>電子ピアノ環境に特化したタッチ・表現の段階指導</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>ご自宅環境確認後の機材選びと騒音配慮の練習法</span></li>
-                           </ul>`
+                title: "最新マンションでの「ピアノ環境構築」",
+                subTitle: "最新の設備・規約に合わせた、トラブルのない音楽生活",
+                painPoints: [
+                    "新築マンションの規約が厳しく、楽器可か不安",
+                    "最新の電子ピアノ、どれを選べばいいかわからない",
+                    "ご近所付き合いがこれからで、音のトラブルが怖い"
+                ],
+                solutionTitle: "プロが導く、安心のスタート",
+                solutions: [
+                    "規約確認サポート：管理規約を確認し、範囲内での楽しみ方を提案します。",
+                    "最新機材アドバイス：Bluetooth連動など、最新機能を活かした選び方を助言。",
+                    "環境への配慮：ご家庭のルールに合わせて、気持ちよくレッスンできるよう心がけます。"
+                ]
             }
         ],
         seo: {
@@ -1073,42 +1121,54 @@ export const areas: Area[] = [
             "清澄白河駅周辺は文化施設と住宅が近接し、子どもと大人の併用受講ニーズがある。",
             "落ち着いた住宅街で自宅練習がしやすく、表現指導との相性が高い。"
         ],
-                needSolutions: [
+        needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl font-bold mb-3">お子様の感性と基礎を育む指導</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>基礎練習ばかりで表現意欲が続きにくい</li>
-                           <li>基礎技術と弾きたい曲のバランスが難しい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>基礎課題と好きな曲を並行、達成感と技術定着を両立</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>タッチ・読譜・表現を一体化した音楽の楽しさ重視指導</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "感性を育てる「オーダーメイドレッスン」",
+                subTitle: "清澄白河の文化的な空気に合う、創造力を伸ばす指導",
+                painPoints: [
+                    "決まった教本を進めるだけのレッスンで、子供が飽きてしまった",
+                    "「これが弾きたい」という意欲があるのに、基礎ばかりで進まない",
+                    "画一的な指導ではなく、子供の個性に合わせたレッスンを受けさせたい"
+                ],
+                solutionTitle: "「好き」を入り口に、基礎を築く",
+                solutions: [
+                    "興味からの導入：お子様の好きな曲やジャンルから始め、音楽への興味を引き出します。",
+                    "創造性を育む：即興演奏やアレンジなど、楽譜通りに弾くだけではない楽しみを伝えます。",
+                    "柔軟なカリキュラム：その日の気分や興味に合わせて、柔軟にレッスン内容を組み立てます。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl font-bold mb-3">大人の再開を支える柔軟サポート</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>仕事後に教室へ移動する体力がない</li>
-                           <li>不規則勤務で毎週固定曜日が組みにくい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅訪問で移動疲れゼロ、リラックス空間で即開始</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>月2回〜の柔軟プラン、目標曲から始める達成感設計</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "大人のための「リラックス・ピアノ」",
+                subTitle: "忙しい日常に、心安らぐ音楽の時間を",
+                painPoints: [
+                    "昔習っていたピアノを再開したいが、教室に通う勇気がない",
+                    "仕事や家事で忙しく、決まった時間に練習するのが難しい",
+                    "自宅の電子ピアノで、本当に楽しめるようになるか不安"
+                ],
+                solutionTitle: "暮らしに溶け込む、大人の趣味",
+                solutions: [
+                    "自宅でリラックス：先生が来るから、部屋着のままでもOK。気負わず始められます。",
+                    "マイペース進行：練習できていなくても大丈夫。レッスン時間内で一緒に楽しみましょう。",
+                    "大人の教養：曲の背景や理論も交え、知的好奇心を満たすレッスンを提供します。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl font-bold mb-3">生活リズムに馴染む練習習慣</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>忙しい生活でまとまった練習時間が取れない</li>
-                           <li>5〜15分の隙間時間で何を練習すべきか不明</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>5〜15分単位のマイクロ練習メニューで継続習慣化</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>世代別目標を尊重し進捗メモで家庭内音楽習慣を整理</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "文化的な街での「音楽のある暮らし」",
+                subTitle: "アートやカフェ巡りのように、日常に彩りを",
+                painPoints: [
+                    "週末は家族で出かけたいので、習い事で時間を縛られたくない",
+                    "子供には、感性豊かに育ってほしいと願っている",
+                    "近所の迷惑にならずに、自宅で音楽を楽しみたい"
+                ],
+                solutionTitle: "自由で豊かな、週末の朝",
+                solutions: [
+                    "朝レッスン対応：休日の朝にレッスンを行い、午後は家族時間をたっぷり確保できます。",
+                    "感性を磨く：美術館帰りに立ち寄るような感覚で、芸術的な感性を育みます。",
+                    "練習環境の相談：ご自宅の環境に合わせて、無理なく続けられる練習方法を提案します。"
+                ]
             }
         ],
         seo: {
@@ -1215,42 +1275,54 @@ export const areas: Area[] = [
             "清澄白河駅徒歩圏の住宅街で、通室より自宅完結型の習い事が生活導線に合いやすい。",
             "戸建・低層住宅も多く、練習時間の設計相談がしやすい。"
         ],
-                needSolutions: [
+        needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl font-bold mb-3">自宅集中環境を活かした上達</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>通室の移動時間で集中力が途切れやすい</li>
-                           <li>慣れた環境でリラックスして学びたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅レッスンで移動疲れゼロ、集中力を最大化</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>リラックス空間で音楽と向き合う質の高い時間</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "静かな住宅街で「自分らしい音」を",
+                subTitle: "木場公園近くの落ち着いた環境で、じっくり音楽と向き合う",
+                painPoints: [
+                    "賑やかな教室よりも、静かな環境で集中して学びたい",
+                    "近所の目や音が気になり、自宅での練習に消極的になってしまう",
+                    "自分のペースでゆっくりと、着実に上達したい"
+                ],
+                solutionTitle: "心を整える、プライベートレッスン",
+                solutions: [
+                    "集中できる環境：慣れ親しんだご自宅で、周りを気にせず自分の音に没頭できます。",
+                    "丁寧な音作り：一音一音を大切にする指導で、繊細な表現力を養います。",
+                    "住宅街でのレッスン：近隣に配慮しながら、安心してピアノを楽しめるようサポートします。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl font-bold mb-3">好きな曲と基礎の両立</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>基礎ばかりでモチベーションが続かない</li>
-                           <li>好きな曲を弾きながら技術も伸ばしたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>基礎課題と希望曲を同時進行、楽しさと技術を両立</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>毎回の練習ポイントを明確化し自宅練習を効率化</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "「基礎」と「好き」のベストバランス",
+                subTitle: "基礎練習と憧れの曲、どちらも諦めない欲張りレッスン",
+                painPoints: [
+                    "基礎練習がつらくて、過去にピアノを辞めてしまった",
+                    "好きな曲だけ弾きたいが、変な癖がつかないか心配",
+                    "子供が楽しく続けられるバランスが見つからない"
+                ],
+                solutionTitle: "無理なく続く、ハイブリッド指導",
+                solutions: [
+                    "セット練習：基礎練習を「好きな曲を弾くための準備」と位置づけ、目的意識を持たせます。",
+                    "アレンジ対応：難易度を調整した楽譜を作成し、今の実力で憧れの曲に挑戦できます。",
+                    "モチベーション維持：「弾けた！」という小さな成功体験を積み重ね、自信を育てます。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl font-bold mb-3">柔軟な頻度設計で無理なく継続</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>仕事・家事で毎週固定が難しい</li>
-                           <li>繁忙期と閑散期で頻度を変えたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>月2回・隔週・本番前集中など目的別頻度調整</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>学期・仕事繁忙期に合わせた柔軟な運用設計</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "ライフスタイルに寄り添う「継続力」",
+                subTitle: "忙しい時期も無理なく、細く長く続ける工夫",
+                painPoints: [
+                    "仕事や学校行事が忙しくなると、レッスンを休みがちになる",
+                    "毎週決まった曜日・時間の確保が難しい時期がある",
+                    "辞めてしまうと、せっかく身についた技術が失われそうで不安"
+                ],
+                solutionTitle: "生活に波があっても、音楽は続く",
+                solutions: [
+                    "柔軟な振替：急な予定変更にも対応し、レッスン回数を確保できます。",
+                    "月2回コース：忙しい時期は回数を減らし、余裕ができたら増やすなど調整可能です。",
+                    "細く長く：一時的なブランクがあっても、いつでも戻ってこられる温かい場所を作ります。"
+                ]
             }
         ],
         seo: {
@@ -1357,42 +1429,54 @@ export const areas: Area[] = [
             "清澄白河駅近接の住宅地で、子どもと大人の併用ニーズが継続的にある。",
             "静かな住環境を活かし、短時間でも集中できるレッスン設計がしやすい。"
         ],
-                needSolutions: [
+        needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl font-bold mb-3">表現力を重視した丁寧な指導</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>画一的な教材だと個性が伸びにくい</li>
-                           <li>音楽表現を大切にした指導を受けたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>一人ひとりの感性を引き出すオーダーメイド指導</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>基礎と好きな曲を並行し表現意欲を持続させる</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "生活を彩る「大人のピアノ時間」",
+                subTitle: "美術館のある街で育む、豊かな感性と表現力",
+                painPoints: [
+                    "ただ弾くだけでなく、曲の表現や美しさを深く味わいたい",
+                    "大人の趣味として、質の高い時間を過ごしたい",
+                    "電子ピアノでも、情感豊かな演奏ができるようになりたい"
+                ],
+                solutionTitle: "心が満たされる、大人の習い事",
+                solutions: [
+                    "表現の追求：打鍵のニュアンスやペダリングなど、深い表現の世界へ誘います。",
+                    "対話重視：一方的な指導ではなく、生徒様の感じたことや解釈を大切にします。",
+                    "電子ピアノで楽しむ：機能や音色を活かし、ピアノを奏でる楽しさを伝えます。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl font-bold mb-3">住宅街環境を活かした練習習慣</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>落ち着いた住環境で効率的に練習したい</li>
-                           <li>短時間でも質の高い練習方法を知りたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅環境に最適化した5〜15分単位の練習メニュー</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>毎回の要点共有で次回までの課題を明確化</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "お子様の「マイペースな成長」を見守る",
+                subTitle: "周りと比べず、その子のスピードで一歩ずつ",
+                painPoints: [
+                    "集団レッスンだと周りについていけず、劣等感を持ってしまう",
+                    "進度が遅くても、ピアノ自体は嫌いになってほしくない",
+                    "親として、どう練習をサポートすればいいかわからない"
+                ],
+                solutionTitle: "「できた！」を増やす、肯定的な指導",
+                solutions: [
+                    "個別カリキュラム：お子様の理解度に合わせて進めるため、置いてきぼりにはなりません。",
+                    "スモールステップ：小さな目標を達成していくことで、自己肯定感を高めます。",
+                    "親御様サポート：ご家庭での声かけや見守り方についても、具体的にアドバイスします。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl font-bold mb-3">世代別の目標に合わせた管理</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>子どもと大人で目標が異なり方針が曖昧</li>
-                           <li>家族内でどう練習を見守るべきか迷う</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>世代別の個別目標を尊重し進捗を可視化</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>家庭内音楽コミュニケーションを進捗メモで整理</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "電子ピアノでの「表現力」への挑戦",
+                subTitle: "機材のハンデを感じさせない、心のこもった演奏へ",
+                painPoints: [
+                    "電子ピアノだと、強弱や細かいニュアンスが出にくいと感じる",
+                    "本物のピアノとのタッチの違いに戸惑っている",
+                    "発表会などで、思ったような演奏ができない"
+                ],
+                solutionTitle: "指先から生まれる、無限の色彩",
+                solutions: [
+                    "身体の使い方：重量奏法など、ピアノを響かせるための身体操作を指導します。",
+                    "イメージトレーニング：音色を想像し、それを指先に伝える感覚を養います。",
+                    "本番対策：普段の環境と異なる場所でも実力を発揮できるよう、メンタル面もサポートします。"
+                ]
             }
         ],
         seo: {
@@ -1503,42 +1587,54 @@ export const areas: Area[] = [
             "門前仲町駅周辺は就業層比率が高く、平日夜に自宅で完結する需要が強い。",
             "歴史ある街区で長く住む世帯も多く、継続型の学習計画が受け入れられやすい。"
         ],
-                needSolutions: [
+        needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl font-bold mb-3">長期継続しやすい習慣づくり</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>通室の負担で長く続けられるか不安</li>
-                           <li>生活リズムに無理なく組み込みたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅訪問で送迎不要、天候や体調に左右されにくい</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>家庭の生活リズムに合わせた無理のない時間設計</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "下町で育む「長く続くピアノ」",
+                subTitle: "門前仲町の温かい空気に寄り添う、息の長い指導",
+                painPoints: [
+                    "先生がコロコロ変わると、子供が混乱してしまう",
+                    "受験や進学で忙しくなっても、細く長く続けさせたい",
+                    "基礎だけでなく、音楽を一生の趣味にしてほしい"
+                ],
+                solutionTitle: "成長に寄り添う、担任制レッスン",
+                solutions: [
+                    "一貫した指導：専任講師が責任を持って、お子様の成長を長期的に見守ります。",
+                    "柔軟な進度調整：受験期は曲数を減らすなど、生活の変化に合わせてペースを調整します。",
+                    "心の居場所：ピアノが「第二の居場所」となるような、温かい関係性を築きます。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl font-bold mb-3">好きな曲と基礎の両立</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>基礎ばかりで楽しさが感じられない</li>
-                           <li>憧れの曲を弾きながら技術も伸ばしたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>基礎課題と好きな曲を並行し達成感を積み重ねる</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>楽しさと技術定着を両立する一体型指導</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "忙しいご家庭の「味方」になる",
+                subTitle: "共働きでも無理なく通える、出張レッスンの利便性",
+                painPoints: [
+                    "平日夕方は送迎が難しく、習い事を諦めていた",
+                    "土日は家族の時間にしたいので、平日夜にレッスンしたい",
+                    "兄弟で習わせたいが、二人分の送迎は大変すぎる"
+                ],
+                solutionTitle: "家族時間を守る、効率的な運営",
+                solutions: [
+                    "夕夜間対応：19時以降のレッスンも可能。共働きご家庭の帰宅時間に合わせて訪問します。",
+                    "兄弟連続枠：一度の訪問で二人続けてレッスン。移動時間ゼロで効率的です。",
+                    "振替のしやすさ：急な残業や体調不良でも、柔軟に日程変更を相談できます。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl font-bold mb-3">多世代対応の柔軟レッスン</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>子どもと大人・シニアで目標が全く異なる</li>
-                           <li>家族みんなで習いたいが別々の教室は大変</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>同じ場所で世代別カリキュラム、連続受講で効率化</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>0歳〜シニアまで目的に合わせたオーダーメイド指導</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "大人のための「夜ピアノ」",
+                subTitle: "仕事帰りのリフレッシュに、自分だけの時間を",
+                painPoints: [
+                    "残業続きで、決まった時間に教室に通うのが難しい",
+                    "休日は疲れていて、外出するのが億劫になる",
+                    "昔習っていたけれど、ブランクがあって指が動かない"
+                ],
+                solutionTitle: "明日への活力を養う、豊かな時間",
+                solutions: [
+                    "21時まで対応：遅い時間帯の訪問も可能。仕事終わりの時間を有効活用できます。",
+                    "リクエスト重視：弾きたい曲を中心に、楽しみながら感覚を取り戻していきます。",
+                    "ストレス解消：音楽に没頭することで、日々のストレスを忘れ、心をリセットできます。"
+                ]
             }
         ],
         seo: {
@@ -1645,42 +1741,54 @@ export const areas: Area[] = [
             "木場公園周辺はファミリー居住が多く、平日夕方の送迎圧縮ニーズが高い。",
             "東西線沿線で移動はしやすい一方、帰宅後の可処分時間を守る設計が重要。"
         ],
-                needSolutions: [
+        needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl font-bold mb-3">帰宅後の時間を有効活用</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>学校・保育園後の移動で時間が圧迫される</li>
-                           <li>送迎で保護者の家事・仕事が中断する</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>講師訪問で移動ゼロ、帰宅後すぐレッスン開始</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>お子様のレッスン中に家事・在宅ワークに集中可能</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "ご自宅で「のびのび音楽」",
+                subTitle: "開放的な環境で、心も体もリラックスして弾く",
+                painPoints: [
+                    "厳しい指導だと、ピアノ自体を嫌いになってしまいそう",
+                    "のびのびと育てたいが、基礎はおろそかにしたくない",
+                    "子供が「楽しい」と思えるレッスンが見つからない"
+                ],
+                solutionTitle: "「好き」を伸ばす、ポジティブ指導",
+                solutions: [
+                    "良い所探し：褒めて伸ばす指導で、お子様の自己肯定感を高めます。",
+                    "身体全体で：リトミック要素も取り入れ、全身で音楽を感じる心を育てます。",
+                    "自由な表現：型にはめすぎず、自由な発想や表現を大切にします。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl font-bold mb-3">基礎と楽しさを両立した指導</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>基礎練習ばかりで飽きてしまう</li>
-                           <li>好きな曲を弾きながら上達したい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>基礎課題と希望曲を同時進行、モチベーション維持</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>タッチ・読譜・表現を一体化した楽しい音楽体験</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "忙しいママ・パパを「応援」したい",
+                subTitle: "送迎負担ゼロで、親子の時間にもゆとりを",
+                painPoints: [
+                    "保育園のお迎え後、さらに教室へ送迎するのは体力的に限界",
+                    "下の子が小さく、上の子の送迎に連れて行くのが大変",
+                    "レッスン中の待ち時間がもったいないと感じる"
+                ],
+                solutionTitle: "家事も仕事も、レッスン中に",
+                solutions: [
+                    "見守り不要：講師にお任せいただき、別室で夕食準備や在宅ワークが可能です。",
+                    "自宅待機：下のお子様はお家で遊んで待てるので、移動のストレスがありません。",
+                    "報告の徹底：レッスン内容は毎回共有するので、見ていなくても進捗がわかります。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl font-bold mb-3">家族併用受講で効率化</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>親子や兄弟で別々の教室は時間が足りない</li>
-                           <li>家族みんなの目標に合わせた指導を受けたい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>同じ場所で連続受講、世代別の目標に合わせた指導</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動時間を一本化し家族の予定調整を簡素化</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "「弾きたい！」を叶える選曲",
+                subTitle: "J-POPもアニメ曲も、立派なレッスンの教材",
+                painPoints: [
+                    "クラシックばかりで、子供が興味を示さない",
+                    "流行りの曲を弾きたがるが、楽譜が難しすぎる",
+                    "発表会で、誰もが知っている曲を弾かせてあげたい"
+                ],
+                solutionTitle: "アレンジ力で、憧れを現実に",
+                solutions: [
+                    "オーダーメイド楽譜：お子様のレベルに合わせて、弾きたい曲を弾きやすくアレンジします。",
+                    "リズム感の育成：ポップスのリズムを通じて、クラシックにも通じる基礎力を養います。",
+                    "親子連弾：ご家族で楽しめる連弾など、ピアノを通じたコミュニケーションを大切にします。"
+                ]
             }
         ],
         seo: {
@@ -1787,42 +1895,54 @@ export const areas: Area[] = [
             "越中島駅周辺は学生・社会人・シニアが混在し、時間帯別ニーズの差が大きい。",
             "駅近でも生活導線が分散しやすく、訪問型で移動を固定化しない設計が有効。"
         ],
-                needSolutions: [
+        needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl font-bold mb-3">通学・送迎の負担をなくし上達を楽しむ</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>学校後の移動で帰宅後の時間が圧迫される</li>
-                           <li>雨や暑さ・寒さの日の通室が親子の負担</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>講師訪問で送迎不要、天候に左右されない安定継続</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>帰宅後すぐレッスン、基礎×希望曲で意欲を引き出す</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "通学不要で「賢くピアノ習慣」",
+                subTitle: "越中島の落ち着いた環境で、効率よく上達",
+                painPoints: [
+                    "中学受験の勉強時間を確保したいが、ピアノも続けたい",
+                    "移動時間がもったいなく、他の習い事との調整が難しい",
+                    "短時間で集中して、効率的に成果を出したい"
+                ],
+                solutionTitle: "タイムパフォーマンスの高い習い事",
+                solutions: [
+                    "移動ゼロ：往復の移動時間を勉強や休憩に充てられ、時間を有効に使えます。",
+                    "集中指導：マンツーマンで密度濃く指導し、短時間でも着実に成果を出します。",
+                    "頭を使う練習：ただ回数を弾くのではなく、頭を使って考える練習法を伝授します。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl font-bold mb-3">シニア世代の再開を丁寧サポート</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>長いブランクがあり今から始めて大丈夫か不安</li>
-                           <li>教室への移動や外出が負担になりつつある</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅訪問で外出不要、リラックス空間で無理なく再開</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>目標曲ベースで達成感を再構築、マイペース継続設計</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "アカデミックな街で「知的な音楽」",
+                subTitle: "理解を深める、論理的なアプローチ",
+                painPoints: [
+                    "感覚的な指導だけでは、なぜそう弾くのか理解できない",
+                    "楽典や理論も、きちんと体系立てて学びたい",
+                    "理屈がわかると面白いと感じるタイプだ"
+                ],
+                solutionTitle: "「なぜ？」に答える、深い学び",
+                solutions: [
+                    "アナリーゼ（楽曲分析）：楽譜に隠された作曲家の意図を読み解く面白さを伝えます。",
+                    "コード理論：コードの仕組みを理解し、初見やアレンジに応用できる力を養います。",
+                    "論理的アドバイス：具体的な体の使い方や練習方法を、論理的に説明します。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl font-bold mb-3">家族みんなで音楽を共有する仕組み</span>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>子どもと大人で目標が異なり方針がバラつく</li>
-                           <li>先生がいない時の具体的な練習方法が分からない</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>世代別の個別目標を尊重し進捗メモで情報共有</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>生活リズムに合わせた柔軟な運用で家族全員が継続</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "シニアからの「脳トレ・ピアノ」",
+                subTitle: "人生100年時代、指先から脳を活性化",
+                painPoints: [
+                    "新しいことを始めたいが、記憶力や体力に自信がない",
+                    "指が動くようになるか不安で、一歩踏み出せない",
+                    "認知症予防にもなる、楽しい趣味を持ちたい"
+                ],
+                solutionTitle: "若々しい脳と心を保つ",
+                solutions: [
+                    "指先運動：左右の指をバラばらに動かすことで、脳の活性化を促します。",
+                    "懐かしの名曲：青春時代の曲を弾くことで、心も若々しくリフレッシュします。",
+                    "無理なく継続：体調に合わせてペース調整。長く楽しく続けることを第一に考えます。"
+                ]
             }
         ],
         seo: {
@@ -1935,52 +2055,52 @@ export const areas: Area[] = [
         ],
         needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl mb-2 font-bold">ビジネスパーソンの「移動ゼロ」で叶える上達</span>
-                       <span class="block text-sm mb-4 opacity-80">仕事帰りの体力を、趣味の充実に充てる<br>移動の負担をなくし、効率よくピアノを再開したい方へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>仕事の後に教室へ移動する体力が残っておらず、通い続けることが難しい</li>
-                           <li>不規則勤務や急な予定が入りやすく、毎週固定の曜日・時間を確保しにくい</li>
-                           <li>長いブランクがあり、今の自分でも上達できるかという心理的ハードルを感じている</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動時間「0分」の自宅レッスン：講師がご自宅へ伺うため、仕事後でも移動の負担なく即座に開始できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>月2回からの柔軟な頻度設計：仕事の繁忙期や予定に合わせて頻度を調整。不規則な生活の中でも無理なく継続可能です。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「弾きたい一曲」から始める：目標曲ベースでカリキュラムを組み、再開直後から確かな達成感を作り直せます。</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "粋な街で嗜む「大人のピアノ」",
+                subTitle: "仕事帰りのリセットに、上質な音楽時間を",
+                painPoints: [
+                    "休日にわざわざ出かけるのは億劫だが、平日は時間がない",
+                    "ジムやヨガのように、気軽に続けられる趣味が欲しい",
+                    "昔習っていたピアノを、大人の感性でもう一度楽しみたい"
+                ],
+                solutionTitle: "忙しい日常に、知的な彩りを",
+                solutions: [
+                    "移動ゼロ：ご自宅に出張するので、仕事終わりや家事の合間にすぐにレッスン開始。",
+                    "大人の教養：曲の歴史的背景や理論も交え、知的好奇心を満たす指導を行います。",
+                    "ストレス解消：集中して音を奏でることで、日々の喧騒を忘れ、心をリフレッシュできます。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl mb-2 font-bold">都心型子育て世帯の「時間の質」を最大化</span>
-                       <span class="block text-sm mb-4 opacity-80">限られた平日時間で、賢く習い事を続ける<br>送迎の負担をゼロにし、夕方の生活リズムを整えたいご家庭へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>保育園や学校後の移動で、帰宅後の貴重な時間がさらに圧迫されてしまう</li>
-                           <li>雨の日や暑さ・寒さが厳しい日の移動そのものが、親子ともに大きな負担</li>
-                           <li>送迎の間、保護者様の家事や仕事が中断し、夜のスケジュールが崩れがち</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>自宅訪問で「送迎の悩み」を解消：玄関を開ければレッスン開始。帰宅後の短時間でも受講しやすくなります。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>天候に左右されない継続性：一歩も外に出る必要がないため、天候を気にせず安定した生活リズムを守れます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>兄弟受講・夕方枠の最適化：兄弟連続での受講調整もしやすく、保護者様はその時間を家事や仕事に有効活用できます。</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "教育意識の高いご家庭へ",
+                subTitle: "幼少期だからこそ、本物の音と指導に触れる",
+                painPoints: [
+                    "ただ弾くだけでなく、感性や表現力も育てたい",
+                    "先生の質や相性を重視したいが、探すのが大変",
+                    "忙しい中でも、子供には最高の教育環境を与えたい"
+                ],
+                solutionTitle: "感性を磨く、一流の導入",
+                solutions: [
+                    "プロの指導：東京音楽大学卒の講師が、基礎から丁寧に、正しい奏法を指導します。",
+                    "耳を育てる：電子ピアノでも、タッチや音色にこだわることで、繊細な耳を育てます。",
+                    "柔軟な対応：お子様の性格や興味に合わせて、教材や進め方をオーダーメイドで提案します。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl mb-2 font-bold">甘酒横丁周辺の生活に馴染む「上達の習慣」</span>
-                       <span class="block text-sm mb-4 opacity-80">忙しい日常の中で、何に集中すべきかを明確にする<br>甘酒横丁周辺で暮らしながら、長期的に無理なく続けたい方へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>限られた練習時間の中で、何を優先して練習すべきかの判断が難しい</li>
-                           <li>お子様と大人で目標が異なり、家族内でどう練習を見守るべきか方針がばらつく</li>
-                           <li>門前仲町や人形町特有の忙しい生活リズムに、どうピアノを定着させるか迷っている</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>3点集中のゴール共有：毎回の目標を3点以内に絞って共有。短時間でも迷わず成果が出る練習順を明確にします。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>ライフスタイルに寄り添う設計：月2回の頻度調整や、本番前の重点回を組み合わせ、生活リズムに合わせた継続を設計します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>世代別の進捗メモ：子どもと大人それぞれの目標を分けつつ、共有しやすい進捗メモで家庭内の音楽習慣を整えます。</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "不規則な生活でも「続く」仕組み",
+                subTitle: "固定曜日が難しくても、ピアノは諦めない",
+                painPoints: [
+                    "出張や残業が多く、毎週決まった曜日に通うのが難しい",
+                    "急な予定変更で、レッスンをキャンセルすることが多い",
+                    "自分のペースで、無理なく細く長く続けたい"
+                ],
+                solutionTitle: "大人のライフスタイルにフィット",
+                solutions: [
+                    "フレックス予約：月ごとのスケジュール調整や、振替レッスンにも柔軟に対応します。",
+                    "月2回コース：忙しい時期は回数を減らすなど、状況に合わせてプランを選べます。",
+                    "隙間練習：毎日練習できなくても大丈夫。レッスン時間内で効率的に上達へ導きます。"
+                ]
             }
         ],
         seo: {
@@ -2089,52 +2209,52 @@ export const areas: Area[] = [
         ],
         needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl mb-2 font-bold">多忙な社会人のための「移動ゼロ」習慣</span>
-                       <span class="block text-sm mb-4 opacity-80">仕事帰りの時間を、賢く趣味の充実に充てる<br>「通う体力」がなくても、憧れのピアノを生活の一部に</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>仕事の後に教室へ移動する体力を確保するのが難しく、継続が大きなハードルになっている</li>
-                           <li>不規則な勤務や急な予定が入りやすく、毎週決まった固定枠を守れるか不安がある</li>
-                           <li>久しぶりの再開で、今の自分でも上達できるかという心理的な壁を感じている</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動負担なしの「自宅訪問」：講師が伺うため、移動の手間は一切なし。帰宅後の短時間でも即座にレッスンを開始できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>柔軟な頻度設計：月2回などのゆとりあるプランに対応。仕事の状況に合わせて、無理なく続けられるスケジュールを提案します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>目標曲で達成感を再構築：基礎はもちろん、「この1曲を弾きたい」という想いを優先し、再開の喜びを形にします。</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "忙しい毎日に「心のオアシス」を",
+                subTitle: "水天宮の杜のそばで、親子で奏でる優しい時間",
+                painPoints: [
+                    "仕事と育児の両立で、子供の習い事の送迎が大きな負担",
+                    "親子で一緒に楽しめる、共通の趣味を持ちたい",
+                    "慌ただしい日常の中で、ホッと一息つける時間が欲しい"
+                ],
+                solutionTitle: "ストレスフリーな、おうちレッスン",
+                solutions: [
+                    "送迎不要：講師が自宅に来るので、移動時間や天候の心配は一切ありません。",
+                    "親子レッスン：親子で一緒に、または時間を続けて受講でき、共通の話題が生まれます。",
+                    "癒しの時間：先生との会話や音楽を通じて、親子ともに心安らぐ時間を提供します。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl mb-2 font-bold">子育て世帯の「送迎ストレス」を解消</span>
-                       <span class="block text-sm mb-4 opacity-80">限られた平日時間で、子どもの学びを止めたくない<br>送迎の負担をなくし、夕方の生活リズムを整えたいご家庭へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>保育園や学校後の移動で、帰宅後の貴重な時間が圧迫され、夜のスケジュールが崩れがち</li>
-                           <li>雨の日や、暑さ・寒さが厳しい日の移動そのものが、親子ともに大きなストレスになる</li>
-                           <li>送迎の間、保護者様は家事や仕事の手を止めなければならず、時間のやりくりに苦労している</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>玄関を開ければレッスン開始：講師がご自宅へ訪問するため、送迎は不要。天候に左右されず、安定して継続できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>兄弟受講・夕方枠の最適化：兄弟連続での受講も調整しやすく、移動が一本化されることで安全管理もしやすくなります。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>保護者の自由時間を創出：お子様のレッスン中、保護者様は隣の部屋で家事や在宅ワークに集中でき、夕方のゆとりが生まれます。</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "小さなお子様の「初めて」を応援",
+                subTitle: "リトミック要素を取り入れ、楽しく音楽の基礎を",
+                painPoints: [
+                    "じっとしているのが苦手で、ピアノの前に座っていられるか不安",
+                    "楽しみながら、自然とリズム感や音感を身につけさせたい",
+                    "無理強いせず、音楽を好きになってほしい"
+                ],
+                solutionTitle: "遊び感覚で、才能を開花",
+                solutions: [
+                    "身体を使って：歌ったり体を動かしたり、リトミック要素を取り入れた楽しいレッスンです。",
+                    "「できた！」の連続：小さな成功体験を積み重ね、自信とやる気を引き出します。",
+                    "ご機嫌に合わせて：その日の気分に合わせて内容を柔軟に変え、無理なく集中力を養います。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl mb-2 font-bold">箱崎・蛎殻町の日常に馴染む「上達の仕組み」</span>
-                       <span class="block text-sm mb-4 opacity-80">限られた練習時間で、何に集中すべきかを明確にする<br>日本橋エリアで暮らしながら、長期的に無理なく続けたい方へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>日々の生活が忙しく、限られた練習時間の中で何を優先すべきか判断しづらい</li>
-                           <li>日本橋箱崎町・蛎殻町周辺の生活リズムを崩さずに、ピアノを定着させる方法を知りたい</li>
-                           <li>発表会や本番前など、必要な時にだけ集中して学びたいというニーズがある</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「3点集中」の目標共有：毎回の目標を3点以内に絞って共有。短時間でも成果が出る練習順を明確にし、迷いをなくします。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>ライフスタイルに寄り添う継続設計：月2回からの頻度調整や本番前の重点レッスンを組み合わせ、生活環境に合わせた計画を立てます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>地域密着の柔軟な運用：このエリアの生活動線を熟知した講師が、仕事や学業と両立しやすい最適な進行を提案します。</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "週末の朝を「充実時間」に",
+                subTitle: "平日は忙しくても、休日の朝なら続けられる",
+                painPoints: [
+                    "平日は共働きで、習い事の時間を取るのが難しい",
+                    "土日の貴重な時間を、移動で潰したくない",
+                    "家族との時間も大切にしながら、子供の可能性を伸ばしたい"
+                ],
+                solutionTitle: "休日を有効活用する、賢い選択",
+                solutions: [
+                    "土日祝対応：平日はお仕事のパパ・ママも、休日のレッスンならお子様の成長を見守れます。",
+                    "朝レッスン：朝の時間帯にレッスンを入れることで、午後は家族でのお出かけを満喫できます。",
+                    "自宅練習サポート：平日の練習方法も具体的にお伝えし、週1回のレッスンでも着実に上達します。"
+                ]
             }
         ],
         seo: {
@@ -2243,52 +2363,52 @@ export const areas: Area[] = [
         ],
         needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl mb-2 font-bold">ビジネスパーソンの「生活品質」を高める上達習慣</span>
-                       <span class="block text-sm mb-4 opacity-80">仕事帰りの時間を、移動なしで贅沢な趣味時間へ<br>「通う体力」がなくても、リラックスした空間でピアノを再開したい方へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>仕事の後に教室へ移動する体力を確保するのが難しく、再開を躊躇している</li>
-                           <li>不規則な勤務や急な予定が入りやすく、毎週決まった固定枠を維持するのが難しい</li>
-                           <li>長いブランクがあり、今の自分でも本当に上達できるかという不安がある</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動負担ゼロの「自宅訪問」：講師が伺うため移動の手間は一切なし。帰宅後の短時間でも即座にレッスンを開始できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>月2回からの柔軟なプラン：ライフスタイルに合わせて頻度を調整。忙しい時期でもご自身のペースで無理なく続けられます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「目標曲」ベースの達成感：基礎はもちろん、「この1曲を弾けるようになりたい」という想いを優先し、再開の喜びを形にします。</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "「優雅なレッスン」を日常に",
+                subTitle: "浜町の落ち着いた暮らしに、音楽の彩りを",
+                painPoints: [
+                    "定年退職後の趣味として、憧れのピアノを始めたい",
+                    "脳の活性化や、指先の運動のためにピアノを弾きたい",
+                    "第二の人生を、音楽と共に豊かに過ごしたい"
+                ],
+                solutionTitle: "人生を楽しむ、大人の余裕",
+                solutions: [
+                    "マイペース指導：進度を気にせず、お好きな曲をじっくりと楽しんでいただけます。",
+                    "健康増進：指を動かすことは脳への良い刺激に。健康維持にも役立ちます。",
+                    "会話も楽しむ：レッスン前後の会話も大切にし、孤独感のない楽しい時間を作ります。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl mb-2 font-bold">親子で「一生モノ」の基礎を育む長期伴走</span>
-                       <span class="block text-sm mb-4 opacity-80">学年が変わっても、同一講師と一歩ずつ歩む<br>短期的な成果よりも、継続して「音楽の力」を積み上げたいご家庭へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>進級や中学受験など、学年変化による生活リズムの変化で継続を迷っている</li>
-                           <li>先生が変わることで指導方針がぶれ、お子様が混乱してしまわないか心配</li>
-                           <li>お子様だけでなく、保護者様も同じ講師から学び、家族で音楽を共有したい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>同一講師による継続伴走：同じ講師が長く担当することで、お子様の癖や成長を深く把握。癖を直しながら着実な基礎を築きます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>成長に合わせた目標再設計：成長段階や学校行事に合わせて無理なく続く練習計画を立て、一生モノの技術を育てます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>家族で通える柔軟な運用：親子で同じ講師に学ぶことで、ご家庭内での指導方針を一本化し、音楽コミュニケーションを深めます。</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "お孫様との「連弾」を目標に",
+                subTitle: "世代を超えて繋がる、音楽のコミュニケーション",
+                painPoints: [
+                    "孫がピアノを習い始めたので、一緒に弾けるようになりたい",
+                    "共通の趣味を持つことで、孫との会話を増やしたい",
+                    "発表会で、孫とかっこよく連弾を披露したい"
+                ],
+                solutionTitle: "家族の絆を深める、魔法の鍵",
+                solutions: [
+                    "連弾アレンジ：初心者でも弾きやすく、かつ豪華に聴こえる連弾用楽譜をご用意します。",
+                    "秘密の猛特訓：お孫様を驚かせるために、こっそり上達するお手伝いをします。",
+                    "家族イベント：お誕生日会や季節のイベントで、成果を披露する場をご提案します。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl mb-2 font-bold">浜町公園周辺の日常に馴染む「練習の仕組み」</span>
-                       <span class="block text-sm mb-4 opacity-80">限られた時間で、何を優先すべきかを明確にする<br>浜町エリアで暮らしながら、長期的に無理なく上達したい方へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>浜町公園周辺の多忙な生活の中で、まとまった練習時間を確保する習慣が作れない</li>
-                           <li>限られた練習時間の中で、上達のために何を優先すべきか判断しづらい</li>
-                           <li>発表会や本番前など、必要な時に生活動線に合わせてレッスンを強化したい</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「3点集中」の目標共有：毎回の目標を3点以内に絞って共有。短時間でも迷わず成果が出る練習順を明確にします。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>ライフスタイルに寄り添う設計：月2回の頻度調整や本番前の重点レッスンを組み合わせ、生活動線に合わせて継続を設計します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「5分からの」効率メニュー：短い隙間時間でも取り組めるメニューを提示。忙しい日でも上達を実感できる習慣を作ります。</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "芸術文化に触れる「深い学び」",
+                subTitle: "ただ弾くだけじゃない、楽曲の奥深さを知る",
+                painPoints: [
+                    "クラシック音楽の歴史や背景に興味がある",
+                    "コンサートに行くのが好きで、より深く音楽を理解したい",
+                    "知的探求心を満たしてくれる、質の高いレッスンを求めている"
+                ],
+                solutionTitle: "知的好奇心を刺激する、アカデミックな時間",
+                solutions: [
+                    "楽曲解説：作曲家の生涯や時代背景など、曲にまつわるエピソードを詳しく解説します。",
+                    "構造分析：曲の構成や和声進行を学び、演奏表現に深みを持たせます。",
+                    "コンサート・予習：これから聴きに行くコンサートの曲目を予習するなど、鑑賞の楽しみも広げます。"
+                ]
             }
         ],
         seo: {
@@ -2401,52 +2521,52 @@ export const areas: Area[] = [
         ],
         needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl mb-2 font-bold">送迎・家事・仕事の「時間的負担」を解消</span>
-                       <span class="block text-sm mb-4 opacity-80">お迎え後の限られた時間を、効率よく豊かな学びへ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>森下での送迎と家事・仕事が重なり、習い事を続けることが大きな負担になっている。</li>
-                           <li>保育園や学校後の移動で帰宅後の時間が圧迫され、夜のスケジュールが崩れやすい。</li>
-                           <li>雨の日や暑さ・寒さが厳しい日の通室が、親子ともにストレスを感じる要因になる。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>送迎不要の「自宅訪問」：講師が伺うため、移動の手間はゼロ。帰宅後すぐにレッスンを開始できる時間帯をご家庭ごとに設計します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>生活リズムの維持：天候に左右されず、いつもの自宅でリラックスして受講できるため、安定した習慣が身につきます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>保護者の時間を創出：送迎に費やしていた時間を家事や仕事に充てられ、兄弟連続受講などの調整も柔軟に対応します。</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "働くママ・パパを全力サポート",
+                subTitle: "お迎え後のバタバタ時間に、ゆとりのレッスンを",
+                painPoints: [
+                    "保育園のお迎えから帰宅、夕飯までの時間が戦場のよう",
+                    "習い事の送迎に使う体力が残っていない",
+                    "子供に寂しい思いをさせていないか、ふと不安になる"
+                ],
+                solutionTitle: "夕方を「親子の笑顔の時間」に",
+                solutions: [
+                    "送迎不要：講師が自宅に来るので、夕飯の準備をしながらレッスンを見守れます。",
+                    "夕方・夜枠：保育園帰りや、学童から帰宅後の遅い時間帯にも対応しています。",
+                    "心のケア：日々の忙しさを忘れ、音楽を通じて親子でホッと一息つける時間を作ります。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl mb-2 font-bold">マンション・電子ピアノ環境での「確かな上達」</span>
-                       <span class="block text-sm mb-4 opacity-80">住環境を理由に、ピアノを習うことを諦めない</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>子育て世帯のマンションで、電子ピアノ中心の練習だと本格的に上達できるか不安がある。</li>
-                           <li>鍵盤のタッチや表現力など、本物のピアノとの差をどう埋めるべきか迷っている。</li>
-                           <li>集合住宅での音漏れ配慮や、最適な機材選びについてプロの意見が欲しい。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>環境特化の段階指導：鍵盤タッチ・読譜・表現を、電子ピアノの特性に合わせて最適化する専門的な指導を行います。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>最適な機材提案：ご自宅の環境を拝見し、上達を妨げない機材の選び方や練習方法を具体的にアドバイスします。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>マンション仕様の練習法：住環境を熟知した講師が、近隣に配慮しつつ最大限の効果を出すための練習スタイルを提案します。</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "マンションでも「本物の音」を",
+                subTitle: "電子ピアノでも、感性は十分に育ちます",
+                painPoints: [
+                    "マンションだから、アップライトピアノは置けない",
+                    "電子ピアノだと、変な癖がつかないか心配",
+                    "近隣への音漏れが気になり、思い切り弾かせてあげられない"
+                ],
+                solutionTitle: "環境に合わせた、プロの指導",
+                solutions: [
+                    "電子ピアノ対応：電子ピアノの特性を理解した上で、表現力を引き出す指導を行います。",
+                    "音量調節：ヘッドホンも活用しながら、時間帯に合わせて適切な練習方法を提案します。",
+                    "導入期の工夫：鍵盤だけでなく、歌やリズム遊びで音楽性を高め、環境のハンデを乗り越えます。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl mb-2 font-bold">塾・仕事・多様な予定との「柔軟な両立」</span>
-                       <span class="block text-sm mb-4 opacity-80">忙しい日常に、無理なく音楽を定着させる</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>塾、部活、兄弟の予定が重なり、毎週決まった固定枠を維持するのが難しい。</li>
-                           <li>仕事後に教室へ移動する体力を確保しにくく、ブランクからの再開に心理的ハードルを感じている。</li>
-                           <li>不規則な勤務や学校行事により、欠席や振替が増えてしまうのが心配。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>柔軟な頻度・運用設計：連続受講や隔週運用を組み合わせ、学校行事や仕事の繁忙期でも続けやすい計画をオーダーメイドで作ります。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>大人向けのマイペース受講：月2回からの頻度設計や、目標曲ベースの指導により、心理的負担なく達成感を再構築できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動負担ゼロで再開：自宅訪問だからこそ、仕事後や勉強の合間に、心理的な壁を低くしてピアノに向き合えます。</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "不規則シフトでも「続けられる」",
+                subTitle: "曜日固定が難しくても、諦めないでください",
+                painPoints: [
+                    "シフト制の仕事で、毎週同じ曜日・時間に休めない",
+                    "急な残業が入ることが多く、月謝が無駄になりそう",
+                    "自分のペースで、無理なく長く続けたい"
+                ],
+                solutionTitle: "あなたの生活にフィットするプラン",
+                solutions: [
+                    "フレックス予約：毎月相談してレッスン日時を決めるので、シフトに合わせて受講できます。",
+                    "振替対応：前日までのご連絡であれば、別日への振替も柔軟に対応します。",
+                    "月2回コース：忙しい時期は回数を減らすなど、状況に合わせて調整可能です。"
+                ]
             }
         ],
         seo: {
@@ -2555,52 +2675,52 @@ export const areas: Area[] = [
         ],
         needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl mb-2 font-bold">送迎・移動の負担を解消し「ゆとり」を創る</span>
-                       <span class="block text-sm mb-4 opacity-80">忙しい夕方の時間を、もっとスマートに活用したい</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>住吉での送迎と家事・仕事が重なり、習い事の継続が大きな負担になっている。</li>
-                           <li>保育園や学校後の移動で帰宅後の時間が圧迫され、夜のスケジュールが崩れがち。</li>
-                           <li>雨の日や暑さ・寒さが厳しい日の通室が、親子ともにストレスの原因になる。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>完全自宅完結型レッスン：講師がご自宅へ伺うため、送迎は一切不要。玄関を開ければすぐに質の高い学びが始まります。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>生活リズムの守りやすさ：天候に左右されず、いつもの自宅でリラックスして受講。無理なく安定した継続をサポートします。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>家事・仕事との高い親和性：お子様のレッスン中、保護者様は家事や在宅ワークを中断せずに進められ、夕方の時間に余裕が生まれます。</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "公園のそばで「のびのびレッスン」",
+                subTitle: "住吉の緑豊かな環境で、感性を豊かに育む",
+                painPoints: [
+                    "子供には、勉強だけでなく情操教育もしっかり受けさせたい",
+                    "自然や芸術に触れる機会を大切にしたい",
+                    "のびのびとした環境で、個性を伸ばしてあげたい"
+                ],
+                solutionTitle: "感性を刺激する、オーダーメイド",
+                solutions: [
+                    "個性を尊重：お子様の興味や性格に合わせて、教材や曲を選び、やる気を引き出します。",
+                    "表現力：技術だけでなく、曲のイメージを膨らませ、豊かに表現する心を育てます。",
+                    "褒めて伸ばす：小さな成長を見逃さず、たくさん褒めることで自己肯定感を高めます。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl mb-2 font-bold">住宅エリア・電子ピアノでの「確かな上達」</span>
-                       <span class="block text-sm mb-4 opacity-80">マンションや住宅街での「練習環境」への不安を解消</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>住宅エリアで電子ピアノ中心の練習だと、本格的に上達できるか不安がある。</li>
-                           <li>鍵盤タッチ・読譜・表現力など、本物のピアノとの差をどう埋めるべきか迷っている。</li>
-                           <li>近隣への音漏れ配慮や、今の自宅環境に最適な機材・練習法が知りたい。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>電子ピアノ環境の段階指導：鍵盤タッチや表現を、電子ピアノの特性に合わせて最適化する専門的な指導を行います。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>機材・環境のアドバイス：上達に必要な機材の提案や、騒音に配慮した効果的な練習方法を具体的に伝授します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>環境に合わせた個別設計：ご自宅の環境を拝見し、住環境を活かしながら最大限の効果を出す練習スタイルを共に構築します。</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "住宅街での「音のお悩み」解決",
+                subTitle: "自宅練習の環境作り、プロにお任せください",
+                painPoints: [
+                    "家で練習する時、どれくらいの音量で弾いていいか分からない",
+                    "子供が練習を嫌がり、家の中が険悪な雰囲気になる",
+                    "近隣トラブルにならないような防音対策を知りたい"
+                ],
+                solutionTitle: "安心して練習できる環境へ",
+                solutions: [
+                    "練習環境の確認：ご自宅の環境に合わせて、最適な練習方法を一緒に考えます。",
+                    "練習サポート：お子様が自らピアノに向かいたくなるような、楽しい練習方法を伝授します。",
+                    "親御様へ：お子様への声かけのコツなど、家庭でのサポート方法も丁寧にお伝えします。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl mb-2 font-bold">塾・仕事・年齢に合わせた「柔軟な継続」</span>
-                       <span class="block text-sm mb-4 opacity-80">ライフステージごとの「続けにくさ」に寄り添う</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>塾、部活、兄弟の予定が重なり、毎週の固定枠を維持するのが難しい。</li>
-                           <li>外出の負担を抑えて再開したいが、指の動きや体力、昔の癖が直るか不安がある。</li>
-                           <li>不規則なスケジュールの中で、どうすればピアノを習慣化できるか分からない。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>柔軟な運用プラン：連続受講や隔週運用を組み合わせ、学校行事や塾が忙しい月でも続けやすい計画を作成します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>シニア・再開層への配慮：無理のないテンポ設定や段階的なフォーム改善により、身体への負担を抑えて達成感を再構築します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「5分からの」効率メニュー：短い隙間時間で取り組めるメニューを提示。忙しい日でも上達を実感できる仕組みを整えます。</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "ライフステージの変化に対応",
+                subTitle: "受験、進学、就職…どんな時もピアノを傍らに",
+                painPoints: [
+                    "中学受験で忙しくなり、ピアノを辞めるか迷っている",
+                    "部活や塾との両立が難しくなってきた",
+                    "細く長くでいいから、ピアノを心の拠り所にしたい"
+                ],
+                solutionTitle: "一生モノの趣味として",
+                solutions: [
+                    "ペース配分：受験期は月1回、落ち着いたら月3回など、時期に合わせて柔軟に対応します。",
+                    "短期集中：合唱コンクールの伴奏や、学校のテスト対策など、その時必要な内容に特化します。",
+                    "心の支え：辛い時こそピアノが心の支えになるよう、プレッシャーを与えず寄り添う指導をします。"
+                ]
             }
         ],
         seo: {
@@ -2709,52 +2829,52 @@ export const areas: Area[] = [
         ],
         needSolutions: [
             {
-                label: "01",
-                need: `<span class="block text-xl mb-2 font-bold">社会人・学生の「移動ゼロ」で叶える高効率レッスン</span>
-                       <span class="block text-sm mb-4 opacity-80">仕事や部活の後、体力を削らずに趣味を楽しむ<br>「通う時間」を「上達の時間」へ変えたい方へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>残業や部活などで帰宅時間が読みづらく、決まった時間に教室へ通うのが難しい。</li>
-                           <li>仕事・学業の後に移動する体力が残っておらず、ピアノを再開するハードルが高い。</li>
-                           <li>練習時間が限られているため、何から手をつければいいか優先順位が決めにくい。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>移動負担なしの「自宅訪問」：講師が伺うため、移動の手間はゼロ。帰宅後の短時間でも、リラックスした環境で即座に開始できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>短時間・高密度メニュー：個別の進度に合わせて「今やるべきこと」を凝縮。短時間で成果を出す専用カリキュラムを設計します。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>復習しやすい「課題メモ」：レッスンの要点を毎回共有。迷いなく練習に取り組めるため、次回のレッスンまで着実に上達します。</span></li>
-                           </ul>`
+                label: "ISSUE 01",
+                title: "駅チカ・短時間で「効率レッスン」",
+                subTitle: "菊川の利便性を活かし、隙間時間を有効活用",
+                painPoints: [
+                    "仕事や学校帰りに、サクッとレッスンを受けたい",
+                    "長時間のレッスンは集中力が続かない",
+                    "効率よく、ポイントを絞って教えてほしい"
+                ],
+                solutionTitle: "密度濃く、着実に上達",
+                solutions: [
+                    "移動ゼロ：ご自宅に出張するので、帰宅後すぐにレッスン開始。着替えや移動の手間がありません。",
+                    "30分集中：短時間でも中身の濃いレッスンを行い、効率的に上達へ導きます。",
+                    "ワンポイント：その日の課題を明確にし、次回のレッスンまでにやるべきことをシンプルに伝えます。"
+                ]
             },
             {
-                label: "02",
-                need: `<span class="block text-xl mb-2 font-bold">共働き世帯の「夕方のゆとり」を創出する</span>
-                       <span class="block text-sm mb-4 opacity-80">限られた平日夕方の時間を、賢く有効活用する<br>送迎のストレスをなくし、子どもの学びを安定させたいご家庭へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>保育園や学校後の移動で帰宅後の時間が圧迫され、夜のスケジュールが崩れがち。</li>
-                           <li>雨の日や暑さ・寒さが厳しい日の外出が、親子ともに大きな負担になっている。</li>
-                           <li>送迎の間、保護者様は家事や仕事の手を止めなければならず、時間のやりくりに苦労している。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>玄関を開ければレッスン開始：自宅訪問型なので送迎の必要は一切なし。天候に左右されず、いつもの生活リズムを守りながら継続できます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>保護者の自由時間を確保：お子様の受講中、保護者様は隣の部屋で夕飯の支度や在宅ワークに集中でき、夕方のゆとりが生まれます。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>兄弟受講・枠の最適化：兄弟連続での受講調整もしやすく、移動が一本化されることで安全面での不安も解消されます。</span></li>
-                           </ul>`
+                label: "ISSUE 02",
+                title: "共働き家庭の「夕方の救世主」",
+                subTitle: "送迎負担ゼロで、親子の時間にゆとりを",
+                painPoints: [
+                    "夕方の忙しい時間帯、子供の習い事の送迎は無理",
+                    "子供一人で通わせるのは、防犯上心配",
+                    "家事をしながら、子供のレッスンの様子を知りたい"
+                ],
+                solutionTitle: "安心・安全な自宅レッスン",
+                solutions: [
+                    "見守り不要：講師がレッスンをしている間、親御様は別室で家事や仕事に集中できます。",
+                    "安全安心：自宅でのレッスンなので、行き帰りの事故や事件の心配は一切ありません。",
+                    "報告共有：レッスン後には、その日の様子や進捗をLINEなどで丁寧に報告します。"
+                ]
             },
             {
-                label: "03",
-                need: `<span class="block text-xl mb-2 font-bold">菊川の日常に馴染む「長期継続」の仕組み</span>
-                       <span class="block text-sm mb-4 opacity-80">菊川一〜三丁目で、無理なくピアノを習慣にする<br>地域の生活リズムに合わせ、本番や目標に向けて着実に進みたい方へ</span>
-                       <p class="font-bold text-sm mb-2 text-[#544A40]">ISSUE / Pain Points</p>
-                       <ul class="text-sm space-y-2 list-disc pl-4 opacity-80">
-                           <li>発表会や本番前など、必要な時にだけ集中してポイントを絞った指導を受けたい。</li>
-                           <li>日々の生活が忙しく、練習時間が短くなると「何が正解か」判断しづらくなる。</li>
-                           <li>菊川エリアでの生活を楽しみながら、一生モノの趣味として長期的に続けたい。</li>
-                       </ul>`,
-                solution: `<ul class="space-y-3">
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>「3点集中」の目標設定：毎回の目標を3点以内に絞って共有。短時間でも成果が出る練習順を明確にし、練習の迷いをなくします。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>柔軟な頻度・重点レッスン：月2回からの頻度調整や、本番前の重点回を組み合わせるなど、生活リズムに合わせた継続設計を行います。</span></li>
-                               <li class="flex items-start gap-2"><span class="text-[#A88B58] font-bold">✓</span><span>本番前の柔軟対応：試験や発表会、弾きたい曲の完成時期に合わせ、重点的な添削やスケジュール調整にも柔軟に対応します。</span></li>
-                           </ul>`
+                label: "ISSUE 03",
+                title: "地域密着で「長く続く」関係",
+                subTitle: "菊川の街で、音楽と共に成長する",
+                painPoints: [
+                    "近所で、長く付き合える信頼できる先生を探している",
+                    "発表会など、日頃の成果を発表する場が欲しい",
+                    "音楽を通じて、地域のお友達と繋がりたい"
+                ],
+                solutionTitle: "音楽で広がる、地域の輪",
+                solutions: [
+                    "長期視点：目先の成果だけでなく、5年後、10年後を見据えた長期的な視点で指導します。",
+                    "成長の記録：毎回のレッスンでの達成感を大切にし、着実なステップアップをサポートします。",
+                    "相談しやすい：ピアノ以外のことも気軽に相談できる、地域のお姉さんのような存在を目指します。"
+                ]
             }
         ],
         seo: {

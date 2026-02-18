@@ -13,35 +13,7 @@ const { area, className = "bg-[#FCFAF7]" } = Astro.props;
     <div class="max-w-4xl mx-auto">
         <div class="text-center mb-16">
             <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">
-                {
-                    area.slug === "ariake"
-                        ? "有明エリア：よくある課題と解決策"
-                        : area.slug === "harumi"
-                          ? "晴海エリア：よくある課題と解決策"
-                          : area.slug === "kachidoki"
-                            ? "勝どきエリア：よくある課題と解決策"
-                            : area.slug === "kiyosumi-shirakawa"
-                              ? "清澄白河エリア：よくある課題と解決策"
-                              : area.slug === "miyoshi"
-                                ? "三好エリア：よくある課題と解決策"
-                                : area.slug === "monzen-nakacho"
-                                  ? "門前仲町エリア：よくある課題と解決策"
-                                  : area.slug === "kiba"
-                                    ? "木場エリア：よくある課題と解決策"
-                                    : area.slug === "ecchujima"
-                                      ? "越中島エリア：よくある課題と解決策"
-                                      : area.slug === "suitengu-mae"
-                                        ? "水天宮前エリア：よくある課題と解決策"
-                                        : area.slug === "ningyocho"
-                                          ? "人形町エリア：よくある課題と解決策"
-                                          : area.slug === "hamacho"
-                                            ? "浜町エリア：よくある課題と解決策"
-                                            : area.slug === "morishita"
-                                              ? "森下エリア：よくある課題と解決策"
-                                              : area.slug === "sumiyoshi"
-                                                ? "住吉エリア：よくある課題と解決策"
-                                                : `${area.name}でよくある課題と解決策`
-                }
+                {`${area.name}でのお悩みと解決策`}
             </h2>
             <p class="text-sm md:text-base text-[#6B5F54]">
                 {
@@ -64,45 +36,91 @@ const { area, className = "bg-[#FCFAF7]" } = Astro.props;
                     <article class="group relative bg-white rounded-2xl border border-[#F1EBE4] shadow-sm overflow-hidden hover:shadow-md transition-shadow duration-300">
                         <div class="flex flex-col md:flex-row">
                             {/* Issue Side */}
-                            <div class="p-8 md:w-2/5 bg-[#FCFAF7] border-b md:border-b-0 md:border-r border-[#F1EBE4]">
+                            <div class="p-6 md:p-8 md:w-[45%] bg-[#FCFAF7] border-b md:border-b-0 md:border-r border-[#F1EBE4]">
                                 <div class="flex items-center gap-3 mb-4">
-                                    <span class="bg-[#544A40] text-white text-[10px] mobile-s:text-xs font-bold px-2 py-1 rounded tracking-widest">
+                                    <span class="bg-[#544A40] text-white text-[10px] mobile-s:text-xs font-bold px-3 py-1 rounded-full tracking-wider">
                                         {item.label ||
                                             `ISSUE ${String(index + 1).padStart(2, "0")}`}
                                     </span>
                                 </div>
-                                <h3
-                                    class="text-lg font-serif text-[#544A40] leading-snug"
-                                    set:html={item.need}
-                                />
+                                <h3 class="text-lg md:text-xl font-bold text-[#544A40] leading-snug mb-3 hover:text-[#A88B58] transition-colors">
+                                    {item.title}
+                                </h3>
+                                {item.subTitle && (
+                                    <p class="text-sm text-[#8C8070] mb-5 font-medium leading-relaxed">
+                                        {item.subTitle}
+                                    </p>
+                                )}
+                                <div class="space-y-2">
+                                    <p class="text-[11px] font-bold text-[#A88B58] uppercase tracking-wider mb-2 flex items-center gap-1">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-3.5 w-3.5"
+                                            viewBox="0 0 20 20"
+                                            fill="currentColor"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M18 10a8 8 0 11-16 0 8 8 0 0116 0zm-7-4a1 1 0 11-2 0 1 1 0 012 0zM9 9a1 1 0 000 2v3a1 1 0 001 1h1a1 1 0 100-2v-3a1 1 0 00-1-1H9z"
+                                                clip-rule="evenodd"
+                                            />
+                                        </svg>
+                                        お悩み
+                                    </p>
+                                    <ul class="space-y-2">
+                                        {item.painPoints.map((point) => (
+                                            <li class="flex items-start gap-2 text-[#6B5F54] text-sm leading-relaxed">
+                                                <span class="text-[#D4C5B0] mt-1.5 text-[10px]">
+                                                    ●
+                                                </span>
+                                                <span>{point}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
                             </div>
 
                             {/* Solution Side */}
-                            <div class="p-8 md:w-3/5 bg-white relative">
+                            <div class="p-6 md:p-8 md:w-[55%] bg-white relative flex flex-col justify-center">
                                 {/* Arrow Indicator (Desktop) */}
                                 <div class="hidden md:block absolute top-1/2 -left-3 w-6 h-6 bg-white border-l border-b border-[#F1EBE4] transform rotate-45 z-10" />
 
-                                <p class="text-xs font-bold text-[#A88B58] mb-3 flex items-center gap-2 uppercase tracking-wider">
-                                    <svg
-                                        xmlns="http://www.w3.org/2000/svg"
-                                        class="h-5 w-5"
-                                        fill="none"
-                                        viewBox="0 0 24 24"
-                                        stroke="currentColor"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
-                                        />
-                                    </svg>
-                                    Solution
-                                </p>
-                                <div
-                                    class="text-[#544A40]/90 leading-relaxed text-justify"
-                                    set:html={item.solution}
-                                />
+                                <div class="mb-4">
+                                    <p class="text-xs font-bold text-[#A88B58] mb-2 flex items-center gap-2 uppercase tracking-wider">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-5 w-5"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
+                                            />
+                                        </svg>
+                                        SOLUTION
+                                    </p>
+                                    {item.solutionTitle && (
+                                        <h4 class="text-base font-bold text-[#544A40] mb-3">
+                                            {item.solutionTitle}
+                                        </h4>
+                                    )}
+                                </div>
+                                <ul class="space-y-3">
+                                    {item.solutions.map((solution) => (
+                                        <li class="flex items-start gap-3 bg-[#FCFAF7] p-3 rounded-lg border border-[#F1EBE4]/50">
+                                            <span class="text-[#A88B58] font-bold text-lg leading-none mt-0.5">
+                                                ✓
+                                            </span>
+                                            <span class="text-[#544A40] text-sm leading-relaxed font-medium">
+                                                {solution}
+                                            </span>
+                                        </li>
+                                    ))}
+                                </ul>
                             </div>
                         </div>
                     </article>
