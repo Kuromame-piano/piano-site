@@ -7,24 +7,24 @@ interface Props {
 
 const { area } = Astro.props;
 
-// 兄弟エリア（同じグループ内の他エリア）を取得
-const siblingAreas = areas.filter(
-    (a) => area.siblingSlugs.includes(a.slug)
-);
+const relatedAreas = area.relatedAreas
+    .map((slug) => areas.find((a) => a.slug === slug))
+    .filter((a): a is Area => Boolean(a))
+    .slice(0, 4);
 ---
 
 {
-    siblingAreas.length > 0 && (
+    relatedAreas.length > 0 && (
         <section class="py-20 px-6 max-w-4xl mx-auto text-center border-t border-[#F1EBE4]">
             <h2 class="text-xl font-serif mb-10 text-[#544A40]">
-                近隣エリアのピアノ教室
+                近隣・関連エリアのピアノ教室
                 <span class="block text-sm text-[#A88B58] mt-2 font-sans font-normal tracking-wide">
-                    Nearby Areas
+                    Related Areas
                 </span>
             </h2>
             <nav aria-label="Related Areas">
                 <ul class="grid grid-cols-1 md:grid-cols-2 gap-4 text-sm max-w-2xl mx-auto">
-                    {siblingAreas.map((a) => (
+                    {relatedAreas.map((a) => (
                         <li>
                             <a
                                 href={`/area/${a.slug}`}

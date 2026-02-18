@@ -4,6 +4,8 @@ import { areas } from "../../data/areas";
 import { type Area } from "../../data/areas";
 import HeroSection from "../../components/area/HeroSection.astro";
 import IntroSection from "../../components/area/IntroSection.astro";
+import PersonaSection from "../../components/area/PersonaSection.astro";
+import NeedSolutionSection from "../../components/area/NeedSolutionSection.astro";
 import UniqueContentSection from "../../components/area/UniqueContentSection.astro";
 import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
 import AreaGuideSection from "../../components/area/AreaGuideSection.astro";
@@ -42,7 +44,12 @@ const getObjectPosition = (slug: string) => {
 const objectPosition = getObjectPosition(area.slug);
 
 const pageTitle = `${area.name}のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室`;
-const pageDescription = `${area.name}のピアノ教室をお探しの方へ。講師がご自宅へ伺う出張専門のピアノ教室です。${area.metaSnippet || area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
+const pageDescription =
+    area.seo?.metaDescription ||
+    `${area.name}のピアノ教室をお探しの方へ。講師がご自宅へ伺う出張専門のピアノ教室です。${area.metaSnippet || area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
+const pageKeywords = area.seo
+    ? [area.seo.primaryKeyword, ...area.seo.secondaryKeywords]
+    : area.keywords;
 
 // Schema.org Structured Data
 const schema = JSON.stringify({
@@ -152,7 +159,7 @@ const schema = JSON.stringify({
     title={pageTitle}
     description={pageDescription}
     image={area.mainImage}
-    keywords={area.keywords}
+    keywords={pageKeywords}
 >
     <!-- Structured Data -->
     <script slot="head" type="application/ld+json" set:html={schema} />
@@ -171,6 +178,12 @@ const schema = JSON.stringify({
 
     <IntroSection area={area} />
 
+    <PersonaSection area={area} />
+
+    <NeedSolutionSection area={area} />
+
+    <CTASection area={area} variant="mid" />
+
     <UniqueContentSection area={area} />
 
     <InstructorSection area={area} />
@@ -187,5 +200,5 @@ const schema = JSON.stringify({
 
     <RelatedAreasSection area={area} />
 
-    <CTASection area={area} />
+    <CTASection area={area} variant="final" />
 </Layout>
