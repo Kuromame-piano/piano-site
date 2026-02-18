@@ -3,9 +3,10 @@ import { areas, type Area } from "../../data/areas";
 
 interface Props {
     area: Area;
+    className?: string;
 }
 
-const { area } = Astro.props;
+const { area, className = "bg-white" } = Astro.props;
 
 // 兄弟エリア名を取得
 const siblingNames = area.siblingSlugs
@@ -15,65 +16,68 @@ const siblingNames = area.siblingSlugs
 
 {
     area.googleMapUrl && (
-        <section class="py-20 px-6 max-w-5xl mx-auto text-center bg-[#FCFAF7]">
-            <h2 class="text-2xl font-serif mb-12 text-[#544A40]">
-                <>
-                    <span class="inline-block">{area.name}周辺の</span>
-                    <br class="md:hidden" />
-                    <span class="inline-block">出張エリア</span>
-                </>
-            </h2>
+        <section class={`py-20 px-6 ${className}`}>
+            <div class="max-w-5xl mx-auto text-center">
+                <h2 class="text-2xl font-serif mb-12 text-[#544A40]">
+                    <>
+                        <span class="inline-block">{area.name}周辺の</span>
+                        <br class="md:hidden" />
+                        <span class="inline-block">出張エリア</span>
+                    </>
+                </h2>
 
-            {siblingNames.length > 0 && (
-                <div class="mb-10">
-                    <p class="text-sm text-[#6B5F54] mb-6">
-                        {area.name}のほか、近隣の以下のエリアへも出張レッスンにお伺いします。
-                    </p>
-                    <div class="flex flex-wrap justify-center gap-3">
-                        {siblingNames.map((name) => (
-                            <span class="inline-block bg-white px-4 py-2 rounded-full border border-[#E8E2D9] text-[#544A40] text-sm md:text-base font-medium shadow-sm">
-                                {name}
-                            </span>
-                        ))}
-                    </div>
-                </div>
-            )}
-
-            <div class="flex flex-col md:flex-row gap-8 items-start">
-                {/* Map (Left) */}
-                <div class="w-full md:w-3/5 rounded-xl overflow-hidden shadow-sm border border-[#F1EBE4] bg-white p-2">
-                    <iframe
-                        src={area.googleMapUrl}
-                        width="100%"
-                        height="300"
-                        style="border:0; border-radius: 0.5rem;"
-                        allowfullscreen=""
-                        loading="lazy"
-                        referrerpolicy="no-referrer-when-downgrade"
-                        title={`${area.name}の出張ピアノ教室対応エリア`}
-                    />
-                </div>
-                {/* Landmarks (Right) */}
-                {area.landmarks && area.landmarks.length > 0 && (
-                    <div class="w-full md:w-2/5 text-left">
-                        <div class="bg-white p-6 rounded-xl border border-[#F1EBE4] shadow-sm h-full">
-                            <p class="mb-4 text-[#A88B58] tracking-widest text-sm border-b border-[#F1EBE4] pb-2">
-                                - 主な出張訪問可能スポット -
-                            </p>
-                            <ul class="space-y-3">
-                                {area.landmarks.map((landmark) => (
-                                    <li class="flex items-start text-sm text-[#544A40]/90">
-                                        <span class="mr-2 mt-0.5 w-1.5 h-1.5 bg-[#A88B58] rounded-full flex-shrink-0 translate-y-1" />
-                                        {landmark}周辺
-                                    </li>
-                                ))}
-                            </ul>
-                            <p class="mt-6 text-xs text-[#544A40]/60 leading-relaxed">
-                                ※上記は目安です。詳細な対応エリアについてはお気軽にご相談ください。
-                            </p>
+                {siblingNames.length > 0 && (
+                    <div class="mb-10">
+                        <p class="text-sm text-[#6B5F54] mb-6">
+                            {area.name}
+                            のほか、近隣の以下のエリアへも出張レッスンにお伺いします。
+                        </p>
+                        <div class="flex flex-wrap justify-center gap-3">
+                            {siblingNames.map((name) => (
+                                <span class="inline-block bg-white px-4 py-2 rounded-full border border-[#E8E2D9] text-[#544A40] text-sm md:text-base font-medium shadow-sm">
+                                    {name}
+                                </span>
+                            ))}
                         </div>
                     </div>
                 )}
+
+                <div class="flex flex-col md:flex-row gap-8 items-start">
+                    {/* Map (Left) */}
+                    <div class="w-full md:w-3/5 rounded-xl overflow-hidden shadow-sm border border-[#F1EBE4] bg-white p-2">
+                        <iframe
+                            src={area.googleMapUrl}
+                            width="100%"
+                            height="300"
+                            style="border:0; border-radius: 0.5rem;"
+                            allowfullscreen=""
+                            loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"
+                            title={`${area.name}の出張ピアノ教室対応エリア`}
+                        />
+                    </div>
+                    {/* Landmarks (Right) */}
+                    {area.landmarks && area.landmarks.length > 0 && (
+                        <div class="w-full md:w-2/5 text-left">
+                            <div class="bg-white p-6 rounded-xl border border-[#F1EBE4] shadow-sm h-full">
+                                <p class="mb-4 text-[#A88B58] tracking-widest text-sm border-b border-[#F1EBE4] pb-2">
+                                    - 主な出張訪問可能スポット -
+                                </p>
+                                <ul class="space-y-3">
+                                    {area.landmarks.map((landmark) => (
+                                        <li class="flex items-start text-sm text-[#544A40]/90">
+                                            <span class="mr-2 mt-0.5 w-1.5 h-1.5 bg-[#A88B58] rounded-full flex-shrink-0 translate-y-1" />
+                                            {landmark}周辺
+                                        </li>
+                                    ))}
+                                </ul>
+                                <p class="mt-6 text-xs text-[#544A40]/60 leading-relaxed">
+                                    ※上記は目安です。詳細な対応エリアについてはお気軽にご相談ください。
+                                </p>
+                            </div>
+                        </div>
+                    )}
+                </div>
             </div>
         </section>
     )

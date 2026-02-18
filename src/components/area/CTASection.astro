@@ -11,10 +11,16 @@ const ctaHref = `/contact?from=${encodeURIComponent(`area-${area.slug}`)}&area=$
 const isMid = variant === "mid";
 ---
 
-<section class={`py-20 px-6 ${isMid ? "bg-[#EAE3DA] text-[#544A40]" : "bg-[#544A40] text-white"}`}>
+<section
+    class={`py-20 px-6 ${isMid ? "bg-[#EAE3DA] text-[#544A40]" : "bg-[#544A40] text-white"}`}
+>
     <div class="max-w-4xl mx-auto text-center">
         <h2 class="text-2xl md:text-3xl font-serif mb-6">
-            {isMid ? `${area.name}の体験レッスン枠を確認する` : "まずは無料体験レッスンから"}
+            {
+                isMid
+                    ? `${area.name}の体験レッスン枠を確認する`
+                    : "まずは無料体験レッスンから"
+            }
         </h2>
         <p class="mb-10 text-lg opacity-90 leading-relaxed">
             <span class="inline-block">{area.name}でピアノ教室を</span><span
@@ -24,13 +30,19 @@ const isMid = variant === "mid";
             ><span class="inline-block">レッスンを体験してみませんか？</span>
         </p>
 
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10 text-sm">
-            {area.cta.reassurance.map((point) => (
-                <div class={`rounded-full px-4 py-3 ${isMid ? "bg-white text-[#544A40] border border-[#D6CABE]" : "bg-white/10 text-white border border-white/30"}`}>
-                    {point}
+        {
+            area.cta.reassurance && area.cta.reassurance.length > 0 && (
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-3 mb-10 text-sm">
+                    {area.cta.reassurance.map((point) => (
+                        <div
+                            class={`rounded-full px-4 py-3 ${isMid ? "bg-white text-[#544A40] border border-[#D6CABE]" : "bg-white/10 text-white border border-white/30"}`}
+                        >
+                            {point}
+                        </div>
+                    ))}
                 </div>
-            ))}
-        </div>
+            )
+        }
 
         <a
             href={ctaHref}
@@ -38,7 +50,9 @@ const isMid = variant === "mid";
         >
             無料体験レッスンに申し込む
         </a>
-        <p class={`mt-5 text-sm leading-relaxed ${isMid ? "text-[#6B5F54]" : "text-white/80"}`}>
+        <p
+            class={`mt-5 text-sm leading-relaxed ${isMid ? "text-[#6B5F54]" : "text-white/80"}`}
+        >
             {area.cta.subcopy}
         </p>
     </div>

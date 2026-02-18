@@ -3,14 +3,15 @@ import type { Area } from "../../data/areas";
 
 interface Props {
     area: Area;
+    className?: string;
 }
 
-const { area } = Astro.props;
+const { area, className = "bg-white" } = Astro.props;
 ---
 
 {
     area.lessonFlow && area.lessonFlow.length > 0 && (
-        <section class="py-24 px-6 bg-[#FCFAF7]">
+        <section class={`py-24 px-6 ${className}`}>
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-2xl font-serif text-[#544A40]">

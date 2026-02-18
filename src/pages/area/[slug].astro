@@ -3,13 +3,13 @@ import Layout from "../../layouts/Layout.astro";
 import { areas } from "../../data/areas";
 import { type Area } from "../../data/areas";
 import HeroSection from "../../components/area/HeroSection.astro";
-import IntroSection from "../../components/area/IntroSection.astro";
-import PersonaSection from "../../components/area/PersonaSection.astro";
+
 import UniqueContentSection from "../../components/area/UniqueContentSection.astro";
 import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
 import MapSection from "../../components/area/MapSection.astro";
 import FAQSection from "../../components/area/FAQSection.astro";
 import CTASection from "../../components/area/CTASection.astro";
+import NeedSolutionSection from "../../components/area/NeedSolutionSection.astro";
 
 import InstructorSection from "../../components/area/InstructorSection.astro";
 import FeeSection from "../../components/area/FeeSection.astro";
@@ -36,6 +36,10 @@ const getObjectPosition = (slug: string) => {
     }
     if (["ningyocho", "morishita"].includes(slug)) {
         return "50% 50%";
+    }
+    // 東雲、勝どき、豊洲はピアノが見えるように少し下げる
+    if (["shinonome", "kachidoki", "toyosu"].includes(slug)) {
+        return "50% 45%";
     }
     return "50% 35%";
 };
@@ -174,23 +178,19 @@ const schema = JSON.stringify({
 
     <HeroSection area={area} objectPosition={objectPosition} />
 
-    <IntroSection area={area} />
-
     <UniqueContentSection area={area} />
 
-    <PersonaSection area={area} />
+    <NeedSolutionSection area={area} />
 
-    <CTASection area={area} variant="mid" />
+    <InstructorSection area={area} className="bg-[#FCFAF7]" />
 
-    <InstructorSection area={area} />
+    <FeeSection area={area} className="bg-white" />
 
-    <FeeSection area={area} />
+    <MapSection area={area} className="bg-[#FCFAF7]" />
 
-    <LessonFlowSection area={area} />
+    <FAQSection area={area} className="bg-white" />
 
-    <FAQSection area={area} />
-
-    <MapSection area={area} />
+    <LessonFlowSection area={area} className="bg-[#FCFAF7]" />
 
     <CTASection area={area} variant="final" />
 

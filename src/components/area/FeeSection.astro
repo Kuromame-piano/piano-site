@@ -4,12 +4,13 @@ import type { Area } from "../../data/areas";
 
 interface Props {
     area: Area;
+    className?: string;
 }
 
-const { area } = Astro.props;
+const { area, className = "bg-[#FCFAF7]" } = Astro.props;
 ---
 
-<section class="py-16 px-6 bg-white">
+<section class={`py-16 px-6 ${className}`}>
     <div class="max-w-4xl mx-auto">
         <div class="text-center mb-12">
             <h2 class="text-2xl font-serif text-[#544A40]">レッスン料金</h2>

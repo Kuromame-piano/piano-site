@@ -9,7 +9,9 @@ interface Props {
 const { area, objectPosition } = Astro.props;
 ---
 
-<div class="relative h-[60vh] flex items-center justify-center overflow-hidden">
+<div
+    class="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden"
+>
     <div class="absolute inset-0 z-0">
         <img
             src={area.mainImage}
@@ -17,7 +19,7 @@ const { area, objectPosition } = Astro.props;
             class="w-full h-full object-cover"
             style={`object-position: ${objectPosition}`}
         />
-        <div class="absolute inset-0 bg-[#3A322B]/50 backdrop-blur-[1px]"></div>
+        <div class="absolute inset-0 bg-[#3A322B]/20"></div>
     </div>
 
     <div
@@ -25,13 +27,13 @@ const { area, objectPosition } = Astro.props;
     >
         <h1 class="font-serif tracking-wide">
             <span
-                class="block text-xl md:text-3xl mb-6 font-medium tracking-[0.1em] text-white/90 drop-shadow-md"
+                class="block text-lg md:text-2xl mb-6 font-medium tracking-[0.1em] text-white/90 drop-shadow-md"
             >
                 {area.name}のピアノ教室
             </span>
 
             <span
-                class="flex items-center justify-center gap-4 md:gap-6 text-sm md:text-lg mb-8 opacity-90"
+                class="flex items-center justify-center gap-4 md:gap-6 text-xs md:text-base mb-8 opacity-90"
             >
                 <span class="h-[1px] w-8 md:w-16 bg-white/60"></span>
                 <span class="tracking-[0.2em] font-light uppercase"
@@ -40,32 +42,36 @@ const { area, objectPosition } = Astro.props;
                 <span class="h-[1px] w-8 md:w-16 bg-white/60"></span>
             </span>
 
-            <span
-                class="block text-4xl md:text-6xl lg:text-7xl font-medium tracking-tight mb-2 drop-shadow-lg"
+            <div
+                class="flex items-baseline justify-center gap-0 mb-2 drop-shadow-lg"
             >
                 <span
-                    class="inline-block transform hover:scale-105 transition-transform duration-500 cursor-default"
-                    >髙</span
+                    class="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tighter"
                 >
-                <span
-                    class="inline-block transform hover:scale-105 transition-transform duration-500 delay-75 cursor-default"
-                    >橋</span
-                >
-                <span
-                    class="inline-block transform hover:scale-105 transition-transform duration-500 delay-100 cursor-default"
-                    >遊</span
-                >
-                <span
-                    class="inline-block transform hover:scale-105 transition-transform duration-500 delay-150 cursor-default"
-                    >月</span
-                >
-            </span>
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 cursor-default"
+                        >髙</span
+                    >
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 delay-75 cursor-default"
+                        >橋</span
+                    >
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 delay-100 cursor-default"
+                        >遊</span
+                    >
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 delay-150 cursor-default"
+                        >月</span
+                    >
+                </span>
 
-            <span
-                class="block text-lg md:text-2xl mt-4 font-light tracking-widest opacity-90 drop-shadow-md"
-            >
-                ピアノ教室
-            </span>
+                <span
+                    class="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tighter opacity-90 drop-shadow-md"
+                >
+                    ピアノ教室
+                </span>
+            </div>
         </h1>
 
         <div class="mt-12">
