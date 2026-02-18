@@ -10,6 +10,7 @@ import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
 import MapSection from "../../components/area/MapSection.astro";
 import FAQSection from "../../components/area/FAQSection.astro";
 import CTASection from "../../components/area/CTASection.astro";
+import NeedSolutionSection from "../../components/area/NeedSolutionSection.astro";
 
 import InstructorSection from "../../components/area/InstructorSection.astro";
 import FeeSection from "../../components/area/FeeSection.astro";
@@ -180,11 +181,11 @@ const schema = JSON.stringify({
 
     <IntroSection area={area} />
 
-    <UniqueContentSection area={area} />
-
     <PersonaSection area={area} />
 
-    <CTASection area={area} variant="mid" />
+    <UniqueContentSection area={area} />
+
+    <NeedSolutionSection area={area} />
 
     <InstructorSection area={area} />
 
