@@ -37,6 +37,10 @@ const getObjectPosition = (slug: string) => {
     if (["ningyocho", "morishita"].includes(slug)) {
         return "50% 50%";
     }
+    // 東雲、勝どき、豊洲はピアノが見えるように少し下げる
+    if (["shinonome", "kachidoki", "toyosu"].includes(slug)) {
+        return "50% 45%";
+    }
     return "50% 35%";
 };
 const objectPosition = getObjectPosition(area.slug);
