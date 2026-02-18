@@ -5,10 +5,8 @@ import { type Area } from "../../data/areas";
 import HeroSection from "../../components/area/HeroSection.astro";
 import IntroSection from "../../components/area/IntroSection.astro";
 import PersonaSection from "../../components/area/PersonaSection.astro";
-import NeedSolutionSection from "../../components/area/NeedSolutionSection.astro";
 import UniqueContentSection from "../../components/area/UniqueContentSection.astro";
 import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
-import AreaGuideSection from "../../components/area/AreaGuideSection.astro";
 import MapSection from "../../components/area/MapSection.astro";
 import FAQSection from "../../components/area/FAQSection.astro";
 import CTASection from "../../components/area/CTASection.astro";
@@ -178,13 +176,11 @@ const schema = JSON.stringify({
 
     <IntroSection area={area} />
 
+    <UniqueContentSection area={area} />
+
     <PersonaSection area={area} />
 
-    <NeedSolutionSection area={area} />
-
     <CTASection area={area} variant="mid" />
-
-    <UniqueContentSection area={area} />
 
     <InstructorSection area={area} />
 
@@ -196,9 +192,7 @@ const schema = JSON.stringify({
 
     <MapSection area={area} />
 
-    <AreaGuideSection area={area} />
+    <CTASection area={area} variant="final" />
 
     <RelatedAreasSection area={area} />
-
-    <CTASection area={area} variant="final" />
 </Layout>

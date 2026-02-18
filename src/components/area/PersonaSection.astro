@@ -8,60 +8,107 @@ interface Props {
 const { area } = Astro.props;
 ---
 
-<section class="py-20 px-6 bg-[#FCFAF7]">
+<section class="py-24 px-6 bg-[#FCFAF7]">
     <div class="max-w-6xl mx-auto">
-        <div class="text-center mb-12">
-            <h2 class="text-2xl md:text-3xl font-serif text-[#544A40]">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">
                 {area.name}で多いご相談タイプ
             </h2>
-            <p class="mt-4 text-sm md:text-base text-[#6B5F54]">
+            <p class="text-sm md:text-base text-[#6B5F54]">
                 地域特性を踏まえた主ターゲット・副ターゲット別に
                 <br class="md:hidden" />
                 継続しやすいレッスン設計をご提案します。
             </p>
         </div>
 
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
-            {[area.personas.primary, area.personas.secondary].map((persona) => (
-                <article class="bg-white border border-[#E8E2D9] rounded-2xl p-6 md:p-8 shadow-sm">
-                    <h3 class="text-xl font-serif text-[#544A40] mb-3">
-                        {persona.label}
-                    </h3>
-                    <p class="text-[#544A40]/80 leading-relaxed mb-6">
-                        {persona.summary}
-                    </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 md:gap-12">
+            {
+                [area.personas.primary, area.personas.secondary].map(
+                    (persona, index) => (
+                        <article class="bg-white rounded-2xl p-8 md:p-10 shadow-[0_4px_20px_-4px_rgba(84,74,64,0.1)] border border-[#F1EBE4] flex flex-col h-full relative overflow-hidden group hover:translate-y-[-4px] transition-transform duration-300">
+                            <div
+                                class={`absolute top-0 left-0 w-full h-1 ${index === 0 ? "bg-[#A88B58]" : "bg-[#D4C5B0]"}`}
+                            />
 
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div>
-                            <p class="text-sm font-medium text-[#A88B58] mb-3">
-                                よくあるお悩み
-                            </p>
-                            <ul class="space-y-2 text-sm text-[#544A40]/90 leading-relaxed">
-                                {persona.painPoints.map((point) => (
-                                    <li class="flex items-start gap-2">
-                                        <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#D2A56B] flex-shrink-0" />
-                                        <span>{point}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
+                            <div class="mb-6">
+                                <span
+                                    class={`inline-block text-[10px] tracking-widest px-3 py-1 rounded-full mb-3 ${index === 0 ? "bg-[#A88B58]/10 text-[#A88B58]" : "bg-[#D4C5B0]/20 text-[#8C7B6C]"}`}
+                                >
+                                    {index === 0 ? "CASE 01" : "CASE 02"}
+                                </span>
+                                <h3 class="text-2xl font-serif text-[#544A40] mb-3">
+                                    {persona.label}
+                                </h3>
+                                <p class="text-[#544A40]/80 leading-relaxed text-sm">
+                                    {persona.summary}
+                                </p>
+                            </div>
 
-                        <div>
-                            <p class="text-sm font-medium text-[#A88B58] mb-3">
-                                この教室が合う理由
-                            </p>
-                            <ul class="space-y-2 text-sm text-[#544A40]/90 leading-relaxed">
-                                {persona.fitPoints.map((point) => (
-                                    <li class="flex items-start gap-2">
-                                        <span class="mt-[7px] w-1.5 h-1.5 rounded-full bg-[#A88B58] flex-shrink-0" />
-                                        <span>{point}</span>
-                                    </li>
-                                ))}
-                            </ul>
-                        </div>
-                    </div>
-                </article>
-            ))}
+                            <div class="space-y-8 mt-auto">
+                                <div class="bg-[#FCFAF7] rounded-xl p-5 border border-[#F1EBE4]">
+                                    <p class="text-xs font-bold text-[#8C7B6C] mb-3 flex items-center gap-2 uppercase tracking-wider">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-4 w-4"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"
+                                            />
+                                        </svg>
+                                        Pain Points
+                                    </p>
+                                    <ul class="space-y-2">
+                                        {persona.painPoints.map((point) => (
+                                            <li class="text-sm text-[#544A40]/80 leading-relaxed flex items-start gap-2">
+                                                <span class="text-[#D4C5B0] mt-1">
+                                                    •
+                                                </span>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+
+                                <div>
+                                    <p class="text-xs font-bold text-[#A88B58] mb-3 flex items-center gap-2 uppercase tracking-wider">
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            class="h-4 w-4"
+                                            fill="none"
+                                            viewBox="0 0 24 24"
+                                            stroke="currentColor"
+                                        >
+                                            <path
+                                                stroke-linecap="round"
+                                                stroke-linejoin="round"
+                                                stroke-width="2"
+                                                d="M5 13l4 4L19 7"
+                                            />
+                                        </svg>
+                                        Solution
+                                    </p>
+                                    <ul class="space-y-2">
+                                        {persona.fitPoints.map((point) => (
+                                            <li class="text-sm text-[#544A40] font-medium leading-relaxed flex items-start gap-2">
+                                                <span class="text-[#A88B58] mt-1">
+                                                    ✓
+                                                </span>
+                                                {point}
+                                            </li>
+                                        ))}
+                                    </ul>
+                                </div>
+                            </div>
+                        </article>
+                    ),
+                )
+            }
         </div>
     </div>
 </section>

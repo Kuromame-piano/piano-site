@@ -8,21 +8,42 @@ interface Props {
 const { area } = Astro.props;
 ---
 
-{
-    area.uniqueContent && (
-        <section class="py-16 px-6 bg-white">
-            <div class="max-w-4xl mx-auto">
-                <div class="text-center mb-12">
-                    <h2 class="text-2xl font-serif text-[#544A40]">
-                        <span class="inline-block">{area.name}で</span>
-                        <br class="md:hidden" />
-                        <span class="inline-block">ピアノ教室をお探しの方へ</span>
-                    </h2>
-                </div>
-                <p class="text-[#544A40]/80 leading-relaxed text-left md:text-justify max-w-2xl mx-auto">
-                    {area.uniqueContent}
-                </p>
+area.uniqueContent && (
+<section class="py-24 px-6 bg-white">
+    <div class="max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <span
+                class="inline-block text-[#A88B58] text-sm tracking-widest mb-3 font-medium"
+                >AREA CONTEXT</span
+            >
+            <h2
+                class="text-2xl md:text-3xl font-serif text-[#544A40] mb-6 leading-tight"
+            >
+                {area.name}という
+                <br class="md:hidden" />
+                <span class="inline-block">地域での暮らしとピアノ</span>
+            </h2>
+            <div class="w-12 h-[1px] bg-[#D4C5B0] mx-auto"></div>
+        </div>
+
+        <div
+            class="bg-[#FCFAF7] p-8 md:p-14 rounded-2xl border border-[#F1EBE4] relative shadow-[0_4px_20px_-4px_rgba(84,74,64,0.05)]"
+        >
+            <div class="absolute -top-3 left-1/2 transform -translate-x-1/2">
+                <span
+                    class="bg-white text-[#544A40] text-xs tracking-widest px-6 py-1.5 rounded-full border border-[#F1EBE4] font-serif shadow-sm"
+                >
+                    LOCALITY
+                </span>
             </div>
-        </section>
-    )
-}
+
+            <div
+                class="prose prose-brown max-w-none text-[#544A40] leading-[2.2] text-justify font-normal tracking-wide
+                        [&>strong]:text-[#A88B58] [&>strong]:font-semibold [&>strong]:bg-transparent [&>strong]:border-b [&>strong]:border-[#A88B58]/40 [&>strong]:px-0
+                        [&>p]:mb-8 last:[&>p]:mb-0"
+                set:html={area.uniqueContent}
+            />
+        </div>
+    </div>
+</section>
+) }
