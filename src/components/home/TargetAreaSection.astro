@@ -1,0 +1,164 @@
+---
+
+---
+
+<section class="py-24 px-6 bg-white border-t border-[#F1EBE4]">
+    <div class="max-w-5xl mx-auto text-center">
+        <div class="mb-16">
+            <h2 class="text-2xl md:text-3xl font-serif mb-4">出張対応エリア</h2>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                Service Area
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+        <p
+            class="text-base leading-loose mb-10 text-[#6B5F54] max-w-2xl mx-auto"
+        >
+            江東区の<span class="font-bold text-[#A88B58]"
+                >清澄白河駅・門前仲町駅</span
+            >周辺を中心に、<br class="hidden md:inline" />
+            公共交通機関で伺える範囲で活動しています。
+        </p>
+        <div class="grid md:grid-cols-2 gap-8 items-stretch text-left mb-12">
+            <div
+                class="hidden md:block w-full rounded-2xl overflow-hidden shadow-sm border border-[#E8E2D9]"
+            >
+                <iframe
+                    src="https://maps.google.com/maps?q=%E6%B8%85%E6%BE%84%E7%99%BD%E6%B2%B3%E9%A7%85&t=m&z=15&output=embed&iwloc=near"
+                    width="100%"
+                    height="100%"
+                    style="border:0;"
+                    allowfullscreen=""
+                    loading="lazy"
+                    referrerpolicy="no-referrer-when-downgrade"
+                    title="清澄白河駅周辺地図"
+                >
+                </iframe>
+            </div>
+            <div>
+                <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">
+                    江東区
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {
+                        [
+                            { label: "清澄白河", slug: "kiyosumi-shirakawa" },
+                            { label: "門前仲町", slug: "monzen-nakacho" },
+                            { label: "木場", slug: "kiba" },
+                            { label: "森下", slug: "morishita" },
+                            { label: "三好", slug: "miyoshi" },
+                            { label: "平野", slug: "hirano" },
+                            { label: "住吉", slug: "sumiyoshi" },
+                            { label: "豊洲", slug: "toyosu" },
+                            { label: "越中島", slug: "ecchujima" },
+                            { label: "菊川", slug: "kikukawa" },
+                            { label: "有明", slug: "ariake" },
+                            { label: "東雲", slug: "shinonome" },
+                            { label: "深川", slug: "kiyosumi-shirakawa" },
+                            { label: "白河", slug: "kiyosumi-shirakawa" },
+                            { label: "佐賀", slug: "monzen-nakacho" },
+                            { label: "永代", slug: "monzen-nakacho" },
+                            { label: "福住", slug: "monzen-nakacho" },
+                            { label: "冬木", slug: "kiba" },
+                            { label: "牡丹", slug: "kiba" },
+                            { label: "古石場", slug: "kiba" },
+                            { label: "千歳", slug: "kikukawa" },
+                        ].map(({ label, slug }) => (
+                            <a
+                                href={`/area/${slug}`}
+                                class="inline-block px-3 py-1.5 bg-white text-[#544A40] text-xs rounded-full border border-[#E8E2D9] hover:border-[#A88B58] hover:text-[#A88B58] hover:bg-[#A88B58]/10 transition-colors duration-300"
+                            >
+                                {label}
+                            </a>
+                        ))
+                    }
+                </div>
+                <p class="text-xs text-[#A88B58] font-bold mb-2 tracking-wide">
+                    中央区・墨田区・台東区（近郊）
+                </p>
+                <div class="flex flex-wrap gap-2 mb-4">
+                    {
+                        [
+                            { label: "月島", slug: "tsukishima" },
+                            { label: "晴海", slug: "harumi" },
+                            { label: "勝どき", slug: "kachidoki" },
+                            { label: "水天宮前", slug: "suitengu-mae" },
+                            { label: "人形町", slug: "ningyocho" },
+                            { label: "日本橋浜町", slug: "hamacho" },
+                            { label: "日本橋中洲", slug: "ningyocho" },
+                            { label: "日本橋蛎殻町", slug: "suitengu-mae" },
+                            { label: "日本橋箱崎町", slug: "suitengu-mae" },
+                            { label: "茅場町", slug: "ningyocho" },
+                            { label: "立川", slug: "morishita" },
+                            { label: "緑", slug: "morishita" },
+                            {
+                                label: "蔵前（台東区）",
+                                slug: null as string | null,
+                            },
+                        ].map(({ label, slug }) =>
+                            slug ? (
+                                <a
+                                    href={`/area/${slug}`}
+                                    class="inline-block px-3 py-1.5 bg-white text-[#544A40] text-xs rounded-full border border-[#E8E2D9] hover:border-[#A88B58] hover:text-[#A88B58] hover:bg-[#A88B58]/10 transition-colors duration-300"
+                                >
+                                    {label}
+                                </a>
+                            ) : (
+                                <span class="inline-block px-3 py-1.5 bg-white text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
+                                    {label}
+                                </span>
+                            ),
+                        )
+                    }
+                </div>
+                <p class="text-xs text-[#A88B58] font-bold mb-4 tracking-wide">
+                    アクセス路線
+                </p>
+                <div class="flex flex-wrap gap-2 mb-8">
+                    {
+                        [
+                            "都営大江戸線",
+                            "東京メトロ半蔵門線",
+                            "東京メトロ東西線",
+                            "都営新宿線",
+                        ].map((line) => (
+                            <span class="inline-block px-3 py-1.5 bg-white text-[#544A40] text-xs rounded-full border border-[#E8E2D9] cursor-default">
+                                {line}
+                            </span>
+                        ))
+                    }
+                </div>
+                <div
+                    class="bg-[#F7F3EE] p-6 rounded-xl border border-[#E8E2D9]"
+                >
+                    <p
+                        class="text-base font-bold text-[#544A40] mb-2 font-serif border-l-2 border-[#A88B58] pl-3"
+                    >
+                        その他の地域について
+                    </p>
+                    <p class="text-sm leading-loose text-[#6B5F54]">
+                        上記以外の地域（中央区や墨田区、台東区の一部など）でも、近隣であれば対応可能な場合がございます。<br
+                        />
+                        「自宅まで来てもらえるかな？」と迷われた際は、まずはお気軽に<a
+                            href="/contact"
+                            class="underline hover:text-[#A88B58] transition-colors"
+                            >お問い合わせフォーム</a
+                        >からご相談ください。
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <div class="mt-12 text-center">
+            <a
+                href="/area"
+                class="inline-block border border-[#A88B58] text-[#A88B58] px-10 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-all text-sm tracking-widest font-medium"
+            >
+                出張対応エリアページを見る →
+            </a>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,57 @@
+---
+import { Image } from "astro:assets";
+import heroPiano from "../../assets/images/hero-piano.webp";
+---
+
+<section
+    class="relative h-[85vh] flex items-center justify-center overflow-hidden"
+>
+    <div class="absolute inset-0 z-0">
+        <Image
+            src={heroPiano}
+            alt="落ち着いた空間でのピアノレッスン"
+            width={1200}
+            height={800}
+            class="w-full h-full object-cover opacity-50"
+            loading="eager"
+            fetchpriority="high"
+        />
+        <div
+            class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"
+        >
+        </div>
+    </div>
+
+    <div class="relative z-10 text-center px-4 max-w-5xl">
+        <h1 class="font-serif text-[#544A40] flex flex-col items-center">
+            <span
+                class="block text-lg md:text-2xl tracking-[0.1em] mb-6 text-[#433D3C] font-bold"
+            >
+                江東区・清澄白河のピアノ教室
+            </span>
+
+            <span class="flex items-center gap-4 mb-8">
+                <span class="h-[1px] w-8 bg-[#8B7355]"></span>
+                <span
+                    class="text-lg md:text-xl tracking-[0.1em] text-[#433D3C] font-bold"
+                    >出張レッスン専門</span
+                >
+                <span class="h-[1px] w-8 bg-[#8B7355]"></span>
+            </span>
+
+            <span
+                class="block text-3xl md:text-4xl lg:text-5xl font-medium tracking-tighter mb-10 leading-tight text-[#333333]"
+            >
+                髙橋遊月ピアノ教室
+            </span>
+        </h1>
+        <p
+            class="font-serif text-base md:text-lg leading-[2.5] tracking-widest text-[#333333] font-medium"
+        >
+            講師がご自宅へ伺い、<br
+                class="md:hidden"
+            />あなたの大切なピアノで、<br />
+            あなただけの音色を<br class="md:hidden" />一緒に奏でます。
+        </p>
+    </div>
+</section>
