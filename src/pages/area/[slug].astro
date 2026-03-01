@@ -1,6 +1,6 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { areas } from "../../data/areas";
+import { areas, areaGroups } from "../../data/areas";
 import { type Area } from "../../data/areas";
 import HeroSection from "../../components/area/HeroSection.astro";
 
@@ -45,7 +45,9 @@ const getObjectPosition = (slug: string) => {
 };
 const objectPosition = getObjectPosition(area.slug);
 
-const pageTitle = `${area.name}のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室`;
+const areaGroup = areaGroups.find((g) => g.areaSlugs.includes(area.slug));
+const district = areaGroup?.district ?? "";
+const pageTitle = `${area.name}のピアノ教室｜${district ? district + "・" : ""}出張レッスン専門・髙橋遊月ピアノ教室`;
 const pageDescription =
     area.seo?.metaDescription ||
     `${area.name}のピアノ教室をお探しの方へ。講師がご自宅へ伺う出張専門のピアノ教室です。${area.metaSnippet || area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
@@ -94,13 +96,13 @@ const schema = JSON.stringify({
             description: `${area.name}での出張ピアノレッスン。${area.lead}`,
             url: Astro.site?.toString(),
             image: new URL("/senzai.png", Astro.site).toString(),
-            telephone: "", // 電話番号があれば追加
             priceRange: "￥5,000～",
             areaServed: {
                 "@type": "Place",
                 name: area.name,
             },
             serviceType: "出張ピアノレッスン",
+            sameAs: ["https://maps.app.goo.gl/HXjDLFKDbM8tT7cW9"],
             hasOfferCatalog: {
                 "@type": "OfferCatalog",
                 name: "ピアノレッスン",
@@ -190,7 +192,18 @@ const schema = JSON.stringify({
 
     <FAQSection area={area} className="bg-[#FCFAF7]" />
 
-    <LessonFlowSection area={area} className="bg-white" />
+    {area.areaGuide && (
+        <section class="bg-white py-16 px-4">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="font-serif text-2xl md:text-3xl text-[#544A40] mb-8 text-center">
+                    {area.name}エリアでレッスンを続けるためのポイント
+                </h2>
+                <div class="prose prose-stone max-w-none text-[#544A40] leading-relaxed" set:html={area.areaGuide} />
+            </div>
+        </section>
+    )}
+
+    <LessonFlowSection area={area} className="bg-[#FCFAF7]" />
 
     <CTASection area={area} variant="final" />
 
