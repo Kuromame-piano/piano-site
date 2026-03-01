@@ -40,7 +40,7 @@ const { area, className = "bg-[#FCFAF7]" } = Astro.props;
                                 <div class="flex items-center gap-3 mb-4">
                                     <span class="bg-[#544A40] text-white text-[10px] mobile-s:text-xs font-bold px-3 py-1 rounded-full tracking-wider">
                                         {item.label ||
-                                            `ISSUE ${String(index + 1).padStart(2, "0")}`}
+                                            `お悩み ${String(index + 1).padStart(2, "0")}`}
                                     </span>
                                 </div>
                                 <h3 class="text-lg md:text-xl font-bold text-[#544A40] leading-snug mb-3 hover:text-[#A88B58] transition-colors">
@@ -86,7 +86,7 @@ const { area, className = "bg-[#FCFAF7]" } = Astro.props;
                                 <div class="hidden md:block absolute top-1/2 -left-3 w-6 h-6 bg-white border-l border-b border-[#F1EBE4] transform rotate-45 z-10" />
 
                                 <div class="mb-4">
-                                    <p class="text-xs font-bold text-[#A88B58] mb-2 flex items-center gap-2 uppercase tracking-wider">
+                                    <p class="text-xs font-bold text-[#A88B58] mb-2 flex items-center gap-2 tracking-wider">
                                         <svg
                                             xmlns="http://www.w3.org/2000/svg"
                                             class="h-5 w-5"
@@ -101,7 +101,7 @@ const { area, className = "bg-[#FCFAF7]" } = Astro.props;
                                                 d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"
                                             />
                                         </svg>
-                                        SOLUTION
+                                        解決策
                                     </p>
                                     {item.solutionTitle && (
                                         <h4 class="text-base font-bold text-[#544A40] mb-3">

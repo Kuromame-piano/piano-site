@@ -276,7 +276,7 @@ export const areas: Area[] = [
         instructorIntroduction: "有明エリアにお住まいの方へ、移動時間ゼロの出張ピアノレッスンをお届けしています。電子ピアノでのレッスンにも対応しており、マンションにお住まいの方でも安心して始められます。お子様一人ひとりの個性やペースに合わせた丁寧な指導を心がけています。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "有明での「仕事・家事・送迎」の両立",
                 subTitle: "多忙な有明ライフスタイルを支える、仕事も家事も妥協したくない保護者様へ",
                 painPoints: [
@@ -292,7 +292,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "兄弟受講・多忙なスケジュールの最適化",
                 subTitle: "塾・兄弟予定・部活とのスマートな両立。「枠」に縛られない、効率的な学びの形",
                 painPoints: [
@@ -308,7 +308,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "マンション環境での「確かな上達」",
                 subTitle: "新築マンション×電子ピアノの練習不安。住環境を活かした、質の高い練習メソッド",
                 painPoints: [
@@ -395,7 +395,7 @@ export const areas: Area[] = [
         instructorIntroduction: "東雲エリアにお住まいの方へ、ご自宅で完結する出張ピアノレッスンをお届けしています。電子ピアノでのレッスンにも対応しておりますので、マンションにお住まいの方でも安心です。一人ひとりのお子様の成長に寄り添った、丁寧なレッスンを心がけています。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "帰宅後の時間を豊かな学びに",
                 subTitle: "学校・保育園後の時間を有効活用",
                 painPoints: [
@@ -409,7 +409,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "自由時間を広げる練習設計",
                 subTitle: "塾や他の習い事とも無理なく両立",
                 painPoints: [
@@ -423,7 +423,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "マンション・電子ピアノでの演奏不安",
                 subTitle: "電子ピアノでも本格的な演奏力を",
                 painPoints: [
@@ -512,7 +512,7 @@ export const areas: Area[] = [
         instructorIntroduction: "共働きでお忙しいご家庭が多い月島エリア。ご自宅で完結する出張レッスンなら、送迎の負担なく質の高いピアノレッスンを続けていただけます。東京音楽大学で培った専門知識を活かし、お子様一人ひとりの「弾きたい」気持ちに寄り添うオーダーメイドのレッスンを行います。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "タワマン・高層住宅での「移動ゼロ」",
                 subTitle: "エレベーターだけで完結する、最も安全で効率的な習い事",
                 painPoints: [
@@ -528,7 +528,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "兄弟・姉妹の「連続レッスン」",
                 subTitle: "2枠連続で、家族の時間を賢く使う",
                 painPoints: [
@@ -544,7 +544,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "電子ピアノ・マンションでの「上達」",
                 subTitle: "住環境に合わせた、実践的な指導メソッド",
                 painPoints: [
@@ -631,7 +631,7 @@ export const areas: Area[] = [
         instructorIntroduction: "お仕事と子育てを両立されているご家庭が多い勝どきエリア。ご自宅で完結する出張レッスンなら、夕方以降の時間帯にも対応でき、無理なくピアノレッスンを続けていただけます。クラシックからポップスまで、生徒様の「弾きたい」気持ちに寄り添うレッスンを行います。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "勝どきエリアの「夕方時間革命」",
                 subTitle: "帰宅後の「隙間時間」を、学びのゴールデンタイムに",
                 painPoints: [
@@ -647,7 +647,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "過密エリアでの「スマートな選択」",
                 subTitle: "人混みやエレベーター待ちのストレスから解放",
                 painPoints: [
@@ -663,7 +663,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "マンション・電子ピアノの「最適解」",
                 subTitle: "限られたスペースでも、本格的な音楽教育を",
                 painPoints: [
@@ -750,7 +750,7 @@ export const areas: Area[] = [
         instructorIntroduction: "新しい街として発展を続ける晴海エリア。新居でピアノを始めたい方や、お子様の習い事として検討されている方に、ご自宅で完結する出張レッスンをお届けしています。東京音楽大学で培った技術と経験を活かし、一人ひとりに合わせた丁寧な指導を行います。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "晴海フラッグ・新街区の「新しい学び」",
                 subTitle: "駅遠エリアの移動負担を解消。自宅が一番の教室に",
                 painPoints: [
@@ -766,7 +766,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "共働き・新生活の「ペースメーカー」",
                 subTitle: "忙しい新生活。ピアノが生活リズムの整え役に",
                 painPoints: [
@@ -782,7 +782,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "最新マンションでの「ピアノ環境構築」",
                 subTitle: "最新の設備・規約に合わせた、トラブルのない音楽生活",
                 painPoints: [
@@ -873,7 +873,7 @@ export const areas: Area[] = [
         instructorIntroduction: "清澄白河エリアの皆様に、画一的な指導ではなく一人ひとりの感性を大切にするレッスンをお届けしています。型にはめるのではなく、生徒様が持つ「表現したい」という種を対話を通じて大きく育てます。出張レッスンなら、リラックスした空間で音楽とじっくり向き合えます。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "感性を育てる「オーダーメイドレッスン」",
                 subTitle: "清澄白河の文化的な空気に合う、創造力を伸ばす指導",
                 painPoints: [
@@ -889,7 +889,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "大人のための「リラックス・ピアノ」",
                 subTitle: "忙しい日常に、心安らぐ音楽の時間を",
                 painPoints: [
@@ -905,7 +905,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "文化的な街での「音楽のある暮らし」",
                 subTitle: "アートやカフェ巡りのように、日常に彩りを",
                 painPoints: [
@@ -992,7 +992,7 @@ export const areas: Area[] = [
         instructorIntroduction: "平野エリアにお住まいの方へ、ご自宅で完結する出張ピアノレッスンをお届けしています。お子様から大人の方まで、一人ひとりのペースや目標に合わせた丁寧な指導を心がけています。画一的な指導ではなく、生徒様の感性を大切にするレッスンです。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "静かな住宅街で「自分らしい音」を",
                 subTitle: "木場公園近くの落ち着いた環境で、じっくり音楽と向き合う",
                 painPoints: [
@@ -1008,7 +1008,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "「基礎」と「好き」のベストバランス",
                 subTitle: "基礎練習と憧れの曲、どちらも諦めない欲張りレッスン",
                 painPoints: [
@@ -1024,7 +1024,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "ライフスタイルに寄り添う「継続力」",
                 subTitle: "忙しい時期も無理なく、細く長く続ける工夫",
                 painPoints: [
@@ -1111,7 +1111,7 @@ export const areas: Area[] = [
         instructorIntroduction: "三好エリアにお住まいの方へ、ご自宅で完結する出張ピアノレッスンをお届けしています。お子様から大人の方まで、それぞれの目標やペースに合わせた柔軟な指導を行っています。「弾きたい」という気持ちを大切に、音楽を長く楽しんでいただけるレッスンです。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "生活を彩る「大人のピアノ時間」",
                 subTitle: "美術館のある街で育む、豊かな感性と表現力",
                 painPoints: [
@@ -1127,7 +1127,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "お子様の「マイペースな成長」を見守る",
                 subTitle: "周りと比べず、その子のスピードで一歩ずつ",
                 painPoints: [
@@ -1143,7 +1143,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "電子ピアノでの「表現力」への挑戦",
                 subTitle: "機材のハンデを感じさせない、心のこもった演奏へ",
                 painPoints: [
@@ -1234,7 +1234,7 @@ export const areas: Area[] = [
         instructorIntroduction: "門前仲町エリアの皆様に、長く愛される音楽のパートナーでありたいと願っています。「憧れの曲を弾けるようになりたい」「基礎からしっかり学びたい」。そんな皆様の想いに、東京音楽大学卒業の確かな技術でお応えします。ご自宅のピアノで学ぶ出張レッスンは、通学の負担がないため、無理なく長く続けられるのが魅力です。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "下町で育む「長く続くピアノ」",
                 subTitle: "門前仲町の温かい空気に寄り添う、息の長い指導",
                 painPoints: [
@@ -1250,7 +1250,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "忙しいご家庭の「味方」になる",
                 subTitle: "共働きでも無理なく通える、出張レッスンの利便性",
                 painPoints: [
@@ -1266,7 +1266,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "大人のための「夜ピアノ」",
                 subTitle: "仕事帰りのリフレッシュに、自分だけの時間を",
                 painPoints: [
@@ -1353,7 +1353,7 @@ export const areas: Area[] = [
         instructorIntroduction: "木場エリアにお住まいの方へ、通学不要の出張ピアノレッスンをお届けしています。「憧れの曲を弾けるようになりたい」「基礎からしっかり学びたい」。そんな皆様の想いに、東京音楽大学卒業の確かな技術でお応えします。無理なく長く続けられるのが出張レッスンの魅力です。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "ご自宅で「のびのび音楽」",
                 subTitle: "開放的な環境で、心も体もリラックスして弾く",
                 painPoints: [
@@ -1369,7 +1369,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "忙しいママ・パパを「応援」したい",
                 subTitle: "送迎負担ゼロで、親子の時間にもゆとりを",
                 painPoints: [
@@ -1385,7 +1385,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "「弾きたい！」を叶える選曲",
                 subTitle: "J-POPもアニメ曲も、立派なレッスンの教材",
                 painPoints: [
@@ -1472,7 +1472,7 @@ export const areas: Area[] = [
         instructorIntroduction: "越中島エリアにお住まいの方へ、ご自宅で完結する出張ピアノレッスンをお届けしています。通学の負担がないため、無理なく長く続けられるのが出張レッスンの魅力です。東京音楽大学卒業の確かな技術で、一人ひとりの目標に合わせた丁寧なレッスンを行います。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "通学不要で「賢くピアノ習慣」",
                 subTitle: "越中島の落ち着いた環境で、効率よく上達",
                 painPoints: [
@@ -1488,7 +1488,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "アカデミックな街で「知的な音楽」",
                 subTitle: "理解を深める、論理的なアプローチ",
                 painPoints: [
@@ -1504,7 +1504,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "シニアからの「脳トレ・ピアノ」",
                 subTitle: "人生100年時代、指先から脳を活性化",
                 painPoints: [
@@ -1595,7 +1595,7 @@ export const areas: Area[] = [
         instructorIntroduction: "お忙しい日々の隙間時間に、心安らぐピアノのひとときを取り入れませんか？大人の方の趣味の再開から、お子様の初めてのレッスンまで。ご自宅に講師が伺う出張レッスンなら、移動時間を気にせず、プライベートな空間で質の高い指導を受けられます。東京音楽大学出身の講師が、それぞれのペースに合わせて丁寧にサポートいたします。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "粋な街で嗜む「大人のピアノ」",
                 subTitle: "仕事帰りのリセットに、上質な音楽時間を",
                 painPoints: [
@@ -1611,7 +1611,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "教育意識の高いご家庭へ",
                 subTitle: "幼少期だからこそ、本物の音と指導に触れる",
                 painPoints: [
@@ -1627,7 +1627,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "不規則な生活でも「続く」仕組み",
                 subTitle: "固定曜日が難しくても、ピアノは諦めない",
                 painPoints: [
@@ -1714,7 +1714,7 @@ export const areas: Area[] = [
         instructorIntroduction: "水天宮前エリアにお住まいの方へ、ご自宅で完結する出張ピアノレッスンをお届けしています。大人の方の趣味の再開から、お子様の初めてのレッスンまで、それぞれのペースに合わせて丁寧にサポートいたします。移動時間を気にせず、プライベートな空間で質の高い指導を受けられます。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "忙しい毎日に「心のオアシス」を",
                 subTitle: "水天宮の杜のそばで、親子で奏でる優しい時間",
                 painPoints: [
@@ -1730,7 +1730,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "小さなお子様の「初めて」を応援",
                 subTitle: "リトミック要素を取り入れ、楽しく音楽の基礎を",
                 painPoints: [
@@ -1746,7 +1746,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "週末の朝を「充実時間」に",
                 subTitle: "平日は忙しくても、休日の朝なら続けられる",
                 painPoints: [
@@ -1833,7 +1833,7 @@ export const areas: Area[] = [
         instructorIntroduction: "浜町エリアにお住まいの方へ、ご自宅で完結する出張ピアノレッスンをお届けしています。大人の方の趣味としても、お子様の習い事としても、それぞれのペースに合わせた丁寧な指導を行います。東京音楽大学で培った技術を活かし、クラシックからポップスまで幅広く対応いたします。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "「優雅なレッスン」を日常に",
                 subTitle: "浜町の落ち着いた暮らしに、音楽の彩りを",
                 painPoints: [
@@ -1849,7 +1849,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "お孫様との「連弾」を目標に",
                 subTitle: "世代を超えて繋がる、音楽のコミュニケーション",
                 painPoints: [
@@ -1865,7 +1865,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "芸術文化に触れる「深い学び」",
                 subTitle: "ただ弾くだけじゃない、楽曲の奥深さを知る",
                 painPoints: [
@@ -1956,7 +1956,7 @@ export const areas: Area[] = [
         instructorIntroduction: "共働きなどでご多忙なご家庭が多い森下エリア。送迎不要の出張レッスンなら、夕食前や保育園・学校の後の時間を有効活用できます。慣れ親しんだご自宅だからこそ、お子様はリラックスして楽しみながら上達できます。一人ひとりの成長に合わせたきめ細やかな指導を行います。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "働くママ・パパを全力サポート",
                 subTitle: "お迎え後のバタバタ時間に、ゆとりのレッスンを",
                 painPoints: [
@@ -1972,7 +1972,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "マンションでも「本物の音」を",
                 subTitle: "電子ピアノでも、感性は十分に育ちます",
                 painPoints: [
@@ -1988,7 +1988,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "不規則シフトでも「続けられる」",
                 subTitle: "曜日固定が難しくても、諦めないでください",
                 painPoints: [
@@ -2075,7 +2075,7 @@ export const areas: Area[] = [
         instructorIntroduction: "住吉エリアにお住まいの方へ、送迎不要の出張ピアノレッスンをお届けしています。夕方以降の時間帯にも対応し、共働きのご家庭でも無理なくレッスンを続けていただけます。一人ひとりの成長に合わせた丁寧な指導を心がけています。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "公園のそばで「のびのびレッスン」",
                 subTitle: "住吉の緑豊かな環境で、感性を豊かに育む",
                 painPoints: [
@@ -2091,7 +2091,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "住宅街での「音のお悩み」解決",
                 subTitle: "自宅練習の環境作り、プロにお任せください",
                 painPoints: [
@@ -2107,7 +2107,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "ライフステージの変化に対応",
                 subTitle: "受験、進学、就職…どんな時もピアノを傍らに",
                 painPoints: [
@@ -2194,7 +2194,7 @@ export const areas: Area[] = [
         instructorIntroduction: "菊川エリアにお住まいの方へ、送迎不要の出張ピアノレッスンをお届けしています。夕方以降の時間帯にも対応し、共働きのご家庭でも無理なくレッスンを続けていただけます。お子様一人ひとりの成長に寄り添った丁寧な指導を行います。",
         needSolutions: [
             {
-                label: "ISSUE 01",
+                label: "お悩み 01",
                 title: "駅チカ・短時間で「効率レッスン」",
                 subTitle: "菊川の利便性を活かし、隙間時間を有効活用",
                 painPoints: [
@@ -2210,7 +2210,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 02",
+                label: "お悩み 02",
                 title: "共働き家庭の「夕方の救世主」",
                 subTitle: "送迎負担ゼロで、親子の時間にゆとりを",
                 painPoints: [
@@ -2226,7 +2226,7 @@ export const areas: Area[] = [
                 ]
             },
             {
-                label: "ISSUE 03",
+                label: "お悩み 03",
                 title: "地域密着で「長く続く」関係",
                 subTitle: "菊川の街で、音楽と共に成長する",
                 painPoints: [

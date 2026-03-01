@@ -15,15 +15,13 @@ const { area, className = "bg-white" } = Astro.props;
             <div class="max-w-3xl mx-auto">
                 <div class="text-center mb-12">
                     <h2 class="text-2xl font-serif text-[#544A40]">
-                        <span class="inline-block">レッスン開始までの</span>
-                        <br class="md:hidden" />
-                        <span class="inline-block">流れ</span>
+                        レッスン開始までの流れ
                     </h2>
                 </div>
 
                 <div class="relative pl-4 md:pl-0">
                     {/* Vertical line */}
-                    <div class="absolute left-[19px] top-4 bottom-8 w-[1px] bg-[#D4C5B0]/70" />
+                    <div class="absolute left-[35.5px] md:left-[19.5px] top-4 bottom-8 w-[1px] bg-[#D4C5B0]/70" />
 
                     <div class="space-y-12">
                         {area.lessonFlow.map((step, index) => (

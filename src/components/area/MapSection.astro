@@ -19,11 +19,7 @@ const siblingNames = area.siblingSlugs
         <section class={`py-20 px-6 ${className}`}>
             <div class="max-w-5xl mx-auto text-center">
                 <h2 class="text-2xl font-serif mb-12 text-[#544A40]">
-                    <>
-                        <span class="inline-block">{area.name}周辺の</span>
-                        <br class="md:hidden" />
-                        <span class="inline-block">出張エリア</span>
-                    </>
+                    {area.name}周辺の出張エリア
                 </h2>
 
                 {siblingNames.length > 0 && (
