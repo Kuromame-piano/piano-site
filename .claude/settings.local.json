@@ -20,7 +20,11 @@
       "Bash(powershell -Command:*)",
       "Bash(git -C \"C:\\\\Users\\\\S6sak\\\\piano-site-1\" diff --stat content-hub/prompts/)",
       "Bash(git -C \"C:\\\\Users\\\\S6sak\\\\piano-site-1\" status content-hub/prompts/)",
-      "Bash(git -C \"C:\\\\Users\\\\S6sak\\\\piano-site-1\" ls-files content-hub/prompts/)"
+      "Bash(git -C \"C:\\\\Users\\\\S6sak\\\\piano-site-1\" ls-files content-hub/prompts/)",
+      "Bash(npm run validate:areas:*)",
+      "WebSearch",
+      "Bash(identify:*)",
+      "Bash(npm run optimize:images:*)"
     ]
   }
 }
