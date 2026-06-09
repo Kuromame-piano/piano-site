@@ -4,7 +4,7 @@ import { areas, areaGroups } from "../../data/areas";
 import { type Area } from "../../data/areas";
 import HeroSection from "../../components/area/HeroSection.astro";
 
-import UniqueContentSection from "../../components/area/UniqueContentSection.astro";
+
 import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
 import MapSection from "../../components/area/MapSection.astro";
 import FAQSection from "../../components/area/FAQSection.astro";
@@ -15,6 +15,7 @@ import InstructorSection from "../../components/area/InstructorSection.astro";
 import FeeSection from "../../components/area/FeeSection.astro";
 import RelatedAreasSection from "../../components/area/RelatedAreasSection.astro";
 import Breadcrumbs from "../../components/common/Breadcrumbs.astro";
+import LessonStyleSection from "../../components/area/LessonStyleSection.astro";
 
 export async function getStaticPaths() {
     return areas.map((area) => ({
@@ -180,17 +181,17 @@ const schema = JSON.stringify({
 
     <HeroSection area={area} objectPosition={objectPosition} />
 
-    <UniqueContentSection area={area} className="bg-white" />
-
-    <NeedSolutionSection area={area} className="bg-[#FCFAF7]" />
+    <LessonStyleSection area={area} className="bg-[#FCFAF7]" />
 
     <InstructorSection area={area} className="bg-white" />
 
     <FeeSection area={area} className="bg-[#FCFAF7]" />
 
-    <MapSection area={area} className="bg-white" />
+    <CTASection area={area} variant="mid" />
 
-    <FAQSection area={area} className="bg-[#FCFAF7]" />
+    <LessonFlowSection area={area} className="bg-white" />
+
+    <NeedSolutionSection area={area} className="bg-[#FCFAF7]" />
 
     {area.areaGuide && (
         <section class="bg-white py-16 px-6">
@@ -205,7 +206,9 @@ const schema = JSON.stringify({
         </section>
     )}
 
-    <LessonFlowSection area={area} className="bg-[#FCFAF7]" />
+    <MapSection area={area} className={area.areaGuide ? "bg-[#FCFAF7]" : "bg-white"} />
+
+    <FAQSection area={area} className={area.areaGuide ? "bg-white" : "bg-[#FCFAF7]"} />
 
     <CTASection area={area} variant="final" />
 
