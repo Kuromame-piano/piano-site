@@ -65,8 +65,8 @@ function findAreaBlocks(text) {
 }
 
 function extractString(block, field) {
-    const match = block.match(new RegExp(`${field}:\\s*\"((?:\\\\.|[^\"])*)\"`));
-    return match ? match[1] : "";
+    const match = block.match(new RegExp(`${field}:\\s*(?:\"((?:\\\\.|[^\"])*)\"|\`([\\s\\S]*?)\`)`));
+    return match ? (match[1] || match[2]) : "";
 }
 
 function extractStringArray(content) {
@@ -157,39 +157,17 @@ for (const block of blocks) {
         errors.push(`[${slug}] relatedAreas 件数が不正です: ${relatedAreas.length}`);
     }
 
-    const reassuranceMatch = block.match(/cta:\s*\{[\s\S]*?reassurance:\s*\[(?<content>[\s\S]*?)\]/);
-    const reassurance = reassuranceMatch?.groups?.content
-        ? extractStringArray(reassuranceMatch.groups.content)
-        : [];
-    if (reassurance.length !== 3) {
-        errors.push(`[${slug}] cta.reassurance は3件固定です。現在: ${reassurance.length}`);
+    const consultationIntro = extractString(block, "consultationIntro");
+    if (!consultationIntro) {
+        errors.push(`[${slug}] consultationIntro がありません。`);
     }
 
-    const needSolutionsMatch = block.match(/needSolutions:\s*\[(?<content>[\s\S]*?)\],\s*\r?\n\s*seo:/);
-    const needCount = needSolutionsMatch?.groups?.content
-        ? [...needSolutionsMatch.groups.content.matchAll(/need:\s*\"/g)].length
+    const consultationsMatch = block.match(/consultations:\s*\[(?<content>[\s\S]*?)\],\s*\r?\n\s*seo:/);
+    const consultationCount = consultationsMatch?.groups?.content
+        ? [...consultationsMatch.groups.content.matchAll(/\btitle:\s*\"/g)].length
         : 0;
-    if (needCount !== 3) {
-        errors.push(`[${slug}] needSolutions は3件固定です。現在: ${needCount}`);
-    }
-
-    const painBlocks = [...block.matchAll(/painPoints:\s*\[(?<content>[\s\S]*?)\]/g)];
-    const fitBlocks = [...block.matchAll(/fitPoints:\s*\[(?<content>[\s\S]*?)\]/g)];
-    if (painBlocks.length !== 2 || fitBlocks.length !== 2) {
-        errors.push(`[${slug}] personas の painPoints / fitPoints の数が不正です。`);
-    } else {
-        for (const p of painBlocks) {
-            const count = extractStringArray(p.groups.content).length;
-            if (count !== 3) {
-                errors.push(`[${slug}] painPoints が3件ではありません。`);
-            }
-        }
-        for (const f of fitBlocks) {
-            const count = extractStringArray(f.groups.content).length;
-            if (count !== 3) {
-                errors.push(`[${slug}] fitPoints が3件ではありません。`);
-            }
-        }
+    if (consultationCount !== 3) {
+        errors.push(`[${slug}] consultations は3件固定です。現在: ${consultationCount}`);
     }
 
     areaData.push({
