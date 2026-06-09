@@ -25,8 +25,9 @@ const siblingNames = area.siblingSlugs
                 {siblingNames.length > 0 && (
                     <div class="mb-10">
                         <p class="text-sm text-[#6B5F54] mb-6">
-                            {area.name}
-                            のほか、近隣の以下のエリアへも出張レッスンにお伺いします。
+                            <span class="inline-block">{area.name}のほか、</span>
+                            <span class="inline-block">近隣の以下のエリアへも</span>
+                            <span class="inline-block">出張レッスンにお伺いします。</span>
                         </p>
                         <div class="flex flex-wrap justify-center gap-3">
                             {siblingNames.map((name) => (

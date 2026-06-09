@@ -17,17 +17,9 @@ const categories = ["送迎・移動", "両立", "電子ピアノ・自宅環境
                 {`${area.name}でよくあるご相談`}
             </h2>
             <p class="text-sm md:text-base text-[#6B5F54] max-w-2xl mx-auto leading-relaxed">
-                {
-                    area.consultationIntro.includes("まとめました。") ? (
-                        <>
-                            {area.consultationIntro.split("まとめました。")[0]}まとめました。
-                            <br class="hidden md:inline" />
-                            {area.consultationIntro.split("まとめました。")[1]}
-                        </>
-                    ) : (
-                        area.consultationIntro
-                    )
-                }
+                <span class="inline-block">{area.name}で出張ピアノレッスンをご検討中の方から、</span>
+                <br />
+                <span class="inline-block">よくいただきやすいご相談をまとめました。</span>
             </p>
         </div>
 
