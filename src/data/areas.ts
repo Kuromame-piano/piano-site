@@ -104,9 +104,9 @@ export const areaGroups: AreaGroup[] = [
 
 // 共通レッスンフロー
 const defaultLessonFlow = [
-    { title: "お問い合わせ", description: "お問い合わせフォームよりお気軽にご連絡ください。" },
-    { title: "メールでご返信", description: "講師よりメールにてご連絡いたします。" },
-    { title: "ご相談・準備", description: "お電話やメールで、ご不安の解消や練習環境など必要なことを確認いたします。" },
+    { title: "お問い合わせ", description: "公式LINEまたはお問い合わせフォームからお気軽にご連絡ください。" },
+    { title: "日程・内容の確認", description: "講師より公式LINEまたはメールにて折り返しご連絡いたします。" },
+    { title: "ご相談・準備", description: "お電話やメール、LINEなどで、ご不安の解消や練習環境など必要なことを確認いたします。" },
     { title: "体験レッスン", description: "ご自宅またはスタジオにて無料体験レッスンを実施いたします。" },
     { title: "ご入会手続き", description: "レッスン内容・日程にご納得いただけましたらお手続きへ進みます。" },
     { title: "定期レッスン開始", description: "ご自宅またはスタジオでの定期レッスンがスタートします。" },

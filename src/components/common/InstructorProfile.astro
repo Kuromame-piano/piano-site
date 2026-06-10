@@ -1,12 +1,15 @@
 ---
 import { Image } from "astro:assets";
-import senzaiWebp from "../../assets/images/senzai.webp";
 
 interface Props {
     introduction?: string;
+    quote?: string;
 }
 
-const { introduction } = Astro.props;
+const { introduction, quote } = Astro.props;
+
+// If quote is explicitly empty string, we hide it. Otherwise, use quote or the default quote.
+const displayQuote = quote !== undefined ? quote : "音楽は、言葉にできない感情を表現してくれる大切な友。技術の習得はもちろん、ご家庭での練習環境や生活リズムに合わせて、無理なく続けられるレッスンを一緒に考えます。";
 ---
 
 <div class="grid md:grid-cols-[40%_60%] gap-12 items-center max-w-5xl mx-auto">
@@ -15,7 +18,7 @@ const { introduction } = Astro.props;
             class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl"
         >
             <Image
-                src={senzaiWebp}
+                src="/image.png"
                 alt="髙橋遊月"
                 width={600}
                 height={750}
@@ -58,12 +61,16 @@ const { introduction } = Astro.props;
                 )
             }
         </div>
-        <div
-            class="mt-10 p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4]"
-        >
-            <p class="italic text-sm leading-loose">
-                音楽は、言葉にできない感情を表現してくれる大切な友。技術の習得はもちろん、ご家庭での練習環境や生活リズムに合わせて、無理なく続けられるレッスンを一緒に考えます。
-            </p>
-        </div>
+        {
+            displayQuote && (
+                <div
+                    class="mt-10 p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4]"
+                >
+                    <p class="italic text-sm leading-loose">
+                        {displayQuote}
+                    </p>
+                </div>
+            )
+        }
     </div>
 </div>

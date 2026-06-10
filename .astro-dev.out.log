@@ -14,3 +14,10 @@
 [2m┃[22m Local    [36mhttp://127.0.0.1:4321/[39m
 
 [2m15:07:58[22m [32mwatching for file changes...[39m
+[2m21:08:06[22m Configuration file updated. Restarting...
+[2m21:08:12[22m [34m[content][39m Syncing content
+[2m21:08:12[22m [34m[content][39m Astro config changed
+[2m21:08:12[22m [34m[content][39m Clearing content store
+[2m21:08:12[22m [34m[content][39m Synced content
+[2m21:08:12[22m [34m[types][39m Generated [2m4.34s[22m
+[2m21:08:12[22m [34m[vite][39m Re-optimizing dependencies because vite config has changed
