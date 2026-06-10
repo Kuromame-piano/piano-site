@@ -11,13 +11,15 @@
     "optimize:images": "node scripts/optimize-area-images.mjs"
   },
   "dependencies": {
+    "@astrojs/check": "^0.9.9",
     "@astrojs/sitemap": "^3.6.0",
     "@fontsource/shippori-mincho": "^5.2.8",
     "@tailwindcss/typography": "^0.5.19",
     "@tailwindcss/vite": "^4.1.18",
     "astro": "^5.16.6",
     "microcms-js-sdk": "^3.2.0",
-    "tailwindcss": "^4.1.18"
+    "tailwindcss": "^4.1.18",
+    "typescript": "^5.9.3"
   },
   "devDependencies": {
     "sharp": "^0.34.5"

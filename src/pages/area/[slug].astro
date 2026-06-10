@@ -96,7 +96,7 @@ const schema = JSON.stringify({
             name: "髙橋遊月ピアノ教室",
             description: `${area.name}での出張ピアノレッスン。${area.lead}`,
             url: Astro.site?.toString(),
-            image: new URL("/senzai.png", Astro.site).toString(),
+            image: new URL("/image.png", Astro.site).toString(),
             priceRange: "￥5,000～",
             areaServed: {
                 "@type": "Place",
@@ -125,7 +125,7 @@ const schema = JSON.stringify({
                 "@type": "MusicSchool",
                 name: "髙橋遊月ピアノ教室",
                 url: Astro.site?.toString(),
-                image: new URL("/senzai.png", Astro.site).toString(),
+                image: new URL("/image.png", Astro.site).toString(),
             },
             areaServed: {
                 "@type": "Place",
@@ -214,6 +214,29 @@ const schema = JSON.stringify({
     )}
 
     <MapSection area={area} className={area.areaGuide ? "bg-[#FCFAF7]" : "bg-white"} />
+
+    {/* 対応エリア後のLINE小CTA */}
+    <section class={`${area.areaGuide ? "bg-[#FCFAF7]" : "bg-white"} pb-16 px-6`}>
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="bg-white p-6 md:p-8 rounded-2xl border border-[#E8E2D9] max-w-2xl mx-auto shadow-sm">
+                <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">近隣エリアもご相談ください</h3>
+                <p class="text-xs text-[#6B5F54] leading-relaxed mb-6">
+                    記載の地域以外でも、公共交通機関で伺える範囲で対応できる場合があります。最寄り駅や町名をLINEでお送りください。
+                </p>
+                <a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-3.5 rounded-full font-bold shadow-sm transition-all duration-300 text-xs tracking-wider line_click_area_map gap-2"
+                >
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                    </svg>
+                    LINEで対応エリアを相談する
+                </a>
+            </div>
+        </div>
+    </section>
 
     <FAQSection area={area} className={area.areaGuide ? "bg-white" : "bg-[#FCFAF7]"} />
 

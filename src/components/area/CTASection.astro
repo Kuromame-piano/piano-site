@@ -7,7 +7,7 @@ interface Props {
 }
 
 const { area, variant = "final" } = Astro.props;
-const ctaHref = `/contact?from=${encodeURIComponent(`area-${area.slug}`)}&area=${encodeURIComponent(area.name)}`;
+const ctaHref = `/contact?from=${encodeURIComponent(`area-${area.slug}`)}&area=${encodeURIComponent(area.name)}#mail-form`;
 const isMid = variant === "mid";
 ---
 
@@ -41,11 +41,24 @@ const isMid = variant === "mid";
             ><span class="inline-block">相談だけでも大丈夫です。</span>
         </p>
 
-        <a
-            href={ctaHref}
-            class={`inline-block font-medium py-4 px-12 rounded-full transition-all duration-300 tracking-wider shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${isMid ? "bg-[#544A40] hover:bg-[#3D352E] text-white" : "bg-[#A88B58] hover:bg-[#8A7246] text-white"}`}
-        >
-            無料体験レッスンに申し込む
-        </a>
+        <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-2xl mx-auto">
+            <a
+                href="https://lin.ee/QL31tIZ"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto gap-2 line_click_area_cta"
+            >
+                <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                </svg>
+                LINEで{area.name}の出張レッスンを相談する
+            </a>
+            <a
+                href={ctaHref}
+                class={`inline-flex items-center justify-center font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto ${isMid ? "bg-[#544A40] hover:bg-[#3D352E] text-white" : "bg-white hover:bg-[#F7F3EE] text-[#544A40]"}`}
+            >
+                メールフォームから相談する
+            </a>
+        </div>
     </div>
 </section>

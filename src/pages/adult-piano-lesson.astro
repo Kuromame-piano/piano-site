@@ -34,7 +34,7 @@ const schema = JSON.stringify({
                 "@type": "MusicSchool",
                 "name": "髙橋遊月ピアノ教室",
                 "url": "https://playon-music.jp",
-                "image": "https://playon-music.jp/senzai.png",
+                "image": "https://playon-music.jp/image.png",
             },
             "description": "江東区・中央区周辺で大人向け出張ピアノレッスンを行っています。初心者、子どもの頃に習っていた方、好きな曲を弾きたい方も相談可能。月1回から、生活リズムに合わせて無理なく始められます。",
             "url": "https://playon-music.jp/adult-piano-lesson"
@@ -73,22 +73,28 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                         Adult Piano Lesson
                     </span>
                     <h1 class="font-serif text-[#544A40] mb-6">
-                        <span class="block text-3xl md:text-4xl lg:text-5xl leading-snug">
-                            江東区・中央区周辺の<br class="hidden md:block" />大人向け出張ピアノレッスン
+                        <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
+                            <span class="inline-block">江東区・中央区周辺の</span><br class="hidden md:block" /><span class="inline-block">大人向け</span><span class="inline-block">出張ピアノレッスン</span>
                         </span>
                     </h1>
                     <p class="text-sm md:text-base text-[#6B5F54] leading-loose mb-10">
                         初心者の方、子どもの頃に習っていて再開したい方、好きな曲を自分のペースで弾きたい方へ。<br />
                         ご自宅や近隣スタジオで、生活リズムに合わせて無理なく始められる大人のピアノレッスンです。
                     </p>
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="/contact?from=adult-piano-lesson" id="hero-cta-trial" class="inline-block bg-[#A88B58] text-white text-center font-bold px-8 py-4 rounded-full shadow-lg hover:bg-[#8B7347] transition-all duration-300 transform hover:-translate-y-1 text-sm tracking-wider whitespace-nowrap">
-                            無料体験レッスンを申し込む
+                    <div class="flex flex-col sm:flex-row gap-4 mb-6">
+                        <a href="https://lin.ee/QL31tIZ" target="_blank" rel="noopener noreferrer" id="hero-cta-trial" class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white text-center font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-sm tracking-wider whitespace-nowrap line_click_firstview gap-2">
+                            <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                            </svg>
+                            LINEで大人のレッスンを相談する
                         </a>
-                        <a href="/contact?from=adult-piano-lesson&message=大人のレッスンについての相談です。" id="hero-cta-consult" class="inline-block bg-[#544A40] text-white text-center font-bold px-8 py-4 rounded-full shadow-lg hover:bg-[#3D352E] transition-all duration-300 transform hover:-translate-y-1 text-sm tracking-wider whitespace-nowrap">
-                            大人のレッスンについて相談する
+                        <a href="#fees" id="hero-cta-consult" class="inline-flex items-center justify-center bg-[#A88B58] hover:bg-[#8B7347] text-white text-center font-bold px-8 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-sm tracking-wider whitespace-nowrap">
+                            料金を見る
                         </a>
                     </div>
+                    <p class="text-xs text-[#6B5F54] tracking-wider leading-relaxed">
+                        ※自宅まで来てもらえるか、電子ピアノでも大丈夫か、曜日や時間だけ確認したい段階でも、公式LINEから気軽にご相談いただけます。
+                    </p>
                 </div>
 
                 <div class="grid grid-cols-2 gap-4">
@@ -256,6 +262,24 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                     </div>
                 </div>
             </div>
+
+            {/* 小CTA */}
+            <div class="mt-12 text-center bg-white p-6 md:p-8 rounded-2xl border border-[#E8E2D9] max-w-2xl mx-auto shadow-sm">
+                <p class="text-sm text-[#6B5F54] leading-relaxed mb-6">
+                    大人の方は、月1回からの受講や、好きな曲を中心にしたレッスンもご相談いただけます。久しぶりで不安な方も、公式LINEから気軽にご相談ください。
+                </p>
+                <a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-3.5 rounded-full font-bold shadow-sm transition-all duration-300 text-xs tracking-wider line_click_purpose gap-2"
+                >
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                    </svg>
+                    初心者・再開レッスンをLINEで相談する
+                </a>
+            </div>
         </div>
     </section>
 
@@ -370,7 +394,7 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
     </section>
 
     {/* Section 5: Pricing (moved before instructor) */}
-    <section class="py-20 bg-white">
+    <section class="py-20 bg-white" id="fees">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">レッスン料金</h2>
@@ -383,7 +407,7 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
             <FeeSystem />
 
-            <div class="mt-8 max-w-lg mx-auto bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm">
+            <div class="mt-8 max-w-lg mx-auto bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm mb-8">
                 <p class="text-sm font-bold text-[#A88B58] mb-3 font-serif text-center">大人のレッスンをお考えの方へ</p>
                 <ul class="space-y-2 text-xs text-[#6B5F54] leading-relaxed">
                     <li class="flex items-start gap-2">
@@ -407,6 +431,25 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                         <span>初めての方や久しぶりに再開する方は、30分または45分から始めることも可能です。</span>
                     </li>
                 </ul>
+            </div>
+
+            {/* 曜日・回数LINE相談小CTA */}
+            <div class="text-center bg-[#FCFAF7] p-6 md:p-8 rounded-2xl border border-[#E8E2D9] max-w-lg mx-auto shadow-sm">
+                <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">曜日・回数をLINEで相談する</h3>
+                <p class="text-xs text-[#6B5F54] leading-relaxed mb-6">
+                    仕事との両立、月1〜2回の受講ペース、好きな曲だけ練習したいなど、ご希望の受け方をLINEでご相談いただけます。
+                </p>
+                <a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-3.5 rounded-full font-bold shadow-sm transition-all duration-300 text-xs tracking-wider line_click_fee gap-2"
+                >
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                    </svg>
+                    LINEで大人のレッスンを相談する
+                </a>
             </div>
         </div>
     </section>
@@ -910,12 +953,24 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 月1回から試したい、スタジオで受けたい、好きな曲だけ相談したいという段階でも大丈夫です。
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="/contact?from=adult-piano-lesson" id="final-cta-trial" class="inline-block bg-[#A88B58] text-white px-10 py-4 rounded-full font-bold hover:bg-[#8B7347] transition-all duration-300 shadow-md tracking-wider text-sm transform hover:-translate-y-1 whitespace-nowrap">
-                    無料体験レッスンを申し込む
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-2xl mx-auto">
+                <a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    id="final-cta-trial"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto gap-2 line_click_adult_cta"
+                >
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                    </svg>
+                    LINEで無料体験を相談する
                 </a>
-                <a href="#areas" class="inline-block bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all duration-300 tracking-wider text-sm transform hover:-translate-y-1 whitespace-nowrap">
-                    対応エリアを確認する
+                <a
+                    href="/contact?from=adult-piano-lesson#mail-form"
+                    class="inline-flex items-center justify-center bg-white hover:bg-[#F7F3EE] text-[#544A40] font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto"
+                >
+                    メールフォームから相談する
                 </a>
             </div>
         </div>
@@ -937,8 +992,8 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 <a href="/faq/" class="inline-block px-6 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] transition-all font-serif shadow-sm">
                     よくある質問
                 </a>
-                <a href="/contact/" class="inline-block px-6 py-3 rounded-full border border-[#A88B58] text-sm text-[#A88B58] bg-white hover:bg-[#A88B58] hover:text-white transition-all font-serif shadow-sm">
-                    無料体験レッスンを申し込む
+                <a href="/contact?from=adult-piano-lesson#mail-form" class="inline-block px-6 py-3 rounded-full border border-[#A88B58] text-sm text-[#A88B58] bg-white hover:bg-[#A88B58] hover:text-white transition-all font-serif shadow-sm">
+                    メールフォームで相談する
                 </a>
             </div>
         </div>

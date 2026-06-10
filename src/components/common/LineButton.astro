@@ -1,0 +1,35 @@
+---
+interface Props {
+  href?: string;
+  text?: string;
+  className?: string;
+  id?: string;
+  trackingClass?: string; // GAクリックイベント計測用
+}
+
+const {
+  href = "https://lin.ee/QL31tIZ",
+  text = "公式LINEで相談する",
+  className = "",
+  id,
+  trackingClass = "line_click",
+} = Astro.props;
+---
+
+<a
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
+  id={id}
+  class={`inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white font-bold rounded-full transition-all duration-300 shadow-md transform hover:-translate-y-0.5 active:translate-y-0 ${className} ${trackingClass}`}
+>
+  {/* LINEロゴ風の吹き出しSVG */}
+  <svg
+    viewBox="0 0 24 24"
+    class="w-5 h-5 fill-current mr-2 flex-shrink-0"
+    xmlns="http://www.w3.org/2000/svg"
+  >
+    <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z" />
+  </svg>
+  <span>{text}</span>
+</a>

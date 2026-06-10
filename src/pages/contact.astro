@@ -1,7 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
+import LineButton from "../components/common/LineButton.astro";
 
-const pageTitle = "お問い合わせ | 髙橋遊月ピアノ教室";
+const pageTitle = "無料体験レッスン・お問い合わせ | 髙橋遊月ピアノ教室";
 const pageDescription =
     "江東区・清澄白河のピアノ家庭教師「髙橋遊月ピアノ教室」の体験レッスンお申し込み・お問い合わせ。訪問レッスンに関するご質問もお気軽にどうぞ。";
 
@@ -28,23 +29,92 @@ const schema = JSON.stringify({
 <Layout title={pageTitle} description={pageDescription}>
     <script type="application/ld+json" set:html={schema} slot="head" />
     <section class="py-24 bg-[#EAE3DA] min-h-screen">
-        <div class="max-w-2xl mx-auto px-6">
-            <div
-                class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7]"
-            >
-                <h1 class="text-2xl md:text-3xl font-serif mb-2 text-center">
-                    お問い合わせ
+        <div class="max-w-3xl mx-auto px-6">
+            <!-- ページタイトルカード -->
+            <div class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] mb-8 text-center">
+                <h1 class="text-2xl md:text-3xl font-serif mb-2">
+                    無料体験レッスン・お問い合わせ
                 </h1>
-                <div
-                    class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase mb-12"
-                >
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase mb-8">
                     <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                     Contact
                     <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                 </div>
-                <p class="text-center mb-12 text-sm leading-relaxed max-w-lg mx-auto text-[#544A40]/80">
-                    無料体験レッスンのお申し込み・ご相談はこちらから。<br class="hidden md:block" />自宅まで来てもらえるか、電子ピアノでも大丈夫か、曜日や時間だけ相談したいという段階でも大丈夫です。お問い合わせ後、ご希望の方はお電話でのご相談も可能です。
+                <p class="text-sm leading-relaxed max-w-xl mx-auto text-[#544A40]/80">
+                    無料体験レッスンのお申し込み・ご相談はこちらから。<br />
+                    自宅まで来てもらえるか、電子ピアノでも大丈夫か、曜日や時間だけ相談したいという段階でも大丈夫です。お問い合わせ後、ご希望の方はお電話でのご相談も可能です。
                 </p>
+            </div>
+
+            <!-- 公式LINEセクション（メイン） -->
+            <div class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-xl md:text-2xl font-serif text-[#544A40]">
+                        公式LINEからのお問い合わせ
+                    </h2>
+                </div>
+                <p class="text-sm text-[#544A40]/80 leading-relaxed text-center mb-8 max-w-xl mx-auto">
+                    24時間受付。お名前やご希望の曜日などを簡単にお送りいただくだけで、講師が丁寧にお返事いたします。曜日や時間のみを確認したい段階でのご相談も大歓迎です。
+                </p>
+                <div class="text-center mb-10">
+                    <LineButton 
+                        text="公式LINEで相談する" 
+                        className="py-4 px-10 text-base"
+                        trackingClass="line_click_contact_top"
+                    />
+                    <p class="text-xs text-[#6B5F54] mt-3">
+                        ※友だち追加後、メッセージを送信してください。
+                    </p>
+                </div>
+
+                <!-- LINE送信例 -->
+                <div class="border-t border-[#E8E2D9] pt-8">
+                    <h3 class="text-sm font-bold text-[#544A40] text-center mb-6 font-serif">お問い合わせ例</h3>
+                    <div class="grid md:grid-cols-3 gap-6">
+                        <!-- カード1: 子どものレッスン -->
+                        <div class="bg-[#FCFAF7] p-5 rounded-2xl border border-[#E8E2D9]">
+                            <h4 class="text-xs font-bold text-[#A88B58] mb-2 flex items-center gap-1 font-serif">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#A88B58]"></span>
+                                子どものレッスン相談
+                            </h4>
+                            <p class="text-xs text-[#544A40]/80 leading-relaxed font-mono">
+                                「初めまして。◯歳の子どもの体験レッスンを検討しています。平日の夕方か、土曜日の午前中で空いている時間はありますでしょうか？自宅に電子ピアノがあります。」
+                            </p>
+                        </div>
+                        <!-- カード2: 大人のレッスン -->
+                        <div class="bg-[#FCFAF7] p-5 rounded-2xl border border-[#E8E2D9]">
+                            <h4 class="text-xs font-bold text-[#A88B58] mb-2 flex items-center gap-1 font-serif">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#A88B58]"></span>
+                                大人のレッスン相談
+                            </h4>
+                            <p class="text-xs text-[#544A40]/80 leading-relaxed font-mono">
+                                「久しぶりにピアノを再開したいと思っています。仕事が不定期なため、月2回ほどで曜日を固定せずに通うことは可能でしょうか？」
+                            </p>
+                        </div>
+                        <!-- カード3: 対応エリア確認 -->
+                        <div class="bg-[#FCFAF7] p-5 rounded-2xl border border-[#E8E2D9]">
+                            <h4 class="text-xs font-bold text-[#A88B58] mb-2 flex items-center gap-1 font-serif">
+                                <span class="w-1.5 h-1.5 rounded-full bg-[#A88B58]"></span>
+                                対応エリアの確認
+                            </h4>
+                            <p class="text-xs text-[#544A40]/80 leading-relaxed font-mono">
+                                「◯◯駅の近くに住んでいるのですが、出張エリアに入っていますでしょうか？電子ピアノの購入も迷っています。」
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- メールフォームセクション（サブ） -->
+            <div id="mail-form" class="bg-white p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] mb-8">
+                <div class="text-center mb-8">
+                    <h2 class="text-xl md:text-2xl font-serif text-[#544A40]">
+                        メールフォームからのお問い合わせ
+                    </h2>
+                    <p class="text-xs text-[#6B5F54] mt-2">
+                        LINEをお使いでない方は、以下のフォームよりお問い合わせください。
+                    </p>
+                </div>
 
                 <form id="contact-form" class="space-y-8">
                     <input

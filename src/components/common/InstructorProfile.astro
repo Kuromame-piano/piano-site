@@ -1,6 +1,5 @@
 ---
 import { Image } from "astro:assets";
-import senzaiWebp from "../../assets/images/senzai.webp";
 
 interface Props {
     introduction?: string;
@@ -15,7 +14,7 @@ const { introduction } = Astro.props;
             class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl"
         >
             <Image
-                src={senzaiWebp}
+                src="/image.png"
                 alt="髙橋遊月"
                 width={600}
                 height={750}

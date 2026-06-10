@@ -569,7 +569,7 @@ const areas = [
                             <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
                                 <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">01</span>
                                 <h3 class="font-bold text-[#544A40] text-base mb-2">お問い合わせ</h3>
-                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">お問い合わせフォームよりご連絡ください。相談だけでも大丈夫です。</p>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">公式LINEまたはお問い合わせフォームからお気軽にご連絡ください。相談だけでも大丈夫です。</p>
                             </div>
                         </div>
                         <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
@@ -580,8 +580,8 @@ const areas = [
                         <div class="flex items-center w-full md:w-1/2 md:justify-start md:pl-12">
                             <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
                                 <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">02</span>
-                                <h3 class="font-bold text-[#544A40] text-base mb-2">メールでご返信</h3>
-                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">講師よりメールにて、エリアやご希望の曜日・時間帯などを確認します。</p>
+                                <h3 class="font-bold text-[#544A40] text-base mb-2">日程・内容の確認</h3>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">講師より公式LINEまたはメールにて折り返しご連絡し、対応エリア・曜日・時間帯・楽器環境などを確認します。</p>
                             </div>
                         </div>
                         <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
@@ -778,12 +778,23 @@ const areas = [
                 レッスンを始めるか迷っている方も、まずは無料体験レッスンで雰囲気をご確認ください。
             </p>
             
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="/contact?from=visit-lesson" class="inline-block bg-[#A88B58] text-white px-10 py-4 rounded-full font-bold hover:bg-[#8B7347] transition-all duration-300 shadow-md tracking-wider text-sm transform hover:-translate-y-1 whitespace-nowrap">
-                    無料体験レッスンを申し込む
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-2xl mx-auto">
+                <a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto gap-2 line_click_visit_cta"
+                >
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                    </svg>
+                    LINEで出張レッスンを相談する
                 </a>
-                <a href="#areas" class="inline-block bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all duration-300 tracking-wider text-sm transform hover:-translate-y-1 whitespace-nowrap">
-                    対応エリアを確認する
+                <a
+                    href="/contact?from=visit-lesson#mail-form"
+                    class="inline-flex items-center justify-center bg-white hover:bg-[#F7F3EE] text-[#544A40] font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto"
+                >
+                    メールフォームから相談する
                 </a>
             </div>
         </div>

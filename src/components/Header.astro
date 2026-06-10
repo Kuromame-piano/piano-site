@@ -38,21 +38,39 @@ const navItems = [
           ))
         }
       </nav>
-      <a
-        href="/contact"
-        class="bg-[#A88B58] text-white px-6 py-2 rounded-full text-xs font-bold tracking-widest hover:bg-[#8B7347] transition-colors"
-      >
-        無料体験レッスン申込
-      </a>
+      <div class="flex items-center gap-3">
+        <a
+          href="https://lin.ee/QL31tIZ"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="bg-[#06C755] text-white px-4.5 py-2 rounded-full text-xs font-bold tracking-widest hover:bg-[#05b04b] transition-all flex items-center gap-1.5 shadow-sm line_click_header"
+        >
+          <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+            <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+          </svg>
+          公式LINEで相談
+        </a>
+        <a
+          href="/contact#mail-form"
+          class="border border-[#A88B58] text-[#A88B58] hover:bg-[#F7F3EE] px-4.5 py-2 rounded-full text-xs font-bold tracking-widest transition-all shadow-sm"
+        >
+          メールフォームで相談
+        </a>
+      </div>
     </div>
 
     {/* スマホ用ヘッダー右側（PCでは非表示） */}
     <div class="md:hidden flex items-center gap-4">
       <a
-        href="/contact"
-        class="bg-[#A88B58] text-white px-4 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#8B7347] transition-colors"
+        href="https://lin.ee/QL31tIZ"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="bg-[#06C755] text-white px-4 py-2 rounded-full text-[10px] font-bold tracking-widest hover:bg-[#05b04b] transition-all flex items-center gap-1 line_click_header_mobile"
       >
-        無料体験申込
+        <svg viewBox="0 0 24 24" class="w-3.5 h-3.5 fill-current" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+        </svg>
+        LINEで相談
       </a>
 
       {/* ハンバーガーボタン */}
@@ -95,13 +113,19 @@ const navItems = [
     </ul>
 
     {/* メニュー内の追加ボタン（必要であれば） */}
-    <div class="mt-12">
+    <div class="mt-12 flex flex-col items-center gap-2">
       <a
-        href="/contact"
-        class="mobile-link inline-block bg-[#A88B58] text-white px-8 py-3 rounded-full text-sm font-bold tracking-widest"
+        href="https://lin.ee/QL31tIZ"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="mobile-link inline-flex items-center justify-center bg-[#06C755] text-white px-8 py-3.5 rounded-full text-sm font-bold tracking-widest hover:bg-[#05b04b] transition-all gap-2 line_click_menu_mobile"
       >
-        無料体験レッスン申込
+        <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+          <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+        </svg>
+        公式LINEで相談
       </a>
+      <span class="text-[10px] text-[#6B5F54] tracking-wider opacity-85">無料体験・空き状況の確認もこちら</span>
     </div>
   </nav>
 </header>
