@@ -64,8 +64,9 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                         Adult Piano Lesson
                     </span>
                     <h1 class="font-serif text-[#544A40] mb-6">
+                        <span class="block text-xs sm:text-sm font-bold tracking-widest text-[#A88B58] mb-2 uppercase">江東区・中央区周辺の</span>
                         <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug font-bold">
-                            <span class="inline-block">江東区・中央区周辺の</span><br class="hidden md:block" /><span class="inline-block">大人向け</span><span class="inline-block">出張ピアノレッスン</span>
+                            <span class="inline-block">大人向け</span><span class="inline-block">出張ピアノレッスン</span>
                         </span>
                     </h1>
                     <p class="text-sm sm:text-base md:text-lg text-[#A88B58] font-bold mb-6 font-serif">
@@ -187,7 +188,7 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                     </div>
                 </div>
                 {/* Card 5 */}
-                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow lg:col-span-1 sm:col-span-2 lg:col-start-2">
+                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow sm:col-span-2 lg:col-span-1 lg:col-start-2">
                     <div>
                         <span class="inline-block bg-[#A88B58]/10 text-[#A88B58] text-[10px] font-bold tracking-wider px-2.5 py-0.5 rounded-full mb-4">Worries 05</span>
                         <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif">家に先生を呼ぶのが少し不安</h3>
@@ -460,25 +461,8 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
             <FeeSystem />
 
-            {/* Adult Recommendation Box */}
-            <div class="mt-8 max-w-lg mx-auto bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm mb-8 text-center sm:text-left">
-                <div class="text-center mb-3">
-                    <span class="inline-block bg-[#A88B58]/10 text-[#A88B58] text-[10px] font-bold tracking-wider px-3 py-1 rounded-full mb-1 uppercase font-serif">Advice</span>
-                    <h4 class="text-xs font-bold text-[#544A40] font-serif">大人のレッスンをご検討の方へ</h4>
-                </div>
-                <div class="max-w-xl mx-auto text-xs text-[#6B5F54] leading-relaxed space-y-2">
-                    <p>・ 初心者の方や久しぶりに再開する方は、<br class="hidden sm:block" />30分または45分から始めると負担が少なくなります。</p>
-                    <p>・ 仕事やご家庭の予定に合わせて、月1回からの受講もご相談いただけます。</p>
-                    <p>・ 「まずは様子を見ながら始めたい」という段階でも大丈夫です。</p>
-                </div>
-            </div>
-
-            {/* Footnotes */}
+            {/* Footnotes - studio note only */}
             <div class="max-w-md mx-auto text-xs text-[#6B5F54] space-y-2 mb-10 text-left border-l-2 border-[#A88B58]/30 pl-4">
-                <p>・ 入会金：無料</p>
-                <p>・ 出張費・交通費：レッスン料金に含まれます</p>
-                <p>・ 別途教材費がかかる場合があります</p>
-                <p>・ 空き枠やご希望に合わせて、月1回からご相談いただけます</p>
                 <p>・ スタジオ利用の場合は、会場費が別途実費でかかります</p>
             </div>
 
@@ -943,11 +927,6 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                     </p>
                 </div>
 
-                {/* CTA content */}
-                <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed mb-6 font-serif">
-                    LINEで「〇〇駅周辺です」と送るだけで、対応可否を確認できます。
-                </p>
-
                 <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
                     <a
                         href="https://lin.ee/QL31tIZ"
@@ -1031,7 +1010,7 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 <a href="/faq/" class="inline-block px-6 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] transition-all font-serif shadow-sm">
                     よくある質問
                 </a>
-                <a href="/contact?from=adult-piano-lesson#mail-form" class="inline-block px-6 py-3 rounded-full border border-[#A88B58] text-sm text-[#A88B58] bg-white hover:bg-[#A88B58] hover:text-white transition-all font-serif shadow-sm">
+                <a href="/contact?from=adult-piano-lesson#mail-form" class="inline-block px-6 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] transition-all font-serif shadow-sm">
                     メールフォームで相談する
                 </a>
             </div>
