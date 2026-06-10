@@ -576,10 +576,10 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 </div>
             </div>
 
-            <div class="grid md:grid-cols-[35%_65%] gap-12 items-center max-w-4xl mx-auto bg-white p-8 md:p-12 rounded-3xl border border-[#E8E2D9] shadow-sm">
+            <div class="grid md:grid-cols-[40%_60%] gap-12 items-center max-w-4xl mx-auto">
                 {/* Photo Column */}
-                <div class="relative max-w-sm mx-auto w-full md:mr-0 md:ml-auto">
-                    <div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl">
+                <div class="relative max-w-xs mx-auto md:mr-0 md:ml-auto">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-xl border border-[#E8E2D9]">
                         <Image
                             src="/image.png"
                             alt="髙橋遊月"
@@ -589,23 +589,43 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             loading="lazy"
                         />
                     </div>
+                    <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-[#A88B58]/10 rounded-full -z-10 blur-xl"></div>
                 </div>
 
                 {/* Profile Column */}
                 <div>
-                    <span class="inline-block bg-[#A88B58]/10 text-[#A88B58] text-[10px] font-bold tracking-widest px-3 py-1 rounded-full mb-3 uppercase font-serif">Instructor</span>
-                    <h3 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-2 leading-snug">
-                        髙橋 遊月
-                        <span class="text-sm opacity-60 ml-2 font-light italic text-[#8B7355]">Takahashi Yuzuki</span>
+                    <h3 class="text-2xl sm:text-3xl font-serif text-[#544A40] mb-4 leading-snug">
+                        髙橋 遊月 <span class="text-base font-normal italic text-[#8B7355] ml-2">Takahashi Yuzuki</span>
                     </h3>
-                    <p class="text-sm font-bold text-[#A88B58] border-b border-[#E8E2D9] pb-3 mb-4 font-serif">
+                    <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block text-[#544A40] mb-5 text-sm sm:text-base">
                         東京音楽大学 卒業
                     </p>
-                    <p class="text-sm md:text-base text-[#6B5F54] leading-relaxed">
-                        大人の初心者の方、子どもの頃に習っていて再開したい方、好きな曲を弾いてみたい方まで、目的に合わせてレッスンを行っています。<br />
-                        「今さら始めても大丈夫かな」「楽譜が読めないけれど大丈夫かな」という段階でもご相談いただけます。<br />
-                        生活リズムや練習できる時間に合わせて、無理なく続けられる方法を一緒に考えます。
-                    </p>
+                    <div class="space-y-4 text-xs sm:text-sm text-[#6B5F54] leading-loose max-w-xl">
+                        <p>
+                            大人の初心者の方、子どもの頃に習っていて再開したい方、好きな曲を弾いてみたい方まで、目的に合わせてレッスンを行っています。
+                        </p>
+                        <p>
+                            「今さら始めても大丈夫かな」「楽譜が読めないけれど大丈夫かな」という段階でもご相談いただけます。
+                        </p>
+                        <p class="font-medium text-[#544A40]">
+                            生活リズムや練習できる時間に合わせて、無理なく続けられる方法を一緒に考えます。
+                        </p>
+                    </div>
+                    {/* Tags */}
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・大人初心者対応
+                        </span>
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・再開レッスン
+                        </span>
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・好きな曲相談可
+                        </span>
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・出張レッスン
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
