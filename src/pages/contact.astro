@@ -200,6 +200,10 @@ const schema = JSON.stringify({
         if (sourceAreaInput && params.get("area")) {
             sourceAreaInput.value = params.get("area");
         }
+        const messageTextarea = document.getElementById("message");
+        if (messageTextarea && params.get("message")) {
+            messageTextarea.value = params.get("message");
+        }
 
         if (form) {
             form.addEventListener("submit", async (e) => {
