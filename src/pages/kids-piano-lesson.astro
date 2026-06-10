@@ -1,8 +1,8 @@
 ---
 import Layout from "../layouts/Layout.astro";
 import FeeSystem from "../components/common/FeeSystem.astro";
-import InstructorProfile from "../components/common/InstructorProfile.astro";
 import { areas } from "../data/areas";
+import { Image } from "astro:assets";
 
 const pageTitle = "子どもの出張ピアノレッスン｜江東区・中央区の自宅で習えるピアノ教室";
 const pageDescription = "江東区・中央区周辺で子ども向け出張ピアノレッスンを行っています。未就学児・小学生・中学生まで、送迎不要でご自宅のピアノや電子ピアノで受講可能。無料体験レッスン受付中です。";
@@ -42,14 +42,6 @@ const schema = JSON.stringify({
     ],
 });
 
-const instructorIntro = `髙橋 遊月
-東京音楽大学 卒業
-
-お子様の初めてのピアノから、学校行事や好きな曲への挑戦まで、年齢や性格に合わせて無理なく進めます。
-ご家庭での練習環境や生活リズムも確認しながら、保護者の方と一緒に続けやすい形を考えます。
-
-ピアノを通して、音を楽しむこと、少しずつできることが増える喜びを大切にしています。`;
-
 // Filter the specified areas from areas.ts
 const targetAreaSlugs = [
     "kiyosumi-shirakawa", "monzen-nakacho", "kiba", "morishita", "sumiyoshi",
@@ -63,86 +55,90 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 <Layout title={pageTitle} description={pageDescription}>
     <script type="application/ld+json" set:html={schema} slot="head" />
 
-    {/* Hero / First View */}
-    <section class="relative bg-gradient-to-b from-[#F7F3EE] to-[#FCFAF7] py-20 md:py-28 overflow-hidden">
+    {/* 1. Hero / First View */}
+    <section class="relative bg-gradient-to-b from-[#F7F3EE] to-[#FCFAF7] py-16 md:py-24 overflow-hidden">
         <div class="max-w-6xl mx-auto px-6 relative z-10">
             <div class="grid lg:grid-cols-[55%_45%] gap-12 items-center">
                 <div>
                     <span class="inline-block bg-[#A88B58]/10 text-[#A88B58] text-xs font-bold tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 font-serif uppercase">
                         Kids Piano Lesson
                     </span>
-                    <h1 class="font-serif text-[#544A40] mb-6">
-                        <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug">
-                            <span class="inline-block">江東区・中央区周辺の</span><br class="hidden md:block" /><span class="inline-block">子ども向け</span><span class="inline-block">出張ピアノレッスン</span>
+                    <h1 class="font-serif text-[#544A40] mb-4">
+                        <span class="block text-xs sm:text-sm font-bold tracking-widest text-[#A88B58] mb-2 uppercase">江東区・中央区周辺の</span>
+                        <span class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl leading-snug font-bold">
+                            子ども向け出張<br />ピアノレッスン
                         </span>
                     </h1>
-                    <p class="text-sm md:text-base text-[#6B5F54] leading-loose mb-10">
-                        送迎なしで、ご自宅のピアノ・電子ピアノで始められる子どものピアノレッスンです。<br />
-                        未就学のお子様から小学生・中学生まで、年齢や集中力、ご家庭の生活リズムに合わせて無理なく進めます。
+                    <p class="text-sm sm:text-base md:text-lg text-[#A88B58] font-bold mb-6 font-serif">
+                        送迎なしで、ご自宅のピアノ・電子ピアノから始められます
+                    </p>
+                    <p class="text-sm md:text-base text-[#6B5F54] leading-loose mb-8">
+                        未就学のお子様から小学生・中学生まで、年齢や集中力に合わせて無理なく進める子ども向けのピアノレッスンです。<br />
+                        ご自宅で受けられるため、送迎の負担を減らしながら、普段の楽器でレッスンできます。
                     </p>
                     <div class="flex flex-col sm:flex-row gap-4 mb-6">
-                        <a href="https://lin.ee/QL31tIZ" target="_blank" rel="noopener noreferrer" id="hero-cta-trial" class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white text-center font-bold px-4 sm:px-8 py-3.5 sm:py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-xs sm:text-sm tracking-wider whitespace-normal sm:whitespace-nowrap line_click_firstview gap-2">
+                        <a href="https://lin.ee/QL31tIZ" target="_blank" rel="noopener noreferrer" id="hero-cta-trial" class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white text-center font-bold px-6 py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-xs sm:text-sm tracking-wider gap-2 line_click_firstview">
                             <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
                                 <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
                             </svg>
                             公式LINEで子どもの体験レッスンを相談する
                         </a>
-                        <a href="#fees" id="hero-cta-consult" class="inline-flex items-center justify-center bg-[#A88B58] hover:bg-[#8B7347] text-white text-center font-bold px-4 sm:px-8 py-3.5 sm:py-4 rounded-full shadow-lg transition-all duration-300 transform hover:-translate-y-1 text-xs sm:text-sm tracking-wider whitespace-nowrap">
+                        <a href="#fees" id="hero-cta-consult" class="inline-flex items-center justify-center bg-white hover:bg-[#F7F3EE] text-[#544A40] border border-[#E8E2D9] text-center font-bold px-6 py-4 rounded-full shadow-sm transition-all duration-300 transform hover:-translate-y-1 text-xs sm:text-sm tracking-wider">
                             料金を見る
                         </a>
                     </div>
                     <p class="text-xs text-[#6B5F54] tracking-wider leading-relaxed">
-                        ※自宅まで来てもらえるか、電子ピアノでも大丈夫か、曜日や時間だけ確認したい段階でも、公式LINEから気軽にご相談いただけます。
+                        自宅まで来てもらえるか、電子ピアノでも大丈夫か、曜日や時間だけ確認したい段階でも、公式LINEからご相談いただけます。
                     </p>
                 </div>
 
-                <div class="grid grid-cols-2 gap-4">
+                <div class="grid grid-cols-2 gap-3 sm:gap-4">
                     <div class="bg-white p-4 sm:p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
-                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <div class="w-10 h-10 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-3 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                             </svg>
                         </div>
-                        <h3 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">未就学児から相談可</h3>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">年齢や集中力を見ながら、無理のない内容から始めます。</p>
+                        <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">未就学児から相談可</h3>
+                        <p class="text-[10px] text-[#6B5F54] leading-relaxed">年齢や集中力に合わせ無理なく進めます</p>
                     </div>
 
                     <div class="bg-white p-4 sm:p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
-                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <div class="w-10 h-10 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-3 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 15 3 9m0 0 6-6M3 9h12a6 6 0 0 1 0 12h-3" />
                             </svg>
                         </div>
-                        <h3 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">送迎不要</h3>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">学校・学童・塾の前後にも組み込みやすい自宅レッスンです。</p>
+                        <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">送迎不要</h3>
+                        <p class="text-[10px] text-[#6B5F54] leading-relaxed">ご自宅でのレッスンで送迎負担をゼロに</p>
                     </div>
 
                     <div class="bg-white p-4 sm:p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
-                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <div class="w-10 h-10 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-3 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553z" />
                             </svg>
                         </div>
-                        <h3 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">電子ピアノ相談可</h3>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">88鍵盤・タッチによる強弱がつく電子ピアノを推奨しています。</p>
+                        <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">電子ピアノ相談可</h3>
+                        <p class="text-[10px] text-[#6B5F54] leading-relaxed">ご自宅の電子ピアノで始められます</p>
                     </div>
 
                     <div class="bg-white p-4 sm:p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
-                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
-                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                        <div class="w-10 h-10 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-3 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
                                 <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
                             </svg>
                         </div>
-                        <h3 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">無料体験あり</h3>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">ご自宅でのレッスンが合うか、実際に確認できます。</p>
+                        <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">無料体験あり</h3>
+                        <p class="text-[10px] text-[#6B5F54] leading-relaxed">まずは無料体験レッスンをお試しください</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {/* Section 1: Common Worries */}
-    <section class="py-20 bg-white">
+    {/* 2. 子どものピアノでよくあるお悩み */}
+    <section class="py-16 md:py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">子どものピアノでよくあるお悩み</h2>
@@ -153,131 +149,131 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 </div>
                 <p class="text-sm text-[#6B5F54] leading-loose mt-6 max-w-2xl mx-auto">
                     初めての習い事や自宅レッスンでは、始める前に不安なことも多いと思います。<br />
-                    よくあるご相談に合わせて、レッスンの進め方を調整しています。
+                    年齢や集中力、ご家庭の生活リズムに合わせて、無理なく続けられる形を一緒に考えます。
                 </p>
             </div>
 
             {/* Row 1: 3 cards */}
-            <div class="grid sm:grid-cols-3 gap-6 mb-6">
+            <div class="grid md:grid-cols-3 gap-6 mb-6">
                 <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center font-bold font-serif text-sm mb-3">1</div>
+                    <div class="text-xs text-[#A88B58] font-bold font-serif mb-2">01</div>
                     <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">教室まで送迎する時間がない</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">学校・学童・塾のあとに移動する負担を減らし、ご自宅でレッスンできます。</p>
+                    <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">ご自宅でレッスンを受けられるため、学校・学童・塾の前後にも組み込みやすくなります。</p>
                 </div>
                 <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center font-bold font-serif text-sm mb-3">2</div>
+                    <div class="text-xs text-[#A88B58] font-bold font-serif mb-2">02</div>
                     <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">まだ集中力が続くか不安</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">年齢や性格に合わせて、短い内容から無理なく進めます。</p>
+                    <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">年齢や性格に合わせて、短い内容から無理なく始めます。最初から長時間集中できなくても大丈夫です。</p>
                 </div>
                 <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center font-bold font-serif text-sm mb-3">3</div>
+                    <div class="text-xs text-[#A88B58] font-bold font-serif mb-2">03</div>
                     <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">電子ピアノでも始められるか知りたい</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">88鍵盤で強弱がつく電子ピアノを推奨しています。体験時に楽器環境を確認できます。</p>
+                    <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">88鍵盤で、タッチによる強弱がつく電子ピアノを推奨しています。体験時に楽器環境を確認できます。</p>
                 </div>
             </div>
             {/* Row 2: 2 cards centered */}
-            <div class="grid sm:grid-cols-2 gap-6 max-w-2xl mx-auto">
+            <div class="grid md:grid-cols-2 gap-6 max-w-2xl mx-auto">
                 <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center font-bold font-serif text-sm mb-3">4</div>
+                    <div class="text-xs text-[#A88B58] font-bold font-serif mb-2">04</div>
                     <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">家で練習を続けられるか不安</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">毎日長時間ではなく、短くても続けやすい練習方法を一緒に考えます。</p>
+                    <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">毎日長時間ではなく、「今週はここだけ」のように、短くても続けやすい練習方法を一緒に考えます。</p>
                 </div>
                 <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow duration-300">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center font-bold font-serif text-sm mb-3">5</div>
+                    <div class="text-xs text-[#A88B58] font-bold font-serif mb-2">05</div>
                     <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">初めての習い事で不安</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">楽譜の読み方、指の使い方、リズムなど、基礎からゆっくり確認します。</p>
+                    <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">楽譜の読み方、指番号、リズムなど、基礎からゆっくり確認します。保護者の方がピアノ経験者でなくても大丈夫です。</p>
                 </div>
             </div>
 
-            {/* 小CTA */}
-            <div class="mt-12 text-center bg-[#FCFAF7] p-6 md:p-8 rounded-2xl border border-[#E8E2D9] max-w-2xl mx-auto shadow-sm">
-                <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">お子様に合うか迷う段階でもご相談ください</h3>
-                <p class="text-sm text-[#6B5F54] leading-relaxed mb-6">
-                    年齢、集中力、ご自宅の楽器環境、保護者の付き添い方など、始める前に気になることがあれば公式LINEからご相談いただけます。
-                </p>
-                <a
-                    href="https://lin.ee/QL31tIZ"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-3.5 rounded-full font-bold shadow-sm transition-all duration-300 text-xs tracking-wider line_click_worries gap-2"
-                >
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
-                    </svg>
-                    LINEで子どものレッスンを相談する
-                </a>
-            </div>
+
         </div>
     </section>
 
-    {/* Section 2: Lessons by Age */}
-    <section class="py-20 bg-[#FCFAF7] border-y border-[#E8E2D9]">
+    {/* 3. 年齢別のレッスンイメージ */}
+    <section class="py-16 md:py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">年齢・経験に合わせたレッスン</h2>
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">年齢別のレッスンイメージ</h2>
                 <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
                     <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                     Lessons by Age
                     <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                 </div>
+                <p class="text-sm md:text-base text-[#6B5F54] leading-loose mt-6 max-w-2xl mx-auto">
+                    お子様の年齢、集中力、ピアノ経験に合わせて、内容や時間を調整します。<br />
+                    最初から完璧に弾くことを目指すのではなく、音やリズムに慣れること、少しずつ弾ける範囲を増やすことを大切にしています。
+                </p>
             </div>
 
-            <p class="text-sm md:text-base text-[#6B5F54] leading-loose text-center max-w-3xl mx-auto mb-12">
-                お子様の年齢、集中力、性格、ピアノ経験に合わせて進めます。<br class="hidden md:block" />
-                最初から完璧に弾くことを目指すのではなく、音やリズムに慣れること、少しずつ弾ける範囲を増やすことを大切にします。
-            </p>
-
-            <div class="grid md:grid-cols-3 gap-6">
+            <div class="grid md:grid-cols-3 gap-6 items-stretch">
                 {/* Preschool */}
-                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col hover:shadow-md transition-shadow">
+                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
-                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-2 font-serif">Preschool</span>
-                        <h3 class="text-xl font-bold text-[#544A40] mb-5 font-serif border-b border-[#E8E2D9] pb-3">未就学のお子様</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>音やリズムに親しむ</span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase font-serif">Preschool</span>
+                            <span class="bg-[#A88B58]/10 text-[#A88B58] text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">30分 × 月3回</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">未就学のお子様</h3>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed mb-6">
+                            音やリズムに親しむところから始めます。短い時間でも集中しやすい内容にし、必要に応じて保護者の方にも進め方を共有します。
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-[#A88B58] mb-2 font-serif">主な内容：</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>音やリズムに慣れる</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>短い時間でも集中しやすい内容にする</span>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>鍵盤に触れる</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>鍵盤に触れることから始める</span>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>指番号を覚える</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>必要に応じて保護者の方にも進め方を共有する</span>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>短い曲やリズム遊び</span>
                             </li>
                         </ul>
                     </div>
                 </div>
 
                 {/* Elementary */}
-                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col hover:shadow-md transition-shadow">
+                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
-                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-2 font-serif">Elementary</span>
-                        <h3 class="text-xl font-bold text-[#544A40] mb-5 font-serif border-b border-[#E8E2D9] pb-3">小学生</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase font-serif">Elementary</span>
+                            <span class="bg-[#A88B58]/10 text-[#A88B58] text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">30〜45分 × 月3回</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">小学生</h3>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed mb-6">
+                            楽譜の読み方、指の形、姿勢、リズムを確認しながら、好きな曲にも少しずつ挑戦できます。
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-[#A88B58] mb-2 font-serif">主な内容：</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
                                 <span>楽譜の読み方</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
                                 <span>指の形や姿勢</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>リズム</span>
-                            </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
                                 <span>片手から両手への練習</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>好きな曲への挑戦</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
                                 <span>学校や生活リズムに合わせた練習方法</span>
                             </li>
                         </ul>
@@ -285,26 +281,35 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 </div>
 
                 {/* Junior High */}
-                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col hover:shadow-md transition-shadow">
+                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between hover:shadow-md transition-shadow">
                     <div>
-                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-2 font-serif">Junior High</span>
-                        <h3 class="text-xl font-bold text-[#544A40] mb-5 font-serif border-b border-[#E8E2D9] pb-3">中学生</h3>
-                        <ul class="space-y-3">
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>部活や塾と両立しながら続ける</span>
-                            </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>好きな曲への挑戦</span>
-                            </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                        <div class="flex items-center justify-between mb-4">
+                            <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase font-serif">Junior High</span>
+                            <span class="bg-[#A88B58]/10 text-[#A88B58] text-[10px] sm:text-xs font-bold px-2.5 py-0.5 rounded-full">45〜60分 × 月2〜3回</span>
+                        </div>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">中学生</h3>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed mb-6">
+                            部活や塾と両立しながら、基礎の見直しや好きな曲、学校行事の曲にも取り組めます。
+                        </p>
+                    </div>
+                    <div>
+                        <p class="text-xs font-bold text-[#A88B58] mb-2 font-serif">主な内容：</p>
+                        <ul class="space-y-2">
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
                                 <span>基礎の見直し</span>
                             </li>
-                            <li class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                                <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                                <span>合唱伴奏や学校行事の曲も相談可能</span>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>好きな曲への挑戦</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>合唱伴奏や学校行事の曲</span>
+                            </li>
+                            <li class="flex items-start gap-2 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                                <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3 h-3" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                                <span>部活や塾と両立しやすい進め方</span>
                             </li>
                         </ul>
                     </div>
@@ -313,8 +318,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
         </div>
     </section>
 
-    {/* Section 3: Why Visit Lesson fits kids */}
-    <section class="py-20 bg-white">
+    {/* 4. 出張レッスンが子どもに向いている理由 */}
+    <section class="py-16 md:py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">出張レッスンが子どもに向いている理由</h2>
@@ -324,118 +329,66 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                     <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                 </div>
                 <p class="text-sm md:text-base text-[#6B5F54] leading-loose mt-6 max-w-2xl mx-auto">
-                    ご自宅で受けられるため、送迎の負担を減らし、普段の楽器でレッスンできます。<br />
+                    ご自宅で受けられるため、移動の負担を減らし、普段の楽器でレッスンできます。<br />
                     保護者の方も、お子様の様子や練習環境を確認しやすくなります。
                 </p>
             </div>
 
-            {/* Row 1: 3 cards */}
-            <div class="grid sm:grid-cols-3 gap-5 mb-5">
-                <div class="bg-[#FCFAF7] p-6 rounded-xl border border-[#E8E2D9] shadow-sm flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+            <div class="grid sm:grid-cols-2 gap-6 max-w-4xl mx-auto">
+                <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M12 6v6h4.5m4.5 0a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+                        </svg>
                     </div>
                     <div>
-                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">送迎の負担を減らせる</h4>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">教室までの移動がないため、学校・学童・塾の前後にも組み込みやすくなります。</p>
+                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">1. 送迎の負担を減らせる</h4>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">教室までの移動がないため、学校・学童・塾の前後にも組み込みやすくなります。</p>
                     </div>
                 </div>
-                <div class="bg-[#FCFAF7] p-6 rounded-xl border border-[#E8E2D9] shadow-sm flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+
+                <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 6.553v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 1 1-.99-3.467l2.31-.66a2.25 2.25 0 0 0 1.632-2.163zm0 0V2.25L9 5.25v10.303m0 0v3.75a2.25 2.25 0 0 1-1.632 2.163l-1.32.377a1.803 1.803 0 0 1-.99-3.467l2.31-.66A2.25 2.25 0 0 0 9 15.553z" />
+                        </svg>
                     </div>
                     <div>
-                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">普段の楽器で受けられる</h4>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">ご自宅のピアノや電子ピアノでレッスンするため、日々の練習につなげやすくなります。</p>
+                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">2. 普段の楽器で受けられる</h4>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">ご自宅のピアノや電子ピアノでレッスンするため、日々の練習につなげやすくなります。</p>
                     </div>
                 </div>
-                <div class="bg-[#FCFAF7] p-6 rounded-xl border border-[#E8E2D9] shadow-sm flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
-                    </div>
-                    <div>
-                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">練習環境を確認できる</h4>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">椅子の高さ、楽譜の置き方、姿勢など、ご家庭での練習環境も確認できます。</p>
-                    </div>
-                </div>
-            </div>
-            {/* Row 2: 2 cards centered */}
-            <div class="grid sm:grid-cols-2 gap-5 max-w-2xl mx-auto">
-                <div class="bg-[#FCFAF7] p-6 rounded-xl border border-[#E8E2D9] shadow-sm flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+
+                <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M2.036 12.322a1.012 1.012 0 0 1 0-.639C3.423 7.51 7.36 4.5 12 4.5c4.638 0 8.573 3.007 9.963 7.178.07.207.07.421 0 .628C20.577 16.49 16.64 19.5 12 19.5c-4.638 0-8.573-3.007-9.963-7.178Z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M15 12a3 3 0 1 1-6 0 3 3 0 0 1 6 0Z" />
+                        </svg>
                     </div>
                     <div>
-                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">保護者が様子を把握しやすい</h4>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">小さなお子様の場合も、無理のない距離でレッスンの様子を見守れます。</p>
+                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">3. 保護者が様子を把握しやすい</h4>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">小さなお子様の場合も、無理のない距離でレッスンの様子を見守れます。</p>
                     </div>
                 </div>
-                <div class="bg-[#FCFAF7] p-6 rounded-xl border border-[#E8E2D9] shadow-sm flex items-start gap-4">
-                    <div class="w-8 h-8 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+
+                <div class="bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex items-start gap-4 hover:shadow-md transition-shadow">
+                    <div class="w-10 h-10 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center flex-shrink-0 mt-0.5">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M18 18.72a9.094 9.094 0 0 0 3.741-.479 3 3 0 0 0-4.682-2.72m.94 3.198.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0 1 12 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 0 1 6 18.719m12 0a5.971 5.971 0 0 0-.941-3.197m0 0A5.995 5.995 0 0 0 12 12.75a5.995 5.995 0 0 0-5.058 2.772m0 0a3 3 0 0 0-4.681 2.72 8.986 8.986 0 0 0 3.74.477m.94-3.197a5.971 5.971 0 0 0-.94 3.197M15 6.75a3 3 0 1 1-6 0 3 3 0 0 1 6 0Zm6 3a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Zm-13.5 0a2.25 2.25 0 1 1-4.5 0 2.25 2.25 0 0 1 4.5 0Z" />
+                        </svg>
                     </div>
                     <div>
-                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">きょうだい連続も相談できる</h4>
-                        <p class="text-xs text-[#6B5F54] leading-relaxed">ご自宅でのレッスンなので、きょうだいで続けて受講したい場合も相談しやすいです。</p>
+                        <h4 class="font-bold text-[#544A40] text-sm md:text-base mb-1 font-serif">4. きょうだい連続も相談できる</h4>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">ご自宅でのレッスンなので、きょうだいで続けて受講したい場合も相談しやすいです。</p>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {/* Section 4+5 merged: Lesson Content & Values */}
-    <section class="py-20 bg-[#FCFAF7] border-y border-[#E8E2D9]">
-        <div class="max-w-5xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">レッスン内容と大切にしていること</h2>
-                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
-                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
-                    Lesson Content
-                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
-                </div>
-            </div>
-
-            <p class="text-sm md:text-base text-[#6B5F54] leading-loose text-center max-w-3xl mx-auto mb-10">
-                ピアノは、短期間で急に上達するというより、少しずつ積み重ねていく習い事です。<br class="hidden md:block" />
-                お子様の様子を見ながら、基礎・練習方法・好きな曲への挑戦を無理なく組み合わせて進めます。
-            </p>
-
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-5">
-                <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
-                    <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif border-b border-[#E8E2D9] pb-2">1. はじめてのピアノ</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">鍵盤の位置、音の名前、指番号など、基礎から始めます。</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
-                    <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif border-b border-[#E8E2D9] pb-2">2. 楽譜の読み方</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">音符、リズム、拍子を少しずつ確認します。</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
-                    <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif border-b border-[#E8E2D9] pb-2">3. 指の形・姿勢</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">無理のない姿勢や手の使い方を確認します。</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
-                    <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif border-b border-[#E8E2D9] pb-2">4. 好きな曲への挑戦</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">基礎と並行しながら、お子様が弾いてみたい曲にも取り組めます。</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
-                    <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif border-b border-[#E8E2D9] pb-2">5. 練習習慣づくり</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">「今週はここだけ」のように、練習する場所を絞って伝えます。</p>
-                </div>
-
-                <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
-                    <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif border-b border-[#E8E2D9] pb-2">6. 学校行事・伴奏の相談</h3>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">必要に応じて、学校の伴奏や発表の曲も相談できます。</p>
                 </div>
             </div>
         </div>
     </section>
 
-    {/* Section 6: Pricing */}
-    <section class="py-20 bg-white" id="fees">
+    {/* 5. レッスン料金 */}
+    <section class="py-16 md:py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]" id="fees">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">レッスン料金</h2>
@@ -448,77 +401,25 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
             <FeeSystem />
 
-            <div class="mt-8 text-center max-w-lg mx-auto bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] shadow-sm mb-8">
-                <p class="text-sm font-bold text-[#A88B58] mb-2 font-serif">子どものレッスンをお考えの方へ</p>
-                <p class="text-xs text-[#6B5F54] leading-relaxed">
-                    小さなお子様や初めての方は、まずは30分から始める方が多いです。<br />
-                    慣れてきたら、45分・60分への変更もご相談いただけます。
-                </p>
-            </div>
-
-            {/* 料金セクション後の小CTA */}
-            <div class="text-center bg-[#FCFAF7] p-6 md:p-8 rounded-2xl border border-[#E8E2D9] max-w-lg mx-auto shadow-sm">
-                <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">料金や回数についてLINEで相談できます</h3>
-                <p class="text-xs text-[#6B5F54] leading-relaxed mb-6">
-                    月1回から始めたい、まずは30分で様子を見たい、きょうだいで相談したいなど、ご家庭に合わせた受け方をLINEでご相談いただけます。
-                </p>
+            {/* Pricing CTA */}
+            <div class="text-center">
                 <a
                     href="https://lin.ee/QL31tIZ"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-3.5 rounded-full font-bold shadow-sm transition-all duration-300 text-xs tracking-wider line_click_fee gap-2"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-8 py-4 rounded-full font-bold shadow-md transition-all duration-300 transform hover:-translate-y-0.5 text-xs sm:text-sm tracking-wider line_click_fee gap-2"
                 >
-                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                    <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
                     </svg>
-                    公式LINEで相談する
+                    公式LINEで料金や回数を相談する
                 </a>
             </div>
         </div>
     </section>
 
-    {/* Section 7: Lesson Examples */}
-    <section class="py-20 bg-[#FCFAF7] border-y border-[#E8E2D9]">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="text-center mb-12">
-                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">受講イメージ</h2>
-                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
-                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
-                    Lesson Examples
-                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
-                </div>
-                <p class="text-sm text-[#6B5F54] leading-loose mt-5 max-w-xl mx-auto">
-                    年齢や経験、生活リズムに合わせて、無理のない回数・時間から始められます。
-                </p>
-            </div>
-
-            <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-[#A88B58] font-serif text-xs font-bold tracking-widest uppercase mb-2">Preschool</div>
-                    <h3 class="text-lg font-bold text-[#544A40] font-serif mb-1">未就学のお子様</h3>
-                    <p class="text-xs text-[#A88B58] font-bold mb-4">30分 × 月3回</p>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">音やリズムに慣れるところから、短い時間で無理なく始めます。</p>
-                </div>
-
-                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-[#A88B58] font-serif text-xs font-bold tracking-widest uppercase mb-2">Elementary</div>
-                    <h3 class="text-lg font-bold text-[#544A40] font-serif mb-1">小学生</h3>
-                    <p class="text-xs text-[#A88B58] font-bold mb-4">45分 × 月3回</p>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">楽譜の読み方や基礎を確認しながら、好きな曲にも少しずつ挑戦します。</p>
-                </div>
-
-                <div class="bg-white p-7 rounded-2xl border border-[#E8E2D9] shadow-sm hover:shadow-md transition-shadow">
-                    <div class="text-[#A88B58] font-serif text-xs font-bold tracking-widest uppercase mb-2">Junior High</div>
-                    <h3 class="text-lg font-bold text-[#544A40] font-serif mb-1">中学生</h3>
-                    <p class="text-xs text-[#A88B58] font-bold mb-4">60分 × 月2回</p>
-                    <p class="text-sm text-[#6B5F54] leading-relaxed">部活や塾と両立しながら、基礎の見直しや学校行事の曲も相談できます。</p>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    {/* Section 8: To Parents */}
-    <section class="py-20 bg-white">
+    {/* 6. 保護者の方へ */}
+    <section class="py-16 md:py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">保護者の方へ</h2>
@@ -529,55 +430,55 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 </div>
             </div>
 
-            <div class="bg-[#FCFAF7] p-7 md:p-10 rounded-[2rem] border border-[#E8E2D9] shadow-sm max-w-3xl mx-auto">
-                <p class="text-sm md:text-base text-[#6B5F54] leading-loose mb-8 text-center">
-                    小さなお子様の場合は、最初のうちは保護者の方に近くで見守っていただくと安心です。<br class="hidden md:block" />
+            <div class="bg-[#FCFAF7] p-7 md:p-10 rounded-[2rem] border border-[#E8E2D9] shadow-sm max-w-3xl mx-auto flex flex-col items-center">
+                <p class="text-xs sm:text-sm md:text-base text-[#6B5F54] leading-loose mb-8 text-center max-w-2xl">
+                    小さなお子様の場合は、最初のうちは保護者の方に近くで見守っていただくと安心です。<br class="hidden sm:block" />
                     慣れてきたら、お子様の様子に合わせて少し距離を取ることもできます。<br />
                     レッスン後には、必要に応じてご家庭で確認するポイントをお伝えします。
                 </p>
 
-                <div class="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
-                    <div class="flex items-start gap-3 py-3 border-b border-[#E8E2D9]">
-                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
-                        </svg>
-                        <span class="text-sm font-medium text-[#544A40]">保護者の方が毎回つきっきりでなくても大丈夫です</span>
+                <div class="space-y-4 w-full max-w-lg mb-8">
+                    <div class="flex items-start gap-3 py-1">
+                        <span class="text-[#A88B58] mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        </span>
+                        <span class="text-xs sm:text-sm font-medium text-[#544A40]">保護者の方が毎回つきっきりでなくても大丈夫です</span>
                     </div>
+                    <div class="flex items-start gap-3 py-1">
+                        <span class="text-[#A88B58] mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        </span>
+                        <span class="text-xs sm:text-sm font-medium text-[#544A40]">小さなお子様は、最初だけ近くで見守ると安心です</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-1">
+                        <span class="text-[#A88B58] mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        </span>
+                        <span class="text-xs sm:text-sm font-medium text-[#544A40]">レッスン後に練習ポイントを共有できます</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-1">
+                        <span class="text-[#A88B58] mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        </span>
+                        <span class="text-xs sm:text-sm font-medium text-[#544A40]">練習できない週があっても、量や進め方を相談できます</span>
+                    </div>
+                    <div class="flex items-start gap-3 py-1">
+                        <span class="text-[#A88B58] mt-1 flex-shrink-0">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg>
+                        </span>
+                        <span class="text-xs sm:text-sm font-medium text-[#544A40]">保護者の方がピアノ経験者でなくても大丈夫です</span>
+                    </div>
+                </div>
 
-                    <div class="flex items-start gap-3 py-3 border-b border-[#E8E2D9]">
-                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
-                        </svg>
-                        <span class="text-sm font-medium text-[#544A40]">小さなお子様は、最初だけ近くで見守ると安心です</span>
-                    </div>
-
-                    <div class="flex items-start gap-3 py-3 border-b border-[#E8E2D9]">
-                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
-                        </svg>
-                        <span class="text-sm font-medium text-[#544A40]">レッスン後に練習ポイントを共有できます</span>
-                    </div>
-
-                    <div class="flex items-start gap-3 py-3 border-b border-[#E8E2D9]">
-                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
-                        </svg>
-                        <span class="text-sm font-medium text-[#544A40]">練習できない週があっても、量や進め方を相談できます</span>
-                    </div>
-
-                    <div class="flex items-start gap-3 py-3 border-b border-[#E8E2D9] sm:col-span-2">
-                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
-                        </svg>
-                        <span class="text-sm font-medium text-[#544A40]">保護者の方がピアノ経験者でなくても大丈夫です</span>
-                    </div>
+                <div class="text-center text-xs sm:text-sm font-bold text-[#A88B58] bg-white border border-[#E8E2D9] px-6 py-3 rounded-xl inline-block shadow-sm">
+                    体験レッスン後に、その場で入会を決める必要はありません。
                 </div>
             </div>
         </div>
     </section>
 
-    {/* Section 9: Digital Piano */}
-    <section class="py-20 bg-[#FCFAF7] border-y border-[#E8E2D9]">
+    {/* 7. 電子ピアノ・ご自宅環境について */}
+    <section class="py-16 md:py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">電子ピアノ・ご自宅環境について</h2>
@@ -589,40 +490,50 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
             </div>
 
             <div class="bg-white p-7 md:p-10 rounded-[2rem] border border-[#E8E2D9] shadow-sm max-w-3xl mx-auto">
-                <p class="text-sm md:text-base text-[#6B5F54] leading-loose mb-8 text-center">
-                    ご自宅にアップライトピアノやグランドピアノがなくても、電子ピアノでレッスンを始められます。<br />
-                    ただし、88鍵盤でタッチによる強弱がつく電子ピアノを推奨しています。<br />
-                    楽器選びで迷っている場合や、ご自宅での音量が気になる場合も、体験レッスン時にご相談いただけます。
-                </p>
+                <div class="grid md:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <span class="inline-block bg-[#A88B58]/10 text-[#A88B58] text-xs font-bold px-3 py-1 rounded-full mb-3">電子ピアノでも始められる</span>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed mb-4">
+                            ご自宅にアップライトピアノやグランドピアノがなくても、電子ピアノでレッスンを始められます。
+                        </p>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed mb-4">
+                            ただし、<span class="font-bold text-[#544A40] border-b-2 border-[#A88B58]/40">88鍵盤</span>で<span class="font-bold text-[#544A40] border-b-2 border-[#A88B58]/40">タッチによる強弱</span>がつく電子ピアノを推奨しています。
+                        </p>
+                        <p class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                            楽器選びで迷っている場合や、マンションでの音量が気になる場合も、体験レッスン時にご相談いただけます。
+                        </p>
+                    </div>
 
-                <div class="grid sm:grid-cols-2 gap-3 max-w-2xl mx-auto">
-                    <div class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                        <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                        <span>88鍵盤の電子ピアノを推奨しています</span>
-                    </div>
-                    <div class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                        <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                        <span>タッチによる強弱がつくものが望ましいです</span>
-                    </div>
-                    <div class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                        <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                        <span>マンションでの音量面も相談できます</span>
-                    </div>
-                    <div class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed">
-                        <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                        <span>椅子の高さや楽譜の置き方も確認できます</span>
-                    </div>
-                    <div class="flex items-start gap-2.5 text-sm text-[#6B5F54] leading-relaxed sm:col-span-2">
-                        <span class="text-[#A88B58] mt-1.5 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
-                        <span>必要に応じてスタジオレッスンも相談可能です</span>
+                    <div class="bg-[#FCFAF7] p-5 sm:p-6 rounded-2xl border border-[#E8E2D9] space-y-3">
+                        <p class="text-xs font-bold text-[#A88B58] mb-2 font-serif uppercase tracking-widest border-b border-[#E8E2D9] pb-2">Checklist</p>
+                        <div class="flex items-start gap-2.5 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                            <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <span>88鍵盤の電子ピアノを推奨しています</span>
+                        </div>
+                        <div class="flex items-start gap-2.5 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                            <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <span>タッチによる強弱がつくものが望ましいです</span>
+                        </div>
+                        <div class="flex items-start gap-2.5 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                            <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <span>マンションでの音量面も相談できます</span>
+                        </div>
+                        <div class="flex items-start gap-2.5 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                            <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <span>椅子の高さや楽譜の置き方も確認できます</span>
+                        </div>
+                        <div class="flex items-start gap-2.5 text-xs sm:text-sm text-[#6B5F54] leading-relaxed">
+                            <span class="text-[#A88B58] mt-1 flex-shrink-0"><svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"/></svg></span>
+                            <span>必要に応じてスタジオレッスンも相談可能です</span>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    {/* Section 10: Instructor Introduction */}
-    <section class="py-20 bg-white">
+    {/* 8. 担当講師の紹介 */}
+    <section class="py-16 md:py-24 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">担当講師のご紹介</h2>
@@ -633,11 +544,59 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 </div>
             </div>
 
-            <InstructorProfile introduction={instructorIntro} />
+            <div class="grid md:grid-cols-[40%_60%] gap-12 items-center max-w-4xl mx-auto">
+                <div class="relative max-w-xs mx-auto md:mr-0 md:ml-auto">
+                    <div class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-xl border border-[#E8E2D9]">
+                        <Image
+                            src="/image.png"
+                            alt="髙橋遊月"
+                            width={600}
+                            height={750}
+                            class="w-full h-full object-cover"
+                            loading="lazy"
+                        />
+                    </div>
+                    <div class="absolute -bottom-6 -right-6 w-40 h-40 bg-[#A88B58]/10 rounded-full -z-10 blur-xl"></div>
+                </div>
+                <div>
+                    <h3 class="text-2xl sm:text-3xl font-serif text-[#544A40] mb-4 leading-snug">
+                        髙橋 遊月 <span class="text-base font-normal italic text-[#8B7355] ml-2">Takahashi Yuzuki</span>
+                    </h3>
+                    <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block text-[#544A40] mb-5 text-sm sm:text-base">
+                        東京音楽大学 卒業
+                    </p>
+                    <div class="space-y-4 text-xs sm:text-sm text-[#6B5F54] leading-loose max-w-xl">
+                        <p>
+                            お子様の初めてのピアノから、学校行事や好きな曲への挑戦まで、年齢や性格に合わせて無理なく進めます。
+                        </p>
+                        <p>
+                            ご家庭での練習環境や生活リズムも確認しながら、保護者の方と一緒に続けやすい形を考えます。
+                        </p>
+                        <p class="font-medium text-[#544A40]">
+                            ピアノを通して、音を楽しむこと、少しずつできることが増える喜びを大切にしています。
+                        </p>
+                    </div>
+                    {/* Tags */}
+                    <div class="flex flex-wrap gap-2 mt-6">
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・子ども対応
+                        </span>
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・初めてのピアノ
+                        </span>
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・電子ピアノ相談可
+                        </span>
+                        <span class="bg-[#FCFAF7] border border-[#E8E2D9] text-[#A88B58] text-[10px] sm:text-xs px-3.5 py-1.5 rounded-full font-bold">
+                            ・出張レッスン
+                        </span>
+                    </div>
+                </div>
+            </div>
         </div>
     </section>
 
-    {/* Section 11: Flow of Trial Lesson */}
+    {/* 9. 無料体験レッスンの流れ */}
     <section class="py-20 bg-[#FCFAF7] border-y border-[#E8E2D9]">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
@@ -649,70 +608,74 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 </div>
             </div>
 
-            <div class="max-w-2xl mx-auto">
-                <div class="relative">
-                    {/* Vertical line */}
-                    <div class="absolute left-[27px] top-8 bottom-8 w-px bg-gradient-to-b from-[#A88B58]/40 via-[#A88B58]/20 to-[#A88B58]/40"></div>
+            {/* Timeline Wrapper */}
+            <div class="relative max-w-lg mx-auto">
+                {/* Center timeline line */}
+                <div class="absolute left-6 top-0 bottom-0 w-[1px] bg-[#E8E2D9]"></div>
 
-                    <div class="space-y-4">
-                        {/* Step 1 */}
-                        <div class="flex gap-5 items-start group">
-                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#A88B58] text-white flex flex-col items-center justify-center shadow-md group-hover:bg-[#8B7347] transition-colors duration-200 z-10">
-                                <span class="text-[10px] font-bold tracking-wider opacity-70">STEP</span>
-                                <span class="text-lg font-bold font-serif leading-none">1</span>
-                            </div>
-                            <div class="flex-1 bg-white border border-[#E8E2D9] rounded-2xl p-5 shadow-sm group-hover:shadow-md transition-shadow duration-200 mt-1">
-                                <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">お問い合わせ</h3>
-                                <p class="text-xs text-[#6B5F54] leading-relaxed">お子様の年齢、ピアノ経験、楽器環境、希望曜日などをお知らせください。</p>
-                            </div>
+                <div class="space-y-10 relative">
+                    {/* Step 1 */}
+                    <div class="flex gap-6 items-start">
+                        <div class="w-12 h-12 rounded-full bg-[#A88B58] text-white flex items-center justify-center font-bold font-serif text-sm relative z-10 shadow-sm flex-shrink-0">
+                            01
                         </div>
-
-                        {/* Step 2 */}
-                        <div class="flex gap-5 items-start group">
-                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#A88B58] text-white flex flex-col items-center justify-center shadow-md group-hover:bg-[#8B7347] transition-colors duration-200 z-10">
-                                <span class="text-[10px] font-bold tracking-wider opacity-70">STEP</span>
-                                <span class="text-lg font-bold font-serif leading-none">2</span>
-                            </div>
-                            <div class="flex-1 bg-white border border-[#E8E2D9] rounded-2xl p-5 shadow-sm group-hover:shadow-md transition-shadow duration-200 mt-1">
-                                <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">日程・対応エリアの確認</h3>
-                                <p class="text-xs text-[#6B5F54] leading-relaxed">対応エリアや空き枠を確認し、候補日をご連絡します。</p>
-                            </div>
+                        <div class="pt-2">
+                            <h4 class="font-serif font-bold text-[#544A40] text-base mb-1">お問い合わせ</h4>
+                            <p class="text-sm text-[#6B5F54] leading-relaxed">
+                                お子様の年齢、ピアノ経験、楽器環境、希望曜日などをお知らせください。
+                            </p>
                         </div>
+                    </div>
 
-                        {/* Step 3 */}
-                        <div class="flex gap-5 items-start group">
-                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#A88B58] text-white flex flex-col items-center justify-center shadow-md group-hover:bg-[#8B7347] transition-colors duration-200 z-10">
-                                <span class="text-[10px] font-bold tracking-wider opacity-70">STEP</span>
-                                <span class="text-lg font-bold font-serif leading-none">3</span>
-                            </div>
-                            <div class="flex-1 bg-white border border-[#E8E2D9] rounded-2xl p-5 shadow-sm group-hover:shadow-md transition-shadow duration-200 mt-1">
-                                <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">体験前の確認</h3>
-                                <p class="text-xs text-[#6B5F54] leading-relaxed">電子ピアノの種類、レッスン場所、保護者の付き添いなどを確認します。</p>
-                            </div>
+                    {/* Step 2 */}
+                    <div class="flex gap-6 items-start">
+                        <div class="w-12 h-12 rounded-full bg-[#A88B58] text-white flex items-center justify-center font-bold font-serif text-sm relative z-10 shadow-sm flex-shrink-0">
+                            02
                         </div>
-
-                        {/* Step 4 */}
-                        <div class="flex gap-5 items-start group">
-                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#A88B58] text-white flex flex-col items-center justify-center shadow-md group-hover:bg-[#8B7347] transition-colors duration-200 z-10">
-                                <span class="text-[10px] font-bold tracking-wider opacity-70">STEP</span>
-                                <span class="text-lg font-bold font-serif leading-none">4</span>
-                            </div>
-                            <div class="flex-1 bg-white border border-[#E8E2D9] rounded-2xl p-5 shadow-sm group-hover:shadow-md transition-shadow duration-200 mt-1">
-                                <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">無料体験レッスン</h3>
-                                <p class="text-xs text-[#6B5F54] leading-relaxed">30〜45分程度、お子様の様子に合わせてレッスンします。</p>
-                            </div>
+                        <div class="pt-2">
+                            <h4 class="font-serif font-bold text-[#544A40] text-base mb-1">日程・対応エリアの確認</h4>
+                            <p class="text-sm text-[#6B5F54] leading-relaxed">
+                                対応エリアや空き枠を確認し、候補日をご連絡します。
+                            </p>
                         </div>
+                    </div>
 
-                        {/* Step 5 */}
-                        <div class="flex gap-5 items-start group">
-                            <div class="flex-shrink-0 w-14 h-14 rounded-2xl bg-[#544A40] text-white flex flex-col items-center justify-center shadow-md group-hover:bg-[#3D352E] transition-colors duration-200 z-10">
-                                <span class="text-[10px] font-bold tracking-wider opacity-70">STEP</span>
-                                <span class="text-lg font-bold font-serif leading-none">5</span>
-                            </div>
-                            <div class="flex-1 bg-[#544A40] border border-[#544A40] rounded-2xl p-5 shadow-sm group-hover:shadow-md transition-shadow duration-200 mt-1">
-                                <h3 class="font-bold text-white text-base mb-1 font-serif">今後の進め方をご相談</h3>
-                                <p class="text-xs text-white/80 leading-relaxed">教材、頻度、練習方法、曜日・時間帯などをご相談します。</p>
-                            </div>
+                    {/* Step 3 */}
+                    <div class="flex gap-6 items-start">
+                        <div class="w-12 h-12 rounded-full bg-[#A88B58] text-white flex items-center justify-center font-bold font-serif text-sm relative z-10 shadow-sm flex-shrink-0">
+                            03
+                        </div>
+                        <div class="pt-2">
+                            <h4 class="font-serif font-bold text-[#544A40] text-base mb-1">体験前の確認</h4>
+                            <p class="text-sm text-[#6B5F54] leading-relaxed">
+                                電子ピアノの種類、レッスン場所、保護者の付き添い方などを確認します。
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Step 4 */}
+                    <div class="flex gap-6 items-start">
+                        <div class="w-12 h-12 rounded-full bg-[#A88B58] text-white flex items-center justify-center font-bold font-serif text-sm relative z-10 shadow-sm flex-shrink-0">
+                            04
+                        </div>
+                        <div class="pt-2">
+                            <h4 class="font-serif font-bold text-[#544A40] text-base mb-1">無料体験レッスン</h4>
+                            <p class="text-sm text-[#6B5F54] leading-relaxed">
+                                30〜45分程度、お子様の様子に合わせて体験レッスンを行います。
+                            </p>
+                        </div>
+                    </div>
+
+                    {/* Step 5 */}
+                    <div class="flex gap-6 items-start">
+                        <div class="w-12 h-12 rounded-full bg-[#A88B58] text-white flex items-center justify-center font-bold font-serif text-sm relative z-10 shadow-sm flex-shrink-0">
+                            05
+                        </div>
+                        <div class="pt-2">
+                            <h4 class="font-serif font-bold text-[#544A40] text-base mb-1">今後の進め方をご相談</h4>
+                            <p class="text-sm text-[#6B5F54] leading-relaxed font-serif">
+                                教材、頻度、練習方法、曜日・時間帯などをご相談します。無理なく続けられそうだと感じた場合のみ、定期レッスンをご検討ください。
+                            </p>
                         </div>
                     </div>
                 </div>
@@ -720,8 +683,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
         </div>
     </section>
 
-    {/* Section 12: FAQ */}
-    <section class="py-20 bg-white">
+    {/* 10. よくある質問 */}
+    <section class="py-16 md:py-24 bg-white">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">よくある質問</h2>
@@ -735,8 +698,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
             <div class="max-w-3xl mx-auto space-y-4">
                 <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                        <span class="font-medium text-[#544A40] pr-4 text-left">
-                            <span class="text-[#A88B58] mr-2">Q.</span>
+                        <span class="font-medium text-[#544A40] pr-4 text-left text-xs sm:text-sm md:text-base">
+                            <span class="text-[#A88B58] mr-2 font-serif">Q.</span>
                             何歳から習えますか？
                         </span>
                         <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
@@ -745,9 +708,9 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             </svg>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9] text-xs sm:text-sm">
                         <p class="pt-4">
-                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            <span class="text-[#A88B58] font-medium mr-2 font-serif">A.</span>
                             年齢だけで一律に決めているわけではありません。未就学のお子様も、集中力や発達段階を見ながらご相談いただけます。
                         </p>
                     </div>
@@ -755,8 +718,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
                 <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                        <span class="font-medium text-[#544A40] pr-4 text-left">
-                            <span class="text-[#A88B58] mr-2">Q.</span>
+                        <span class="font-medium text-[#544A40] pr-4 text-left text-xs sm:text-sm md:text-base">
+                            <span class="text-[#A88B58] mr-2 font-serif">Q.</span>
                             親がピアノを弾けなくても大丈夫ですか？
                         </span>
                         <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
@@ -765,9 +728,9 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             </svg>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9] text-xs sm:text-sm">
                         <p class="pt-4">
-                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            <span class="text-[#A88B58] font-medium mr-2 font-serif">A.</span>
                             大丈夫です。ご家庭で確認するポイントは、必要に応じて分かりやすくお伝えします。
                         </p>
                     </div>
@@ -775,8 +738,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
                 <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                        <span class="font-medium text-[#544A40] pr-4 text-left">
-                            <span class="text-[#A88B58] mr-2">Q.</span>
+                        <span class="font-medium text-[#544A40] pr-4 text-left text-xs sm:text-sm md:text-base">
+                            <span class="text-[#A88B58] mr-2 font-serif">Q.</span>
                             電子ピアノでも大丈夫ですか？
                         </span>
                         <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
@@ -785,18 +748,18 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             </svg>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9] text-xs sm:text-sm">
                         <p class="pt-4">
-                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
-                            88鍵盤でタッチによる強弱がつく電子ピアノを推奨しています。体験時に楽器環境を確認できます。
+                            <span class="text-[#A88B58] font-medium mr-2 font-serif">A.</span>
+                            88鍵盤で、タッチによる強弱がつく電子ピアノを推奨しています。体験時に楽器環境を確認できます。
                         </p>
                     </div>
                 </details>
 
                 <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                        <span class="font-medium text-[#544A40] pr-4 text-left">
-                            <span class="text-[#A88B58] mr-2">Q.</span>
+                        <span class="font-medium text-[#544A40] pr-4 text-left text-xs sm:text-sm md:text-base">
+                            <span class="text-[#A88B58] mr-2 font-serif">Q.</span>
                             練習しない子でも大丈夫ですか？
                         </span>
                         <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
@@ -805,9 +768,9 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             </svg>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9] text-xs sm:text-sm">
                         <p class="pt-4">
-                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            <span class="text-[#A88B58] font-medium mr-2 font-serif">A.</span>
                             まずは短い範囲から、続けやすい練習方法を一緒に考えます。忙しい週は練習量を調整することも可能です。
                         </p>
                     </div>
@@ -815,8 +778,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
                 <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                        <span class="font-medium text-[#544A40] pr-4 text-left">
-                            <span class="text-[#A88B58] mr-2">Q.</span>
+                        <span class="font-medium text-[#544A40] pr-4 text-left text-xs sm:text-sm md:text-base">
+                            <span class="text-[#A88B58] mr-2 font-serif">Q.</span>
                             きょうだいで続けてレッスンできますか？
                         </span>
                         <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
@@ -825,9 +788,9 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             </svg>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9] text-xs sm:text-sm">
                         <p class="pt-4">
-                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            <span class="text-[#A88B58] font-medium mr-2 font-serif">A.</span>
                             可能です。空き枠やご家庭の予定に合わせて、連続レッスンをご相談いただけます。
                         </p>
                     </div>
@@ -835,8 +798,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
                 <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                        <span class="font-medium text-[#544A40] pr-4 text-left">
-                            <span class="text-[#A88B58] mr-2">Q.</span>
+                        <span class="font-medium text-[#544A40] pr-4 text-left text-xs sm:text-sm md:text-base">
+                            <span class="text-[#A88B58] mr-2 font-serif">Q.</span>
                             体験レッスンだけでも大丈夫ですか？
                         </span>
                         <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
@@ -845,9 +808,9 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             </svg>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9] text-xs sm:text-sm">
                         <p class="pt-4">
-                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            <span class="text-[#A88B58] font-medium mr-2 font-serif">A.</span>
                             はい。ご自宅でのレッスンが合うか、楽器環境やお子様の様子を確認する機会としてご利用ください。
                         </p>
                     </div>
@@ -855,8 +818,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
 
                 <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
                     <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
-                        <span class="font-medium text-[#544A40] pr-4 text-left">
-                            <span class="text-[#A88B58] mr-2">Q.</span>
+                        <span class="font-medium text-[#544A40] pr-4 text-left text-xs sm:text-sm md:text-base">
+                            <span class="text-[#A88B58] mr-2 font-serif">Q.</span>
                             対応エリア外でも相談できますか？
                         </span>
                         <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
@@ -865,13 +828,29 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                             </svg>
                         </span>
                     </summary>
-                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9] text-xs sm:text-sm">
                         <p class="pt-4">
-                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            <span class="text-[#A88B58] font-medium mr-2 font-serif">A.</span>
                             江東区・中央区周辺を中心に出張しています。記載のない地域でも、移動時間や空き枠によって対応できる場合があります。
                         </p>
                     </div>
                 </details>
+            </div>
+
+            {/* FAQ Sub CTA */}
+            <div class="mt-12 text-center bg-[#FCFAF7] p-6 rounded-2xl border border-[#E8E2D9] max-w-2xl mx-auto shadow-sm">
+                <p class="text-xs sm:text-sm text-[#6B5F54] mb-4">他にも気になることやご不明な点があれば、LINEからお気軽にお問い合わせください。</p>
+                <a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-3.5 rounded-full font-bold shadow-sm transition-all duration-300 text-xs tracking-wider line_click_faq gap-2"
+                >
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                    </svg>
+                    LINEで子どものレッスンを相談する
+                </a>
             </div>
         </div>
 
@@ -882,8 +861,8 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
         </style>
     </section>
 
-    {/* Section 13: Service Areas */}
-    <section class="py-20 bg-[#FCFAF7] border-y border-[#E8E2D9]" id="areas">
+    {/* 11. 対応エリア */}
+    <section class="py-16 md:py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]" id="areas">
         <div class="max-w-4xl mx-auto px-6">
             <div class="text-center mb-12">
                 <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">対応エリア</h2>
@@ -895,54 +874,58 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
             </div>
 
             <div class="bg-white p-7 md:p-10 rounded-[2rem] border border-[#E8E2D9] shadow-sm text-center">
-                <p class="text-sm md:text-base text-[#6B5F54] leading-loose max-w-2xl mx-auto mb-8">
+                <p class="text-xs sm:text-sm md:text-base text-[#6B5F54] leading-loose max-w-2xl mx-auto mb-8">
                     江東区・中央区周辺を中心に、ご自宅への出張レッスンを行っています。<br />
                     記載のない地域でも、近隣であれば対応できる場合があります。<br />
                     移動時間や空き枠によって対応可否が変わるため、まずはご相談ください。
                 </p>
 
-                <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto mb-8">
+                {/* Tag style links */}
+                <div class="flex flex-wrap justify-center gap-2 sm:gap-3 max-w-2xl mx-auto mb-8">
                     {kidsAreas.map((area) => (
-                        <a href={`/area/${area.slug}`} class="inline-block px-5 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white transition-all hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] font-serif shadow-sm">
+                        <a href={`/area/${area.slug}`} class="inline-block px-4 py-2 rounded-full border border-[#E8E2D9] text-xs sm:text-sm text-[#544A40] bg-white transition-all hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] font-serif shadow-sm">
                             {area.name}
                         </a>
                     ))}
-                    <span class="inline-block px-5 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#6B5F54]/60 bg-transparent font-serif">
+                    <span class="inline-block px-4 py-2 rounded-full border border-[#E8E2D9] text-xs sm:text-sm text-[#6B5F54]/60 bg-transparent font-serif">
                         など
                     </span>
                 </div>
 
-                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed max-w-2xl mx-auto bg-[#FCFAF7] p-4 rounded-xl border border-[#E8E2D9]">
-                    対応エリアの詳細は<a href="/area/" class="text-[#A88B58] underline hover:no-underline">エリアページ</a>からご確認いただけます。
-                </p>
+                {/* Note box */}
+                <div class="text-xs sm:text-sm text-[#6B5F54] leading-relaxed max-w-lg mx-auto bg-[#FCFAF7] p-4 rounded-xl border border-[#E8E2D9] mb-8">
+                    記載のない地域でも、近隣であれば対応できる場合がございます。お気軽にお問い合わせください。
+                </div>
+
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-xl mx-auto">
+                    <a
+                        href="https://lin.ee/QL31tIZ"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white font-bold py-3.5 px-6 rounded-full transition-all duration-300 tracking-wider shadow-sm w-full sm:w-auto gap-2 line_click_area"
+                    >
+                        <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                        </svg>
+                        公式LINEで対応エリアを相談する
+                    </a>
+                    <a
+                        href="/area/"
+                        class="inline-flex items-center justify-center bg-white hover:bg-[#F7F3EE] text-[#544A40] border border-[#E8E2D9] font-bold py-3.5 px-6 rounded-full transition-all duration-300 tracking-wider shadow-sm w-full sm:w-auto"
+                    >
+                        対応エリアの詳細を見る
+                    </a>
+                </div>
             </div>
         </div>
     </section>
 
-    {/* Section 14: Related Links */}
-    <section class="py-12 bg-white">
-        <div class="max-w-4xl mx-auto px-6">
-            <div class="grid sm:grid-cols-3 gap-4 text-center">
-                <a href="/visit-lesson/" class="bg-[#FCFAF7] p-5 rounded-xl border border-[#E8E2D9] hover:border-[#A88B58] hover:shadow-sm transition-all group">
-                    <p class="text-xs text-[#A88B58] font-serif mb-1 tracking-wider">出張レッスン全般について</p>
-                    <p class="text-sm font-bold text-[#544A40] group-hover:text-[#A88B58] transition-colors">出張レッスンの詳細はこちら →</p>
-                </a>
-                <a href="/faq/" class="bg-[#FCFAF7] p-5 rounded-xl border border-[#E8E2D9] hover:border-[#A88B58] hover:shadow-sm transition-all group">
-                    <p class="text-xs text-[#A88B58] font-serif mb-1 tracking-wider">お問い合わせ前に</p>
-                    <p class="text-sm font-bold text-[#544A40] group-hover:text-[#A88B58] transition-colors">よくある質問はこちら →</p>
-                </a>
-                <a href="/adult-piano-lesson/" class="bg-[#FCFAF7] p-5 rounded-xl border border-[#E8E2D9] hover:border-[#A88B58] hover:shadow-sm transition-all group">
-                    <p class="text-xs text-[#A88B58] font-serif mb-1 tracking-wider">大人の方はこちら</p>
-                    <p class="text-sm font-bold text-[#544A40] group-hover:text-[#A88B58] transition-colors">大人のピアノレッスン →</p>
-                </a>
-            </div>
-        </div>
-    </section>
 
-    {/* Section 15: Final CTA */}
-    <section class="py-24 bg-[#544A40] text-white">
+
+    {/* 12. 最後のCTA */}
+    <section class="py-20 bg-[#544A40] text-white">
         <div class="max-w-4xl mx-auto px-6 text-center">
-            <h2 class="text-2xl md:text-3xl font-serif mb-4 text-white">
+            <h2 class="text-xl sm:text-2xl md:text-3xl font-serif mb-4 text-white leading-snug">
                 まずは無料体験レッスンで、<br class="hidden md:block" />お子様に合うかご確認ください
             </h2>
             <div class="flex items-center justify-center gap-4 text-[#D4C5B0] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase mb-8">
@@ -951,18 +934,19 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 <div class="h-[1px] w-8 bg-[#D4C5B0]/30"></div>
             </div>
 
-            <p class="mb-12 text-sm md:text-base opacity-90 leading-loose max-w-2xl mx-auto">
+            <p class="mb-10 text-xs sm:text-sm md:text-base opacity-90 leading-loose max-w-2xl mx-auto">
                 ピアノを続けられるか分からない、電子ピアノでも大丈夫か知りたい、曜日や時間だけ相談したいという段階でも大丈夫です。<br />
-                お子様の年齢や生活リズム、ご自宅の楽器環境を確認しながら、無理なく始められる方法を一緒に考えます。
+                お子様の年齢や生活リズム、ご自宅の楽器環境を確認しながら、無理なく始められる方法を一緒に考えます。<br />
+                体験レッスン後に、その場で入会を決める必要はありません。
             </p>
 
-            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-2xl mx-auto">
+            <div class="flex flex-col sm:flex-row justify-center items-center gap-4 max-w-lg mx-auto mb-6">
                 <a
                     href="https://lin.ee/QL31tIZ"
                     target="_blank"
                     rel="noopener noreferrer"
                     id="footer-cta-trial"
-                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto gap-2 line_click_kids_cta"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white font-bold py-4 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto gap-2 line_click_kids_cta"
                 >
                     <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
@@ -971,9 +955,36 @@ const kidsAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                 </a>
                 <a
                     href="/contact?from=kids-piano-lesson#mail-form"
-                    class="inline-flex items-center justify-center bg-white hover:bg-[#F7F3EE] text-[#544A40] font-bold py-4.5 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto"
+                    class="inline-flex items-center justify-center bg-white hover:bg-[#F7F3EE] text-[#544A40] font-bold py-4 px-8 rounded-full transition-all duration-300 tracking-wider shadow-md hover:shadow-lg transform hover:-translate-y-0.5 w-full sm:w-auto"
                 >
                     メールフォームから相談する
+                </a>
+            </div>
+
+            <p class="text-[11px] opacity-80 leading-relaxed max-w-md mx-auto">
+                ※友だち追加後、メッセージを送るまでこちらには通知されません。相談だけでも大丈夫です。
+            </p>
+        </div>
+    </section>
+
+    {/* Related Pages */}
+    <section class="py-12 bg-[#FCFAF7] border-t border-[#E8E2D9]">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-8">
+                <p class="text-xs text-[#6B5F54] tracking-wider uppercase font-serif">Related Pages</p>
+            </div>
+            <div class="flex flex-wrap justify-center gap-4">
+                <a href="/visit-lesson/" class="inline-block px-6 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] transition-all font-serif shadow-sm">
+                    出張レッスンについて
+                </a>
+                <a href="/adult-piano-lesson/" class="inline-block px-6 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] transition-all font-serif shadow-sm">
+                    大人のレッスンはこちら
+                </a>
+                <a href="/faq/" class="inline-block px-6 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] transition-all font-serif shadow-sm">
+                    よくある質問
+                </a>
+                <a href="/contact?from=kids-piano-lesson#mail-form" class="inline-block px-6 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] transition-all font-serif shadow-sm">
+                    メールフォームで相談する
                 </a>
             </div>
         </div>
