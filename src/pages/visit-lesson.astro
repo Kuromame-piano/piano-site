@@ -1,0 +1,791 @@
+---
+import Layout from "../layouts/Layout.astro";
+import FeeSystem from "../components/common/FeeSystem.astro";
+import InstructorProfile from "../components/common/InstructorProfile.astro";
+
+const pageTitle = "東京・江東区周辺の出張ピアノレッスン｜自宅で習える髙橋遊月ピアノ教室";
+const pageDescription = "江東区・中央区周辺で、ご自宅やスタジオへの出張ピアノレッスンを行っています。送迎不要で、子どもから大人まで対応。入会金無料・出張費込み・無料体験レッスン受付中です。";
+
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+                {
+                    "@type": "ListItem",
+                    "position": 1,
+                    "name": "Home",
+                    "item": "https://playon-music.jp",
+                },
+                {
+                    "@type": "ListItem",
+                    "position": 2,
+                    "name": "出張ピアノレッスン",
+                    "item": "https://playon-music.jp/visit-lesson",
+                },
+            ],
+        },
+    ],
+});
+
+const instructorIntro = `髙橋 遊月
+東京音楽大学 卒業
+
+江東区・清澄白河周辺を中心に、ご自宅へのピアノ出張レッスンを行っています。
+お子様の初めてのピアノから、大人の方の再開レッスンまで、目的やペースに合わせて個人レッスンを行います。`;
+
+const areas = [
+    { name: "清澄白河", slug: "kiyosumi-shirakawa" },
+    { name: "門前仲町", slug: "monzen-nakacho" },
+    { name: "木場", slug: "kiba" },
+    { name: "森下", slug: "morishita" },
+    { name: "住吉", slug: "sumiyoshi" },
+    { name: "豊洲", slug: "toyosu" },
+    { name: "有明", slug: "ariake" },
+    { name: "東雲", slug: "shinonome" },
+    { name: "月島", slug: "tsukishima" },
+    { name: "勝どき", slug: "kachidoki" },
+    { name: "晴海", slug: "harumi" },
+    { name: "人形町", slug: "ningyocho" },
+    { name: "水天宮前", slug: "suitengu-mae" },
+    { name: "日本橋浜町", slug: "hamacho" },
+];
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <script type="application/ld+json" set:html={schema} slot="head" />
+
+    {/* Section 0: Hero / First View */}
+    <section class="relative bg-gradient-to-b from-[#F7F3EE] to-[#FCFAF7] py-20 md:py-28 overflow-hidden">
+        <div class="max-w-6xl mx-auto px-6 relative z-10">
+            <div class="grid lg:grid-cols-[55%_45%] gap-12 items-center">
+                <div>
+                    <span class="inline-block bg-[#A88B58]/10 text-[#A88B58] text-xs font-bold tracking-[0.2em] px-4 py-1.5 rounded-full mb-6 font-serif uppercase">
+                        Visiting Piano Lesson
+                    </span>
+                    <h1 class="font-serif text-[#544A40] mb-6">
+                        <span class="block text-xs md:text-sm font-bold tracking-[0.15em] text-[#A88B58] mb-3 uppercase font-sans">
+                            東京・江東区周辺の出張ピアノレッスン
+                        </span>
+                        <span class="block text-3xl md:text-4xl lg:text-5xl leading-snug">
+                            ご自宅で、無理なく<br class="hidden md:block" />続けられるピアノレッスン
+                        </span>
+                    </h1>
+                    <p class="text-sm md:text-base text-[#6B5F54] leading-loose mb-10">
+                        髙橋遊月ピアノ教室では、江東区・中央区周辺を中心に、ご自宅または近隣スタジオへ講師が伺う出張ピアノレッスンを行っています。<br class="hidden md:block" />
+                        教室への送迎が難しいお子様の習い事としても、仕事後や休日に始めたい大人の方のレッスンとしてもご相談いただけます。
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="/contact?from=visit-lesson" class="inline-block bg-[#A88B58] text-white text-center font-bold px-8 py-4 rounded-full shadow-lg hover:bg-[#8B7347] transition-all duration-300 transform hover:-translate-y-1 text-sm tracking-wider whitespace-nowrap">
+                            無料体験レッスンを申し込む
+                        </a>
+                        <a href="/contact?from=visit-lesson&message=自宅まで来てもらえるかどうかの相談です。" class="inline-block bg-[#544A40] text-white text-center font-bold px-8 py-4 rounded-full shadow-lg hover:bg-[#3D352E] transition-all duration-300 transform hover:-translate-y-1 text-sm tracking-wider whitespace-nowrap">
+                            自宅まで来てもらえるか相談する
+                        </a>
+                    </div>
+                </div>
+                
+                <div class="grid grid-cols-2 gap-4">
+                    <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.129-1.125V11.25M3 14.25h16.5M3 14.25v-3.375C3 9.47 4.47 8 6.28 8h11.44c1.81 0 3.28 1.47 3.28 3.28v3.375" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">送迎不要</h3>
+                        <p class="text-xs text-[#6B5F54] leading-relaxed">移動時間を節約し、いつもの我が家で効率的レッスン</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 18.75a60.07 60.07 0 0 1 15.797 2.101c.727.198 1.453-.342 1.453-1.096V18.75M3.75 4.5h16.5M5.25 7.5h13.5m-12 3h10.5M8.25 13.5h7.5M10.5 16.5h3" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">出張費込み</h3>
+                        <p class="text-xs text-[#6B5F54] leading-relaxed">対応エリア内の交通費・出張費はすべて料金に含む</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">子ども・大人対応</h3>
+                        <p class="text-xs text-[#6B5F54] leading-relaxed">幼児の初めてのピアノから、大人の再開レッスンまで</p>
+                    </div>
+                    
+                    <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center transform hover:scale-[1.02] transition-transform duration-300">
+                        <div class="w-12 h-12 rounded-full bg-[#FCFAF7] border border-[#E8E2D9] flex items-center justify-center mb-4 text-[#A88B58]">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-6 h-6">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z" />
+                            </svg>
+                        </div>
+                        <h3 class="font-bold text-[#544A40] text-base mb-1 font-serif">無料体験あり</h3>
+                        <p class="text-xs text-[#6B5F54] leading-relaxed">まずはご自宅環境や相性を体験レッスンで確認</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 1: What is Visiting Piano Lesson */}
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">出張ピアノレッスンとは</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    What is Visiting Lesson
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <div class="bg-[#FCFAF7] p-8 md:p-12 rounded-[2rem] border border-[#E8E2D9] shadow-sm">
+                <h3 class="text-lg md:text-xl font-serif text-[#544A40] mb-6 leading-relaxed text-center">
+                    講師が生徒様のご自宅へ伺い、<br class="md:hidden" />普段練習しているピアノや電子ピアノでレッスンを行うスタイルです。
+                </h3>
+                <p class="text-sm md:text-base text-[#6B5F54] leading-loose text-center max-w-2xl mx-auto mb-10">
+                    教室へ通う必要がないため、送迎や移動の負担を減らしながら、いつもの環境で落ち着いてレッスンを受けられます。
+                </p>
+                
+                <div class="grid md:grid-cols-2 gap-8 mt-4">
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center mt-1 flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold font-serif text-[#544A40] text-sm md:text-base mb-1">自宅で受けられる</h4>
+                            <p class="text-xs text-[#6B5F54] leading-relaxed">いつもの安心できる部屋で、リラックスして講師とマンツーマンでピアノに向き合えます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center mt-1 flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold font-serif text-[#544A40] text-sm md:text-base mb-1">普段の楽器で練習できる</h4>
+                            <p class="text-xs text-[#6B5F54] leading-relaxed">レッスン時に、普段ご自宅で使っているピアノの感触や響きをそのまま確認・指導できます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center mt-1 flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold font-serif text-[#544A40] text-sm md:text-base mb-1">移動時間がかからない</h4>
+                            <p class="text-xs text-[#6B5F54] leading-relaxed">開始直前まで他の予定に取り組め、終わったらすぐに自宅での練習や宿題に移行できます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center mt-1 flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold font-serif text-[#544A40] text-sm md:text-base mb-1">子どもは保護者の送迎負担が減る</h4>
+                            <p class="text-xs text-[#6B5F54] leading-relaxed">送り迎えの予定を組む必要がなく、忙しい保護者様のスケジュールに余裕が生まれます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center mt-1 flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold font-serif text-[#544A40] text-sm md:text-base mb-1">大人は仕事後や休日に組み込みやすい</h4>
+                            <p class="text-xs text-[#6B5F54] leading-relaxed">週末や夜の枠を活用し、帰宅後のリラックスタイムを有効に使ってレッスンを受けられます。</p>
+                        </div>
+                    </div>
+                    
+                    <div class="flex items-start gap-4">
+                        <div class="w-6 h-6 rounded-full bg-[#A88B58]/10 text-[#A88B58] flex items-center justify-center mt-1 flex-shrink-0">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2.5" stroke="currentColor" class="w-3.5 h-3.5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" />
+                            </svg>
+                        </div>
+                        <div>
+                            <h4 class="font-bold font-serif text-[#544A40] text-sm md:text-base mb-1">家にピアノがない場合はスタジオも相談可能</h4>
+                            <p class="text-xs text-[#6B5F54] leading-relaxed">ご自宅に鍵盤がない場合でも、最寄りのピアノスタジオへ講師が伺ってレッスンできます。</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 2: Recommended For */}
+    <section class="py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">このような方におすすめです</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Recommended For
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between transform hover:scale-[1.01] transition-transform duration-300">
+                    <div>
+                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-3 font-serif">01. Busy Parents</span>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif">お子様の送迎が難しいご家庭</h3>
+                        <p class="text-sm text-[#6B5F54] leading-relaxed">学校・学童・塾のあとに教室へ移動する負担を減らしたい方に向いています。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between transform hover:scale-[1.01] transition-transform duration-300">
+                    <div>
+                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-3 font-serif">02. Consistent Practice</span>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif">自宅のピアノで習いたい方</h3>
+                        <p class="text-sm text-[#6B5F54] leading-relaxed">普段練習している楽器でレッスンを受けることで、日々の練習にもつなげやすくなります。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between transform hover:scale-[1.01] transition-transform duration-300">
+                    <div>
+                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-3 font-serif">03. Simple Start</span>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif">電子ピアノで始めたい方</h3>
+                        <p class="text-sm text-[#6B5F54] leading-relaxed">88鍵盤でタッチによる強弱がつく電子ピアノであれば、レッスン可能です。体験時に楽器環境の確認もできます。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between md:col-span-2 lg:col-span-1 transform hover:scale-[1.01] transition-transform duration-300">
+                    <div>
+                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-3 font-serif">04. Lifelong Learning</span>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif">大人になってから始めたい方</h3>
+                        <p class="text-sm text-[#6B5F54] leading-relaxed">初心者の方、昔習っていて再開したい方、好きな曲を弾きたい方にも対応しています。</p>
+                    </div>
+                </div>
+                
+                <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between md:col-span-2 lg:col-span-2 transform hover:scale-[1.01] transition-transform duration-300">
+                    <div>
+                        <span class="text-[10px] font-bold text-[#A88B58] tracking-widest uppercase block mb-3 font-serif">05. Lifestyle Fit</span>
+                        <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif">忙しい中でも無理なく続けたい方</h3>
+                        <p class="text-sm text-[#6B5F54] leading-relaxed">月1回〜4回まで、生活リズムに合わせて頻度を相談できます。無理のない進度プランをご提案します。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 3: Difference from regular classes */}
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">教室に通うレッスンとの違い</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Comparison
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <div class="overflow-x-auto shadow-sm rounded-2xl border border-[#E8E2D9]">
+                <table class="w-full min-w-[600px] border-collapse text-sm text-[#544A40]">
+                    <thead>
+                        <tr class="border-b border-[#E8E2D9] bg-[#FCFAF7]">
+                            <th class="py-4 px-6 text-left font-serif font-bold w-1/4">項目</th>
+                            <th class="py-4 px-6 text-left font-serif font-bold w-3/8 text-[#6B5F54]">通うレッスン</th>
+                            <th class="py-4 px-6 text-left font-serif font-bold w-3/8 text-[#A88B58] bg-[#A88B58]/5">出張レッスン</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-[#E8E2D9]">
+                        <tr>
+                            <td class="py-5 px-6 font-bold font-serif bg-[#FCFAF7]/30">移動</td>
+                            <td class="py-5 px-6 text-[#6B5F54] leading-relaxed">教室のピアノで受けられる一方、移動や送迎が必要。</td>
+                            <td class="py-5 px-6 leading-relaxed bg-[#A88B58]/5 font-medium">自宅で受けられるため、移動の負担が少ない。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-6 font-bold font-serif bg-[#FCFAF7]/30">楽器環境</td>
+                            <td class="py-5 px-6 text-[#6B5F54] leading-relaxed">教室に備え付けのアップライトやグランドピアノを使用。</td>
+                            <td class="py-5 px-6 leading-relaxed bg-[#A88B58]/5 font-medium">普段の練習環境（ご自宅のピアノ・電子ピアノ）をそのまま確認できる。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-6 font-bold font-serif bg-[#FCFAF7]/30">保護者の負担</td>
+                            <td class="py-5 px-6 text-[#6B5F54] leading-relaxed">教室への往復の付き添いや、レッスン中の待ち時間が発生する。</td>
+                            <td class="py-5 px-6 leading-relaxed bg-[#A88B58]/5 font-medium">付き添いや送迎は不要。ご自宅で他の家事等に時間をあてられます。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-6 font-bold font-serif bg-[#FCFAF7]/30">レッスン前後の時間</td>
+                            <td class="py-5 px-6 text-[#6B5F54] leading-relaxed">移動に必要な時間を見越してスケジュールを空ける必要がある。</td>
+                            <td class="py-5 px-6 leading-relaxed bg-[#A88B58]/5 font-medium">移動時間がかからないため、レッスン直前・直後を自由に活用できる。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-6 font-bold font-serif bg-[#FCFAF7]/30">練習習慣とのつながり</td>
+                            <td class="py-5 px-6 text-[#6B5F54] leading-relaxed">レッスンで使用するピアノと自宅練習用のピアノの差が生じやすい。</td>
+                            <td class="py-5 px-6 leading-relaxed bg-[#A88B58]/5 font-medium">レッスンで使用した環境のまま自宅練習ができるため、習慣化しやすい。</td>
+                        </tr>
+                        <tr>
+                            <td class="py-5 px-6 font-bold font-serif bg-[#FCFAF7]/30">向いている人</td>
+                            <td class="py-5 px-6 text-[#6B5F54] leading-relaxed">教室という専用の空間や、ホールのピアノで練習したい方。</td>
+                            <td class="py-5 px-6 leading-relaxed bg-[#A88B58]/5 font-medium">送迎の負担をなくしたい方、いつもの我が家で落ち着いて習いたい方。</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="mt-8 p-6 bg-[#FCFAF7] rounded-xl border border-[#E8E2D9] text-xs md:text-sm text-[#6B5F54] text-center">
+                どちらが絶対に良いということではなく、生活リズムや目的に合わせて選ぶことが大切です。
+            </div>
+        </div>
+    </section>
+
+    {/* Section 4: Home Lesson Preparation */}
+    <section class="py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">ご自宅レッスンで確認すること</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Lesson Preparation
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-[2rem] border border-[#E8E2D9] shadow-sm">
+                <p class="text-sm md:text-base text-[#6B5F54] leading-loose text-center max-w-2xl mx-auto mb-10">
+                    体験レッスンでは、演奏経験や目標だけでなく、ご自宅の楽器環境も確認します。<br />
+                    ピアノの種類、椅子の高さ、楽譜の置き方、練習できる時間帯などを見ながら、無理なく続けられる方法を一緒に考えます。
+                </p>
+                
+                <div class="grid sm:grid-cols-2 gap-x-8 gap-y-4 max-w-2xl mx-auto">
+                    <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9]">
+                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-[#544A40]">ピアノまたは電子ピアノの種類</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9]">
+                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-[#544A40]">椅子や足台の必要性</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9]">
+                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-[#544A40]">楽譜を読む経験</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9]">
+                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-[#544A40]">練習できる曜日や時間帯</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9]">
+                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-[#544A40]">お子様の場合は保護者の付き添い方</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9]">
+                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-[#544A40]">マンションでの音量面の不安</span>
+                    </div>
+                    
+                    <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9] sm:col-span-2">
+                        <svg class="w-5 h-5 text-[#A88B58] flex-shrink-0" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12c0 1.268-.63 2.39-1.593 3.068a3.745 3.745 0 0 1-1.043 3.296 3.745 3.745 0 0 1-3.296 1.043A3.745 3.745 0 0 1 12 21c-1.268 0-2.39-.63-3.068-1.593a3.746 3.746 0 0 1-3.296-1.043 3.745 3.745 0 0 1-1.043-3.296A3.745 3.745 0 0 1 3 12c0-1.268.63-2.39 1.593-3.068a3.745 3.745 0 0 1 1.043-3.296 3.746 3.746 0 0 1 3.296-1.043A3.746 3.746 0 0 1 12 3c1.268 0 2.39.63 3.068 1.593a3.746 3.746 0 0 1 3.296 1.043 3.746 3.746 0 0 1 1.043 3.296A3.745 3.745 0 0 1 21 12Z"></path>
+                        </svg>
+                        <span class="text-sm font-medium text-[#544A40]">スタジオ利用（会場費等が別途自己負担）が必要かどうか</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 5: Lesson Content */}
+    <section class="py-24 bg-white">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-2">レッスン内容</h2>
+                <p class="text-xs md:text-sm text-[#A88B58] font-serif mb-4 tracking-[0.15em]">一人ひとりの目的に合わせて進めます</p>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Lesson Content
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <p class="text-sm md:text-base text-[#6B5F54] leading-loose text-center max-w-2xl mx-auto mb-12">
+                楽譜の読み方、指の形、リズム、姿勢、練習の進め方など、基礎から確認します。<br />
+                お子様の場合は年齢や集中力に合わせて、大人の方の場合は弾きたい曲や生活リズムに合わせて内容を調整します。
+            </p>
+            
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">はじめてのピアノ</h3>
+                    <p class="text-sm text-[#6B5F54] leading-relaxed">未就学のお子様からスタート可能。楽しく音符やリズムに触れ、音を奏でる喜びを育みます。</p>
+                </div>
+                
+                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">楽譜の読み方</h3>
+                    <p class="text-sm text-[#6B5F54] leading-relaxed">音高や音価の基礎をゲームやワークを交えて学習し、自分で楽譜を読んで演奏する力を養います。</p>
+                </div>
+                
+                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">基礎練習</h3>
+                    <p class="text-sm text-[#6B5F54] leading-relaxed">美しい音色を出すための脱力や、指のコントロール、座り方、打鍵フォームを丁寧に指導します。</p>
+                </div>
+                
+                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">好きな曲への挑戦</h3>
+                    <p class="text-sm text-[#6B5F54] leading-relaxed">クラシックやポップス、学校で流行っている曲など、弾きたい曲を個々のレベルに編曲して練習します。</p>
+                </div>
+                
+                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">学校や保育の伴奏</h3>
+                    <p class="text-sm text-[#6B5F54] leading-relaxed">小中学校の合唱伴奏オーディション対策や、幼稚園・保育園・小学校の教職伴奏の指導を行います。</p>
+                </div>
+                
+                <div class="bg-[#FCFAF7] p-8 rounded-2xl border border-[#E8E2D9] hover:shadow-md transition-shadow duration-300">
+                    <h3 class="text-lg font-bold text-[#544A40] mb-3 font-serif border-b border-[#E8E2D9] pb-2">久しぶりの再開レッスン</h3>
+                    <p class="text-sm text-[#6B5F54] leading-relaxed">昔ピアノを習っていて、また弾きたくなった大人の方のレッスン。忘れた基礎を優しくおさらいします。</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 6: Instructor Introduction */}
+    <section class="py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]">
+        <div class="max-w-5xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">担当講師のご紹介</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Instructor Profile
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <InstructorProfile introduction={instructorIntro} />
+        </div>
+    </section>
+
+    {/* Section 7: Pricing / Fees */}
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">出張ピアノレッスンの料金</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Lesson Fees
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <FeeSystem />
+            
+            <div class="mt-8 text-center">
+                <p class="text-xs text-[#6B5F54]/80 leading-relaxed mb-10 max-w-lg mx-auto">
+                    ※スタジオ利用の場合は会場費（レンタル代）が別途実費での自己負担となります。
+                </p>
+                <a href="/contact?from=visit-lesson" class="inline-block bg-[#A88B58] text-white px-10 py-4 rounded-full font-bold hover:bg-[#8B7347] transition-all duration-300 transform hover:-translate-y-1 shadow-md tracking-wider text-sm">
+                    料金を確認して無料体験を申し込む
+                </a>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 8: Service Areas */}
+    <section class="py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]" id="areas">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">対応エリア</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Service Areas
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <div class="bg-white p-8 md:p-12 rounded-[2rem] border border-[#E8E2D9] shadow-sm text-center">
+                <p class="text-sm md:text-base text-[#6B5F54] leading-loose max-w-2xl mx-auto mb-10">
+                    江東区・中央区を中心に、公共交通機関で伺える範囲で出張レッスンを行っています。
+                </p>
+                
+                <div class="flex flex-wrap justify-center gap-3 md:gap-4 max-w-3xl mx-auto mb-10">
+                    {areas.map((area) => (
+                        <a href={`/area/${area.slug}`} class="inline-block px-5 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#544A40] bg-white transition-all hover:bg-[#FCFAF7] hover:border-[#A88B58] hover:text-[#A88B58] font-serif shadow-sm">
+                            {area.name}
+                        </a>
+                    ))}
+                    <span class="inline-block px-5 py-3 rounded-full border border-[#E8E2D9] text-sm text-[#6B5F54]/60 bg-transparent font-serif">
+                        など
+                    </span>
+                </div>
+                
+                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed max-w-2xl mx-auto bg-[#FCFAF7] p-5 rounded-xl border border-[#E8E2D9]">
+                    記載のない地域でも、近隣であれば対応可能な場合があります。自宅まで来てもらえるか分からない場合も、まずはお気軽にご相談ください。
+                </p>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 9: Flow of Trial Lesson */}
+    <section class="py-24 bg-white">
+        <div class="max-w-4xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">無料体験レッスンの流れ</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Trial Flow
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <div class="relative max-w-2xl mx-auto">
+                {/* Timeline vertical line */}
+                <div class="absolute left-6 md:left-1/2 top-0 bottom-0 w-0.5 bg-[#E8E2D9] -translate-x-1/2 hidden md:block"></div>
+                
+                <div class="space-y-12">
+                    {/* Step 1 */}
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="flex items-center w-full md:w-1/2 md:justify-end md:pr-12">
+                            <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
+                                <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">01</span>
+                                <h3 class="font-bold text-[#544A40] text-base mb-2">お問い合わせ</h3>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">お問い合わせフォームよりご連絡ください。相談だけでも大丈夫です。</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
+                    </div>
+
+                    {/* Step 2 */}
+                    <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center">
+                        <div class="flex items-center w-full md:w-1/2 md:justify-start md:pl-12">
+                            <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
+                                <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">02</span>
+                                <h3 class="font-bold text-[#544A40] text-base mb-2">メールでご返信</h3>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">講師よりメールにて、エリアやご希望の曜日・時間帯などを確認します。</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
+                    </div>
+
+                    {/* Step 3 */}
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="flex items-center w-full md:w-1/2 md:justify-end md:pr-12">
+                            <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
+                                <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">03</span>
+                                <h3 class="font-bold text-[#544A40] text-base mb-2">ご相談・準備</h3>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">ご自宅の楽器環境やレッスンへのご希望を確認します。必要に応じてお電話での相談も可能です。</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
+                    </div>
+
+                    {/* Step 4 */}
+                    <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center">
+                        <div class="flex items-center w-full md:w-1/2 md:justify-start md:pl-12">
+                            <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
+                                <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">04</span>
+                                <h3 class="font-bold text-[#544A40] text-base mb-2">無料体験レッスン</h3>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">ご自宅または近隣のスタジオで、30〜45分程度の体験レッスンを行います。</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
+                    </div>
+
+                    {/* Step 5 */}
+                    <div class="relative flex flex-col md:flex-row items-start md:items-center">
+                        <div class="flex items-center w-full md:w-1/2 md:justify-end md:pr-12">
+                            <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
+                                <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">05</span>
+                                <h3 class="font-bold text-[#544A40] text-base mb-2">レッスン内容のご提案</h3>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">体験レッスン後、生徒様の習熟度や生活リズムに合わせた教材、頻度、曜日、進め方をご提案します。</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
+                    </div>
+
+                    {/* Step 6 */}
+                    <div class="relative flex flex-col md:flex-row-reverse items-start md:items-center">
+                        <div class="flex items-center w-full md:w-1/2 md:justify-start md:pl-12">
+                            <div class="bg-[#FCFAF7] border border-[#E8E2D9] p-6 rounded-2xl shadow-sm w-full md:max-w-md relative z-10 hover:shadow-md transition-shadow duration-300">
+                                <span class="text-3xl font-serif text-[#A88B58]/20 font-bold absolute right-4 top-4">06</span>
+                                <h3 class="font-bold text-[#544A40] text-base mb-2">定期レッスン開始</h3>
+                                <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">曜日・教材などご提案内容に納得いただけましたら、定期レッスンを開始します。</p>
+                            </div>
+                        </div>
+                        <div class="absolute left-6 md:left-1/2 w-4 h-4 rounded-full bg-[#A88B58] border-4 border-white -translate-x-1/2 z-20 shadow-md"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    {/* Section 10: FAQ */}
+    <section class="py-24 bg-[#FCFAF7] border-y border-[#E8E2D9]">
+        <div class="max-w-3xl mx-auto px-6">
+            <div class="text-center mb-16">
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">よくある質問</h2>
+                <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    Frequently Asked Questions
+                    <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                </div>
+            </div>
+            
+            <div class="space-y-4">
+                <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
+                        <span class="font-medium text-[#544A40] pr-4 text-left">
+                            <span class="text-[#A88B58] mr-2">Q.</span>
+                            家にアップライトピアノやグランドピアノがなくても大丈夫ですか？
+                        </span>
+                        <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                        <p class="pt-4">
+                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            電子ピアノでも対応可能です。88鍵盤でタッチによる強弱がつくものを推奨しています。ご自宅で難しい場合はスタジオレッスンも相談できます。
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
+                        <span class="font-medium text-[#544A40] pr-4 text-left">
+                            <span class="text-[#A88B58] mr-2">Q.</span>
+                            出張費や交通費は別途かかりますか？
+                        </span>
+                        <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                        <p class="pt-4">
+                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            対応エリア内は、レッスン料金に出張費・交通費が含まれます。エリア外の場合は個別にご相談となります。
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
+                        <span class="font-medium text-[#544A40] pr-4 text-left">
+                            <span class="text-[#A88B58] mr-2">Q.</span>
+                            子どもも大人も受けられますか？
+                        </span>
+                        <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                        <p class="pt-4">
+                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            はい。未就学のお子様から大人・シニアの方まで対応しています。
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
+                        <span class="font-medium text-[#544A40] pr-4 text-left">
+                            <span class="text-[#A88B58] mr-2">Q.</span>
+                            まったくの初心者でも大丈夫ですか？
+                        </span>
+                        <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                        <p class="pt-4">
+                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            大丈夫です。楽譜の読み方、指の動かし方、姿勢など、基礎から確認します。
+                        </p>
+                    </div>
+                </details>
+
+                <details class="group bg-white rounded-lg shadow-sm border border-[#E8E2D9] overflow-hidden">
+                    <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7] transition-colors">
+                        <span class="font-medium text-[#544A40] pr-4 text-left">
+                            <span class="text-[#A88B58] mr-2">Q.</span>
+                            体験レッスンだけでも大丈夫ですか？
+                        </span>
+                        <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" class="w-5 h-5">
+                                <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                            </svg>
+                        </span>
+                    </summary>
+                    <div class="px-6 pb-6 text-[#544A40]/80 leading-7 border-t border-[#E8E2D9]">
+                        <p class="pt-4">
+                            <span class="text-[#A88B58] font-medium mr-2">A.</span>
+                            はい。まずはご自宅でのレッスンが合うか、楽器環境や曜日・時間帯を確認する機会としてご利用ください。
+                        </p>
+                    </div>
+                </details>
+            </div>
+        </div>
+        
+        <style>
+            details summary::-webkit-details-marker {
+                display: none;
+            }
+        </style>
+    </section>
+
+    {/* Section 11: Final Call To Action */}
+    <section class="py-24 bg-[#544A40] text-white">
+        <div class="max-w-4xl mx-auto px-6 text-center">
+            <h2 class="text-2xl md:text-3xl font-serif mb-4 text-white">
+                まずは無料体験レッスンでご相談ください
+            </h2>
+            <div class="flex items-center justify-center gap-4 text-[#D4C5B0] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase mb-8">
+                <div class="h-[1px] w-8 bg-[#D4C5B0]/30"></div>
+                Free Trial
+                <div class="h-[1px] w-8 bg-[#D4C5B0]/30"></div>
+            </div>
+            
+            <p class="mb-12 text-sm md:text-base opacity-90 leading-loose max-w-2xl mx-auto">
+                自宅まで来てもらえるか、電子ピアノでも大丈夫か、曜日や時間だけ相談したいという段階でも大丈夫です。<br class="hidden md:block" />
+                レッスンを始めるか迷っている方も、まずは無料体験レッスンで雰囲気をご確認ください。
+            </p>
+            
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="/contact?from=visit-lesson" class="inline-block bg-[#A88B58] text-white px-10 py-4 rounded-full font-bold hover:bg-[#8B7347] transition-all duration-300 shadow-md tracking-wider text-sm transform hover:-translate-y-1 whitespace-nowrap">
+                    無料体験レッスンを申し込む
+                </a>
+                <a href="#areas" class="inline-block bg-white/10 text-white border border-white/20 px-10 py-4 rounded-full font-bold hover:bg-white/20 transition-all duration-300 tracking-wider text-sm transform hover:-translate-y-1 whitespace-nowrap">
+                    対応エリアを確認する
+                </a>
+            </div>
+        </div>
+    </section>
+</Layout>
