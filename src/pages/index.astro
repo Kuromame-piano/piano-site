@@ -3,13 +3,14 @@ import Layout from "../layouts/Layout.astro";
 import { client } from "../lib/microcms";
 
 import HomeHero from "../components/home/HomeHero.astro";
-import NewsSection from "../components/home/NewsSection.astro";
 import ProfileSection from "../components/home/ProfileSection.astro";
 import MovieSection from "../components/home/MovieSection.astro";
-import PhilosophySection from "../components/home/PhilosophySection.astro";
 import LessonStyleSection from "../components/home/LessonStyleSection.astro";
 import PriceSection from "../components/home/PriceSection.astro";
 import TargetAreaSection from "../components/home/TargetAreaSection.astro";
+import LineCTASection from "../components/home/LineCTASection.astro";
+import LessonVoiceSection from "../components/lesson/LessonVoiceSection.astro";
+import HomeFAQSection from "../components/home/HomeFAQSection.astro";
 import ContactCTASection from "../components/home/ContactCTASection.astro";
 
 // SEO用の設定
@@ -134,14 +135,33 @@ const schema = JSON.stringify({
   />
 
   <main class="bg-[#FCFAF7] text-[#544A40] font-sans relative">
+    {/* 1. ファーストビュー */}
     <HomeHero />
-    <NewsSection newsContents={newsContents} />
+    {/* 2. 講師紹介 */}
     <ProfileSection />
     <MovieSection />
-    <PhilosophySection />
+
+    {/* 3. レッスンスタイル */}
     <LessonStyleSection />
+
+    {/* 4. レッスン料金 */}
     <PriceSection />
+
+    {/* 5. 対応エリア */}
     <TargetAreaSection />
+
+    {/* 6. 公式LINE CTA */}
+    <LineCTASection />
+
+    {/* 7. 生徒様の声 */}
+    <LessonVoiceSection />
+
+    {/* 8. FAQ抜粋 */}
+    <HomeFAQSection />
+
+
+
+    {/* 10. 最終CTA */}
     <ContactCTASection />
   </main>
 </Layout>

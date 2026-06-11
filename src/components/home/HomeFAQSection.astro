@@ -1,0 +1,91 @@
+---
+const faqs = [
+    {
+        q: "家にアップライトピアノやグランドピアノがなくても大丈夫ですか？",
+        a: "はい、大丈夫です。電子ピアノ（88鍵盤あり、タッチによる強弱がつくもの推奨）をお持ちであればレッスン可能です。ご自宅でのレッスンが難しい場合は、近郊のレンタルスタジオ等を利用してレッスンを行うことも可能です（別途会場費がかかります）。",
+    },
+    {
+        q: "まったくの初心者で楽譜も読めませんが、レッスンを受けられますか？",
+        a: "もちろんです！楽譜の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。お子様はもちろん、大人になってから初めてピアノに触れる方も多くいらっしゃいますので、安心してお申し込みください。",
+    },
+    {
+        q: "出張費や交通費は別途かかりますか？",
+        a: "江東区・中央区を中心とした18エリア（清澄白河・豊洲・月島・勝どき・門前仲町・有明・晴海・木場・人形町など）への出張については、レッスン料金に出張費・交通費があらかじめ含まれておりますので、別途ご請求することはございません。",
+    },
+    {
+        q: "無料体験レッスンはありますか？",
+        a: "はい、初回は無料の体験レッスンを行っております（30〜45分程度）。体験レッスンでは現在の演奏状況や目標、ご希望の日程等をお聞きした上で、最適なレッスン内容をご提案いたします。お申し込みは公式LINEまたはメールフォームから受け付けております。",
+    },
+];
+---
+
+<section class="py-20 bg-[#FCFAF7] border-t border-[#F1EBE4]">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#544A40]">
+                よくあるご質問
+            </h2>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                FAQ
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+
+        <div class="space-y-4 max-w-3xl mx-auto">
+            {
+                faqs.map((faq) => (
+                    <details class="group bg-white rounded-xl shadow-sm border border-[#F1EBE4] overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7]/50 transition-colors">
+                            <span class="font-bold font-serif text-[#544A40] pr-4 text-left text-sm md:text-base">
+                                <span class="text-[#A88B58] mr-2">Q.</span>
+                                {faq.q}
+                            </span>
+                            <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-sm leading-loose text-[#6B5F54] border-t border-[#F1EBE4]">
+                            <p class="pt-4">
+                                <span class="text-[#A88B58] font-bold mr-2">
+                                    A.
+                                </span>
+                                {faq.a}
+                            </p>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+
+        <div class="mt-12 text-center">
+            <a
+                href="/faq"
+                class="inline-block border border-[#A88B58] text-[#A88B58] px-10 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-all text-sm tracking-widest font-medium"
+            >
+                よくある質問一覧を見る →
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+</style>
