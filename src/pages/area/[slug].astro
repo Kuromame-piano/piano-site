@@ -48,7 +48,7 @@ const objectPosition = getObjectPosition(area.slug);
 
 const areaGroup = areaGroups.find((g) => g.areaSlugs.includes(area.slug));
 const district = areaGroup?.district ?? "";
-const pageTitle = `${area.name}のピアノ教室｜${district ? district + "・" : ""}出張レッスン専門・髙橋遊月ピアノ教室`;
+const pageTitle = `${area.name}の大人向けピアノ教室｜自宅・近隣スタジオで受けられる出張レッスン｜髙橋遊月ピアノ教室`;
 const pageDescription =
     area.seo?.metaDescription ||
     `${area.name}のピアノ教室をお探しの方へ。講師がご自宅へ伺う出張専門のピアノ教室です。${area.metaSnippet || area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;

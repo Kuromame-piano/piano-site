@@ -6,8 +6,8 @@ import { Image } from "astro:assets";
 import Breadcrumbs from "../components/common/Breadcrumbs.astro";
 import heroPiano from "../assets/images/hero-piano.webp";
 
-const pageTitle = "出張ピアノレッスン｜江東区・中央区周辺｜忙しい大人のための通学不要レッスン";
-const pageDescription = "江東区・中央区周辺で大人向けの出張ピアノレッスンを行っています。ご自宅のピアノや電子ピアノで受講でき、対応エリア内は出張費込み。大人の初心者・再開者・趣味のレッスンを中心に、無理のないペースで受講いただけます。";
+const pageTitle = "出張ピアノレッスン｜江東区・中央区周辺の自宅で習えるピアノ教室";
+const pageDescription = "江東区・中央区周辺で出張ピアノレッスンを行っています。ご自宅のピアノや電子ピアノで受講でき、対応エリア内は出張費・交通費込み。子どもから大人の初心者・再開レッスンまで、無料体験レッスンでご相談いただけます。";
 
 const schema = JSON.stringify({
     "@context": "https://schema.org",
@@ -32,13 +32,13 @@ const schema = JSON.stringify({
     ],
 });
 
-const instructorIntro = `清澄白河を拠点に、江東区・中央区周辺で大人向けの出張ピアノレッスンを行っています。
+const instructorIntro = `江東区・中央区周辺を中心に、ご自宅や近隣スタジオでの出張ピアノレッスンを行っています。
 
-大人の初心者・再開者・お好きな曲を仕上げたい方を中心に、お一人おひとりの目的や生活リズムに合わせて進めます。
+お子様の初めてのピアノから、大人の初心者・再開レッスンまで、年齢や目的に合わせて進めます。
 
-通学不要で、ご自宅や近隣のレンタルスタジオでリラックスしてピアノを学んでいただけます。
+ご自宅の楽器環境や生活リズムも確認しながら、無理なく続けられる形を一緒に考えます。
 
-体験レッスンでは、レッスン内容だけでなく、楽器環境や練習時間の確保などについてもお気軽にご相談いただけます。`;
+初回体験では、レッスン内容だけでなく、楽器環境や当日の流れも確認していただけます。`;
 
 const areas = [
     { name: "清澄白河", slug: "kiyosumi-shirakawa" },
@@ -126,8 +126,8 @@ const areas = [
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.129-1.125V11.25M3 14.25h16.5M3 14.25v-3.375C3 9.47 4.47 8 6.28 8h11.44c1.81 0 3.28 1.47 3.28 3.28v3.375" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">通学不要</h3>
-                    <p class="text-[10px] text-[#6B5F54] leading-relaxed">ご自宅やスタジオで受けられるため、通学の手間や移動時間がかかりません</p>
+                    <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">送迎不要</h3>
+                    <p class="text-[10px] text-[#6B5F54] leading-relaxed">ご自宅で受けられるため、送迎や移動がありません</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-all duration-300">
@@ -146,8 +146,8 @@ const areas = [
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                         </svg>
                     </div>
-                    <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">初心者・再開者対応</h3>
-                    <p class="text-[10px] text-[#6B5F54] leading-relaxed">大人の初心者や再開レッスンを主軸にサポートします</p>
+                    <h3 class="font-bold text-[#544A40] text-xs sm:text-sm mb-1 font-serif">子ども・大人対応</h3>
+                    <p class="text-[10px] text-[#6B5F54] leading-relaxed">未就学のお子様から大人の方まで対応可能です</p>
                 </div>
 
                 <div class="bg-white p-6 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-center items-center text-center hover:shadow-md transition-all duration-300">
@@ -188,9 +188,9 @@ const areas = [
                             <path stroke-linecap="round" stroke-linejoin="round" d="M8.25 18.75a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h6m-9 0H3.375a1.125 1.125 0 0 1-1.125-1.125V14.25m17.25 4.5a1.5 1.5 0 0 1-3 0m3 0a1.5 1.5 0 0 0-3 0m3 0h1.125c.621 0 1.129-.504 1.129-1.125V11.25M3 14.25h16.5M3 14.25v-3.375C3 9.47 4.47 8 6.28 8h11.44c1.81 0 3.28 1.47 3.28 3.28v3.375" />
                         </svg>
                     </div>
-                    <h3 class="text-base md:text-lg font-bold text-[#544A40] mb-3 font-serif">通学の手間と時間をゼロに</h3>
+                    <h3 class="text-base md:text-lg font-bold text-[#544A40] mb-3 font-serif">送迎の負担を減らせる</h3>
                     <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">
-                        教室まで通う必要がなく、ご自宅や近隣スタジオでレッスンを受けられます。忙しい仕事や家事の合間にも無理なく続けやすいシステムです。
+                        教室まで移動せず、ご自宅でレッスンを受けられます。お子様の送迎や待ち時間の負担を減らせます。
                     </p>
                 </div>
                 
@@ -228,9 +228,9 @@ const areas = [
                             <path stroke-linecap="round" stroke-linejoin="round" d="M15.75 6a3.75 3.75 0 1 1-7.5 0 3.75 3.75 0 0 1 7.5 0ZM4.501 20.118a7.5 7.5 0 0 1 14.998 0A17.933 17.933 0 0 1 12 21.75c-2.676 0-5.216-.584-7.499-1.632Z" />
                         </svg>
                     </div>
-                    <h3 class="text-base md:text-lg font-bold text-[#544A40] mb-3 font-serif">大人向け中心の個別サポート</h3>
+                    <h3 class="text-base md:text-lg font-bold text-[#544A40] mb-3 font-serif">子どもも大人も相談できる</h3>
                     <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed">
-                        大人の初心者・再開者・好きな曲に取り組みたい方を主軸に、お一人おひとりの生活リズムやご要望に合わせて進めます。（お子さまのレッスンもご相談いただけます）
+                        未就学のお子様から、大人の初心者・再開レッスンまで、年齢や目的に合わせて進めます。
                     </p>
                 </div>
                 
@@ -411,11 +411,11 @@ const areas = [
                     {[
                         "ピアノまたは電子ピアノの種類",
                         "電子ピアノの鍵盤数、タッチ、ペダル",
-                        "椅子や姿勢の合わせ方",
-                        "楽譜を置く位置や照明",
+                        "椅子や足台の必要性",
+                        "楽譜を置く位置",
                         "練習できる曜日や時間帯",
-                        "マンションでの音量や防音面",
-                        "お仕事や家事とのスケジュール調整",
+                        "マンションでの音量面",
+                        "お子様の場合の保護者の付き添い方",
                         "スタジオ利用が必要かどうか"
                     ].map((item) => (
                         <div class="flex items-center gap-3 py-3 border-b border-[#E8E2D9]/80">
@@ -536,6 +536,21 @@ const areas = [
             </p>
 
             <div class="grid md:grid-cols-2 gap-8 max-w-3xl mx-auto">
+                {/* Child Card */}
+                <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between transform hover:scale-[1.01] transition-transform duration-300">
+                    <div>
+                        <h3 class="font-bold text-[#544A40] text-base md:text-lg mb-4 font-serif border-b border-[#E8E2D9] pb-3">
+                            子どもの出張ピアノレッスン
+                        </h3>
+                        <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed mb-8">
+                            送迎の負担を減らし、ご自宅で始められる子ども向けレッスンです。未就学のお子様、小学生、中学生のレッスンをご相談いただけます。
+                        </p>
+                    </div>
+                    <a href="/kids-piano-lesson/" class="block text-center bg-[#A88B58] hover:bg-[#8B7347] text-white font-bold py-3.5 rounded-full transition-all text-xs tracking-wider">
+                        子どものレッスンを見る
+                    </a>
+                </div>
+
                 {/* Adult Card */}
                 <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between transform hover:scale-[1.01] transition-transform duration-300">
                     <div>
@@ -543,26 +558,11 @@ const areas = [
                             大人の出張ピアノレッスン
                         </h3>
                         <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed mb-8">
-                            初心者の方、子どもの頃に習っていて久しぶりに再開したい方、特定の好きな曲や課題曲を丁寧に仕上げたい方向けの個人レッスンです。
+                            初心者の方、子どもの頃に習っていて再開したい方、好きな曲を弾きたい方もご相談いただけます。
                         </p>
                     </div>
                     <a href="/adult-piano-lesson/" class="block text-center bg-[#544A40] hover:bg-[#3D352E] text-white font-bold py-3.5 rounded-full transition-all text-xs tracking-wider">
                         大人のレッスンを見る
-                    </a>
-                </div>
-
-                {/* Child Card */}
-                <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col justify-between transform hover:scale-[1.01] transition-transform duration-300 opacity-95">
-                    <div>
-                        <h3 class="font-bold text-[#544A40] text-base md:text-lg mb-4 font-serif border-b border-[#E8E2D9] pb-3">
-                            子どもの出張ピアノレッスン（ご相談可）
-                        </h3>
-                        <p class="text-xs md:text-sm text-[#6B5F54] leading-relaxed mb-8">
-                            大人向けレッスンを主軸としておりますが、お子さまの出張レッスン（小学生・中学生など）についてもスケジュール調整のうえ、ご相談いただけます。
-                        </p>
-                    </div>
-                    <a href="/kids-piano-lesson/" class="block text-center bg-[#A88B58] hover:bg-[#8B7347] text-white font-bold py-3.5 rounded-full transition-all text-xs tracking-wider">
-                        子どものレッスンを見る
                     </a>
                 </div>
             </div>

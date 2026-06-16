@@ -3,7 +3,6 @@ import Layout from "../layouts/Layout.astro";
 import { client } from "../lib/microcms";
 
 import HomeHero from "../components/home/HomeHero.astro";
-import TargetGuideSection from "../components/home/TargetGuideSection.astro";
 import ProfileSection from "../components/home/ProfileSection.astro";
 import MovieSection from "../components/home/MovieSection.astro";
 import LessonStyleSection from "../components/home/LessonStyleSection.astro";
@@ -16,9 +15,9 @@ import ContactCTASection from "../components/home/ContactCTASection.astro";
 
 // SEO用の設定
 const pageTitle =
-  "清澄白河発｜大人の出張ピアノレッスン｜髙橋遊月ピアノ教室";
+  "江東区・清澄白河のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室";
 const pageDescription =
-  "清澄白河を拠点に、江東区・中央区周辺で大人向けの出張ピアノレッスンを行っています。初心者・再開したい方・好きな曲や課題曲を仕上げたい方へ。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。";
+  "江東区・中央区エリアへの出張ピアノ教室。清澄白河・豊洲・月島・勝どき・門前仲町・有明・晴海・木場・人形町など18エリア対応。講師がご自宅へ伺う送迎不要のマンツーマン指導。東京音大卒女性講師。無料体験レッスン受付中。";
 import heroPiano from "../assets/images/hero-piano.webp";
 const heroImage = heroPiano.src;
 
@@ -138,9 +137,7 @@ const schema = JSON.stringify({
   <main class="bg-[#FCFAF7] text-[#544A40] font-sans relative">
     {/* 1. ファーストビュー */}
     <HomeHero />
-    {/* 2. 大人向け3タイプの訴求 */}
-    <TargetGuideSection />
-    {/* 3. 講師紹介 */}
+    {/* 2. 講師紹介 */}
     <ProfileSection />
     <MovieSection />
 
