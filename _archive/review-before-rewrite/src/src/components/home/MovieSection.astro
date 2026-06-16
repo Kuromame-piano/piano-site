@@ -1,0 +1,451 @@
+---
+import { Image } from "astro:assets";
+// YouTube動画のデータ構成
+import thumb1 from "../../assets/images/thumbnails/xh65ftmaIgc.jpg";
+import thumb2 from "../../assets/images/thumbnails/OIRmBSviWrw.jpg";
+import thumb3 from "../../assets/images/thumbnails/31muaoyHDuo.jpg";
+
+const videos = [
+    { id: "xh65ftmaIgc", thumbnail: thumb1 },
+    { id: "OIRmBSviWrw", thumbnail: thumb2 },
+    { id: "31muaoyHDuo", thumbnail: thumb3 },
+];
+---
+
+<section class="py-24 bg-[#FCFAF7] overflow-hidden">
+    <div class="w-full max-w-[1400px] mx-auto">
+        <div class="text-center mb-12 px-6">
+            <h2 class="text-2xl md:text-3xl font-serif mb-4">紹介動画</h2>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                Movie
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+        <div class="relative py-4">
+            <div
+                id="video-slider"
+                class="flex overflow-x-auto gap-6 px-[7.5%] md:px-[15%] pb-8 items-center transition-opacity duration-500"
+                style="scrollbar-width: none; -ms-overflow-style: none; visibility: hidden; opacity: 0;"
+            >
+                {
+                    videos.map((video, index) => (
+                        <div
+                            class="video-slide min-w-[85%] md:min-w-[70%] lg:min-w-[55%] snap-center transition-all duration-500 ease-out opacity-40 scale-95 lg:scale-[0.93] origin-center relative"
+                            data-index={index}
+                        >
+                            <div class="video-wrapper group aspect-video w-full rounded-2xl overflow-hidden shadow-xl border border-[#E8E2D9] bg-black relative">
+                                <iframe
+                                    id={`player-${index}`}
+                                    data-src={`https://www.youtube.com/embed/${video.id}?enablejsapi=1&rel=0&modestbranding=1&controls=1`}
+                                    title="YouTube video player"
+                                    class="w-full h-full absolute top-0 left-0 z-10 scale-[1.02]"
+                                    frameborder="0"
+                                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                                    referrerpolicy="strict-origin-when-cross-origin"
+                                    allowfullscreen
+                                    loading="lazy"
+                                />
+
+                                <Image
+                                    src={video.thumbnail}
+                                    alt="Video thumbnail"
+                                    width={520}
+                                    height={293}
+                                    class="video-thumbnail video-poster absolute inset-0 z-20 w-full h-full object-cover transition-opacity duration-300 pointer-events-none"
+                                />
+
+                                <div
+                                    class="hidden md:block absolute inset-0 z-40 bg-transparent cursor-pointer slide-click-area"
+                                    data-index={index}
+                                />
+                                <div
+                                    class="video-overlay absolute inset-0 z-30 flex items-center justify-center bg-black/10 cursor-pointer pointer-events-auto md:pointer-events-none video-trigger-area"
+                                    data-index={index}
+                                >
+                                    <button
+                                        class="bg-white/90 text-[#A88B58] rounded-full p-4 md:p-5 shadow-2xl backdrop-blur-sm transform transition-transform duration-300 group-hover:scale-110"
+                                        aria-label="再生する"
+                                    >
+                                        <svg
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            viewBox="0 0 24 24"
+                                            fill="currentColor"
+                                            class="w-8 h-8 md:w-10 md:h-10 pl-1"
+                                        >
+                                            <path
+                                                fill-rule="evenodd"
+                                                d="M4.5 5.653c0-1.426 1.529-2.33 2.779-1.643l11.54 6.348c1.295.712 1.295 2.573 0 3.285L7.28 19.991c-1.25.687-2.779-.217-2.779-1.643V5.653z"
+                                                clip-rule="evenodd"
+                                            />
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    ))
+                }
+            </div>
+
+            <div class="flex justify-center gap-3 mt-2">
+                {
+                    videos.map((_, index) => (
+                        <button
+                            class="slider-dot w-2 h-2 rounded-full bg-[#E8E2D9] transition-all duration-300 hover:bg-[#A88B58]/50"
+                            data-index={index}
+                            aria-label={`${index + 1}番目の動画へ`}
+                        />
+                    ))
+                }
+            </div>
+        </div>
+
+        <p
+            class="mt-8 text-center text-[#6B5F54] text-sm leading-loose font-serif px-6"
+        >
+            レッスンの雰囲気や演奏の様子を<br
+                class="md:hidden"
+            />動画でご覧いただけます。<br />
+            <span class="text-xs opacity-70 md:hidden"
+                >※左右にスワイプして他の動画をご覧になれます。</span
+            >
+            <span class="text-xs opacity-70 hidden md:inline"
+                >※左右の動画をクリックして他の動画をご覧になれます。</span
+            >
+        </p>
+    </div>
+</section>
+<style>
+  #video-slider::-webkit-scrollbar {
+    display: none;
+  }
+
+  .video-slide {
+    will-change: transform, opacity;
+  }
+
+  /* pointer-events-noneユーティリティが効かない場合のための念の為のCSS */
+  .video-slide .video-overlay,
+  .video-slide .video-poster {
+    pointer-events: none;
+  }
+
+  /* iframeはクリック可能 */
+  .video-slide iframe {
+    pointer-events: auto;
+  }
+
+  .video-slide.is-playing .video-overlay,
+  .video-slide.is-playing .video-poster {
+    opacity: 0;
+    /* 再生中は完全に非表示にする */
+    visibility: hidden;
+    transition:
+      opacity 0.5s ease,
+      visibility 0.5s;
+  }
+
+  .video-slide.active {
+    opacity: 1;
+    transform: scale(1);
+    z-index: 10;
+  }
+
+  /* PCのみ: アクティブなスライドではスライド全体のクリック判定を消して、再生ボタン付きのオーバーレイを優先する */
+  .video-slide.active .slide-click-area {
+    display: none;
+  }
+
+  /* PCのみ: 非再生時はオーバーレイをクリック可能にする */
+  .video-slide:not(.is-playing) .video-overlay {
+    pointer-events: auto;
+  }
+
+  /* モバイル動画UX改善 */
+  @media (max-width: 767px) {
+    /* 再生前はiframeへのタッチを無効化（スワイプ優先） */
+    .video-slide:not(.is-playing) iframe {
+      pointer-events: none;
+    }
+
+    /* 再生中はiframeのコントロールを有効に */
+    .video-slide.is-playing iframe {
+      pointer-events: auto;
+    }
+
+    /* 再生前のオーバーレイはタップ可能 */
+    .video-slide:not(.is-playing) .video-overlay {
+      pointer-events: auto;
+    }
+  }
+</style>
+
+<script>
+  // グローバル宣言（TypeScriptエラー回避のため）
+  declare global {
+    interface Window {
+      onYouTubeIframeAPIReady: () => void;
+      YT: any;
+    }
+  }
+
+  const slider = document.getElementById("video-slider");
+  const dots = document.querySelectorAll(".slider-dot");
+  const slides = document.querySelectorAll(".video-slide");
+
+  if (slider && slides.length > 0) {
+    const getActiveIndex = () => {
+      const sliderRect = slider.getBoundingClientRect();
+      const sliderCenter = sliderRect.left + sliderRect.width / 2;
+      let minDistance = Infinity;
+      let index = 0;
+      slides.forEach((slide, i) => {
+        const slideRect = slide.getBoundingClientRect();
+        const slideCenter = slideRect.left + slideRect.width / 2;
+        const distance = Math.abs(sliderCenter - slideCenter);
+        if (distance < minDistance) {
+          minDistance = distance;
+          index = i;
+        }
+      });
+      return index;
+    };
+
+    const updateStyles = () => {
+      const activeIndex = getActiveIndex();
+      slides.forEach((slide, index) => {
+        if (index === activeIndex) {
+          slide.classList.add("active");
+          slide.classList.remove("opacity-40", "scale-95", "lg:scale-[0.93]");
+        } else {
+          slide.classList.remove("active");
+          slide.classList.add("opacity-40", "scale-95");
+          if (window.innerWidth >= 1024) {
+            slide.classList.add("lg:scale-[0.93]");
+          }
+
+          // モバイルのみ: スワイプで非アクティブになったら動画を停止
+          if (window.innerWidth < 768) {
+            // @ts-ignore
+            if (
+              typeof players !== "undefined" &&
+              players[index] &&
+              typeof players[index].pauseVideo === "function"
+            ) {
+              // @ts-ignore
+              players[index].pauseVideo();
+            }
+          }
+        }
+      });
+      dots.forEach((dot, index) => {
+        if (index === activeIndex) {
+          dot.classList.add("bg-[#A88B58]", "w-4");
+          dot.classList.remove("bg-[#E8E2D9]", "w-2");
+        } else {
+          dot.classList.remove("bg-[#A88B58]", "w-4");
+          dot.classList.add("bg-[#E8E2D9]", "w-2");
+        }
+      });
+    };
+
+    // 初期位置セット
+    const initScroll = () => {
+      if (!slides[1] || !slider) return;
+      slider.style.scrollSnapType = "none";
+      slider.style.scrollBehavior = "auto";
+      const setPosition = () => {
+        const slide = slides[1];
+        const sliderRect = slider.getBoundingClientRect();
+        const slideRect = slide.getBoundingClientRect();
+        const currentOffset = slideRect.left - sliderRect.left;
+        const centerOffset = (sliderRect.width - slideRect.width) / 2;
+        slider.scrollLeft += currentOffset - centerOffset;
+        updateStyles();
+        requestAnimationFrame(() => {
+          slider.style.visibility = "visible";
+          slider.style.opacity = "1";
+          setTimeout(() => {
+            slider.style.scrollSnapType = "x mandatory";
+            slider.style.scrollBehavior = "smooth";
+          }, 50);
+        });
+      };
+      requestAnimationFrame(() => requestAnimationFrame(setPosition));
+    };
+
+    if (document.readyState === "loading") {
+      document.addEventListener("DOMContentLoaded", initScroll);
+    } else {
+      initScroll();
+    }
+
+    // スクロールイベント
+    let isScrolling: any;
+    slider.addEventListener("scroll", () => {
+      window.clearTimeout(isScrolling);
+      requestAnimationFrame(updateStyles);
+      isScrolling = setTimeout(updateStyles, 66);
+    });
+
+    // ドットクリック
+    dots.forEach((dot, i) => {
+      dot.addEventListener("click", () => {
+        slides[i].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+      });
+    });
+
+    // --- ここからYouTube制御ロジック ---
+
+    // プレーヤーインスタンスを保持する配列
+    const players: any[] = [];
+    let ytApiResolve: any;
+    const ytApiPromise = new Promise((resolve) => {
+      ytApiResolve = resolve;
+    });
+
+    const loadYouTubeAPI = () => {
+      if ((window as any).YT && (window as any).YT.Player) {
+        ytApiResolve((window as any).YT);
+        return;
+      }
+
+      const tag = document.createElement("script");
+      tag.src = "https://www.youtube.com/iframe_api";
+      const firstScriptTag = document.getElementsByTagName("script")[0];
+      if (firstScriptTag && firstScriptTag.parentNode) {
+        firstScriptTag.parentNode.insertBefore(tag, firstScriptTag);
+      }
+
+      window.onYouTubeIframeAPIReady = () => {
+        ytApiResolve((window as any).YT);
+      };
+    };
+
+    // Intersection Observer でビデオセクションが見えたら API を読み込む
+    const videoSection = document.getElementById("video-slider");
+    if (videoSection) {
+      const observer = new IntersectionObserver(
+        (entries) => {
+          if (entries[0].isIntersecting) {
+            loadYouTubeAPI();
+            observer.disconnect();
+          }
+        },
+        { rootMargin: "200px" },
+      );
+      observer.observe(videoSection);
+    }
+
+    // プレーヤー初期化
+    const initPlayer = async (index: number) => {
+      if (players[index]) return players[index];
+
+      // APIの読み込みを待つ
+      const YT = await ytApiPromise;
+
+      return new Promise((resolve) => {
+        const slide = slides[index];
+        const iframe = slide.querySelector("iframe");
+        if (iframe && iframe.dataset.src) {
+          iframe.src = iframe.dataset.src;
+
+          players[index] = new (YT as any).Player(iframe.id, {
+            events: {
+              onReady: () => {
+                resolve(players[index]);
+              },
+              onStateChange: (event: any) => {
+                if (
+                  event.data === (YT as any).PlayerState.PLAYING ||
+                  event.data === (YT as any).PlayerState.BUFFERING
+                ) {
+                  slide.classList.add("is-playing");
+                  if (event.data === (YT as any).PlayerState.PLAYING) {
+                    players.forEach((p, i) => {
+                      if (
+                        i !== index &&
+                        p &&
+                        typeof p.pauseVideo === "function"
+                      ) {
+                        p.pauseVideo();
+                      }
+                    });
+                  }
+                }
+              },
+            },
+          });
+        }
+      });
+    };
+
+    // 初期状態で動画をプリロード
+    ytApiPromise.then(() => {
+      // 全動画をプリロードして、どの動画をタップしても即再生可能に
+      slides.forEach((_, i) => initPlayer(i));
+    });
+
+    // PC用: 左右の動画をクリックした時の処理
+    const clickAreas = document.querySelectorAll(".slide-click-area");
+    clickAreas.forEach((area) => {
+      area.addEventListener("click", async () => {
+        const index = Number((area as HTMLElement).dataset.index);
+
+        // 1. 中央に移動
+        slides[index].scrollIntoView({
+          behavior: "smooth",
+          block: "nearest",
+          inline: "center",
+        });
+
+        // 2. プレーヤーを初期化して再生
+        const player = await initPlayer(index);
+        setTimeout(() => {
+          if (player && typeof (player as any).playVideo === "function") {
+            (player as any).playVideo();
+          }
+        }, 400);
+      });
+    });
+
+    // モバイル用（またはPCオーバーレイ）: 再生ボタンタップで再生開始
+    const triggerAreas = document.querySelectorAll(".video-trigger-area");
+    triggerAreas.forEach((area) => {
+      area.addEventListener("click", async (e) => {
+        e.stopPropagation();
+        const index = Number((area as HTMLElement).dataset.index);
+
+        // アクティブでないスライドがクリックされた場合はまずスクロール
+        const slide = slides[index];
+        if (!slide.classList.contains("active")) {
+          slide.scrollIntoView({
+            behavior: "smooth",
+            block: "nearest",
+            inline: "center",
+          });
+
+          // スクロール完了を待ってから再生
+          const player = await initPlayer(index);
+          setTimeout(() => {
+            if (player && typeof (player as any).playVideo === "function") {
+              (player as any).playVideo();
+            }
+          }, 400);
+        } else {
+          // すでにアクティブなら即座に再生
+          const player = await initPlayer(index);
+          if (player && typeof (player as any).playVideo === "function") {
+            (player as any).playVideo();
+          }
+        }
+      });
+    });
+  }
+</script>

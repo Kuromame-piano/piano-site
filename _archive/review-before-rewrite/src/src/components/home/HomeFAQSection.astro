@@ -1,0 +1,95 @@
+---
+const faqs = [
+    {
+        q: "大人の初心者で、楽譜も読めませんが大丈夫でしょうか？",
+        a: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。大人になってから初めてピアノに触れる方も多くいらっしゃいますので、ご自身のペースで安心して始めていただけます。",
+    },
+    {
+        q: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
+        a: "もちろんです！ブランクのある方や、昔少し習っていただけという大人の方もたくさん受講されています。指を慣らしながら、もう一度ピアノを弾く喜びを味わっていただけるよう、無理のない曲からサポートいたします。",
+    },
+    {
+        q: "好きな曲や映画音楽、特定の課題曲だけを見てもらうことはできますか？",
+        a: "はい、可能です。クラシックに限らず、ポップス、映画音楽、合唱の伴奏曲など、ご自身が「弾きたい曲」や「苦手な部分」だけをピンポイントで見てほしいというご要望にも対応しております。",
+    },
+    {
+        q: "自宅に講師を呼ぶスペースがないのですが、スタジオでも可能ですか？",
+        a: "はい、可能です。ご自宅でのレッスンが難しい場合は、近隣のレンタルスタジオ等を利用してレッスンを行うことができます。仕事帰りや外出ついでにスタジオレッスンを希望される生徒様も多くいらっしゃいます（※レンタルスタジオの会場費は別途ご負担となります）。",
+    },
+    {
+        q: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
+        a: "はい、可能です。毎週決まった曜日が難しい社会人や主婦の方でも、ご都合に合わせて月1回〜、その都度スケジュールを相談しながら無理なく続けていただけます。",
+    },
+];
+---
+
+<section class="py-20 bg-[#FCFAF7] border-t border-[#F1EBE4]">
+    <div class="max-w-4xl mx-auto px-6">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#544A40]">
+                よくあるご質問
+            </h2>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                FAQ
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+
+        <div class="space-y-4 max-w-3xl mx-auto">
+            {
+                faqs.map((faq) => (
+                    <details class="group bg-white rounded-xl shadow-sm border border-[#F1EBE4] overflow-hidden">
+                        <summary class="flex items-center justify-between p-6 cursor-pointer list-none hover:bg-[#FCFAF7]/50 transition-colors">
+                            <span class="font-bold font-serif text-[#544A40] pr-4 text-left text-sm md:text-base">
+                                <span class="text-[#A88B58] mr-2">Q.</span>
+                                {faq.q}
+                            </span>
+                            <span class="flex-shrink-0 w-6 h-6 flex items-center justify-center text-[#A88B58] transition-transform group-open:rotate-180">
+                                <svg
+                                    xmlns="http://www.w3.org/2000/svg"
+                                    fill="none"
+                                    viewBox="0 0 24 24"
+                                    stroke-width="2"
+                                    stroke="currentColor"
+                                    class="w-5 h-5"
+                                >
+                                    <path
+                                        stroke-linecap="round"
+                                        stroke-linejoin="round"
+                                        d="M19.5 8.25l-7.5 7.5-7.5-7.5"
+                                    />
+                                </svg>
+                            </span>
+                        </summary>
+                        <div class="px-6 pb-6 text-sm leading-loose text-[#6B5F54] border-t border-[#F1EBE4]">
+                            <p class="pt-4">
+                                <span class="text-[#A88B58] font-bold mr-2">
+                                    A.
+                                </span>
+                                {faq.a}
+                            </p>
+                        </div>
+                    </details>
+                ))
+            }
+        </div>
+
+        <div class="mt-12 text-center">
+            <a
+                href="/faq"
+                class="inline-block border border-[#A88B58] text-[#A88B58] px-10 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-all text-sm tracking-widest font-medium"
+            >
+                よくある質問一覧を見る →
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    details summary::-webkit-details-marker {
+        display: none;
+    }
+</style>

@@ -1,0 +1,85 @@
+---
+import type { Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+    objectPosition: string;
+}
+
+const { area, objectPosition } = Astro.props;
+---
+
+<div
+    class="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden"
+>
+    <div class="absolute inset-0 z-0">
+        <img
+            src={area.mainImage}
+            alt={area.mainImageAlt || `${area.name}の街並み`}
+            class="w-full h-full object-cover"
+            style={`object-position: ${objectPosition}`}
+        />
+        <div class="absolute inset-0 bg-[#3A322B]/20"></div>
+    </div>
+
+    <div
+        class="relative z-10 text-center text-white px-4 md:px-6 w-full max-w-4xl mx-auto"
+    >
+        <h1 class="font-serif tracking-wide">
+            <span
+                class="block text-lg md:text-2xl mb-6 font-medium tracking-[0.1em] text-white/90 drop-shadow-md"
+            >
+                {area.name}のピアノ教室
+            </span>
+
+            <span
+                class="flex items-center justify-center gap-4 md:gap-6 text-xs md:text-base mb-8 opacity-90"
+            >
+                <span class="h-[1px] w-8 md:w-16 bg-white/60"></span>
+                <span class="tracking-[0.2em] font-light uppercase"
+                    >Private Lesson</span
+                >
+                <span class="h-[1px] w-8 md:w-16 bg-white/60"></span>
+            </span>
+
+            <div
+                class="flex items-baseline justify-center gap-0 mb-2 drop-shadow-lg"
+            >
+                <span
+                    class="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tighter"
+                >
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 cursor-default"
+                        >髙</span
+                    >
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 delay-75 cursor-default"
+                        >橋</span
+                    >
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 delay-100 cursor-default"
+                        >遊</span
+                    >
+                    <span
+                        class="inline-block transform hover:scale-105 transition-transform duration-500 delay-150 cursor-default"
+                        >月</span
+                    >
+                </span>
+
+                <span
+                    class="text-3xl md:text-5xl lg:text-6xl font-medium tracking-tighter opacity-90 drop-shadow-md"
+                >
+                    ピアノ教室
+                </span>
+            </div>
+        </h1>
+
+        <div class="mt-12">
+            <span
+                class="inline-block px-6 py-2 border border-white/30 rounded-full text-xs md:text-sm tracking-[0.15em] backdrop-blur-sm bg-white/10 text-white/90"
+            >
+                出張レッスン専門
+            </span>
+        </div>
+    </div>
+</div>
