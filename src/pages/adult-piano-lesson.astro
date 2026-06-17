@@ -8,7 +8,7 @@ import InstructorProfile from "../components/common/InstructorProfile.astro";
 import heroPiano from "../assets/images/hero-piano.webp";
 
 const pageTitle = "大人の出張ピアノレッスン｜初心者・再開したい方も対応｜江東区・中央区周辺";
-const pageDescription = "江東区・中央区周辺で大人向け出張ピアノレッスンを行っています。初心者、子どもの頃に習っていた方、好きな曲を弾きたい方も相談可能。月1回から、生活リズムに合わせて無理なく始められます。無料体験レッスン受付中です。";
+const pageDescription = "江東区・中央区周辺で大人向け出張ピアノレッスンを行っています。初心者、子どもの頃に習っていた方、好きな曲を弾きたい方も相談可能。月1回から、受講頻度や進め方をご相談しながら進めます。無料体験レッスン受付中です。";
 
 const schema = JSON.stringify({
     "@context": "https://schema.org",
@@ -39,7 +39,7 @@ const schema = JSON.stringify({
                 "url": "https://playon-music.jp",
                 "image": "https://playon-music.jp/image.png",
             },
-            "description": "江東区・中央区周辺で大人向け出張ピアノレッスンを行っています。初心者、子どもの頃に習っていた方、好きな曲を弾きたい方も相談可能。月1回から、生活リズムに合わせて無理なく始められます。",
+            "description": "江東区・中央区周辺で大人向け出張ピアノレッスンを行っています。初心者、子どもの頃に習っていた方、好きな曲を弾きたい方も相談可能。月1回から、受講頻度や進め方をご相談しながら進めます。",
             "url": "https://playon-music.jp/adult-piano-lesson"
         }
     ],
@@ -371,18 +371,18 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
         </div>
     </section>
 
-    {/* 4. ご自宅・スタジオで無理なく続けられます */}
+    {/* 4. ご自宅・スタジオでのレッスン */}
     <section class="py-20 bg-white">
         <div class="max-w-5xl mx-auto px-6">
             <div class="text-center mb-16">
-                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">ご自宅・スタジオで無理なく続けられます</h2>
+                <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">ご自宅・スタジオでのレッスン</h2>
                 <div class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase">
                     <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                     Where to Learn
                     <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
                 </div>
                 <p class="text-sm text-[#6B5F54] leading-loose mt-6 max-w-2xl mx-auto">
-                    大人のピアノは、仕事や家事、生活リズムに合わせて無理なく続けられる形を選ぶことが大切です。<br />
+                    大人のピアノは、仕事や家事、生活リズムに合わせた受講方法を選ぶことが大切です。<br />
                     ご自宅で受ける方法だけでなく、近隣スタジオでのレッスンもご相談いただけます。
                 </p>
             </div>
@@ -592,7 +592,7 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
             </div>
 
             <InstructorProfile
-                introduction="大人の初心者の方、子どもの頃に習っていて再開したい方、好きな曲を弾いてみたい方まで、目的に合わせてレッスンを行っています。\n\n「今さら始めても大丈夫かな」「楽譜が読めないけれど大丈夫かな」という段階でもご相談いただけます。\n\n生活リズムや練習できる時間に合わせて、無理なく続けられる方法を一緒に考えます。"
+                introduction="大人の初心者の方、子どもの頃に習っていて再開したい方、好きな曲を弾いてみたい方まで、目的に合わせてレッスンを行っています。\n\n「今さら始めても大丈夫かな」「楽譜が読めないけれど大丈夫かな」という段階でもご相談いただけます。\n\n生活リズムや練習できる時間に合わせた受講頻度・進め方を一緒に相談しながら進めます。"
             />
 
             {/* Tags */}
@@ -635,7 +635,7 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
                         { title: "日程・対応エリアの確認", description: "対応エリアや空き枠を確認し、候補日をご連絡します。" },
                         { title: "体験前の確認", description: "ご自宅で受けるか、スタジオを利用するか、レッスン内容のご希望を確認します。" },
                         { title: "無料体験レッスン", description: "30〜45分程度、ご希望や経験に合わせて体験レッスンを行います。" },
-                        { title: "今後の進め方をご相談", description: "教材、頻度、曜日・時間帯、練習方法などをご相談します。無理なく続けられそうだと感じた場合のみ、定期レッスンをご検討ください。" }
+                        { title: "今後の進め方をご相談", description: "教材、頻度、曜日・時間帯、練習方法などをご相談します。続けられそうだと感じた場合のみ、定期レッスンをご検討ください。" }
                     ].map((step, index) => (
                         <div class="relative flex gap-8 items-start group">
                             {/* Number Circle */}
@@ -679,7 +679,7 @@ const adultAreas = areas.filter(a => targetAreaSlugs.includes(a.slug));
             <div class="space-y-4 max-w-3xl mx-auto">
                 {[
                     { q: "大人になってから始めても大丈夫ですか？", a: "大丈夫です。楽譜の読み方や指番号など、基礎から確認します。初心者の方もご相談いただけます。" },
-                    { q: "子どもの頃に習っていただけでも大丈夫ですか？", a: "大丈夫です。以前の経験や現在の状態を確認しながら、無理なく再開できるところから始めます。" },
+                    { q: "子どもの頃に習っていただけでも大丈夫ですか？", a: "大丈夫です。以前の経験やブランクの長さを確認しながら、現在の状態から始めます。" },
                     { q: "好きな曲をレッスンできますか？", a: "ご相談可能です。曲の難易度に応じて、必要な基礎や練習方法も一緒に確認します。" },
                     { q: "月1回だけでも受けられますか？", a: "空き枠やご希望に合わせて、月1回からご相談いただけます。" },
                     { q: "自宅に先生を呼ぶのが不安です。", a: "ご自宅での受講が不安な場合は、近隣スタジオでのレッスンもご相談可能です。体験前に流れを確認できます。" },
