@@ -33,7 +33,9 @@ const categories = ["移動・時間", "両立", "楽器・練習環境"];
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
             {
                 area.consultations.map((item, index) => {
-                    const category = categories[index] || "";
+                    const parts = item.title.split("｜");
+                    const category = parts.length > 1 ? parts[0] : (categories[index] || "");
+                    const displayTitle = parts.length > 1 ? parts[1] : item.title;
                     return (
                         <article class="bg-white rounded-2xl border border-[#F1EBE4] shadow-sm p-6 md:p-8 flex flex-col">
                             {category && (
@@ -42,7 +44,7 @@ const categories = ["移動・時間", "両立", "楽器・練習環境"];
                                 </span>
                             )}
                             <h3 class="text-base md:text-lg font-semibold text-[#544A40] mb-4">
-                                {item.title}
+                                {displayTitle}
                             </h3>
                             <p class="text-sm md:text-base text-[#6B5F54] leading-relaxed">
                                 {item.description}

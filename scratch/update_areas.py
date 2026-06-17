@@ -1,660 +1,212 @@
 import re
+import os
+import shutil
 
-new_tsukuda = """    {
-        slug: "tsukuda",
-        name: "佃",
-        groupId: "harumi-group",
-        siblingSlugs: ["tsukishima", "kachidoki", "harumi"],
-        catchphrase: "静かなリバーサイドで育む<br class='md:hidden' />大人の上質なピアノ時間",
-        lead: "中央区佃で、仕事や家事の合間にピアノを始めたい・再開したい大人の方へ。当教室では、佃のご自宅（電子ピアノ対応）や近隣スタジオへ出張し、お好きな曲や基礎を自分のペースで学べるマンツーマンレッスンを行っています。通学不要で、リラックスした環境で上達をサポートします。",
-        mainImage: "/images/areas/tsukuda.webp",
-        mainImageAlt: "佃エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["佃 ピアノ教室", "佃 ピアノ 大人", "佃 出張レッスン", "佃 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。佃エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、月島駅周辺や近隣エリアのレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>高層マンションが立ち並びつつも、下町の情緒と豊かな水辺に囲まれた佃エリア。</strong>ご自宅でのプライベートレッスンは、移動時間が一切不要なため、お仕事や家事でお忙しい大人のライフスタイルに最適です。電子ピアノやマンションの防音環境に配慮し、ヘッドホン併用やタッチのコツなども丁寧にアドバイスいたします。`,
-        instructorIntroduction: "東京音楽大学卒業。クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽、伴奏曲などのご相談も歓迎です。佃のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "佃で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "佃周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "佃 ピアノ教室",
-            secondaryKeywords: [
-                "佃 大人 ピアノ",
-                "佃 ピアノレッスン",
-                "佃 出張レッスン",
-                "佃 ピアノ 初心者"
-            ],
-            metaDescription: "佃で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["tsukishima", "kachidoki", "tsukiji", "hatchobori"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6963248698547!2d139.78287511525827!3d35.66846178019741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["佃公園", "大川端リバーシティ21", "月島駅"],
-        areaGuide: `佃エリアでレッスンを継続するコツは、<strong>ご自宅の落ち着いた環境をそのままレッスン室にすること</strong>です。リバーシティ周辺など、静かな住宅環境にお住まいの方が多いため、ご自宅でのレッスンは非常にスムーズです。お仕事や家事の合間に、移動準備なしでスッとピアノに向かえるため、「忙しくて通う時間がない」という方でも習慣化しやすく、上達を実感していただけます。`,
-        lessonFlow: defaultLessonFlow,
-    },"""
+def find_matching_brace(text, start_idx):
+    brace_count = 1
+    idx = start_idx + 1
+    in_string = None # None, "'", '"', or '`'
+    escaped = False
+    
+    while idx < len(text):
+        char = text[idx]
+        
+        if escaped:
+            escaped = False
+            idx += 1
+            continue
+            
+        if char == '\\':
+            escaped = True
+            idx += 1
+            continue
+            
+        if in_string:
+            if char == in_string:
+                in_string = None
+        else:
+            if char in ("'", '"', '`'):
+                in_string = char
+            elif char == '{':
+                brace_count += 1
+            elif char == '}':
+                brace_count -= 1
+                if brace_count == 0:
+                    return idx + 1
+        idx += 1
+    return -1
 
-new_nihonbashi = """    {
-        slug: "nihonbashi",
-        name: "日本橋",
-        groupId: "nihonbashi-group",
-        siblingSlugs: ["ningyocho", "suitengu-mae", "hamacho"],
-        catchphrase: "歴史と洗練の息づく日本橋で<br class='md:hidden' />上質なピアノの時間を",
-        lead: "中央区日本橋で、大人の嗜みや趣味としてピアノを学びたい方へ。清澄白河を拠点にする出張専門教室が、日本橋のご自宅や近隣スタジオへお伺いし、初心者から再開者まで個別のマンツーマン指導を行います。",
-        mainImage: "/images/areas/nihonbashi.webp",
-        mainImageAlt: "日本橋エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["日本橋 ピアノ教室", "日本橋 ピアノ 大人", "日本橋 出張レッスン", "日本橋 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。日本橋エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、日本橋駅周辺や近隣エリアのレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>老舗店や商業施設が並ぶ洗練された日本橋エリア。</strong>大人になって初めて習う初心者の方も、楽譜の読み方から手の形まで丁寧に指導します。表現力を磨きたい中級者の方には、ペダリングや繊細な音色づくりのアドバイスも対応可能です。大人の落ち着いた環境で、上質な音楽体験を提供します。`,
-        instructorIntroduction: "東京音楽大学卒業。クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽, 伴奏曲などのご相談も歓迎です。日本橋のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "日本橋で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "日本橋周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "日本橋 ピアノ教室",
-            secondaryKeywords: [
-                "日本橋 大人 ピアノ",
-                "日本橋 ピアノレッスン",
-                "日本橋 出張レッスン",
-                "日本橋 ピアノ 初心者"
-            ],
-            metaDescription: "日本橋で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["kayabacho", "kyobashi", "ningyocho", "suitengu-mae"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3240.827986016719!2d139.77134371525902!3d35.68282898019385!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["日本橋三越本店", "コレド室町", "日本橋駅"],
-        areaGuide: `日本橋でレッスンを続けるために大切なのは、<strong>「ご自身が本当に弾きたい曲」を目標に設定すること</strong>です。クラシックの定番曲からお気に入りのポップス、思い出のメロディーなど、モチベーションの維持しやすい選曲を行い、レッスンごとに少しずつ弾ける喜びを積み重ねることで、豊かなライフワークとして定着します。`,
-        lessonFlow: defaultLessonFlow,
-    },"""
+def parse_proposal(file_path):
+    with open(file_path, "r", encoding="utf-8") as f:
+        text = f.read()
+    
+    blocks = re.split(r'\n-+\n', text)
+    
+    parsed_areas = {}
+    for block in blocks:
+        block = block.strip()
+        if not block:
+            continue
+        name_match = re.search(r'^##\s+(\S+)', block, re.MULTILINE)
+        if not name_match:
+            continue
+        area_name = name_match.group(1).strip()
+        
+        points_header_pattern = r'###\s+' + re.escape(area_name) + r'エリアでレッスンを続けるためのポイント'
+        points_match = re.search(points_header_pattern, block)
+        if not points_match:
+            points_match = re.search(r'###\s+.*エリアでレッスンを続けるためのポイント', block)
+            
+        area_guide = ""
+        consultations_text = block
+        if points_match:
+            points_start = points_match.end()
+            area_guide = block[points_start:].strip()
+            consultations_text = block[:points_match.start()]
+            
+        consultations_text_norm = consultations_text.replace('\r\n', '\n')
+        cards = re.findall(r'\*\*(.*?)\*\*\n+([^\n]+)', consultations_text_norm)
+        consultations = []
+        for title, desc in cards:
+            consultations.append({
+                "title": title.strip(),
+                "description": desc.strip()
+            })
+            
+        parsed_areas[area_name] = {
+            "name": area_name,
+            "consultations": consultations,
+            "area_guide": area_guide.replace('\r\n', '\n').strip()
+        }
+    return parsed_areas
 
-new_kayabacho = """    {
-        slug: "kayabacho",
-        name: "茅場町",
-        groupId: "nihonbashi-central-group",
-        siblingSlugs: ["hatchobori"],
-        catchphrase: "ビジネスエリア of 近接で叶える<br class='md:hidden' />大人の充実したピアノ趣味",
-        lead: "中央区茅場町で、新しい趣味としてピアノを始めたい方や、久しぶりに鍵盤に触れたい大人の方へ。ご自宅（マンション・電子ピアノ可）や近隣スタジオで、お好きな曲を目標にした個人レッスンを始めませんか。",
-        mainImage: "/images/areas/kayabacho.webp",
-        mainImageAlt: "茅場町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["茅場町 ピアノ教室", "茅場町 ピアノ 大人", "茅場町 出張レッスン", "茅場町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。茅場町エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、茅場町駅周辺や近隣エリアのレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>兜町や日本橋にほど近い茅場町。</strong>忙しい大人のスケジュールに寄り添い、出張専門ならではの柔軟な予約対応を行っています。クラシックだけでなく、ポピュラー音楽や映画音楽、特定の課題曲など、弾きたいジャンルや目的に合わせてレッスン内容をカスタマイズいたします。`,
-        instructorIntroduction: "東京音楽大学卒業. クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽、伴奏曲などのご相談も歓迎です。茅場町のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "茅場町で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "茅場町周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "茅場町 ピアノ教室",
-            secondaryKeywords: [
-                "茅場町 大人 ピアノ",
-                "茅場町 ピアノレッスン",
-                "茅場町 出張レッスン",
-                "茅場町 ピアノ 初心者"
-            ],
-            metaDescription: "茅場町で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["nihonbashi", "hatchobori", "ningyocho"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.1347036611394!2d139.77884611525867!3d35.67980898019463!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["茅場町駅", "兜町平和ビル", "日本橋川"],
-        areaGuide: `茅場町で無理なくピアノを続けるためのポイントは、<strong>週単位の練習ノルマを作らず、レッスンの中で少しずつ指を動かす楽しさを味わうこと</strong>です。ビジネスで多忙な日常だからこそ、レッスン時間を「ピアノに向き合い、日常から離れて没頭するリラックス時間」としてご活用いただくことで、自然と長く継続できます。`,
-        lessonFlow: defaultLessonFlow,
-    },"""
+def update_area_block(block_str, data):
+    # Update consultations
+    new_consultations = []
+    new_consultations.append("consultations: [")
+    for i, c in enumerate(data["consultations"]):
+        title_esc = c["title"].replace('\\', '\\\\').replace('"', '\\"')
+        desc_esc = c["description"].replace('\\', '\\\\').replace('"', '\\"')
+        new_consultations.append("            {")
+        new_consultations.append(f'                title: "{title_esc}",')
+        new_consultations.append(f'                description: "{desc_esc}"')
+        if i == len(data["consultations"]) - 1:
+            new_consultations.append("            }")
+        else:
+            new_consultations.append("            },")
+    new_consultations.append("        ],")
+    new_consultations_str = "\n".join(new_consultations)
+    
+    # Locate consultations array start and end in block_str
+    start_idx = block_str.find("consultations: [")
+    if start_idx == -1:
+        raise ValueError("consultations: [ not found in block")
+        
+    bracket_count = 1
+    end_idx = start_idx + len("consultations: [")
+    while bracket_count > 0 and end_idx < len(block_str):
+        if block_str[end_idx] == '[':
+            bracket_count += 1
+        elif block_str[end_idx] == ']':
+            bracket_count -= 1
+        end_idx += 1
+        
+    if end_idx < len(block_str) and block_str[end_idx] == ',':
+        end_idx += 1
+        
+    block_str = block_str[:start_idx] + new_consultations_str + block_str[end_idx:]
+    
+    # Update areaGuide
+    guide_idx = block_str.find("areaGuide:")
+    if guide_idx == -1:
+        raise ValueError("areaGuide: not found in block")
+        
+    quote_char_idx = guide_idx + len("areaGuide:")
+    while quote_char_idx < len(block_str) and block_str[quote_char_idx] not in ('`', '"', "'"):
+        quote_char_idx += 1
+        
+    if quote_char_idx == len(block_str):
+        raise ValueError("Quote character for areaGuide not found")
+        
+    quote_char = block_str[quote_char_idx]
+    closing_quote_idx = quote_char_idx + 1
+    while closing_quote_idx < len(block_str):
+        if block_str[closing_quote_idx] == quote_char:
+            if block_str[closing_quote_idx - 1] != '\\':
+                break
+        closing_quote_idx += 1
+        
+    if closing_quote_idx == len(block_str):
+        raise ValueError("Closing quote character for areaGuide not found")
+        
+    end_guide_idx = closing_quote_idx + 1
+    if end_guide_idx < len(block_str) and block_str[end_guide_idx] == ',':
+        end_guide_idx += 1
+        
+    guide_esc = data["area_guide"].replace('\\', '\\\\').replace('"', '\\"')
+    # We will output guide inside double quotes to match
+    new_guide_str = f'areaGuide: "{guide_esc}",'
+    
+    block_str = block_str[:guide_idx] + new_guide_str + block_str[end_guide_idx:]
+    return block_str
 
-new_hatchobori = """    {
-        slug: "hatchobori",
-        name: "八丁堀",
-        groupId: "nihonbashi-central-group",
-        siblingSlugs: ["kayabacho"],
-        catchphrase: "都心で働く大人へ贈る<br class='md:hidden' />自宅・スタジオで完結するピアノレッスン",
-        lead: "中央区八丁堀で、日々の仕事の合間や休日にピアノを楽しみたい大人の方へ。忙しい社会人や主婦の方でも通学不要で続けられるよう、ご自宅や近隣スタジオへの出張マンツーマンレッスンを実施しています。",
-        mainImage: "/images/areas/hatchobori.webp",
-        mainImageAlt: "八丁堀エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["八丁堀 ピアノ教室", "八丁堀 ピアノ 大人", "八丁堀 出張レッスン", "八丁堀 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。八丁堀エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、八丁堀駅周辺や近隣エリアのレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>東京駅や日本橋に隣接し、アクトな社会人が多く暮らす八丁堀。</strong>当ピアノ教室では、初心者から「昔少し弾いていた」という再開者、特定の好きな曲を仕上げたい中級者まで幅広く指導。出張費込みの明瞭な料金設定で、ライフスタイルに無理なく上達を取り入れられます。`,
-        instructorIntroduction: "東京音楽大学卒業。クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽、伴奏曲などのご相談も歓迎です。八丁堀のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "八丁堀で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "八丁堀周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "八丁堀 ピアノ教室",
-            secondaryKeywords: [
-                "八丁堀 大人 ピアノ",
-                "八丁堀 ピアノレッスン",
-                "八丁堀 出張レッスン",
-                "八丁堀 ピアノ 初心者"
-            ],
-            metaDescription: "八丁堀で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["kayabacho", "tsukiji", "shintomicho", "kyobashi"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.3813735165913!2d139.77797741525843!3d35.67499998019574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["八丁堀駅", "桜川公園", "亀島川"],
-        areaGuide: `八丁堀でレッスンを継続するコツは、<strong>「休日のリフレッシュ」または「平日の退勤後」など、ピアノの時間を生活リズムに組み込むこと</strong>です。近隣スタジオも充実しているエリアですので、ご自宅だけでなく、お仕事のスケジュールに合わせてスタジオで月1回から確認レッスンを受けるような、スマートな継続スタイルも好評です。`,
-        lessonFlow: defaultLessonFlow,
-    },"""
+def main():
+    proposal_path = r"c:\Users\S6sak\yuzuki-site\proposal.md"
+    areas_path = r"c:\Users\S6sak\yuzuki-site\src\data\areas.ts"
+    backup_path = areas_path + ".bak"
+    
+    # Create backup
+    shutil.copy2(areas_path, backup_path)
+    print("Created backup of areas.ts at areas.ts.bak")
+    
+    proposal_data = parse_proposal(proposal_path)
+    print(f"Parsed {len(proposal_data)} areas from proposal.md")
+    
+    with open(areas_path, "r", encoding="utf-8") as f:
+        content = f.read()
+        
+    # Get mapping of area names to slugs from content
+    slugs = re.findall(r'slug:\s*["\']([^"\']+)["\']', content)
+    
+    # We will modify content in segments
+    # Since indices change, we should either run from end to start, or rebuild the file block-by-block.
+    # Rebuilding block-by-block is very clean:
+    # 1. Split content by the opening braces of the area blocks, or find indices of all blocks, 
+    # and replace them in descending order of indices (from right to left) so that indices remain correct!
+    
+    # Let's collect all block positions: (start_brace, end_brace, slug, name)
+    blocks = []
+    for slug in slugs:
+        slug_pattern = r'slug:\s*["\']' + re.escape(slug) + r'["\']'
+        slug_match = re.search(slug_pattern, content)
+        slug_pos = slug_match.start()
+        start_brace = content.rfind('{', 0, slug_pos)
+        end_brace = find_matching_brace(content, start_brace)
+        block = content[start_brace:end_brace]
+        name_match = re.search(r'name:\s*["\']([^"\']+)["\']', block)
+        if name_match:
+            name = name_match.group(1)
+            blocks.append((start_brace, end_brace, slug, name))
+            
+    # Sort blocks by start position descending
+    blocks.sort(key=lambda x: x[0], reverse=True)
+    
+    modified_content = content
+    for start, end, slug, name in blocks:
+        if name not in proposal_data:
+            print(f"Warning: {name} ({slug}) not found in proposal data! Skipping.")
+            continue
+            
+        block_str = modified_content[start:end]
+        data = proposal_data[name]
+        updated_block = update_area_block(block_str, data)
+        
+        modified_content = modified_content[:start] + updated_block + modified_content[end:]
+        print(f"Updated copy for {name} ({slug})")
+        
+    with open(areas_path, "w", encoding="utf-8") as f:
+        f.write(modified_content)
+    print("Successfully updated areas.ts!")
 
-new_tsukiji = """    {
-        slug: "tsukiji",
-        name: "築地",
-        groupId: "tsukiji-group",
-        siblingSlugs: ["shintomicho"],
-        catchphrase: "銀座隣接の活気と落ち着きの中で始める<br class='md:hidden' />大人のピアノレッスン",
-        lead: "中央区築地で、趣味や学び直しとしてピアノを弾きたい大人の方へ。清澄白河を拠点にする出張専門の当ピアノ教室では、築地のご自宅や駅周辺のレンタルスタジオにて、初心者からブランクのある再開者まで、マンツーマンの個人レッスンを提供しています。",
-        mainImage: "/images/areas/tsukiji.webp",
-        mainImageAlt: "築地エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["築地 ピアノ教室", "築地 ピアノ 大人", "築地 出張レッスン", "築地 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。築地エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、築地駅周辺や近隣エリアのレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>銀座や新富町に近く、交通アクセスが抜群の築地エリア。</strong>お忙しい会社員や主婦の方など、ライフスタイルに合わせて平日の遅い時間や土日祝日など、柔軟にレッスン時間を調整可能です。自宅に講師を招くのが難しい場合は、築地駅近隣のレンタルスタジオ等を利用して、グランドピアノでの本格的なレッスンも選択いただけます。`,
-        instructorIntroduction: "東京音楽大学卒業。クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽、伴奏曲などのご相談も歓迎です。築地のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "築地で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "築地周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "築地 ピアノ教室",
-            secondaryKeywords: [
-                "築地 大人 ピアノ",
-                "築地 ピアノレッスン",
-                "築地 出張レッスン",
-                "築地 ピアノ 初心者"
-            ],
-            metaDescription: "築地で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["shintomicho", "hatchobori", "tsukishima", "ginza"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.6961168698547!2d139.77087511525827!3d35.66846178019741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["築地本願寺", "築地川公園", "築地駅"],
-        areaGuide: `築地エリアにお住まい・お勤めの方でレッスンを続けるポイントは、<strong>スタジオ利用と自宅レッスンをスマートに使い分けること</strong>です。銀座に近い立地を活かし、お仕事帰りや買い物ついでに近隣スタジオでレッスンを受けたり、忙しい週はご自宅で電子ピアノを使って受講したりと、スケジュールに合わせた柔軟な継続スタイルが可能です。`,
-        lessonFlow: defaultLessonFlow,
-    },"""
-
-new_shintomicho = """    {
-        slug: "shintomicho",
-        name: "新富町",
-        groupId: "tsukiji-group",
-        siblingSlugs: ["tsukiji"],
-        catchphrase: "都心の静謐な隠れ家エリアで楽しむ<br class='md:hidden' />大人の個人ピアノレッスン",
-        lead: "中央区新富町で、仕事後のリフレッシュや休日の趣味としてピアノを学びたい大人の方へ。ご自宅でのプライベートレッスン、または近隣スタジオを利用したマンツーマンレッスンで、お好きな曲の習得や基礎の学び直しを丁寧にサポートします。",
-        mainImage: "/images/areas/shintomicho.webp",
-        mainImageAlt: "新富町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["新富町 ピアノ教室", "新富町 ピアノ 大人", "新富町 出張レッスン", "新富町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。新富町エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、新富町駅周辺や近隣エリアのレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>銀座からも徒歩圏内でありながら、非常に静かで落ち着いた雰囲気を持つ新富町。</strong>通学型の教室に通うのが時間的に難しい経営者やビジネスパーソンの方に向けて、移動ゼロで受講できる出張スタイルを提案します。楽譜の読み方から指の動かし方まで、基礎から周りの目を気にせずご自身のペースで学べます。`,
-        instructorIntroduction: "東京音楽大学卒業。クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽、伴奏曲などのご相談も歓迎です。新富町のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "新富町で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "新富町周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "新富町 ピアノ教室",
-            secondaryKeywords: [
-                "新富町 大人 ピアノ",
-                "新富町 ピアノレッスン",
-                "新富町 出張レッスン",
-                "新富町 ピアノ 初心者"
-            ],
-            metaDescription: "新富町で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["tsukiji", "hatchobori", "ginza", "kyobashi"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.5310368698547!2d139.77187511525827!3d35.67146178019741!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["新富町駅", "中央区役所", "京橋公園"],
-        areaGuide: `新富町でレッスンを続けるために大切なのは、<strong>仕事やプライベートの予定に合わせて柔軟にレッスン枠を設定すること</strong>です。忙しいビジネスパーソンの方が多いエリアだからこそ、月1回〜2回のペースから始め、段階的に増やしていくといった進め方が可能です。ご自宅のいつもの楽器でリラックスして受講されることで、効率的な上達をサポートします。`,
-        lessonFlow: defaultLessonFlow,
-    },"""
-
-new_kyobashi = """    {
-        slug: "kyobashi",
-        name: "京橋",
-        groupId: "ginza-kyobashi-group",
-        siblingSlugs: ["ginza"],
-        catchphrase: "東京・銀座隣接の利便性を活かす<br class='md:hidden' />大人の出張ピアノレッスン",
-        lead: "中央区京橋で、趣味の充実や仕事の合間の学び直しとしてピアノを始めたい大人の方へ。出張専門のマンツーマンレッスンにより、京橋のご自宅や駅周辺のスタジオで、お好きな曲や基礎を自分のペースで学べます。",
-        mainImage: "/images/areas/kyobashi.webp",
-        mainImageAlt: "京橋エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["京橋 ピアノ教室", "京橋 ピアノ 大人", "京橋 出張レッスン", "京橋 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。京橋エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、京橋駅周辺や近隣エリアのレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>東京駅や銀座にほど近く、非常に洗練された京橋エリア。</strong>自宅への出張レッスンはもちろん、近隣のスタジオを利用した仕事帰り・休日のレッスンもスムーズに行えます。大人の方のレッスンは月1回からスケジュールをご相談可能なため、出張や予定が多い月でも無理なく続けられます。`,
-        instructorIntroduction: "東京音楽大学卒業。クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽、伴奏曲などのご相談も歓迎です。京橋のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "京橋で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "京橋周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "京橋 ピアノ教室",
-            secondaryKeywords: [
-                "京橋 大人 ピアノ",
-                "京橋 ピアノレッスン",
-                "京橋 出張レッスン",
-                "京橋 ピアノ 初心者"
-            ],
-            metaDescription: "京橋で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["ginza", "nihonbashi", "hatchobori", "shintomicho"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.0113735165913!2d139.76997741525843!3d35.67999998019574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["京橋エドグラン", "東京スクエアガーデン", "京橋駅"],
-        areaGuide: `京橋エリアでレッスンを継続するポイントは、<strong>お仕事やショッピングなどの外出スケジュールとレッスンを組み合わせること</strong>です。銀座方面のレンタルスタジオ等を利用して、休日のリフレッシュとしてグランドピアノを弾く習慣をつくることで、無理なくモチベーションを高く保ちながら上達できます。`,
-        lessonFlow: defaultLessonFlow,
-    },"""
-
-new_ginza = """    {
-        slug: "ginza",
-        name: "銀座",
-        groupId: "ginza-kyobashi-group",
-        siblingSlugs: ["kyobashi"],
-        catchphrase: "洗練された街で楽しむ<br class='md:hidden' />大人のための極上のピアノ趣味",
-        lead: "中央区銀座で、大人の趣味として上品にピアノを愉しみたい方へ。清澄白河を拠点とする当教室が、ご自宅や銀座周辺のレンタルスタジオにて、お好きな曲や課題曲の完成を目指すプライベートレッスンを提供します。",
-        mainImage: "/images/areas/ginza.webp",
-        mainImageAlt: "銀座エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["銀座 ピアノ教室", "銀座 ピアノ 大人", "銀座 出張レッスン", "銀座 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
-        features: [],
-        faqs: [
-            {
-                question: "大人の初心者ですが、楽譜が読めなくても大丈夫ですか？",
-                answer: "はい、全く問題ありません。音の読み方や指の動かし方など、基礎の基礎から丁寧に指導いたします。銀座エリアでも大人になって初めてピアノを触る方が多く受講されています。"
-            },
-            {
-                question: "昔少し習っていた程度でブランクが長いのですが、再開できますか？",
-                answer: "もちろんです。以前弾いていた曲や現在の状態を確認しながら、指の感覚をゆっくり取り戻せるようにサポートいたします。ご自身のペースで楽しく再開していただけます。"
-            },
-            {
-                question: "忙しくて毎週通えないのですが、月1回だけでも受講できますか？",
-                answer: "はい、可能です。毎週固定の曜日が難しい方でも、月1回〜スケジュールを都度相談しながら無理のないペースで受講していただけます。"
-            },
-            {
-                question: "自宅に先生を呼ぶのが不安な場合、スタジオでも可能ですか？",
-                answer: "はい、可能です。ご自宅での受講が難しい場合は、銀座駅周辺のレンタルスタジオ等を利用してレッスンを行うことができます。"
-            },
-            {
-                question: "好きな曲や映画音楽、特定の課題曲だけを見てもらえますか？",
-                answer: "はい、対応しております。クラシックに限らず、ポップスや映画音楽、またはご自身で選んだ課題曲など、弾きたい曲を重点的にアドバイスいたします。"
-            },
-            {
-                question: "電子ピアノやマンションでの防音面が心配です。",
-                answer: "88鍵盤の電子ピアノであればレッスン可能です。マンションにお住まいの方でも、音量調整やヘッドホン利用、適切なタッチなどのアドバイスを行い、配慮して進めます。"
-            }
-        ],
-        uniqueContent: `<strong>日本屈指の洗練された街、銀座。</strong>ゆったりと過ごせるご自宅でいつものピアノを使ってレッスンを受けるスタイルや、充実した銀座周辺のスタジオ設備を利用したレッスンなど、ご希望に応じた環境を選択できます。大人の初心者・再開者を対象に、マンツーマンで音色表現までこだわって指導します。`,
-        instructorIntroduction: "東京音楽大学卒業。クラシックを基礎に、大人の初心者の方の基礎づくりから、久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、一人ひとりの目的や生活リズムに合わせてレッスンを行っています。クラシックだけでなく、ポップスや映画音楽、伴奏曲などのご相談も歓迎です。銀座のご自宅やスタジオでリラックスして学んでいただけます。",
-        consultationIntro: "銀座で大人のための出張ピアノレッスンをご検討中の方から、よくいただくご相談です。",
-        consultations: [
-            {
-                title: "通学不要で時間を有効活用",
-                description: "銀座周辺で忙しく活動される大人の方へ、通学不要の出張レッスンをご提案します。移動時間をかけずに、お仕事や家事の合間で効率よく上達できます。"
-            },
-            {
-                title: "大人の初心者・再開者をサポート",
-                description: "楽譜の読み方に不安がある初心者の方から、何十年ものブランクがある再開者の方まで歓迎。弾きたい曲や目標に合わせて、基礎から具体的に指導します。"
-            },
-            {
-                title: "自宅レッスンとスタジオ対応",
-                description: "ご自宅の楽器環境（電子ピアノ可）で受講できるほか、ご自宅に講師を呼ぶのが難しい場合は近隣のレンタルスタジオを利用したレッスンも可能です。"
-            }
-        ],
-        seo: {
-            primaryKeyword: "銀座 ピアノ教室",
-            secondaryKeywords: [
-                "銀座 大人 ピアノ",
-                "銀座 ピアノレッスン",
-                "銀座 出張レッスン",
-                "銀座 ピアノ 初心者"
-            ],
-            metaDescription: "銀座で大人向けの出張ピアノレッスンをお探しなら出張専門の髙橋遊月ピアノ教室。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。"
-        },
-        cta: {
-            subcopy: "体験レッスンや空き状況のご相談は公式LINEからお気軽にお問い合わせください。"
-        },
-        relatedAreas: ["kyobashi", "tsukiji", "shintomicho", "nihonbashi"],
-        googleMapUrl: "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3241.2813735165913!2d139.76297741525843!3d35.67199998019574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5m2!1sja!2sjp",
-        landmarks: ["銀座三越", "歌舞伎座", "銀座駅"],
-        areaGuide: `銀座でレッスンを続けるコツは、<strong>ご自身のライフスタイルに合わせて「レッスン環境」を自由にデザインすること</strong>です。例えば、「普段はご自宅の電子ピアノで気軽に、月に一度は銀座のスタジオでグランドピアノの響きを楽しむ」といった変化をつけることで、飽きずに深く楽しむことができます。`,
-        lessonFlow: defaultLessonFlow,
-    }"""
-
-# ----------------------------------------------------
-# Main script logic
-# ----------------------------------------------------
-
-with open('src/data/areas.ts', 'r', encoding='utf-8') as f:
-    content = f.read()
-
-# 1. areaGroupsの更新 (ginza-kyobashi-groupの追加)
-group_pattern = r'\{\s*id:\s*"tsukiji-group"[\s\S]*?district:\s*"中央区",\s*\},'
-new_group_str = """{
-        id: "tsukiji-group",
-        label: "築地・新富町",
-        areaSlugs: ["tsukiji", "shintomicho"],
-        district: "中央区",
-    },
-    {
-        id: "ginza-kyobashi-group",
-        label: "銀座・京橋",
-        areaSlugs: ["ginza", "kyobashi"],
-        district: "中央区",
-    },"""
-
-if re.search(group_pattern, content):
-    content = re.sub(group_pattern, new_group_str, content)
-    print("Added ginza-kyobashi-group to areaGroups")
-else:
-    print("Warning: tsukiji-group not found")
-
-# 2. 既存6エリアを置換
-areas_to_replace = {
-    "tsukuda": new_tsukuda,
-    "nihonbashi": new_nihonbashi,
-    "kayabacho": new_kayabacho,
-    "hatchobori": new_hatchobori,
-    "tsukiji": new_tsukiji,
-    "shintomicho": new_shintomicho
-}
-
-for slug, new_data in areas_to_replace.items():
-    # オブジェクト全体をマッチさせて置換
-    # 最後の波括弧（インデントがスペース4つ）およびその後のカンマ（任意）にマッチする
-    pattern = r'\n\s*\{\s*slug:\s*"' + slug + r'"[\s\S]*?\n    \},?'
-    if re.search(pattern, content):
-        # 置換後の文字列の末尾は new_data 自体が "}," で終わる
-        content = re.sub(pattern, "\\n" + new_data, content)
-        print(f"Replaced slug: {slug}")
-    else:
-        print(f"Error: slug {slug} not found")
-
-# 3. 新エリア (京橋、銀座) を末尾に追加
-# 配列の末尾は以下のような感じ:
-#     }
-# ];
-end_pattern = r'\}\s*,?\s*\n\];\s*$'
-new_end_str = f"}},\n{new_kyobashi}\n{new_ginza}\n];"
-
-if re.search(end_pattern, content):
-    content = re.sub(end_pattern, new_end_str, content)
-    print("Added new areas to the end of array")
-else:
-    print("Error: End of areas array not found")
-
-with open('src/data/areas.ts', 'w', encoding='utf-8') as f:
-    f.write(content)
-
-print("Finished update_areas.py successfully")
+if __name__ == "__main__":
+    main()
