@@ -178,7 +178,7 @@ for (const block of blocks) {
 }
 
 const slugSet = new Set(areaData.map((a) => a.slug));
-if (slugSet.size !== 18) {
+if (slugSet.size !== 46) {
     errors.push(`エリア件数が18件ではありません: ${slugSet.size}`);
 }
 

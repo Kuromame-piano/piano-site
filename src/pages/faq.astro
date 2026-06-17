@@ -2,30 +2,38 @@
 import Layout from "../layouts/Layout.astro";
 import ContactCTASection from "../components/home/ContactCTASection.astro";
 
-const pageTitle = "よくある質問｜江東区・中央区18エリア対応の出張ピアノ教室・髙橋遊月ピアノ教室";
+const pageTitle = "よくある質問｜江東区・中央区・港区・千代田区・文京区・台東区・墨田区の出張ピアノ教室｜髙橋遊月ピアノ教室";
 const pageDescription =
-    "髙橋遊月ピアノ教室へのよくある質問。江東区・中央区など18エリア対応の出張ピアノレッスン。出張費・電子ピアノ・体験レッスン・振替・対象年齢についてご説明します。";
+    "髙橋遊月ピアノ教室へのよくある質問ページ。江東区・中央区・港区・千代田区・文京区・台東区・墨田区の出張ピアノレッスンに関する、出張費や電子ピアノ、体験レッスン、振替などについてお答えします。";
 
 const faqs = [
+    {
+        q: "まったくの初心者で楽譜も読めませんが、レッスンを受けられますか？",
+        a: `もちろんです。<span class="inline md:inline-block">楽譜の読み方や</span><span class="inline md:inline-block">指の動かし方など、</span><span class="inline md:inline-block">基礎の基礎から</span><span class="inline md:inline-block">丁寧に指導いたします。</span>大人になってから初めてピアノに触れる方も<span class="inline md:inline-block">多くいらっしゃいますので</span><span class="inline md:inline-block">ご安心ください。</span>`,
+    },
     {
         q: "家にアップライトピアノやグランドピアノがなくても大丈夫ですか？",
         a: `はい、大丈夫です。電子ピアノ<span class="inline md:inline-block">（88鍵盤あり、</span><span class="inline md:inline-block">タッチによる強弱がつくもの推奨）</span>をお持ちであれば<span class="inline md:inline-block">レッスン可能です。</span>ご自宅でのレッスンが難しい場合は、<span class="inline md:inline-block">スタジオをレンタルしての</span><span class="inline md:inline-block">レッスンも承っております。</span><span class="inline md:inline-block">（別途会場費がかかります。）</span>楽器の購入のご相談にも乗りますので、<span class="inline md:inline-block">お気軽にお尋ねください。</span>`,
     },
     {
-        q: "まったくの初心者で楽譜も読めませんが、レッスンを受けられますか？",
-        a: `もちろんです！<span class="inline md:inline-block">楽譜の読み方や</span><span class="inline md:inline-block">指の動かし方など、</span><span class="inline md:inline-block">基礎の基礎から</span><span class="inline md:inline-block">丁寧に指導いたします。</span>大人になってから初めてピアノに触れる方も<span class="inline md:inline-block">多くいらっしゃいますので</span><span class="inline md:inline-block">ご安心ください。</span>`,
+        q: "男性の受講は可能ですか？また、女性の一人暮らしでも安心でしょうか？",
+        a: `大人の男性・女性を問わず、どなたでも受講いただけます。当教室は女性講師（東京音大卒の髙橋）が直接お伺いしてマンツーマンで指導しますので、女性の一人暮らしの方でも安心してお任せいただいております。`,
+    },
+    {
+        q: "公式LINEでは、どのようなことを相談してよいのでしょうか？",
+        a: `「自宅まで出張してもらえるエリアですか？」「〇曜日や週末の空き枠はありますか？」「電子ピアノの選び方で迷っている」といった、体験レッスンを申し込む前のご相談だけでも大歓迎です。しつこい勧誘等は一切行いませんので、お気軽にご連絡ください。`,
     },
     {
         q: "出張費や交通費は別途かかりますか？",
-        a: `江東区・中央区を中心とした<a href="/area" class="text-[#A88B58] underline underline-offset-2">18エリア</a>（清澄白河・豊洲・月島・勝どき・門前仲町・有明・晴海・木場・人形町など）への出張は、レッスン料金に交通費が含まれております。エリア外をご希望の場合は、別途交通費についてご相談させていただきます。`,
+        a: `江東区・中央区・港区・千代田区・文京区・台東区・墨田区を中心とした<a href="/area" class="text-[#A88B58] underline underline-offset-2">各エリア</a>（清澄白河、豊洲、月島、勝どき、門前仲町、有明、晴海、木場、人形町など）への出張は、レッスン料金に交通費が含まれております。対応エリア外をご希望の場合は、別途交通費についてご相談させていただきます。`,
     },
     {
         q: "対応しているエリアはどこですか？",
-        a: `江東区・中央区を中心に<a href="/area" class="text-[#A88B58] underline underline-offset-2">18エリア</a>に対応しています。主なエリアは<a href="/area/kiyosumi-shirakawa" class="text-[#A88B58] underline underline-offset-2">清澄白河</a>・<a href="/area/toyosu" class="text-[#A88B58] underline underline-offset-2">豊洲</a>・<a href="/area/tsukishima" class="text-[#A88B58] underline underline-offset-2">月島</a>・<a href="/area/kachidoki" class="text-[#A88B58] underline underline-offset-2">勝どき</a>・<a href="/area/monzen-nakacho" class="text-[#A88B58] underline underline-offset-2">門前仲町</a>・<a href="/area/ariake" class="text-[#A88B58] underline underline-offset-2">有明</a>・<a href="/area/harumi" class="text-[#A88B58] underline underline-offset-2">晴海</a>・<a href="/area/kiba" class="text-[#A88B58] underline underline-offset-2">木場</a>・<a href="/area/ningyocho" class="text-[#A88B58] underline underline-offset-2">人形町</a>などです。詳細は<a href="/area" class="text-[#A88B58] underline underline-offset-2">エリア一覧ページ</a>をご確認ください。`,
+        a: `江東区・中央区・港区・千代田区・文京区・台東区・墨田区を中心に<a href="/area" class="text-[#A88B58] underline underline-offset-2">各エリア</a>に対応しています。主なエリアは清澄白河、豊洲、月島、勝どき、門前仲町、有明、赤坂、麹町、春日、両国、蔵前などです。詳細は<a href="/area" class="text-[#A88B58] underline underline-offset-2">エリア一覧ページ</a>をご確認ください。`,
     },
     {
         q: "無料体験レッスンはありますか？",
-        a: `はい、初回は無料体験レッスンを行っております。体験時間は30〜45分程度で、お子様から大人まで対応しています。体験では現在の演奏状況や目標・生活スケジュールをお聞きしたうえで、レッスン内容・曜日・時間帯をご提案します。お申し込みは<a href="/contact" class="text-[#A88B58] underline underline-offset-2">公式LINEまたはお問い合わせフォーム</a>からどうぞ。`,
+        a: `はい、初回は無料体験レッスンを行っております。大人の方を中心に（お子さまのレッスンも相談可能）、ご自宅やスタジオでのレッスンが合うか確認していただけます。体験時間は30〜45分程度です。体験では現在の演奏状況やご希望をお伺いしたうえで、レッスン内容・曜日・時間帯をご提案します。お申し込みは<a href="/contact" class="text-[#A88B58] underline underline-offset-2">公式LINEまたはお問い合わせフォーム</a>からお気軽にご連絡ください。`,
     },
     {
         q: "レッスンの振替はできますか？",
@@ -33,7 +41,7 @@ const faqs = [
     },
     {
         q: "何歳から習うことができますか？",
-        a: `年齢制限は設けておりません。就学前のお子様から、大人・シニアの方まで対応しています。お子様の場合は年齢や発達段階に合わせた指導を行います。大人の方は趣味・再開・資格取得など目的に応じてカリキュラムを調整しますので、お気軽にご相談ください。`,
+        a: `年齢制限は設けておりません。大人の初心者・再開者の方を中心に、40〜60代の方やシニアの方まで幅広く対応しています。お仕事やライフスタイルに合わせて、好きな曲や基礎などご希望のカリキュラムを相談しながら進めます。（お子さまのレッスンもスケジュール調整のうえ、ご相談いただけます。）`,
     },
     {
         q: "LINEで問い合わせた後、電話相談はできますか？",

@@ -1,0 +1,88 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { client } from "../../lib/microcms";
+import type { Blog } from "../../lib/microcms";
+
+// 記事をすべて取得（件数制限なし）
+const response = await client.get({
+    endpoint: "news",
+    queries: { fields: ["id", "title", "publishedAt"] },
+});
+const newsContents = response.contents;
+
+const pageTitle = "お知らせ一覧 | 髙橋遊月ピアノ教室";
+const pageDescription =
+    "髙橋遊月ピアノ教室からのお知らせ一覧です。レッスンの様子やスケジュールなど、最新情報をお届けします。";
+
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://playon-music.jp",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "お知らせ一覧",
+            item: "https://playon-music.jp/news",
+        },
+    ],
+});
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <script type="application/ld+json" set:html={schema} slot="head" />
+    <section class="py-24 px-6 max-w-4xl mx-auto min-h-screen">
+        <div class="text-center mb-16">
+            <h1 class="text-2xl md:text-3xl font-serif mb-4">お知らせ一覧</h1>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                News
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+
+        <div class="space-y-4">
+            {
+                newsContents.length > 0 ? (
+                    newsContents.map((item: any) => (
+                        <a href={`/news/${item.id}`} class="block group">
+                            <div class="bg-white p-6 rounded-xl border border-[#F1EBE4] hover:shadow-md transition-all flex flex-col md:flex-row md:items-center gap-4">
+                                <span class="text-sm text-[#A88B58] font-mono">
+                                    {new Date(
+                                        item.publishedAt,
+                                    ).toLocaleDateString("ja-JP")}
+                                </span>
+                                <h2 class="text-base font-normal group-hover:text-[#A88B58] transition-colors flex-1">
+                                    {item.title}
+                                </h2>
+                                <span class="text-xs text-[#A88B58] opacity-0 group-hover:opacity-100 transition-opacity">
+                                    Read more &rarr;
+                                </span>
+                            </div>
+                        </a>
+                    ))
+                ) : (
+                    <p class="text-center opacity-60">
+                        現在お知らせはありません。
+                    </p>
+                )
+            }
+        </div>
+
+        <div class="mt-16 text-center">
+            <a
+                href="/"
+                class="inline-block border border-[#A88B58] text-[#A88B58] px-8 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-colors text-sm tracking-widest"
+            >
+                HOMEへ戻る
+            </a>
+        </div>
+    </section>
+</Layout>

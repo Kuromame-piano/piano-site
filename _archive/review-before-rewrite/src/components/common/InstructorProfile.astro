@@ -1,0 +1,87 @@
+---
+import { Image } from "astro:assets";
+
+interface Props {
+    introduction?: string;
+    quote?: string;
+}
+
+const { introduction, quote } = Astro.props;
+
+// If quote is explicitly empty string, we hide it. Otherwise, use quote or the default quote.
+const displayQuote = quote !== undefined ? quote : "音楽は、日常に彩りと豊かさを与えてくれる大切な存在。技術の習得はもちろん、お一人おひとりの生活リズムや目標に合わせて、無理なくピアノを続けられるレッスンを一緒に考えます。";
+---
+
+<div class="grid md:grid-cols-[40%_60%] gap-12 items-center max-w-5xl mx-auto">
+    <div class="relative max-w-sm mx-auto md:mr-0 md:ml-auto">
+        <div
+            class="aspect-[4/5] overflow-hidden rounded-t-[100px] rounded-b-lg shadow-2xl"
+        >
+            <Image
+                src="/image.png"
+                alt="髙橋遊月"
+                width={600}
+                height={750}
+                class="w-full h-full object-cover"
+                loading="lazy"
+            />
+        </div>
+        <div
+            class="absolute -bottom-6 -right-6 w-48 h-48 bg-[#A88B58]/10 rounded-full -z-10 blur-2xl"
+        >
+        </div>
+    </div>
+    <div class="md:pr-24">
+        <h3 class="text-3xl font-serif mb-6 leading-snug">
+            髙橋 遊月 <span
+                class="text-lg opacity-60 ml-2 font-light italic text-[#8B7355]"
+                >Takahashi Yuzuki</span
+            >
+        </h3>
+        <div class="space-y-6 text-[#544A40] text-sm md:text-base leading-loose md:leading-relaxed">
+            <p class="font-bold border-b border-[#E8E2D9] pb-2 inline-block">
+                東京音楽大学 卒業
+            </p>
+            {
+                introduction ? (
+                    introduction
+                        .split("\n\n")
+                        .map((paragraph) => (
+                            <p>
+                                {paragraph.split("\n").map((line, i) => (
+                                    <>
+                                        {i > 0 && <br class="md:hidden" />}
+                                        {line}
+                                    </>
+                                ))}
+                            </p>
+                        ))
+                ) : (
+                    <>
+                        <p>
+                            東京音楽大学卒業。クラシックを基礎に、初心者の方の基礎づくりから、<br class="hidden md:inline" />
+                            久しぶりにピアノを再開したい方、好きな曲を仕上げたい方まで、<br class="hidden md:inline" />
+                            一人ひとりの目的に合わせた個人レッスンを行っています。
+                        </p>
+                        <p>
+                            「出張レッスン」だからこそ通学の手間がなく、<br class="hidden md:inline" />
+                            ご自宅や近隣のレンタルスタジオでリラックスして学んでいただけます。<br class="hidden md:inline" />
+                            忙しい日常の中でも無理なく続けられる練習方法を、一緒に考えてサポートします。
+                        </p>
+                    </>
+                )
+            }
+        </div>
+        {
+            displayQuote && (
+                <div
+                    class="mt-8 p-6 md:p-8 bg-[#FCFAF7] rounded-2xl shadow-sm border border-[#F1EBE4] hidden md:block"
+                >
+                    <p class="italic text-sm leading-loose">
+                        {displayQuote}
+                    </p>
+                </div>
+            )
+        }
+    </div>
+</div>

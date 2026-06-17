@@ -1,0 +1,57 @@
+---
+import type { Area } from "../../data/areas";
+
+interface Props {
+    area: Area;
+    className?: string;
+}
+
+const { area, className = "bg-[#FCFAF7]" } = Astro.props;
+const categories = ["送迎・移動", "両立", "電子ピアノ・自宅環境"];
+---
+
+<section class={`py-20 px-6 ${className}`}>
+    <div class="max-w-6xl mx-auto">
+        <div class="text-center mb-16">
+            <h2 class="text-2xl md:text-3xl font-serif text-[#544A40] mb-4">
+                {`${area.name}でよくあるご相談`}
+            </h2>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase mb-8"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                Common Concerns
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+            <p class="text-sm md:text-base text-[#6B5F54] max-w-2xl mx-auto leading-relaxed">
+                <span class="inline-block">{area.name}で出張ピアノレッスンをご検討中の方から、</span>
+                <br />
+                <span class="inline-block">よくいただくご相談をまとめました。</span>
+            </p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-8">
+            {
+                area.consultations.map((item, index) => {
+                    const category = categories[index] || "";
+                    return (
+                        <article class="bg-white rounded-2xl border border-[#F1EBE4] shadow-sm p-6 md:p-8 flex flex-col">
+                            {category && (
+                                <span class="inline-block bg-[#F1EBE4] text-[#544A40] text-xs font-bold px-3 py-1 rounded mb-3 w-fit tracking-wider">
+                                    {category}
+                                </span>
+                            )}
+                            <h3 class="text-base md:text-lg font-semibold text-[#544A40] mb-4">
+                                {item.title}
+                            </h3>
+                            <p class="text-sm md:text-base text-[#6B5F54] leading-relaxed">
+                                {item.description}
+                            </p>
+                        </article>
+                    );
+                })
+            }
+        </div>
+    </div>
+</section>
+

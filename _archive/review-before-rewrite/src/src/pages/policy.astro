@@ -1,0 +1,83 @@
+---
+import Layout from "../layouts/Layout.astro";
+const pageTitle = "プライバシーポリシー | 髙橋遊月ピアノ教室";
+const pageDescription =
+    "髙橋遊月ピアノ教室のプライバシーポリシー（個人情報保護方針）に関するページです。";
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    itemListElement: [
+        {
+            "@type": "ListItem",
+            position: 1,
+            name: "Home",
+            item: "https://playon-music.jp",
+        },
+        {
+            "@type": "ListItem",
+            position: 2,
+            name: "プライバシーポリシー",
+            item: "https://playon-music.jp/policy",
+        },
+    ],
+});
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <script type="application/ld+json" set:html={schema} slot="head" />
+    <section class="py-24 px-6 max-w-3xl mx-auto text-[#544A40]">
+        
+        <div class="text-center mb-16">
+            <h1 class="text-2xl md:text-3xl font-serif font-bold mb-4 text-[#544A40]">
+                個人情報の取り扱い
+            </h1>
+            <p class="text-[#A88B58] text-sm tracking-widest font-serif">Privacy Policy</p>
+        </div>
+
+        <div class="space-y-10 text-sm leading-loose">
+            <div>
+                <h2 class="font-bold border-b border-[#E8E2D9] pb-2 mb-4">
+                    1. 個人情報の利用目的
+                </h2>
+                <p>
+                    当教室は、お問い合わせフォーム等を通じて得たお客様の個人情報（お名前、メールアドレス、電話番号など）を、以下の目的のために利用いたします。<br
+                    />
+                    ・レッスンに関するご連絡やご案内<br />
+                    ・お問い合わせへの回答<br />
+                    ・サービスの向上や改善
+                </p>
+            </div>
+
+            <div>
+                <h2 class="font-bold border-b border-[#E8E2D9] pb-2 mb-4">
+                    2. 個人情報の第三者への提供
+                </h2>
+                <p>
+                    当教室は、法令に基づく場合を除き、取得した個人情報を事前にお客様の同意を得ることなく第三者に提供することはありません。
+                </p>
+            </div>
+
+            <div>
+                <h2 class="font-bold border-b border-[#E8E2D9] pb-2 mb-4">
+                    3. 個人情報の管理
+                </h2>
+                <p>
+                    当教室は、個人情報の漏洩、滅失、き損などを防止するために、適切なセキュリティ対策を実施し、個人情報を厳重に管理いたします。
+                </p>
+            </div>
+
+            <div>
+                <h2 class="font-bold border-b border-[#E8E2D9] pb-2 mb-4">
+                    4. お問い合わせ窓口
+                </h2>
+                <p>
+                    個人情報の取り扱いに関するお問い合わせは、当サイトのお問い合わせフォームよりご連絡ください。
+                </p>
+            </div>
+
+            <div class="pt-8 text-right text-xs opacity-60">
+                <p>2025年12月30日 制定</p>
+            </div>
+        </div>
+    </section>
+</Layout>

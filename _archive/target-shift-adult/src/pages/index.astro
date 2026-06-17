@@ -1,0 +1,167 @@
+---
+import Layout from "../layouts/Layout.astro";
+import { client } from "../lib/microcms";
+
+import HomeHero from "../components/home/HomeHero.astro";
+import ProfileSection from "../components/home/ProfileSection.astro";
+import MovieSection from "../components/home/MovieSection.astro";
+import LessonStyleSection from "../components/home/LessonStyleSection.astro";
+import PriceSection from "../components/home/PriceSection.astro";
+import TargetAreaSection from "../components/home/TargetAreaSection.astro";
+import LineCTASection from "../components/home/LineCTASection.astro";
+import LessonVoiceSection from "../components/lesson/LessonVoiceSection.astro";
+import HomeFAQSection from "../components/home/HomeFAQSection.astro";
+import ContactCTASection from "../components/home/ContactCTASection.astro";
+
+// SEO用の設定
+const pageTitle =
+  "江東区・清澄白河のピアノ教室｜出張レッスン専門・髙橋遊月ピアノ教室";
+const pageDescription =
+  "江東区・中央区エリアへの出張ピアノ教室。清澄白河・豊洲・月島・勝どき・門前仲町・有明・晴海・木場・人形町など18エリア対応。講師がご自宅へ伺う送迎不要のマンツーマン指導。東京音大卒女性講師。無料体験レッスン受付中。";
+import heroPiano from "../assets/images/hero-piano.webp";
+const heroImage = heroPiano.src;
+
+// microCMSからお知らせを取得
+const response = await client.get({
+  endpoint: "news",
+  queries: { limit: 3, fields: ["id", "title", "publishedAt"] },
+});
+const newsContents = response.contents;
+
+// 構造化データ
+const schema = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "MusicSchool",
+      "@id": "https://playon-music.jp/#business",
+      name: "髙橋遊月ピアノ教室",
+      description: pageDescription,
+      image: heroImage,
+      url: "https://playon-music.jp",
+      address: {
+        "@type": "PostalAddress",
+        addressRegion: "東京都",
+        addressLocality: "江東区",
+      },
+      areaServed: [
+        "江東区",
+        "清澄白河",
+        "門前仲町",
+        "木場",
+        "深川",
+        "森下",
+        "白河",
+        "三好",
+        "平野",
+        "住吉",
+        "豊洲",
+        "有明",
+        "東雲",
+        "佐賀",
+        "永代",
+        "福住",
+        "冬木",
+        "牡丹",
+        "古石場",
+        "越中島",
+        "菊川",
+        "千歳",
+        "中央区",
+        "月島",
+        "晴海",
+        "勝どき",
+        "水天宮前",
+        "茅場町",
+        "人形町",
+        "日本橋浜町",
+        "日本橋中洲",
+        "日本橋蛎殻町",
+        "日本橋箱崎町",
+        "墨田区",
+        "立川",
+        "緑",
+        "台東区",
+        "蔵前",
+        "清澄白河駅",
+        "門前仲町駅",
+        "木場駅",
+        "水天宮前駅",
+        "茅場町駅",
+        "人形町駅",
+        "大江戸線沿線",
+        "半蔵門線沿線",
+        "東西線沿線",
+      ],
+      serviceType: [
+        "ピアノ家庭教師",
+        "ピアノ訪問レッスン",
+        "ピアノ出張レッスン",
+        "マンツーマンレッスン",
+        "個人指導",
+      ],
+      priceRange: "5,000円〜",
+      instructor: {
+        "@type": "Person",
+        name: "髙橋 遊月",
+        alumniOf: "東京音楽大学",
+      },
+      sameAs: ["https://maps.app.goo.gl/HXjDLFKDbM8tT7cW9"],
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        {
+          "@type": "ListItem",
+          position: 1,
+          name: "Home",
+          item: "https://playon-music.jp",
+        },
+      ],
+    },
+  ],
+});
+---
+
+<Layout title={pageTitle} description={pageDescription} image={heroImage}>
+  <script type="application/ld+json" set:html={schema} slot="head" />
+
+  <link
+    rel="preload"
+    as="image"
+    href={heroImage}
+    fetchpriority="high"
+    slot="preload"
+  />
+
+  <main class="bg-[#FCFAF7] text-[#544A40] font-sans relative">
+    {/* 1. ファーストビュー */}
+    <HomeHero />
+    {/* 2. 講師紹介 */}
+    <ProfileSection />
+    <MovieSection />
+
+    {/* 3. レッスンスタイル */}
+    <LessonStyleSection />
+
+    {/* 4. レッスン料金 */}
+    <PriceSection />
+
+    {/* 5. 対応エリア */}
+    <TargetAreaSection />
+
+    {/* 6. 公式LINE CTA */}
+    <LineCTASection />
+
+    {/* 7. 生徒様の声 */}
+    <LessonVoiceSection />
+
+    {/* 8. FAQ抜粋 */}
+    <HomeFAQSection />
+
+
+
+    {/* 10. 最終CTA */}
+    <ContactCTASection />
+  </main>
+</Layout>

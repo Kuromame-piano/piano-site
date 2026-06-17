@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactCTASection from "../components/home/ContactCTASection.astro";
+
+const pageTitle = "よくある質問｜江東区・中央区・港区・千代田区・文京区・台東区・墨田区の出張ピアノ教室｜髙橋遊月ピアノ教室";
+const pageDescription =
+    "髙橋遊月ピアノ教室へのよくある質問ページ。江東区・中央区・港区・千代田区・文京区・台東区・墨田区の出張ピアノレッスンに関する、出張費や電子ピアノ、体験レッスン、振替などについてお答えします。";
+
+const faqs = [
+    {
+        q: "家にアップライトピアノやグランドピアノがなくても大丈夫ですか？",
+        a: `はい、大丈夫です。電子ピアノ<span class="inline md:inline-block">（88鍵盤あり、</span><span class="inline md:inline-block">タッチによる強弱がつくもの推奨）</span>をお持ちであれば<span class="inline md:inline-block">レッスン可能です。</span>ご自宅でのレッスンが難しい場合は、<span class="inline md:inline-block">スタジオをレンタルしての</span><span class="inline md:inline-block">レッスンも承っております。</span><span class="inline md:inline-block">（別途会場費がかかります。）</span>楽器の購入のご相談にも乗りますので、<span class="inline md:inline-block">お気軽にお尋ねください。</span>`,
+    },
+    {
+        q: "まったくの初心者で楽譜も読めませんが、レッスンを受けられますか？",
+        a: `もちろんです！<span class="inline md:inline-block">楽譜の読み方や</span><span class="inline md:inline-block">指の動かし方など、</span><span class="inline md:inline-block">基礎の基礎から</span><span class="inline md:inline-block">丁寧に指導いたします。</span>大人になってから初めてピアノに触れる方も<span class="inline md:inline-block">多くいらっしゃいますので</span><span class="inline md:inline-block">ご安心ください。</span>`,
+    },
+    {
+        q: "出張費や交通費は別途かかりますか？",
+        a: `江東区・中央区・港区・千代田区・文京区・台東区・墨田区を中心とした<a href="/area" class="text-[#A88B58] underline underline-offset-2">各エリア</a>（清澄白河、豊洲、月島、勝どき、門前仲町、有明、晴海、木場、人形町など）への出張は、レッスン料金に交通費が含まれております。対応エリア外をご希望の場合は、別途交通費についてご相談させていただきます。`,
+    },
+    {
+        q: "対応しているエリアはどこですか？",
+        a: `江東区・中央区・港区・千代田区・文京区・台東区・墨田区を中心に<a href="/area" class="text-[#A88B58] underline underline-offset-2">各エリア</a>に対応しています。主なエリアは清澄白河、豊洲、月島、勝どき、門前仲町、有明、赤坂、麹町、春日、両国、蔵前などです。詳細は<a href="/area" class="text-[#A88B58] underline underline-offset-2">エリア一覧ページ</a>をご確認ください。`,
+    },
+    {
+        q: "無料体験レッスンはありますか？",
+        a: `はい、初回は無料体験レッスンを行っております。大人の方を中心に（お子さまのレッスンも相談可能）、ご自宅やスタジオでのレッスンが合うか確認していただけます。体験時間は30〜45分程度です。体験では現在の演奏状況やご希望をお伺いしたうえで、レッスン内容・曜日・時間帯をご提案します。お申し込みは<a href="/contact" class="text-[#A88B58] underline underline-offset-2">公式LINEまたはお問い合わせフォーム</a>からどうぞ。`,
+    },
+    {
+        q: "レッスンの振替はできますか？",
+        a: `はい、事前にご連絡いただければ振替対応が可能です。急なご都合でのキャンセルも、できる限り柔軟に対応いたします。振替の可否・期限については、レッスン開始時に個別にご相談のうえ取り決めております。`,
+    },
+    {
+        q: "何歳から習うことができますか？",
+        a: `年齢制限は設けておりません。大人の初心者・再開者の方を中心に、40〜60代の方やシニアの方まで幅広く対応しています。お仕事やライフスタイルに合わせて、好きな曲や基礎などご希望のカリキュラムを相談しながら進めます。（お子さまのレッスンもスケジュール調整のうえ、ご相談いただけます。）`,
+    },
+    {
+        q: "LINEで問い合わせた後、電話相談はできますか？",
+        a: `必要に応じて、お電話でのご相談も可能です。LINEで「電話で相談したい」旨をご希望と合わせてお知らせください。`,
+    },
+];
+
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://playon-music.jp",
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "よくある質問",
+                    item: "https://playon-music.jp/faq",
+                },
+            ],
+        },
+        {
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.q,
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: faq.a.replace(/<[^>]*>?/gm, ""),
+                },
+            })),
+        },
+    ],
+});
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <script type="application/ld+json" set:html={schema} slot="head" />
+    <section class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-2xl md:text-3xl font-serif mb-4">よくある質問</h1>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                FAQ
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            {
+                faqs.map((faq) => (
+                    <div class="bg-white rounded-xl border border-[#F1EBE4] p-6 md:p-8 shadow-sm">
+                        <h2 class="font-serif font-bold text-[#544A40] flex items-start gap-3 mb-4">
+                            <span class="text-[#A88B58] text-lg">Q.</span>
+                            <span class="pt-[2px]">{faq.q}</span>
+                        </h2>
+                        <div class="pl-8 text-sm leading-loose text-[#6B5F54] border-l-2 border-[#F1EBE4]">
+                            <p set:html={faq.a} />
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <ContactCTASection />
+</Layout>

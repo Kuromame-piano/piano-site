@@ -1,0 +1,246 @@
+---
+import Layout from "../../layouts/Layout.astro";
+import { areas, areaGroups } from "../../data/areas";
+import { type Area } from "../../data/areas";
+import HeroSection from "../../components/area/HeroSection.astro";
+
+
+import LessonFlowSection from "../../components/area/LessonFlowSection.astro";
+import MapSection from "../../components/area/MapSection.astro";
+import FAQSection from "../../components/area/FAQSection.astro";
+import CTASection from "../../components/area/CTASection.astro";
+import NeedSolutionSection from "../../components/area/NeedSolutionSection.astro";
+
+import InstructorSection from "../../components/area/InstructorSection.astro";
+import FeeSection from "../../components/area/FeeSection.astro";
+import RelatedAreasSection from "../../components/area/RelatedAreasSection.astro";
+import Breadcrumbs from "../../components/common/Breadcrumbs.astro";
+import LessonStyleSection from "../../components/area/LessonStyleSection.astro";
+
+export async function getStaticPaths() {
+    return areas.map((area) => ({
+        params: { slug: area.slug },
+        props: { area },
+    }));
+}
+
+interface Props {
+    area: Area;
+}
+
+const { area } = Astro.props;
+
+// 画像の表示位置をエリアごとに調整
+const getObjectPosition = (slug: string) => {
+    if (["kiyosumi-shirakawa", "monzen-nakacho"].includes(slug)) {
+        return "50% 55%";
+    }
+    if (["ningyocho", "morishita"].includes(slug)) {
+        return "50% 50%";
+    }
+    // 東雲、勝どき、豊洲はピアノが見えるように少し下げる
+    if (["shinonome", "kachidoki", "toyosu"].includes(slug)) {
+        return "50% 45%";
+    }
+    return "50% 35%";
+};
+const objectPosition = getObjectPosition(area.slug);
+
+const areaGroup = areaGroups.find((g) => g.areaSlugs.includes(area.slug));
+const district = areaGroup?.district ?? "";
+const pageTitle = `${area.name}の大人向けピアノ教室｜自宅・近隣スタジオで受けられる出張レッスン｜髙橋遊月ピアノ教室`;
+const pageDescription =
+    area.seo?.metaDescription ||
+    `${area.name}のピアノ教室をお探しの方へ。講師がご自宅へ伺う出張専門のピアノ教室です。${area.metaSnippet || area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
+const pageKeywords = area.seo
+    ? [area.seo.primaryKeyword, ...area.seo.secondaryKeywords]
+    : area.keywords;
+
+// Schema.org Structured Data
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    item: {
+                        "@id": Astro.site?.toString(),
+                        name: "ホーム",
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    item: {
+                        "@id": new URL("/area", Astro.site).toString(),
+                        name: "出張エリア",
+                    },
+                },
+                {
+                    "@type": "ListItem",
+                    position: 3,
+                    item: {
+                        "@id": Astro.url.toString(),
+                        name: area.name,
+                    },
+                },
+            ],
+        },
+        // LocalBusiness Schema for mobile business
+        {
+            "@type": ["LocalBusiness", "MusicSchool"],
+            "@id": Astro.site?.toString() + "#business",
+            name: "髙橋遊月ピアノ教室",
+            description: `${area.name}での出張ピアノレッスン。${area.lead}`,
+            url: Astro.site?.toString(),
+            image: new URL("/image.png", Astro.site).toString(),
+            priceRange: "￥5,000～",
+            areaServed: {
+                "@type": "Place",
+                name: area.name,
+            },
+            serviceType: "出張ピアノレッスン",
+            sameAs: ["https://maps.app.goo.gl/HXjDLFKDbM8tT7cW9"],
+            hasOfferCatalog: {
+                "@type": "OfferCatalog",
+                name: "ピアノレッスン",
+                itemListElement: [
+                    {
+                        "@type": "Offer",
+                        itemOffered: {
+                            "@type": "Service",
+                            name: "無料体験レッスン",
+                        },
+                    },
+                ],
+            },
+        },
+        {
+            "@type": "Service",
+            name: `${area.name}の出張ピアノ教室`,
+            provider: {
+                "@type": "MusicSchool",
+                name: "髙橋遊月ピアノ教室",
+                url: Astro.site?.toString(),
+                image: new URL("/image.png", Astro.site).toString(),
+            },
+            areaServed: {
+                "@type": "Place",
+                name: area.name,
+            },
+            description: area.lead,
+            url: Astro.url.toString(),
+            potentialAction: {
+                "@type": "ReserveAction",
+                target: {
+                    "@type": "EntryPoint",
+                    urlTemplate: new URL("/contact", Astro.site).toString(),
+                },
+                result: {
+                    "@type": "Reservation",
+                    name: "体験レッスン",
+                },
+            },
+        },
+        {
+            "@type": "FAQPage",
+            mainEntity: area.faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.question,
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: faq.answer,
+                },
+            })),
+        },
+    ],
+});
+---
+
+<Layout
+    title={pageTitle}
+    description={pageDescription}
+    image={area.mainImage}
+    keywords={pageKeywords}
+>
+    <!-- Structured Data -->
+    <script slot="head" type="application/ld+json" set:html={schema} />
+
+    <!-- Preload Critical Image -->
+    <link slot="head" rel="preload" as="image" href={area.mainImage} />
+
+    <Breadcrumbs
+        items={[
+            { label: "出張エリア一覧", path: "/area" },
+            { label: area.name, path: `/area/${area.slug}` },
+        ]}
+    />
+
+    <HeroSection area={area} objectPosition={objectPosition} />
+
+    <LessonStyleSection area={area} className="bg-[#FCFAF7]" />
+
+    <InstructorSection area={area} className="bg-white" />
+
+    <FeeSection area={area} className="bg-[#FCFAF7]" />
+
+    <CTASection area={area} variant="mid" />
+
+    <LessonFlowSection area={area} className="bg-white" />
+
+    <NeedSolutionSection area={area} className="bg-[#FCFAF7]" />
+
+    {area.areaGuide && (
+        <section class="bg-white py-24 px-6">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-16">
+                    <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#544A40]">
+                        {area.name}エリアでレッスンを<br class="md:hidden" />続けるためのポイント
+                    </h2>
+                    <div
+                        class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+                    >
+                        <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                        Tips for Continuing
+                        <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                    </div>
+                </div>
+                <div class="prose prose-stone max-w-none text-[#544A40] leading-relaxed" set:html={area.areaGuide} />
+            </div>
+        </section>
+    )}
+
+    <MapSection area={area} className={area.areaGuide ? "bg-[#FCFAF7]" : "bg-white"} />
+
+    {/* 対応エリア後のLINE小CTA */}
+    <section class={`${area.areaGuide ? "bg-[#FCFAF7]" : "bg-white"} pb-16 px-6`}>
+        <div class="max-w-4xl mx-auto text-center">
+            <div class="bg-white p-6 md:p-8 rounded-2xl border border-[#E8E2D9] max-w-2xl mx-auto shadow-sm">
+                <h3 class="text-base font-bold text-[#544A40] mb-2 font-serif">近隣エリアもご相談ください</h3>
+                <p class="text-xs text-[#6B5F54] leading-relaxed mb-6">
+                    記載の地域以外でも、公共交通機関で伺える範囲で対応できる場合があります。最寄り駅や町名をLINEでお送りください。
+                </p>
+                <a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-3.5 rounded-full font-bold shadow-sm transition-all duration-300 text-xs tracking-wider line_click_area_map gap-2"
+                >
+                    <svg viewBox="0 0 24 24" class="w-4 h-4 fill-current" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
+                    </svg>
+                    LINEで対応エリアを相談する
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <FAQSection area={area} className={area.areaGuide ? "bg-white" : "bg-[#FCFAF7]"} />
+
+    <CTASection area={area} variant="final" />
+
+    <RelatedAreasSection area={area} className="bg-[#FCFAF7]" />
+</Layout>

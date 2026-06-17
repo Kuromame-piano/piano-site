@@ -1,0 +1,71 @@
+---
+import { areas, areaGroups } from "../data/areas";
+const year = new Date().getFullYear();
+---
+
+<footer
+    class="py-16 text-center text-[10px] tracking-[0.2em] uppercase border-t border-[#F1EBE4] mt-auto bg-[#FCFAF7]"
+>
+    {/* SEO対策：主要エリアへの内部リンク網羅 */}
+    <div class="max-w-7xl mx-auto px-6 mb-12">
+        <p
+            class="font-serif text-[#A88B58] mb-6 text-xs tracking-widest text-center opacity-80"
+        >
+            SERVICE AREAS
+        </p>
+
+        <div
+            class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-8 text-left"
+        >
+            {
+                areaGroups.map((group) => (
+                    <div class="flex flex-col gap-3">
+                        <span class="text-[#8C7B6C] font-medium border-b border-[#A88B58]/20 pb-1">
+                            {group.district}
+                        </span>
+                        <div class="flex flex-col gap-2">
+                            {group.areaSlugs.map((slug) => {
+                                const area = areas.find((a) => a.slug === slug);
+                                return area ? (
+                                    <a
+                                        href={`/area/${area.slug}`}
+                                        class="text-[#544A40]/60 hover:text-[#A88B58] transition-colors text-[9px] tracking-wider"
+                                    >
+                                        {area.name}のピアノ教室
+                                    </a>
+                                ) : null;
+                            })}
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </div>
+
+    <div class="mb-8 flex flex-wrap justify-center gap-x-6 gap-y-2 text-[#544A40]/60 text-[10px] tracking-[0.15em] font-medium max-w-3xl mx-auto px-6 uppercase">
+        <a href="/" class="hover:text-[#A88B58] transition-colors">HOME</a>
+        <span class="opacity-30">/</span>
+        <a href="/lesson" class="hover:text-[#A88B58] transition-colors">LESSON</a>
+        <span class="opacity-30">/</span>
+        <a href="/kids-piano-lesson" class="hover:text-[#A88B58] transition-colors">KIDS LESSON</a>
+        <span class="opacity-30">/</span>
+        <a href="/adult-piano-lesson" class="hover:text-[#A88B58] transition-colors">ADULT LESSON</a>
+        <span class="opacity-30">/</span>
+        <a href="/visit-lesson" class="hover:text-[#A88B58] transition-colors">VISIT LESSON</a>
+        <span class="opacity-30">/</span>
+        <a href="/area" class="hover:text-[#A88B58] transition-colors">AREA</a>
+        <span class="opacity-30">/</span>
+        <a href="/faq" class="hover:text-[#A88B58] transition-colors">FAQ</a>
+        <span class="opacity-30">/</span>
+        <a href="/contact" class="hover:text-[#A88B58] transition-colors">CONTACT</a>
+    </div>
+
+    <div class="mb-6 opacity-40">
+        <a
+            href="/policy"
+            class="hover:opacity-100 transition-opacity inline-block px-4 py-2"
+            >Privacy Policy</a
+        >
+    </div>
+    <p class="opacity-40">&copy; {year} Takahashi Yuzuki Piano School.</p>
+</footer>

@@ -1,0 +1,118 @@
+---
+import "../styles/global.css";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+
+interface Props {
+    title: string;
+    description?: string;
+    image?: string;
+    article?: boolean;
+    robots?: string;
+    keywords?: string | string[];
+}
+
+const {
+    title,
+    description = "江東区・清澄白河でピアノ教室をお探しの方へ。当教室は講師がご自宅へ伺う「出張型」のピアノ教室です。お子様の送り迎えの負担もゼロに。仕事帰りにいつもの環境でリラックスしてレッスンを受けられます。東京音大卒の女性講師によるマンツーマン指導。",
+    image = "/image.png", // デフォルトのOGP画像（プロフィール画像を使用）
+    article = false,
+    robots = "index, follow", // デフォルトはインデックスさせる
+    keywords,
+} = Astro.props;
+
+const canonicalURL = new URL(Astro.url.pathname, Astro.site);
+const socialImageURL = new URL(image, Astro.site);
+const type = article ? "article" : "website";
+const siteName = "髙橋遊月ピアノ教室";
+
+// 検索結果にサイト名を表示するための構造化データ
+const websiteSchema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    name: siteName,
+    url: Astro.site?.toString() || "https://playon-music.jp",
+});
+const defaultKeywords =
+    "出張ピアノ教室,ピアノレッスン,東京,江東区,中央区,訪問レッスン";
+
+const metaKeywords = keywords
+    ? `${Array.isArray(keywords) ? keywords.join(",") : keywords},${defaultKeywords}`
+    : defaultKeywords;
+---
+
+<!doctype html>
+<html lang="ja" class="scroll-smooth">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width" />
+        <meta
+            name="google-site-verification"
+            content="HYqTs-Lq_YnUb24m9Z0bwUe-lbi5jurfQN_rNtvEkyE"
+        />
+        <link rel="icon" type="image/png" href="/favicon.png" sizes="192x192" />
+        <link rel="icon" href="/favicon.ico" sizes="48x48" />
+        <link rel="apple-touch-icon" href="/favicon.png" />
+        <meta name="generator" content={Astro.generator} />
+
+        <link rel="canonical" href={canonicalURL} />
+        <meta name="robots" content={robots} />
+        <link rel="alternate" hreflang="ja" href={canonicalURL.toString()} />
+        <link
+            rel="alternate"
+            hreflang="x-default"
+            href={canonicalURL.toString()}
+        />
+
+        <title>{title}</title>
+        <meta name="description" content={description} />
+        <meta name="keywords" content={metaKeywords} />
+
+        <meta property="og:type" content={type} />
+        <meta property="og:url" content={Astro.url} />
+        <meta property="og:title" content={title} />
+        <meta property="og:description" content={description} />
+        <meta property="og:image" content={socialImageURL} />
+        <meta property="og:site_name" content={siteName} />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content={Astro.url} />
+        <meta property="twitter:title" content={title} />
+        <meta property="twitter:description" content={description} />
+        <meta property="twitter:image" content={socialImageURL} />
+
+        {/* サイト名を検索結果に表示するための構造化データ */}
+        <script type="application/ld+json" set:html={websiteSchema} />
+
+        {/* プリロード用スロット */}
+        <slot name="preload" />
+
+        {/* 各ページから構造化データ等を挿入するためのスロットを追加 */}
+        <slot name="head" />
+    </head>
+    <body
+        class="bg-[#FCFAF7] text-[#544A40] font-sans flex flex-col min-h-screen"
+    >
+        <Header />
+        <main class="flex-1">
+            <slot />
+        </main>
+        <Footer />
+
+        {/* GTMの積極的遅延読み込み（ユーザー操作または3秒後に読み込み） */}
+        {/* Google Analytics (GA4) */}
+        <script
+            type="text/javascript"
+            async
+            src="https://www.googletagmanager.com/gtag/js?id=G-FCM36GL4CP"
+        ></script>
+        <script type="text/javascript">
+            window.dataLayer = window.dataLayer || [];
+            function gtag() {
+                dataLayer.push(arguments);
+            }
+            gtag("js", new Date());
+            gtag("config", "G-FCM36GL4CP");
+        </script>
+    </body>
+</html>

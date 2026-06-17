@@ -1,0 +1,111 @@
+---
+import Layout from "../layouts/Layout.astro";
+import ContactCTASection from "../components/home/ContactCTASection.astro";
+
+const pageTitle = "よくある質問｜江東区・中央区18エリア対応の出張ピアノ教室・髙橋遊月ピアノ教室";
+const pageDescription =
+    "髙橋遊月ピアノ教室へのよくある質問。江東区・中央区など18エリア対応の出張ピアノレッスン。出張費・電子ピアノ・体験レッスン・振替・対象年齢についてご説明します。";
+
+const faqs = [
+    {
+        q: "家にアップライトピアノやグランドピアノがなくても大丈夫ですか？",
+        a: `はい、大丈夫です。電子ピアノ<span class="inline md:inline-block">（88鍵盤あり、</span><span class="inline md:inline-block">タッチによる強弱がつくもの推奨）</span>をお持ちであれば<span class="inline md:inline-block">レッスン可能です。</span>ご自宅でのレッスンが難しい場合は、<span class="inline md:inline-block">スタジオをレンタルしての</span><span class="inline md:inline-block">レッスンも承っております。</span><span class="inline md:inline-block">（別途会場費がかかります。）</span>楽器の購入のご相談にも乗りますので、<span class="inline md:inline-block">お気軽にお尋ねください。</span>`,
+    },
+    {
+        q: "まったくの初心者で楽譜も読めませんが、レッスンを受けられますか？",
+        a: `もちろんです！<span class="inline md:inline-block">楽譜の読み方や</span><span class="inline md:inline-block">指の動かし方など、</span><span class="inline md:inline-block">基礎の基礎から</span><span class="inline md:inline-block">丁寧に指導いたします。</span>大人になってから初めてピアノに触れる方も<span class="inline md:inline-block">多くいらっしゃいますので</span><span class="inline md:inline-block">ご安心ください。</span>`,
+    },
+    {
+        q: "出張費や交通費は別途かかりますか？",
+        a: `江東区・中央区を中心とした<a href="/area" class="text-[#A88B58] underline underline-offset-2">18エリア</a>（清澄白河・豊洲・月島・勝どき・門前仲町・有明・晴海・木場・人形町など）への出張は、レッスン料金に交通費が含まれております。エリア外をご希望の場合は、別途交通費についてご相談させていただきます。`,
+    },
+    {
+        q: "対応しているエリアはどこですか？",
+        a: `江東区・中央区を中心に<a href="/area" class="text-[#A88B58] underline underline-offset-2">18エリア</a>に対応しています。主なエリアは<a href="/area/kiyosumi-shirakawa" class="text-[#A88B58] underline underline-offset-2">清澄白河</a>・<a href="/area/toyosu" class="text-[#A88B58] underline underline-offset-2">豊洲</a>・<a href="/area/tsukishima" class="text-[#A88B58] underline underline-offset-2">月島</a>・<a href="/area/kachidoki" class="text-[#A88B58] underline underline-offset-2">勝どき</a>・<a href="/area/monzen-nakacho" class="text-[#A88B58] underline underline-offset-2">門前仲町</a>・<a href="/area/ariake" class="text-[#A88B58] underline underline-offset-2">有明</a>・<a href="/area/harumi" class="text-[#A88B58] underline underline-offset-2">晴海</a>・<a href="/area/kiba" class="text-[#A88B58] underline underline-offset-2">木場</a>・<a href="/area/ningyocho" class="text-[#A88B58] underline underline-offset-2">人形町</a>などです。詳細は<a href="/area" class="text-[#A88B58] underline underline-offset-2">エリア一覧ページ</a>をご確認ください。`,
+    },
+    {
+        q: "無料体験レッスンはありますか？",
+        a: `はい、初回は無料体験レッスンを行っております。体験時間は30〜45分程度で、お子様から大人まで対応しています。体験では現在の演奏状況や目標・生活スケジュールをお聞きしたうえで、レッスン内容・曜日・時間帯をご提案します。お申し込みは<a href="/contact" class="text-[#A88B58] underline underline-offset-2">公式LINEまたはお問い合わせフォーム</a>からどうぞ。`,
+    },
+    {
+        q: "レッスンの振替はできますか？",
+        a: `はい、事前にご連絡いただければ振替対応が可能です。急なご都合でのキャンセルも、できる限り柔軟に対応いたします。振替の可否・期限については、レッスン開始時に個別にご相談のうえ取り決めております。`,
+    },
+    {
+        q: "何歳から習うことができますか？",
+        a: `年齢制限は設けておりません。就学前のお子様から、大人・シニアの方まで対応しています。お子様の場合は年齢や発達段階に合わせた指導を行います。大人の方は趣味・再開・資格取得など目的に応じてカリキュラムを調整しますので、お気軽にご相談ください。`,
+    },
+    {
+        q: "LINEで問い合わせた後、電話相談はできますか？",
+        a: `必要に応じて、お電話でのご相談も可能です。LINEで「電話で相談したい」旨をご希望と合わせてお知らせください。`,
+    },
+];
+
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://playon-music.jp",
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "よくある質問",
+                    item: "https://playon-music.jp/faq",
+                },
+            ],
+        },
+        {
+            "@type": "FAQPage",
+            mainEntity: faqs.map((faq) => ({
+                "@type": "Question",
+                name: faq.q,
+                acceptedAnswer: {
+                    "@type": "Answer",
+                    text: faq.a.replace(/<[^>]*>?/gm, ""),
+                },
+            })),
+        },
+    ],
+});
+---
+
+<Layout title={pageTitle} description={pageDescription}>
+    <script type="application/ld+json" set:html={schema} slot="head" />
+    <section class="py-24 px-6 max-w-3xl mx-auto">
+        <div class="text-center mb-16">
+            <h1 class="text-2xl md:text-3xl font-serif mb-4">よくある質問</h1>
+            <div
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+            >
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                FAQ
+                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+            </div>
+        </div>
+
+        <div class="space-y-6">
+            {
+                faqs.map((faq) => (
+                    <div class="bg-white rounded-xl border border-[#F1EBE4] p-6 md:p-8 shadow-sm">
+                        <h2 class="font-serif font-bold text-[#544A40] flex items-start gap-3 mb-4">
+                            <span class="text-[#A88B58] text-lg">Q.</span>
+                            <span class="pt-[2px]">{faq.q}</span>
+                        </h2>
+                        <div class="pl-8 text-sm leading-loose text-[#6B5F54] border-l-2 border-[#F1EBE4]">
+                            <p set:html={faq.a} />
+                        </div>
+                    </div>
+                ))
+            }
+        </div>
+    </section>
+
+    <ContactCTASection />
+</Layout>

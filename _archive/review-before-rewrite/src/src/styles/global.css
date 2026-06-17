@@ -1,0 +1,37 @@
+@import "tailwindcss";
+@plugin "@tailwindcss/typography";
+
+/* フォントのセルフホスティング設定（日本語サブセット） */
+@import "@fontsource/shippori-mincho/400.css";
+@import "@fontsource/shippori-mincho/500.css";
+@import "@fontsource/shippori-mincho/700.css";
+
+/* font-display: swap を適用するための設定 */
+@font-face {
+  font-family: 'Shippori Mincho';
+  font-display: swap;
+  src: local('Shippori Mincho');
+}
+
+/* サイト全体の文字設定 */
+body {
+  /* 文字を滑らかにする設定 */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Tailwindの font-serif クラスが Shippori Mincho を優先して使うように設定 */
+.font-serif {
+  font-family: 'Shippori Mincho', 'Yu Mincho', 'YuMincho', serif !important;
+}
+
+/* アニメーションのGPU合成を促進 */
+.video-slide,
+.slider-dot {
+  will-change: transform, opacity;
+}
+
+/* microCMSの空行（空のpタグ）を表示するためのスタイル */
+.prose p:empty {
+  min-height: 1.5em;
+}
