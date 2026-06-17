@@ -48,10 +48,10 @@ const objectPosition = getObjectPosition(area.slug);
 
 const areaGroup = areaGroups.find((g) => g.areaSlugs.includes(area.slug));
 const district = areaGroup?.district ?? "";
-const pageTitle = `${area.name}の大人向けピアノ教室｜自宅・近隣スタジオで受けられる出張レッスン｜髙橋遊月ピアノ教室`;
+const pageTitle = `${area.name}の大人向けピアノ教室｜出張レッスン・自宅/スタジオ対応｜髙橋遊月ピアノ教室`;
 const pageDescription =
     area.seo?.metaDescription ||
-    `${area.name}のピアノ教室をお探しの方へ。講師がご自宅へ伺う出張専門のピアノ教室です。${area.metaSnippet || area.lead} 東京音大卒の女性講師によるマンツーマン指導。無料体験レッスン受付中。`;
+    `${area.name}で大人向けの出張ピアノレッスンをお探しの方へ。初心者・再開したい方・好きな曲や課題曲を仕上げたい方に対応。ご自宅・近隣スタジオで個人レッスンをご相談いただけます。`;
 const pageKeywords = area.seo
     ? [area.seo.primaryKeyword, ...area.seo.secondaryKeywords]
     : area.keywords;
