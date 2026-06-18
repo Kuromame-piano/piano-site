@@ -4,7 +4,7 @@ import heroPiano from "../../assets/images/hero-piano.webp";
 ---
 
 <section
-    class="relative min-h-[25vh] py-8 md:py-0 md:h-[65vh] flex items-center justify-center overflow-hidden"
+    class="relative min-h-[38vh] py-10 md:py-0 md:h-[65vh] flex items-center justify-center overflow-hidden"
 >
     <div class="absolute inset-0 z-0 bg-[#1A130E]">
         <Image
@@ -22,13 +22,15 @@ import heroPiano from "../../assets/images/hero-piano.webp";
         </div>
     </div>
 
-    <div class="relative z-10 text-center px-6 md:px-4 max-w-5xl">
+    <div class="relative z-10 text-center px-6 md:px-4 w-full max-w-4xl mx-auto">
+        <!-- 1. Area/Context Subtitle -->
         <span
             class="block text-xs md:text-sm tracking-[0.15em] md:tracking-[0.2em] leading-relaxed mb-4 md:mb-6 text-[#D4C5B9] font-serif font-medium uppercase"
         >
             <span class="inline-block">東京都内</span><span class="inline-block">（江東区・中央区周辺）</span><span class="inline-block">出張・スタジオ対応</span>
         </span>
 
+        <!-- 2. Main Title with Micro-animations (aligned with regional pages) -->
         <h1 class="font-serif text-white/95 flex flex-col items-center">
             <span
                 class="text-base sm:text-lg md:text-xl tracking-[0.1em] sm:tracking-[0.15em] text-[#E8E2D9] font-medium mb-2 md:mb-4"
@@ -42,7 +44,7 @@ import heroPiano from "../../assets/images/hero-piano.webp";
             </span>
         </h1>
 
-        <!-- PC-only Description -->
+        <!-- 3. PC-only Description -->
         <p
             class="hidden md:block font-serif text-base leading-[2.8] tracking-widest text-white/90 max-w-3xl mx-auto font-medium animate-fade-in"
         >
@@ -50,7 +52,13 @@ import heroPiano from "../../assets/images/hero-piano.webp";
             初めての方からブランクのある方まで、ご希望のペースや曲に合わせて丁寧に進めます。
         </p>
 
-
+        <!-- 4. Mobile-only Badge (matching the regional page style) -->
+        <div class="mt-6 md:hidden">
+            <span
+                class="inline-block px-6 py-2 border border-white/30 rounded-full text-xs tracking-[0.15em] backdrop-blur-sm bg-white/10 text-[#E8E2D9] font-medium font-serif"
+            >
+                出張レッスン専門
+            </span>
+        </div>
     </div>
 </section>
-
