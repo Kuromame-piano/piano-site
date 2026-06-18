@@ -90,29 +90,18 @@ const metaKeywords = keywords
         {/* 各ページから構造化データ等を挿入するためのスロットを追加 */}
         <slot name="head" />
     </head>
-    <body class="bg-[#F2EFEA] text-[#544A40] font-sans flex justify-center min-h-screen relative overflow-x-hidden selection:bg-[#A88B58]/30">
-        {/* PC用背景装飾：美しいボケ味のある画像やテクスチャを固定配置 */}
-        <div class="fixed inset-0 z-[-1] hidden md:block">
-            {/* 上品なグラデーションとテクスチャ */}
-            <div class="absolute inset-0 bg-gradient-to-br from-[#EAE3DA] to-[#F7F3EE]"></div>
-            <div class="absolute top-[-10%] left-[-10%] w-[50%] h-[50%] bg-[#FCFAF7] rounded-full blur-[120px] opacity-60"></div>
-            <div class="absolute bottom-[-10%] right-[-10%] w-[60%] h-[60%] bg-[#A88B58] rounded-full blur-[150px] opacity-10"></div>
-            {/* 装飾テキスト */}
-            <div class="absolute top-1/2 left-[10%] -translate-y-1/2 -rotate-90 opacity-10 font-serif tracking-[0.5em] text-4xl text-[#544A40] whitespace-nowrap pointer-events-none select-none">
-                YUZUKI PIANO LESSON
-            </div>
-        </div>
+    <body class="bg-[#FCFAF7] text-[#544A40] font-sans flex flex-col min-h-screen relative selection:bg-[#A88B58]/30">
 
-        {/* スマホ枠コンテナ（最大幅480px、中央配置） */}
-        <div class="w-full max-w-[480px] bg-[#FCFAF7] min-h-screen shadow-2xl relative flex flex-col mx-auto overflow-hidden">
+        {/* コンテナ（スマホ幅で中央配置、PC幅では100%に広がる） */}
+        <div class="w-full max-w-[480px] md:max-w-none bg-[#FCFAF7] min-h-screen md:shadow-none shadow-2xl relative flex flex-col mx-auto overflow-hidden md:overflow-visible">
             <Header />
             <main class="flex-1 w-full flex flex-col">
                 <slot />
             </main>
             <Footer />
 
-            {/* スマホ特化用：画面下部固定のLINEボタン（常に追従） */}
-            <div class="fixed bottom-0 w-full max-w-[480px] px-4 pb-6 pt-8 bg-gradient-to-t from-[#FCFAF7] via-[#FCFAF7]/90 to-transparent z-40 pointer-events-none">
+            {/* スマホ特化用：画面下部固定のLINEボタン（PCでは非表示） */}
+            <div class="fixed bottom-0 w-full max-w-[480px] md:hidden px-4 pb-6 pt-8 bg-gradient-to-t from-[#FCFAF7] via-[#FCFAF7]/90 to-transparent z-40 pointer-events-none">
                 <div class="pointer-events-auto">
                     <a
                         href="https://lin.ee/QL31tIZ"
