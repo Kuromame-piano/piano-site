@@ -1,0 +1,174 @@
+---
+import Layout from "../../layouts/Layout.astro";
+
+const pageTitle = "大人向け出張ピアノレッスンのご案内 | 髙橋遊月ピアノ教室";
+const pageDescription = "髙橋遊月ピアノ教室では、東京都内（江東区・中央区を中心としたエリア）で大人向けの出張ピアノレッスンを行っています。初心者・再開者の方、好きな曲を弾きたい方に対応しています。";
+
+const publishedAt = "2026-06-18";
+
+const schema = JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "BreadcrumbList",
+            itemListElement: [
+                {
+                    "@type": "ListItem",
+                    position: 1,
+                    name: "Home",
+                    item: "https://playon-music.jp",
+                },
+                {
+                    "@type": "ListItem",
+                    position: 2,
+                    name: "お知らせ一覧",
+                    item: "https://playon-music.jp/news",
+                },
+                {
+                    "@type": "ListItem",
+                    position: 3,
+                    name: pageTitle,
+                    item: "https://playon-music.jp/news/about",
+                },
+            ],
+        },
+        {
+            "@type": "Article",
+            headline: pageTitle,
+            image: "https://playon-music.jp/image.png",
+            datePublished: publishedAt,
+            dateModified: publishedAt,
+            author: {
+                "@type": "Person",
+                name: "髙橋 遊月",
+                url: "https://playon-music.jp",
+            },
+            publisher: {
+                "@type": "Organization",
+                name: "髙橋遊月ピアノ教室",
+                logo: {
+                    "@type": "ImageObject",
+                    url: "https://playon-music.jp/favicon.svg",
+                },
+            },
+            description: pageDescription,
+        },
+    ],
+});
+---
+
+<Layout title={pageTitle} description={pageDescription} article={true}>
+    <script type="application/ld+json" set:html={schema} slot="head" />
+    <main class="py-24 px-6 max-w-3xl mx-auto bg-white/90 min-h-screen">
+        <div class="mb-12 text-center">
+            <p class="text-sm text-[#A88B58] mb-2 font-mono">
+                {new Date(publishedAt).toLocaleDateString("ja-JP")}
+            </p>
+            <h1 class="text-2xl md:text-3xl font-serif font-bold text-[#544A40]">
+                大人向け出張ピアノレッスンのご案内
+            </h1>
+        </div>
+
+        <div
+            class="prose prose-stone max-w-none text-[#544A40] leading-loose
+            prose-headings:font-serif prose-headings:text-[#544A40]
+            prose-a:text-[#A88B58] prose-a:underline prose-a:underline-offset-2
+            prose-h2:text-xl prose-h2:mt-10 prose-h2:mb-4 prose-h2:border-b prose-h2:border-[#F1EBE4] prose-h2:pb-2
+            prose-ul:my-4 prose-li:my-1"
+        >
+            <p>
+                髙橋遊月ピアノ教室では、東京都内（江東区・中央区を中心としたエリア）で大人向けの出張ピアノレッスンを行っています。
+            </p>
+
+            <h2>レッスンの特徴</h2>
+
+            <p>
+                講師がご自宅または近隣のレンタルスタジオへ伺い、マンツーマンで指導します。通学の必要がないため、仕事や家庭の予定と両立しながら受講できます。
+            </p>
+
+            <p>以下のような方に対応しています。</p>
+
+            <ul>
+                <li>楽譜の読めない初心者の方</li>
+                <li>子どもの頃に習っていて、久しぶりに再開したい方</li>
+                <li>好きな曲を一曲ずつ丁寧に仕上げたい方</li>
+                <li>自分のペースで無理なく続けたい方</li>
+            </ul>
+
+            <p>
+                レッスン内容は一人ひとりの目的や経験に合わせて進めます。月1回から受講可能で、頻度やスケジュールはご相談しながら調整できます。
+            </p>
+
+            <h2>ご自宅の楽器について</h2>
+
+            <p>
+                アップライトピアノやグランドピアノがなくても、電子ピアノ（88鍵盤、タッチによる強弱がつくもの推奨）での受講も可能です。
+            </p>
+
+            <p>
+                ご自宅での受講が難しい場合は、近隣のレンタルスタジオを利用したレッスンもご相談いただけます。楽器の購入についてもご相談に応じています。
+            </p>
+
+            <h2>対応エリア</h2>
+
+            <p>
+                江東区（清澄白河、門前仲町、木場、森下、豊洲、有明、東雲など）、中央区（月島、勝どき、晴海、人形町、水天宮前、茅場町など）を中心に、その他の周辺エリアにも対応しています。
+            </p>
+
+            <p>
+                詳しい対応エリアについては、<a href="/area">対応エリア一覧</a>をご確認ください。
+            </p>
+
+            <h2>レッスン料金</h2>
+
+            <ul>
+                <li>月1回（60分）：7,000円</li>
+                <li>月2回（60分×2）：13,000円</li>
+                <li>月3回（60分×3）：18,000円</li>
+                <li>月4回（60分×4）：22,000円</li>
+            </ul>
+
+            <p>
+                対応エリア内への出張は、上記料金に交通費が含まれます。スタジオレンタルを利用する場合は、別途会場費がかかります。
+            </p>
+
+            <p>
+                詳しい料金やシステムについては、<a href="/lesson">レッスンページ</a>をご覧ください。
+            </p>
+
+            <h2>体験レッスン・お問い合わせ</h2>
+
+            <p>初回は無料体験レッスンを実施しています。以下のような段階でもお気軽にご連絡ください。</p>
+
+            <ul>
+                <li>自宅まで来てもらえるエリアか確認したい</li>
+                <li>電子ピアノでも対応可能か知りたい</li>
+                <li>曜日や時間帯の空き状況を確認したい</li>
+                <li>レッスン内容について相談したい</li>
+            </ul>
+
+            <p>
+                体験レッスンのお申し込みやご相談は、<a
+                    href="https://lin.ee/QL31tIZ"
+                    target="_blank"
+                    rel="noopener noreferrer">公式LINE</a
+                >または<a href="/contact">お問い合わせフォーム</a>からご連絡ください。
+            </p>
+
+            <h2>よくある質問</h2>
+
+            <p>
+                レッスンに関するよくある質問については、<a href="/faq">FAQページ</a>にまとめています。
+            </p>
+        </div>
+
+        <div class="mt-16 text-center">
+            <a
+                href="/news"
+                class="inline-block border border-[#A88B58] text-[#A88B58] px-8 py-3 rounded-full hover:bg-[#A88B58] hover:text-white transition-colors text-sm tracking-widest"
+            >
+                お知らせ一覧へ戻る
+            </a>
+        </div>
+    </main>
+</Layout>

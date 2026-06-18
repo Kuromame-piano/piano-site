@@ -1,18 +1,18 @@
 ---
 import Layout from "../../layouts/Layout.astro";
-import { client } from "../../lib/microcms";
-import type { Blog } from "../../lib/microcms";
-
-// 記事をすべて取得（件数制限なし）
-const response = await client.get({
-    endpoint: "news",
-    queries: { fields: ["id", "title", "publishedAt"] },
-});
-const newsContents = response.contents;
 
 const pageTitle = "お知らせ一覧 | 髙橋遊月ピアノ教室";
 const pageDescription =
     "髙橋遊月ピアノ教室からのお知らせ一覧です。レッスンの様子やスケジュールなど、最新情報をお届けします。";
+
+// 記事一覧（手動で管理）
+const newsItems = [
+    {
+        slug: "about",
+        title: "大人向け出張ピアノレッスンのご案内",
+        publishedAt: "2026-06-18",
+    },
+];
 
 const schema = JSON.stringify({
     "@context": "https://schema.org",
@@ -50,14 +50,12 @@ const schema = JSON.stringify({
 
         <div class="space-y-4">
             {
-                newsContents.length > 0 ? (
-                    newsContents.map((item: any) => (
-                        <a href={`/news/${item.id}`} class="block group">
+                newsItems.length > 0 ? (
+                    newsItems.map((item) => (
+                        <a href={`/news/${item.slug}`} class="block group">
                             <div class="bg-white p-6 rounded-xl border border-[#F1EBE4] hover:shadow-md transition-all flex flex-col md:flex-row md:items-center gap-4">
                                 <span class="text-sm text-[#A88B58] font-mono">
-                                    {new Date(
-                                        item.publishedAt,
-                                    ).toLocaleDateString("ja-JP")}
+                                    {new Date(item.publishedAt).toLocaleDateString("ja-JP")}
                                 </span>
                                 <h2 class="text-base font-normal group-hover:text-[#A88B58] transition-colors flex-1">
                                     {item.title}

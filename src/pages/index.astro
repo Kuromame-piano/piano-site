@@ -1,6 +1,5 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import { client } from "../lib/microcms";
 
 import HomeHero from "../components/home/HomeHero.astro";
 import TargetGuideSection from "../components/home/TargetGuideSection.astro";
@@ -21,13 +20,6 @@ const pageDescription =
   "東京都内（江東区・中央区周辺）で大人向けの出張ピアノレッスンを行っています。楽譜の読めない初心者から、ブランクのある再開者、好きな曲を仕上げたい方まで。ご自宅や近隣スタジオでのマンツーマン個人レッスンです。無料体験受付中。";
 import heroPiano from "../assets/images/hero-piano.webp";
 const heroImage = heroPiano.src;
-
-// microCMSからお知らせを取得
-const response = await client.get({
-  endpoint: "news",
-  queries: { limit: 3, fields: ["id", "title", "publishedAt"] },
-});
-const newsContents = response.contents;
 
 // 構造化データ
 const schema = JSON.stringify({
