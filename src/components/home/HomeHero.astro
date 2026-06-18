@@ -4,7 +4,7 @@ import heroPiano from "../../assets/images/hero-piano.webp";
 ---
 
 <section
-    class="relative min-h-[55vh] py-16 md:py-0 md:h-[65vh] flex items-center justify-center overflow-hidden"
+    class="relative min-h-[25vh] py-8 md:py-0 md:h-[65vh] flex items-center justify-center overflow-hidden"
 >
     <div class="absolute inset-0 z-0 bg-[#1A130E]">
         <Image
@@ -12,42 +12,45 @@ import heroPiano from "../../assets/images/hero-piano.webp";
             alt="落ち着いた空間でのピアノレッスン"
             width={1200}
             height={800}
-            class="w-full h-full object-cover opacity-60 md:opacity-50 object-[25%_center]"
+            class="w-full h-full object-cover opacity-55 md:opacity-50 object-[25%_center]"
             loading="eager"
             fetchpriority="high"
         />
         <div
-            class="absolute inset-0 bg-gradient-to-b from-[#1A130E]/80 via-[#1A130E]/70 to-[#1A130E]/85"
+            class="absolute inset-0 bg-gradient-to-b from-[#1A130E]/90 via-[#1A130E]/80 to-[#1A130E]/90 md:from-[#1A130E]/80 md:via-[#1A130E]/70 md:to-[#1A130E]/85"
         >
         </div>
     </div>
 
     <div class="relative z-10 text-center px-6 md:px-4 max-w-5xl">
         <span
-            class="block text-xs md:text-sm tracking-[0.15em] md:tracking-[0.2em] leading-relaxed mb-6 text-[#D4C5B9] font-serif font-medium uppercase"
+            class="block text-xs md:text-sm tracking-[0.15em] md:tracking-[0.2em] leading-relaxed mb-4 md:mb-6 text-[#D4C5B9] font-serif font-medium uppercase"
         >
             <span class="inline-block">東京都内</span><span class="inline-block">（江東区・中央区周辺）</span><span class="inline-block">出張・スタジオ対応</span>
         </span>
 
         <h1 class="font-serif text-white/95 flex flex-col items-center">
             <span
-                class="text-lg sm:text-xl md:text-2xl tracking-[0.1em] sm:tracking-[0.15em] text-[#E8E2D9] font-medium mb-3 sm:mb-4"
+                class="text-base sm:text-lg md:text-xl tracking-[0.1em] sm:tracking-[0.15em] text-[#E8E2D9] font-medium mb-2 md:mb-4"
                 >大人のための出張ピアノレッスン</span
             >
 
             <span
-                class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-[0.08em] mb-6 sm:mb-8 leading-tight text-white drop-shadow-lg"
+                class="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-[0.08em] mb-4 md:mb-8 leading-tight text-white drop-shadow-lg"
             >
                 髙橋遊月ピアノ教室
             </span>
         </h1>
+
+        <!-- PC-only Description -->
         <p
-            class="font-serif text-sm md:text-base leading-[2.4] md:leading-[2.8] tracking-wider md:tracking-widest text-white/90 max-w-2xl mx-auto font-medium"
+            class="hidden md:block font-serif text-base leading-[2.8] tracking-widest text-white/90 max-w-3xl mx-auto font-medium animate-fade-in"
         >
             ご自宅や近隣スタジオでのマンツーマン出張レッスン。<br />
-            初心者からブランクのある再開者まで、<br />
-            ご希望のペースや曲に合わせて丁寧に進めます。
+            初めての方からブランクのある方まで、ご希望のペースや曲に合わせて丁寧に進めます。
         </p>
+
+
     </div>
 </section>
 
