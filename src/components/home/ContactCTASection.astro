@@ -3,19 +3,25 @@
 ---
 
 <section id="contact" class="py-24 bg-[#EAE3DA]">
-    <div class="max-w-2xl mx-auto px-6">
+    <div class="mx-auto px-6">
         <div
-            class="bg-white p-6 md:p-12 rounded-[2rem] shadow-2xl border border-[#DCD3C7] text-center flex flex-col items-center"
+            class="bg-white p-8 rounded-xl border border-[#DCD3C7] shadow-sm text-center flex flex-col items-center relative"
         >
-            <h2 class="text-xl md:text-3xl font-serif mb-2 text-[#544A40] leading-normal">無料体験レッスン・ご相談は<br />公式LINEから</h2>
+            <!-- 装飾的なコーナーライン -->
+            <div class="absolute top-4 left-4 w-4 h-4 border-t border-l border-[#A88B58]/30"></div>
+            <div class="absolute top-4 right-4 w-4 h-4 border-t border-r border-[#A88B58]/30"></div>
+            <div class="absolute bottom-4 left-4 w-4 h-4 border-b border-l border-[#A88B58]/30"></div>
+            <div class="absolute bottom-4 right-4 w-4 h-4 border-b border-r border-[#A88B58]/30"></div>
+
+            <h2 class="text-xl font-serif mb-4 text-[#544A40] leading-loose tracking-wide">無料体験レッスン・ご相談は<br />公式LINEから</h2>
             <div
-                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase mb-8"
+                class="flex items-center justify-center gap-4 text-[#A88B58] text-[10px] tracking-[0.25em] font-serif uppercase mb-8"
             >
-                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                <div class="h-[1px] w-12 bg-[#A88B58]/40"></div>
                 Contact via LINE
-                <div class="h-[1px] w-8 bg-[#A88B58]/30"></div>
+                <div class="h-[1px] w-12 bg-[#A88B58]/40"></div>
             </div>
-            <p class="mb-10 text-sm leading-loose tracking-widest text-[#6B5F54] max-w-lg">
+            <p class="mb-12 text-[15px] leading-loose tracking-wide text-[#6B5F54] max-w-lg">
                 ご自宅まで出張可能か、電子ピアノでも大丈夫か、レッスン可能な曜日や時間帯だけ確認したいという段階でもお気軽にご連絡ください。公式LINEから、体験レッスンや空き状況についてご相談いただけます。
             </p>
             <div class="flex flex-col items-center gap-4 w-full">
@@ -23,23 +29,23 @@
                     href="https://lin.ee/QL31tIZ"
                     target="_blank"
                     rel="noopener noreferrer"
-                    class="inline-flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-8 md:px-12 py-5 rounded-full font-bold shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 tracking-[0.2em] text-sm whitespace-nowrap line_click_footer w-full max-w-md gap-2"
+                    class="flex items-center justify-center bg-[#06C755] hover:bg-[#05b04b] text-white px-6 py-4 rounded-full font-bold transition-colors duration-300 tracking-[0.1em] text-[12px] line_click_footer w-full max-w-[280px] gap-2 shadow-sm hover:shadow-md"
                 >
                     <svg viewBox="0 0 24 24" class="w-5 h-5 fill-current" xmlns="http://www.w3.org/2000/svg">
                         <path d="M22 10.02c0-4.428-4.486-8.02-10-8.02S2 5.592 2 10.02c0 3.966 3.23 7.284 7.6 7.907.296.064.697.195.797.447.091.229.06.588.029.842-.116.892-.375 2.564-.427 2.9-.06.398.146.365.309.244.152-.113 2.454-1.619 3.456-2.319.721.2 1.488.31 2.236.31 5.514 0 10-3.593 10-8.021z"/>
                     </svg>
                     無料体験・空き状況をLINEで相談する
                 </a>
-                <p class="text-xs text-[#6B5F54] font-semibold mt-1">
+                <p class="text-[13px] text-[#6B5F54] mt-2 tracking-wide">
                     まだ入会を決めていない段階でも、お気軽にご相談いただけます。
                 </p>
-                <div class="w-full flex flex-col items-center gap-4 border-t border-[#F1EBE4] pt-8 mt-4">
-                    <p class="text-xs text-[#6B5F54]/80">
+                <div class="w-full flex flex-col items-center gap-5 border-t border-[#F1EBE4] pt-10 mt-6">
+                    <p class="text-[13px] text-[#6B5F54]/80 tracking-wide">
                         LINEをお使いでない方は、メールフォームからもお問い合わせいただけます。
                     </p>
                     <a
                         href="/contact#mail-form"
-                        class="inline-flex items-center justify-center border border-[#A88B58] text-[#A88B58] hover:bg-[#F7F3EE] px-8 py-3.5 rounded-full font-bold transition-all duration-300 transform hover:-translate-y-0.5 text-xs tracking-wider w-full max-w-xs"
+                        class="inline-flex items-center justify-center border border-[#A88B58]/60 text-[#A88B58] hover:bg-[#F7F3EE] px-8 py-3.5 rounded-full font-medium transition-colors duration-300 text-[13px] tracking-widest w-full max-w-xs"
                     >
                         メールフォームで相談する
                     </a>
