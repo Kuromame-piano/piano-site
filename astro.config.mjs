@@ -22,6 +22,8 @@ export default defineConfig({
     '/area/harumi-kachidoki': '/area/tsukishima',
     '/area/nihonbashi': '/area/ningyocho',
     '/area/morishita-sumiyoshi': '/area/morishita',
+    '/adult-piano-lesson': '/',
+    '/visit-lesson': '/',
   },
 
   integrations: [

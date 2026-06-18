@@ -28,7 +28,8 @@
       "PowerShell(cd c:\\\\Users\\\\S6sak\\\\yuzuki-site && npx astro check 2>&1 | Select-String -Pattern \"error\" | Where-Object { $_ -notmatch \"_archive\" } | Select-Object -First 15)",
       "Bash(npm run astro:*)",
       "Bash(ls:*)",
-      "Bash(npm install:*)"
+      "Bash(npm install:*)",
+      "Bash(git checkout:*)"
     ]
   }
 }
