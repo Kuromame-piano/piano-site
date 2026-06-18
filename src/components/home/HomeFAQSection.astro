@@ -65,12 +65,10 @@ const faqs = [
                             </span>
                         </summary>
                         <div class="px-6 pb-6 text-sm leading-loose text-[#6B5F54] border-t border-[#F1EBE4]">
-                            <p class="pt-4">
-                                <span class="text-[#A88B58] font-bold mr-2">
-                                    A.
-                                </span>
-                                {faq.a}
-                            </p>
+                            <div class="pt-4 flex items-start gap-2">
+                                <span class="text-[#A88B58] font-bold flex-shrink-0">A.</span>
+                                <span>{faq.a}</span>
+                            </div>
                         </div>
                     </details>
                 ))
