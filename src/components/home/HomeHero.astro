@@ -4,73 +4,50 @@ import heroPiano from "../../assets/images/hero-piano.webp";
 ---
 
 <section
-    class="relative min-h-[80vh] py-20 md:py-0 md:h-[85vh] flex items-center justify-center overflow-hidden"
+    class="relative min-h-[55vh] py-16 md:py-0 md:h-[65vh] flex items-center justify-center overflow-hidden"
 >
-    <div class="absolute inset-0 z-0">
+    <div class="absolute inset-0 z-0 bg-[#1A130E]">
         <Image
             src={heroPiano}
             alt="落ち着いた空間でのピアノレッスン"
             width={1200}
             height={800}
-            class="w-full h-full object-cover opacity-50"
+            class="w-full h-full object-cover opacity-60 md:opacity-50 object-[25%_center]"
             loading="eager"
             fetchpriority="high"
         />
         <div
-            class="absolute inset-0 bg-gradient-to-b from-[#FCFAF7]/20 to-[#FCFAF7]"
+            class="absolute inset-0 bg-gradient-to-b from-[#1A130E]/80 via-[#1A130E]/70 to-[#1A130E]/85"
         >
         </div>
     </div>
 
     <div class="relative z-10 text-center px-6 md:px-4 max-w-5xl">
         <span
-            class="block text-xs md:text-sm tracking-[0.15em] md:tracking-[0.2em] leading-relaxed mb-6 text-[#2C2117] font-serif font-bold uppercase"
+            class="block text-xs md:text-sm tracking-[0.15em] md:tracking-[0.2em] leading-relaxed mb-6 text-[#D4C5B9] font-serif font-medium uppercase"
         >
             <span class="inline-block">東京都内</span><span class="inline-block">（江東区・中央区周辺）</span><span class="inline-block">出張・スタジオ対応</span>
         </span>
 
-        <h1 class="font-serif text-[#2C2117] flex flex-col items-center">
+        <h1 class="font-serif text-white/95 flex flex-col items-center">
             <span
-                class="text-base sm:text-lg md:text-xl tracking-[0.1em] sm:tracking-[0.15em] text-[#1C1510] font-bold mb-3 sm:mb-4"
+                class="text-lg sm:text-xl md:text-2xl tracking-[0.1em] sm:tracking-[0.15em] text-[#E8E2D9] font-medium mb-3 sm:mb-4"
                 >大人のための出張ピアノレッスン</span
             >
 
             <span
-                class="block text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-medium tracking-normal sm:tracking-normal mb-6 sm:mb-8 leading-tight text-[#111111]"
+                class="block text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-[0.08em] mb-6 sm:mb-8 leading-tight text-white drop-shadow-lg"
             >
                 髙橋遊月ピアノ教室
             </span>
         </h1>
         <p
-            class="font-serif text-sm md:text-base leading-[1.9] md:leading-[2.2] tracking-wider md:tracking-widest text-[#2C2117] max-w-2xl mx-auto font-medium"
+            class="font-serif text-sm md:text-base leading-[2.4] md:leading-[2.8] tracking-wider md:tracking-widest text-white/90 max-w-2xl mx-auto font-medium"
         >
-            <span class="block md:inline-block">
-                <span class="inline-block">ご自宅や近隣スタジオへ</span><span class="inline-block">講師がお伺いします。</span>
-            </span>
-            <br class="hidden md:inline" />
-            <span class="block md:inline-block mt-3 md:mt-0">
-                <span class="inline-block">楽譜が読めない初心者の方から、</span><span class="inline-block">ブランクのある再開者の方まで。</span>
-            </span>
-            <br class="hidden md:inline" />
-            <span class="block md:inline-block mt-3 md:mt-0">
-                <span class="inline-block">受講頻度・曲目・進め方は、</span><span class="inline-block">ご希望に合わせて相談しながら進めます。</span>
-            </span>
+            ご自宅や近隣スタジオでのマンツーマン出張レッスン。<br />
+            初心者からブランクのある再開者まで、<br />
+            ご希望のペースや曲に合わせて丁寧に進めます。
         </p>
-        <div class="mt-8 sm:mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center w-full max-w-md mx-auto sm:max-w-none px-4 sm:px-0">
-            <a
-                href="https://lin.ee/QL31tIZ"
-                target="_blank"
-                rel="noopener noreferrer"
-                class="inline-block bg-[#06C755] hover:bg-[#05b34c] text-white font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-full shadow-lg transition-transform transform hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
-            >
-                まずは体験レッスンをLINEで相談する
-            </a>
-            <a
-                href="#area"
-                class="inline-block bg-white hover:bg-gray-50 text-[#544A40] border border-[#8B7355] font-bold px-6 py-3.5 sm:px-8 sm:py-4 rounded-full shadow-md transition-transform transform hover:-translate-y-0.5 text-sm sm:text-base w-full sm:w-auto text-center"
-            >
-                対応エリアを確認する
-            </a>
-        </div>
     </div>
 </section>
+
