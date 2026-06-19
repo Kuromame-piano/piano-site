@@ -20,7 +20,7 @@
         </div>
 
         {/* 横スクロール（モバイル） / グリッド（PC） */}
-        <div class="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-6 pb-8 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] md:overflow-visible">
+        <div id="target-cards-container" class="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-6 pb-8 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] md:overflow-visible">
             <!-- Card 1: 初心者 -->
             <div class="snap-center shrink-0 w-[85%] md:w-auto bg-white p-8 rounded-2xl border border-[#EAE3DA] shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:border-[#A88B58]/30">
                 <div class="flex items-center gap-4 mb-6">
@@ -68,10 +68,74 @@
         </div>
         
         {/* スワイプを促すインジケーター（スマホのみ） */}
-        <div class="flex md:hidden justify-center gap-2 mt-2 pb-6">
-            <div class="w-2 h-2 rounded-full bg-[#A88B58]"></div>
-            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30"></div>
-            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30"></div>
+        <div id="target-indicators" class="flex md:hidden justify-center gap-2 mt-2 pb-6">
+            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30 transition-all duration-300"></div>
+            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30 transition-all duration-300"></div>
+            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30 transition-all duration-300"></div>
         </div>
     </div>
 </section>
+
+<script>
+    const container = document.getElementById("target-cards-container");
+    const cards = container ? container.querySelectorAll(".snap-center") : [];
+    const indicators = document.getElementById("target-indicators")?.children;
+
+    if (container && cards.length && indicators) {
+        const updateIndicators = () => {
+            const containerRect = container.getBoundingClientRect();
+            const containerCenter = containerRect.left + containerRect.width / 2;
+
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            cards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(containerCenter - cardCenter);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            for (let i = 0; i < indicators.length; i++) {
+                if (i === closestIndex) {
+                    indicators[i].classList.remove("bg-[#A88B58]/30");
+                    indicators[i].classList.add("bg-[#A88B58]");
+                } else {
+                    indicators[i].classList.remove("bg-[#A88B58]");
+                    indicators[i].classList.add("bg-[#A88B58]/30");
+                }
+            }
+        };
+
+        container.addEventListener("scroll", updateIndicators, { passive: true });
+
+        // モバイル表示時に真ん中（2つ目）のカードを初期表示位置にする
+        const initScrollPosition = () => {
+            if (window.innerWidth < 768 && cards[1]) {
+                const containerRect = container.getBoundingClientRect();
+                const cardRect = cards[1].getBoundingClientRect();
+                const targetScrollLeft =
+                    container.scrollLeft +
+                    (cardRect.left - containerRect.left) -
+                    (containerRect.width / 2) +
+                    (cardRect.width / 2);
+                container.scrollLeft = targetScrollLeft;
+                updateIndicators();
+            } else {
+                updateIndicators();
+            }
+        };
+
+        // ページロード時および画像のロード完了などでレイアウトが確定した後に位置を計算
+        window.addEventListener("load", initScrollPosition);
+        // DOM構築後にも念のため早期実行
+        if (document.readyState === "complete") {
+            initScrollPosition();
+        } else {
+            document.addEventListener("DOMContentLoaded", initScrollPosition);
+        }
+    }
+</script>
