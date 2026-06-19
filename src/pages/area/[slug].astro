@@ -30,21 +30,11 @@ interface Props {
 
 const { area } = Astro.props;
 
-// 画像の表示位置をエリアごとに調整
-const getObjectPosition = (slug: string) => {
-    if (["kiyosumi-shirakawa", "monzen-nakacho"].includes(slug)) {
-        return "50% 55%";
-    }
-    if (["ningyocho", "morishita"].includes(slug)) {
-        return "50% 50%";
-    }
-    // 東雲、勝どき、豊洲はピアノが見えるように少し下げる。テキストとの重なりを防ぐため左寄りに調整
-    if (["shinonome", "kachidoki", "toyosu"].includes(slug)) {
-        return "35% 45%";
-    }
-    return "35% 35%";
+// 画像の表示位置をエリアデータから取得。未設定時は最適なデフォルト値を適用します
+const positions = {
+    mobile: area.objectPositionMobile || "30% 35%",
+    desktop: area.objectPositionDesktop || "35% 35%"
 };
-const objectPosition = getObjectPosition(area.slug);
 
 const areaGroup = areaGroups.find((g) => g.areaSlugs.includes(area.slug));
 const district = areaGroup?.district ?? "";
@@ -172,14 +162,16 @@ const schema = JSON.stringify({
     <!-- Preload Critical Image -->
     <link slot="head" rel="preload" as="image" href={area.mainImage} />
 
-    <Breadcrumbs
-        items={[
-            { label: "出張エリア一覧", path: "/area" },
-            { label: area.name, path: `/area/${area.slug}` },
-        ]}
-    />
+    <div class="hidden md:block">
+        <Breadcrumbs
+            items={[
+                { label: "出張エリア一覧", path: "/area" },
+                { label: area.name, path: `/area/${area.slug}` },
+            ]}
+        />
+    </div>
 
-    <HeroSection area={area} objectPosition={objectPosition} />
+    <HeroSection area={area} objectPositionMobile={positions.mobile} objectPositionDesktop={positions.desktop} />
 
     <LessonStyleSection area={area} className="bg-[#FCFAF7]" />
 
