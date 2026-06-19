@@ -1,4 +1,4 @@
-﻿export type PersonaCard = {
+export type PersonaCard = {
     label: string;
     summary: string;
     painPoints: string[];
@@ -53,6 +53,8 @@ export interface Area {
     }[];
     metaSnippet?: string;       // メタディスクリプション内のエリア固固有文
     areaGuide?: string;         // エリアでレッスンを続けるためのポイント（HTML文字列）
+    objectPositionMobile?: string;  // スマホ表示用の背景画像位置（例: "30% 45%"）
+    objectPositionDesktop?: string; // PC表示用の背景画像位置（例: "35% 45%"）
 }
 
 // グループ情報（Footer・エリア一覧ページ用）
@@ -279,6 +281,8 @@ export const areas: Area[] = [
         lead: "豊洲周辺のご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事後や週末の時間に、趣味としてピアノを始めたい方や久しぶりに再開したい大人の方のご相談に対応しています。",
         mainImage: "/images/areas/toyosu.webp",
         mainImageAlt: "豊洲エリアの自宅・マンションで受けられる大人のピアノレッスン",
+        objectPositionMobile: "30% 45%",
+        objectPositionDesktop: "35% 45%",
         keywords: ["豊洲 ピアノ教室","豊洲 ピアノ 大人","豊洲 出張レッスン","豊洲 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
         features: [
             {
@@ -340,6 +344,8 @@ export const areas: Area[] = [
         lead: "有明エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事や家事の合間に、大人の初心者の方からブランクのある再開者まで、目的に合わせて進め方を相談できます。",
         mainImage: "/images/areas/ariake.webp",
         mainImageAlt: "有明エリアの自宅・マンションで受けられる大人のピアノレッスン",
+        objectPositionMobile: "30% 45%",
+        objectPositionDesktop: "35% 45%",
         keywords: ["有明 ピアノ教室","有明 ピアノ 大人","有明 出張レッスン","有明 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
         features: [
             {
@@ -401,6 +407,8 @@ export const areas: Area[] = [
         lead: "東雲周辺のご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事後や週末の時間を活かし、大人の初心者の方・ブランクのある再開者の方のご相談に対応しています。",
         mainImage: "/images/areas/shinonome.webp",
         mainImageAlt: "東雲エリアの自宅・マンションで受けられる大人のピアノレッスン",
+        objectPositionMobile: "30% 45%",
+        objectPositionDesktop: "35% 45%",
         keywords: ["東雲 ピアノ教室","東雲 ピアノ 大人","東雲 出張レッスン","東雲 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
         features: [
             {
@@ -645,6 +653,8 @@ export const areas: Area[] = [
         lead: "清澄白河エリアのご自宅で、移動時間なしで受けられる出張ピアノレッスン。ブランクのある再開者の方や、楽譜の読み方から始めたい初心者の大人の方のご相談に対応しています。",
         mainImage: "/images/areas/kiyosumi-shirakawa.webp",
         mainImageAlt: "清澄白河エリアの自宅・マンションで受けられる大人のピアノレッスン",
+        objectPositionMobile: "40% 55%",
+        objectPositionDesktop: "50% 55%",
         keywords: ["清澄白河 ピアノ教室","清澄白河 ピアノ 大人","清澄白河 出張レッスン","清澄白河 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
         features: [
             {
@@ -828,6 +838,8 @@ export const areas: Area[] = [
         lead: "門前仲町周辺のご自宅のピアノや電子ピアノで受けられる、通学不要の出張ピアノレッスン。趣味として取り組みたい大人の方、ブランクのある再開者の方のご相談に対応しています。",
         mainImage: "/images/areas/monzen-nakacho.webp",
         mainImageAlt: "門前仲町エリアの自宅・マンションで受けられる大人のピアノレッスン",
+        objectPositionMobile: "40% 55%",
+        objectPositionDesktop: "50% 55%",
         keywords: ["門前仲町 ピアノ教室","門前仲町 ピアノ 大人","門前仲町 出張レッスン","門前仲町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
         features: [
             {
@@ -1011,6 +1023,8 @@ export const areas: Area[] = [
         lead: "人形町周辺でピアノを学びたい忙しい社会人・主婦の方へ。オフィス近くのスタジオやご自宅で、好きな曲や課題曲に絞った効率的なレッスンを自分のペースでご相談可能です。",
         mainImage: "/images/areas/ningyocho.webp",
         mainImageAlt: "人形町エリアの自宅・マンションで受けられる大人のピアノレッスン",
+        objectPositionMobile: "45% 50%",
+        objectPositionDesktop: "50% 50%",
         keywords: ["人形町 ピアノ教室","人形町 ピアノ 大人","人形町 出張レッスン","人形町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
         features: [
             {
@@ -1194,6 +1208,8 @@ export const areas: Area[] = [
         lead: "森下周辺のご自宅のピアノや電子ピアノで受けられる出張ピアノレッスン。大人の初心者の方・ブランクのある再開者の方のご相談に対応しています。通学不要でご自宅でのレッスンが可能です。",
         mainImage: "/images/areas/morishita.webp",
         mainImageAlt: "森下エリアの自宅・マンションで受けられる大人のピアノレッスン",
+        objectPositionMobile: "45% 50%",
+        objectPositionDesktop: "50% 50%",
         keywords: ["森下 ピアノ教室","森下 ピアノ 大人","森下 出張レッスン","森下 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
         features: [
             {

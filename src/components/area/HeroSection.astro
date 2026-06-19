@@ -3,21 +3,79 @@ import type { Area } from "../../data/areas";
 
 interface Props {
     area: Area;
-    objectPosition: string;
+    objectPositionMobile?: string;
+    objectPositionDesktop?: string;
+    objectPosition?: string;
 }
 
-const { area, objectPosition } = Astro.props;
+const { 
+    area, 
+    objectPositionMobile = "30% 35%", 
+    objectPositionDesktop = "35% 35%", 
+    objectPosition 
+} = Astro.props;
+
+const mobilePos = objectPosition || objectPositionMobile;
+const desktopPos = objectPosition || objectPositionDesktop;
 ---
 
 <div
-    class="relative h-[45vh] md:h-[55vh] flex items-center justify-center overflow-hidden"
+    class="relative h-[100svh] md:h-[55vh] flex items-center justify-center overflow-hidden"
 >
-    <div class="absolute inset-0 z-0 bg-[#1A130E]">
+    {/* =========================================
+        スマホ表示用（md:hidden）
+       ========================================= */}
+    <div class="md:hidden absolute inset-0 z-0 bg-[#1A130E]">
+        <img
+            src={area.mainImage}
+            alt={area.mainImageAlt || `${area.name}の街並み`}
+            class="w-full h-full object-cover opacity-60"
+            style={`object-position: ${mobilePos}`}
+        />
+        <div class="absolute inset-0 bg-gradient-to-t from-[#1A130E] via-transparent to-[#1A130E]/60"></div>
+    </div>
+
+    <div class="md:hidden relative z-10 w-full h-full p-8 pt-28 pb-32 flex flex-col justify-between">
+        <div class="self-start">
+            <span class="block text-[#E8E2D9]/90 font-sans text-xs tracking-[0.3em] uppercase mb-1 drop-shadow-md">Piano Lesson</span>
+            <span class="block text-[#E8E2D9]/60 font-sans text-[10px] tracking-[0.2em] uppercase">{area.name.toUpperCase()} Area</span>
+        </div>
+
+        <div class="self-end flex gap-4 h-full items-end justify-end pb-8">
+            <h1 class="flex flex-col gap-3 items-end" style="writing-mode: vertical-rl;">
+                <span class="block text-[28px] tracking-[0.4em] text-white font-serif drop-shadow-xl leading-loose">
+                    髙橋遊月ピアノ教室
+                </span>
+                <span class="block text-[16px] tracking-[0.3em] text-[#F3EFEA] font-serif font-medium drop-shadow-lg leading-loose">
+                    {area.name}の大人向けピアノ教室
+                </span>
+                <span class="block text-[12px] tracking-[0.2em] text-[#E8E2D9]/90 font-serif drop-shadow-md leading-loose">
+                    自宅・近隣スタジオで受けられる出張レッスン
+                </span>
+            </h1>
+        </div>
+
+        <div class="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-4 w-full">
+            <span
+                class="inline-block px-8 py-2.5 border border-white/30 rounded-full text-[10px] tracking-[0.25em] backdrop-blur-md bg-white/5 text-[#E8E2D9] font-medium font-serif shadow-sm"
+            >
+                出張レッスン専門
+            </span>
+            <div class="w-[1px] h-10 bg-white/30 relative overflow-hidden">
+                <div class="absolute top-0 left-0 w-full h-full bg-white animate-[scroll_2s_ease-in-out_infinite]"></div>
+            </div>
+        </div>
+    </div>
+
+    {/* =========================================
+        PC表示用（hidden md:flex）
+       ========================================= */}
+    <div class="hidden md:block absolute inset-0 z-0 bg-[#1A130E]">
         <img
             src={area.mainImage}
             alt={area.mainImageAlt || `${area.name}の街並み`}
             class="w-full h-full object-cover opacity-65 md:opacity-55"
-            style={`object-position: ${objectPosition}`}
+            style={`object-position: ${desktopPos}`}
         />
         <div
             class="absolute inset-0 bg-gradient-to-b from-[#1A130E]/90 via-[#1A130E]/85 to-[#1A130E]/80 md:from-[#1A130E]/80 md:via-[#1A130E]/70 md:to-[#1A130E]/60"
@@ -25,7 +83,7 @@ const { area, objectPosition } = Astro.props;
     </div>
 
     <div
-        class="relative z-10 text-center text-white px-4 md:px-6 w-full max-w-4xl mx-auto"
+        class="hidden md:flex relative z-10 text-center text-white px-4 md:px-6 w-full max-w-4xl mx-auto flex-col items-center"
     >
         <h1 class="font-serif tracking-wide">
             <span
@@ -33,8 +91,6 @@ const { area, objectPosition } = Astro.props;
             >
                 {area.name}の大人向けピアノ教室<br />自宅・近隣スタジオで受けられる出張レッスン
             </span>
-
-
 
             <span
                 class="block text-2xl sm:text-4xl md:text-5xl lg:text-6xl font-medium tracking-[0.08em] mb-4 md:mb-8 leading-tight text-white drop-shadow-lg"
@@ -52,3 +108,10 @@ const { area, objectPosition } = Astro.props;
         </div>
     </div>
 </div>
+
+<style>
+    @keyframes scroll {
+        0% { transform: translateY(-100%); }
+        100% { transform: translateY(100%); }
+    }
+</style>

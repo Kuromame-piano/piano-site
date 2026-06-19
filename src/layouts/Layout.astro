@@ -90,15 +90,18 @@ const metaKeywords = keywords
         {/* 各ページから構造化データ等を挿入するためのスロットを追加 */}
         <slot name="head" />
     </head>
-    <body
-        class="bg-[#FCFAF7] text-[#544A40] font-sans flex flex-col min-h-screen"
-    >
-        <Header />
-        <main class="flex-1">
-            <slot />
-        </main>
-        <Footer />
+    <body class="bg-[#FCFAF7] text-[#544A40] font-sans flex flex-col min-h-screen relative selection:bg-[#A88B58]/30">
 
+        {/* コンテナ（スマホ幅で中央配置、PC幅では100%に広がる） */}
+        <div class="w-full max-w-[480px] md:max-w-none bg-[#FCFAF7] min-h-screen md:shadow-none shadow-2xl relative flex flex-col mx-auto overflow-hidden md:overflow-visible">
+            <Header />
+            <main class="flex-1 w-full flex flex-col">
+                <slot />
+            </main>
+            <Footer />
+
+
+        </div>
         {/* GTMの積極的遅延読み込み（ユーザー操作または3秒後に読み込み） */}
         {/* Google Analytics (GA4) */}
         <script

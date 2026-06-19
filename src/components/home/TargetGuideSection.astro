@@ -1,72 +1,141 @@
 ---
 ---
 
-<section class="py-20 bg-[#FCFAF7] border-b border-[#F1EBE4]">
-    <div class="max-w-5xl mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-2xl md:text-3xl font-serif mb-4 text-[#544A40]">
-                このような方におすすめです
+<section class="py-24 bg-[#FCFAF7] border-b border-[#F1EBE4] overflow-hidden">
+    <div class="max-w-md md:max-w-5xl mx-auto">
+        <div class="text-center mb-16 px-6">
+            <h2 class="text-[22px] font-serif mb-6 text-[#544A40] tracking-widest leading-loose">
+                このような方に<br/>おすすめです
             </h2>
             <div
-                class="flex items-center justify-center gap-3 mt-2 mb-4 text-[#A88B58] text-[10px] md:text-xs tracking-[0.2em] font-serif uppercase"
+                class="flex items-center justify-center gap-4 mt-2 mb-6 text-[#A88B58] text-[10px] tracking-[0.25em] font-serif uppercase"
             >
-                <div class="h-[1px] w-6 bg-[#A88B58]/30"></div>
+                <div class="h-[1px] w-8 bg-[#A88B58]/40"></div>
                 Target Learners
-                <div class="h-[1px] w-6 bg-[#A88B58]/30"></div>
+                <div class="h-[1px] w-8 bg-[#A88B58]/40"></div>
             </div>
-            <p class="text-sm text-[#6B5F54] max-w-xl mx-auto leading-relaxed">
-                目的と生活リズムに合わせた受講方法を一緒に考えます。<br class="hidden md:inline" />
-                ご自宅や近隣スタジオでのマンツーマン指導です。
+            <p class="text-[13px] text-[#6B5F54] leading-loose tracking-wide">
+                目的と生活リズムに合わせた受講方法を<br/>一緒に考えます。
             </p>
         </div>
 
-        <div class="grid md:grid-cols-3 gap-6 lg:gap-8">
+        {/* 横スクロール（モバイル） / グリッド（PC） */}
+        <div id="target-cards-container" class="flex overflow-x-auto snap-x snap-mandatory md:grid md:grid-cols-3 gap-4 md:gap-6 lg:gap-8 px-6 pb-8 md:pb-0 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none] md:overflow-visible">
             <!-- Card 1: 初心者 -->
-            <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:border-[#A88B58]/30">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 bg-[#A88B58]/10 rounded-full flex items-center justify-center text-[#A88B58] flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <div class="snap-center shrink-0 w-[85%] md:w-auto bg-white p-8 rounded-2xl border border-[#EAE3DA] shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:border-[#A88B58]/30">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 border border-[#A88B58]/30 rounded-full flex items-center justify-center text-[#A88B58] flex-shrink-0 bg-[#FCFAF7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 006 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 016 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 016-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0018 18a8.967 8.967 0 00-6 2.292m0-14.25v14.25" />
                         </svg>
                     </div>
-                    <h3 class="text-base md:text-lg font-bold text-[#544A40] font-serif">大人の初心者の方へ</h3>
+                    <h3 class="text-[17px] font-medium text-[#544A40] font-serif tracking-widest leading-loose">大人の初心者の方へ</h3>
                 </div>
-                <p class="text-sm text-[#6B5F54] leading-relaxed flex-grow">
+                <p class="text-[14px] text-[#6B5F54] leading-loose flex-grow tracking-wide">
                     楽譜が全く読めない方や、ピアノに触れるのが初めてという方にも対応しています。音の読み方から指の使い方まで、基礎から順を追って確認します。
                 </p>
             </div>
 
             <!-- Card 2: 再開者 -->
-            <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:border-[#A88B58]/30">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 bg-[#A88B58]/10 rounded-full flex items-center justify-center text-[#A88B58] flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <div class="snap-center shrink-0 w-[85%] md:w-auto bg-white p-8 rounded-2xl border border-[#EAE3DA] shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:border-[#A88B58]/30">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 border border-[#A88B58]/30 rounded-full flex items-center justify-center text-[#A88B58] flex-shrink-0 bg-[#FCFAF7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M16.023 9.348h4.992v-.001M2.985 19.644v-4.992m0 0h4.992m-4.993 0l3.181 3.183a8.25 8.25 0 0013.803-3.7M4.031 9.865a8.25 8.25 0 0113.803-3.7l3.181 3.182m0-4.991v4.99" />
                         </svg>
                     </div>
-                    <h3 class="text-base md:text-lg font-bold text-[#544A40] font-serif">久しぶりに再開したい方へ</h3>
+                    <h3 class="text-[17px] font-medium text-[#544A40] font-serif tracking-widest leading-loose">久しぶりに再開したい</h3>
                 </div>
-                <p class="text-sm text-[#6B5F54] leading-relaxed flex-grow">
+                <p class="text-[14px] text-[#6B5F54] leading-loose flex-grow tracking-wide">
                     「子供の頃に習っていたけれど、また弾きたくなった」「長年のブランクがある」という方向けのレッスンです。以前の感覚を取り戻しながら、ご自身のペースで再開できます。
                 </p>
             </div>
 
             <!-- Card 3: 好きな曲・課題曲 -->
-            <div class="bg-white p-8 rounded-2xl border border-[#E8E2D9] shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:border-[#A88B58]/30">
-                <div class="flex items-center gap-3 mb-4">
-                    <div class="w-10 h-10 bg-[#A88B58]/10 rounded-full flex items-center justify-center text-[#A88B58] flex-shrink-0">
-                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="w-5 h-5">
+            <div class="snap-center shrink-0 w-[85%] md:w-auto bg-white p-8 rounded-2xl border border-[#EAE3DA] shadow-sm flex flex-col transition-all duration-300 hover:shadow-md hover:border-[#A88B58]/30">
+                <div class="flex items-center gap-4 mb-6">
+                    <div class="w-10 h-10 border border-[#A88B58]/30 rounded-full flex items-center justify-center text-[#A88B58] flex-shrink-0 bg-[#FCFAF7]">
+                        <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.2" stroke="currentColor" class="w-5 h-5">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M9 9l10.5-3m0 0L21 8.25M19.5 6l-10.5 3m0 0L9 12m0-3v3.75m0-3.75C9 7.62 7.38 6 5.625 6H5.25m3.75 3c0-1.38-1.62-3-3.375-3H5.25m0 0C3.498 6 2 7.497 2 9.25v3.75c0 1.753 1.498 3.25 3.25 3.25h.375c1.755 0 3.375-1.62 3.375-3.25V9.75M9 12c0 1.38 1.62 3 3.375 3h.375c1.755 0 3.25-1.62 3.25-3.25V6" />
                         </svg>
                     </div>
-                    <h3 class="text-base md:text-lg font-bold text-[#544A40] font-serif">好きな曲・課題曲を仕上げたい方へ</h3>
+                    <h3 class="text-[17px] font-medium text-[#544A40] font-serif tracking-widest leading-loose">好きな曲・課題曲を</h3>
                 </div>
-                <p class="text-sm text-[#6B5F54] leading-relaxed flex-grow">
+                <p class="text-[14px] text-[#6B5F54] leading-loose flex-grow tracking-wide">
                     クラシックはもちろん、ポップスや映画音楽、伴奏曲など、あなたが「弾きたい曲」をサポートします。苦手な部分の集中レッスンや、表現・ペダリングの指導も可能です。
                 </p>
             </div>
         </div>
-
-
+        
+        {/* スワイプを促すインジケーター（スマホのみ） */}
+        <div id="target-indicators" class="flex md:hidden justify-center gap-2 mt-2 pb-6">
+            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30 transition-all duration-300"></div>
+            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30 transition-all duration-300"></div>
+            <div class="w-2 h-2 rounded-full bg-[#A88B58]/30 transition-all duration-300"></div>
+        </div>
     </div>
 </section>
+
+<script>
+    const container = document.getElementById("target-cards-container");
+    const cards = container ? container.querySelectorAll(".snap-center") : [];
+    const indicators = document.getElementById("target-indicators")?.children;
+
+    if (container && cards.length && indicators) {
+        const updateIndicators = () => {
+            const containerRect = container.getBoundingClientRect();
+            const containerCenter = containerRect.left + containerRect.width / 2;
+
+            let closestIndex = 0;
+            let closestDistance = Infinity;
+
+            cards.forEach((card, index) => {
+                const cardRect = card.getBoundingClientRect();
+                const cardCenter = cardRect.left + cardRect.width / 2;
+                const distance = Math.abs(containerCenter - cardCenter);
+                if (distance < closestDistance) {
+                    closestDistance = distance;
+                    closestIndex = index;
+                }
+            });
+
+            for (let i = 0; i < indicators.length; i++) {
+                if (i === closestIndex) {
+                    indicators[i].classList.remove("bg-[#A88B58]/30");
+                    indicators[i].classList.add("bg-[#A88B58]");
+                } else {
+                    indicators[i].classList.remove("bg-[#A88B58]");
+                    indicators[i].classList.add("bg-[#A88B58]/30");
+                }
+            }
+        };
+
+        container.addEventListener("scroll", updateIndicators, { passive: true });
+
+        // モバイル表示時に真ん中（2つ目）のカードを初期表示位置にする
+        const initScrollPosition = () => {
+            if (window.innerWidth < 768 && cards[1]) {
+                const containerRect = container.getBoundingClientRect();
+                const cardRect = cards[1].getBoundingClientRect();
+                const targetScrollLeft =
+                    container.scrollLeft +
+                    (cardRect.left - containerRect.left) -
+                    (containerRect.width / 2) +
+                    (cardRect.width / 2);
+                container.scrollLeft = targetScrollLeft;
+                updateIndicators();
+            } else {
+                updateIndicators();
+            }
+        };
+
+        // ページロード時および画像のロード完了などでレイアウトが確定した後に位置を計算
+        window.addEventListener("load", initScrollPosition);
+        // DOM構築後にも念のため早期実行
+        if (document.readyState === "complete") {
+            initScrollPosition();
+        } else {
+            document.addEventListener("DOMContentLoaded", initScrollPosition);
+        }
+    }
+</script>
