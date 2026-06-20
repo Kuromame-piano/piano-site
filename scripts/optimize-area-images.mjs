@@ -7,6 +7,7 @@ const MAX_WIDTH = 1920; // フルHD対応
 const QUALITY = 82; // 高画質を維持しつつファイルサイズを削減
 
 async function optimizeImages() {
+    sharp.cache(false);
     console.log('🖼️  画像最適化を開始します...\n');
 
     try {
