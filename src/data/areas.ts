@@ -276,14 +276,14 @@ export const areas: Area[] = [
         slug: "toyosu",
         name: "豊洲",
         groupId: "toyosu-group",
-        siblingSlugs: ["ariake","shinonome"],
+        siblingSlugs: ["ariake", "shinonome"],
         catchphrase: "豊洲周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "豊洲周辺のご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事後や週末の時間に、趣味としてピアノを始めたい方や久しぶりに再開したい大人の方のご相談に対応しています。",
         mainImage: "/images/areas/toyosu.webp",
         mainImageAlt: "豊洲エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        objectPositionMobile: "30% 45%",
+        objectPositionMobile: "92% 45%",
         objectPositionDesktop: "35% 45%",
-        keywords: ["豊洲 ピアノ教室","豊洲 ピアノ 大人","豊洲 出張レッスン","豊洲 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["豊洲 ピアノ教室", "豊洲 ピアノ 大人", "豊洲 出張レッスン", "豊洲 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -322,15 +322,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "豊洲 ピアノ教室",
-            secondaryKeywords: ["豊洲 大人 ピアノ","豊洲 ピアノレッスン","豊洲 出張レッスン","豊洲 ピアノ 初心者"],
+            secondaryKeywords: ["豊洲 大人 ピアノ", "豊洲 ピアノレッスン", "豊洲 出張レッスン", "豊洲 ピアノ 初心者"],
             metaDescription: "豊洲で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。豊洲シエルタワー周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。豊洲周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["ariake","shinonome","tsukishima","kiyosumi-shirakawa"],
+        relatedAreas: ["ariake", "shinonome", "tsukishima", "kiyosumi-shirakawa"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%B1%8A%E6%B4%B2%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["豊洲シエルタワー","アーバンドック ららぽーと豊洲","豊洲駅"],
+        landmarks: ["豊洲シエルタワー", "アーバンドック ららぽーと豊洲", "豊洲駅"],
         areaGuide: "豊洲で大人がピアノレッスンを続けるなら、毎回遠くの教室へ通う前提にしないことが大切です。自宅レッスンを基本にし、必要に応じて近隣スタジオを使う形にすると、仕事や家庭の予定と両立しやすくなります。楽器環境に合わせた練習内容を整理しながら、指づかい・譜読み・苦手箇所を確認できます。好きな曲を軸に、月2回や隔週など無理のない頻度で続けると、忙しい時期でも中断しにくくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -339,14 +339,14 @@ export const areas: Area[] = [
         slug: "ariake",
         name: "有明",
         groupId: "toyosu-group",
-        siblingSlugs: ["toyosu","shinonome"],
+        siblingSlugs: ["toyosu", "shinonome"],
         catchphrase: "有明で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "有明エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事や家事の合間に、大人の初心者の方からブランクのある再開者まで、目的に合わせて進め方を相談できます。",
         mainImage: "/images/areas/ariake.webp",
         mainImageAlt: "有明エリアの自宅・マンションで受けられる大人のピアノレッスン",
         objectPositionMobile: "30% 45%",
         objectPositionDesktop: "35% 45%",
-        keywords: ["有明 ピアノ教室","有明 ピアノ 大人","有明 出張レッスン","有明 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["有明 ピアノ教室", "有明 ピアノ 大人", "有明 出張レッスン", "有明 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -385,15 +385,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "有明 ピアノ教室",
-            secondaryKeywords: ["有明 大人 ピアノ","有明 ピアノレッスン","有明 出張レッスン","有明 ピアノ 初心者"],
+            secondaryKeywords: ["有明 大人 ピアノ", "有明 ピアノレッスン", "有明 出張レッスン", "有明 ピアノ 初心者"],
             metaDescription: "有明で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。ブリリア有明シティタワー周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。有明周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["toyosu","shinonome","tsukishima"],
+        relatedAreas: ["toyosu", "shinonome", "tsukishima"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%9C%89%E6%98%8E%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["ブリリア有明シティタワー","有明ガーデン","有明駅"],
+        landmarks: ["ブリリア有明シティタワー", "有明ガーデン", "有明駅"],
         areaGuide: "有明でピアノ教室を探す大人の方は、通いやすさだけでなく、生活リズムに合う受講方法を選ぶことが重要です。自宅での出張レッスンなら移動を減らせますし、音量が気になる場合は近隣スタジオを併用する選択もあります。最初から長時間練習を前提にせず、5〜15分で確認できる課題を決めると継続しやすくなります。初心者・再開者ともに、好きな曲や苦手箇所を明確にして進めると、目的がぶれにくくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -402,14 +402,14 @@ export const areas: Area[] = [
         slug: "shinonome",
         name: "東雲",
         groupId: "toyosu-group",
-        siblingSlugs: ["toyosu","ariake"],
+        siblingSlugs: ["toyosu", "ariake"],
         catchphrase: "東雲周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "東雲周辺のご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事後や週末の時間を活かし、大人の初心者の方・ブランクのある再開者の方のご相談に対応しています。",
         mainImage: "/images/areas/shinonome.webp",
         mainImageAlt: "東雲エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        objectPositionMobile: "30% 45%",
+        objectPositionMobile: "70% 45%",
         objectPositionDesktop: "35% 45%",
-        keywords: ["東雲 ピアノ教室","東雲 ピアノ 大人","東雲 出張レッスン","東雲 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["東雲 ピアノ教室", "東雲 ピアノ 大人", "東雲 出張レッスン", "東雲 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -448,15 +448,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "東雲 ピアノ教室",
-            secondaryKeywords: ["東雲 大人 ピアノ","東雲 ピアノレッスン","東雲 出張レッスン","東雲 ピアノ 初心者"],
+            secondaryKeywords: ["東雲 大人 ピアノ", "東雲 ピアノレッスン", "東雲 出張レッスン", "東雲 ピアノ 初心者"],
             metaDescription: "東雲で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。プラウドタワー東雲キャナルコート周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。東雲周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["toyosu","ariake","tsukishima"],
+        relatedAreas: ["toyosu", "ariake", "tsukishima"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%9D%B1%E9%9B%B2%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["プラウドタワー東雲キャナルコート","東雲駅","東雲キャナルコートCODAN"],
+        landmarks: ["プラウドタワー東雲キャナルコート", "東雲駅", "東雲キャナルコートCODAN"],
         areaGuide: "東雲で大人のピアノレッスンを続けるには、住まいの環境と練習時間を現実的に見ておくことが大切です。音量への配慮が必要な場合も、短時間でも効率よく進める練習方法を取り入れれば、曲の読み方や苦手部分の整理は十分に進められます。毎回完璧に練習してから受講する必要はありません。レッスンでは、止まりやすい小節、弾きにくい指づかい、ペダルの扱いなどを一緒に確認し、次回までの課題を小さく決めると続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -465,12 +465,14 @@ export const areas: Area[] = [
         slug: "tsukishima",
         name: "月島",
         groupId: "harumi-group",
-        siblingSlugs: ["kachidoki","harumi"],
+        siblingSlugs: ["kachidoki", "harumi"],
         catchphrase: "月島周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "月島エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。家事や仕事の合間に、大人になってから初めてピアノを学ぶ方・ブランクを経た再開者の方に対応しています。",
         mainImage: "/images/areas/tsukishima.webp",
+        objectPositionMobile: "64% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "月島エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["月島 ピアノ教室","月島 ピアノ 大人","月島 出張レッスン","月島 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["月島 ピアノ教室", "月島 ピアノ 大人", "月島 出張レッスン", "月島 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -509,15 +511,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "月島 ピアノ教室",
-            secondaryKeywords: ["月島 大人 ピアノ","月島 ピアノレッスン","月島 出張レッスン","月島 ピアノ 初心者"],
+            secondaryKeywords: ["月島 大人 ピアノ", "月島 ピアノレッスン", "月島 出張レッスン", "月島 ピアノ 初心者"],
             metaDescription: "月島で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。月島周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。月島周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["kachidoki","harumi","toyosu","ningyocho"],
+        relatedAreas: ["kachidoki", "harumi", "toyosu", "ningyocho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%9C%88%E5%B3%B6%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["月島駅","佃公園","THE TOKYO TOWERS"],
+        landmarks: ["月島駅", "佃公園", "THE TOKYO TOWERS"],
         areaGuide: "月島でピアノを続ける大人の方は、生活の中に無理なく入る受講方法を選ぶと継続しやすくなります。自宅レッスンなら移動を省け、近隣スタジオを使えば音量や楽器環境を気にせず弾ける日も作れます。毎日まとまった練習時間を取るより、苦手な小節や片手練習を短く繰り返す方が現実的な場合もあります。好きな曲を軸に、必要な基礎だけを補う形にすると、大人の再開者でも負担を感じにくくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -526,12 +528,14 @@ export const areas: Area[] = [
         slug: "kachidoki",
         name: "勝どき",
         groupId: "harumi-group",
-        siblingSlugs: ["tsukishima","harumi"],
+        siblingSlugs: ["tsukishima", "harumi"],
         catchphrase: "勝どきで始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "勝どき周辺のご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事や家事の合間に、趣味としてピアノを始めたい大人の方・再開したい方のご相談に対応しています。",
         mainImage: "/images/areas/kachidoki.webp",
+        objectPositionMobile: "52% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "勝どきエリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["勝どき ピアノ教室","勝どき ピアノ 大人","勝どき 出張レッスン","勝どき ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["勝どき ピアノ教室", "勝どき ピアノ 大人", "勝どき 出張レッスン", "勝どき ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -570,15 +574,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "勝どき ピアノ教室",
-            secondaryKeywords: ["勝どき 大人 ピアノ","勝どき ピアノレッスン","勝どき 出張レッスン","勝どき ピアノ 初心者"],
+            secondaryKeywords: ["勝どき 大人 ピアノ", "勝どき ピアノレッスン", "勝どき 出張レッスン", "勝どき ピアノ 初心者"],
             metaDescription: "勝どきで大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。勝どきザ・タワー周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。勝どき周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["tsukishima","harumi","toyosu"],
+        relatedAreas: ["tsukishima", "harumi", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%8B%9D%E3%81%A9%E3%81%8D%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["勝どきザ・タワー","勝どき駅","DEUX TOURS（ドゥ・トゥール）"],
+        landmarks: ["勝どきザ・タワー", "勝どき駅", "DEUX TOURS（ドゥ・トゥール）"],
         areaGuide: "勝どきで大人がピアノ教室を探す場合、通う負担を減らしながら、練習環境も整えられるかがポイントです。自宅での練習を基本にしながら、必要に応じてスタジオでのレッスンを組み合わせる選択肢もあります。仕事が忙しい時期は、曲全体を毎回通すより、弾きにくい数小節を集中して見る方が続けやすくなります。月2回や隔週のレッスンでも、課題を絞れば趣味として無理なく続けられます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -587,12 +591,14 @@ export const areas: Area[] = [
         slug: "harumi",
         name: "晴海",
         groupId: "harumi-group",
-        siblingSlugs: ["tsukishima","kachidoki"],
+        siblingSlugs: ["tsukishima", "kachidoki"],
         catchphrase: "晴海周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "晴海エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事や家事の合間に、趣味としてピアノを始めたい大人の方・再開したい方のご相談に対応しています。",
         mainImage: "/images/areas/harumi.webp",
+        objectPositionMobile: "79% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "晴海エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["晴海 ピアノ教室","晴海 ピアノ 大人","晴海 出張レッスン","晴海 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["晴海 ピアノ教室", "晴海 ピアノ 大人", "晴海 出張レッスン", "晴海 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -631,15 +637,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "晴海 ピアノ教室",
-            secondaryKeywords: ["晴海 大人 ピアノ","晴海 ピアノレッスン","晴海 出張レッスン","晴海 ピアノ 初心者"],
+            secondaryKeywords: ["晴海 大人 ピアノ", "晴海 ピアノレッスン", "晴海 出張レッスン", "晴海 ピアノ 初心者"],
             metaDescription: "晴海で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。晴海フラッグ周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。晴海周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["tsukishima","kachidoki","toyosu"],
+        relatedAreas: ["tsukishima", "kachidoki", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%99%B4%E6%B5%B7%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["晴海フラッグ","晴海トリトンスクエア","晴海客船ターミナル跡地"],
+        landmarks: ["晴海フラッグ", "晴海トリトンスクエア", "晴海客船ターミナル跡地"],
         areaGuide: "晴海でピアノレッスンを続けるには、自宅でできる練習とスタジオで確認したい内容を分けると効率的です。自宅での練習とスタジオでのレッスンを組み合わせる形にすると、無理なく続けやすくなります。大人の初心者や再開者は、練習できない週があっても中断と考えず、次のレッスンで課題を整理し直すことが大切です。生活の予定に合わせて頻度を調整しながら続けられます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -648,14 +654,14 @@ export const areas: Area[] = [
         slug: "kiyosumi-shirakawa",
         name: "清澄白河",
         groupId: "kiyosumi-group",
-        siblingSlugs: ["hirano","miyoshi"],
+        siblingSlugs: ["hirano", "miyoshi"],
         catchphrase: "清澄白河周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "清澄白河エリアのご自宅で、移動時間なしで受けられる出張ピアノレッスン。ブランクのある再開者の方や、楽譜の読み方から始めたい初心者の大人の方のご相談に対応しています。",
         mainImage: "/images/areas/kiyosumi-shirakawa.webp",
         mainImageAlt: "清澄白河エリアの自宅・マンションで受けられる大人のピアノレッスン",
         objectPositionMobile: "40% 55%",
         objectPositionDesktop: "50% 55%",
-        keywords: ["清澄白河 ピアノ教室","清澄白河 ピアノ 大人","清澄白河 出張レッスン","清澄白河 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["清澄白河 ピアノ教室", "清澄白河 ピアノ 大人", "清澄白河 出張レッスン", "清澄白河 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -694,15 +700,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "清澄白河 ピアノ教室",
-            secondaryKeywords: ["清澄白河 大人 ピアノ","清澄白河 ピアノレッスン","清澄白河 出張レッスン","清澄白河 ピアノ 初心者"],
+            secondaryKeywords: ["清澄白河 大人 ピアノ", "清澄白河 ピアノレッスン", "清澄白河 出張レッスン", "清澄白河 ピアノ 初心者"],
             metaDescription: "清澄白河で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。清澄庭園周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。清澄白河周辺への出張に対応しています。"
         },
-        relatedAreas: ["hirano","miyoshi","monzen-nakacho","morishita"],
+        relatedAreas: ["hirano", "miyoshi", "monzen-nakacho", "morishita"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%B8%85%E6%BE%84%E7%99%BD%E6%B2%B3%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["清澄庭園","東京都現代美術館","深川江戸資料館","清澄白河駅"],
+        landmarks: ["清澄庭園", "東京都現代美術館", "深川江戸資料館", "清澄白河駅"],
         areaGuide: "清澄白河で大人がピアノを続けるなら、趣味として無理なく続く内容に絞ることが大切です。自宅レッスンでは、普段使っている電子ピアノやアップライトピアノで練習の癖を確認できます。再開者の場合、基礎をすべてやり直すより、弾きたい曲に必要な譜読み・リズム・指づかいを補う方が続きやすいことがあります。仕事や家事の予定に合わせて、月2回や隔週など現実的な頻度から始めると中断しにくくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -711,12 +717,14 @@ export const areas: Area[] = [
         slug: "hirano",
         name: "平野",
         groupId: "kiyosumi-group",
-        siblingSlugs: ["kiyosumi-shirakawa","miyoshi"],
+        siblingSlugs: ["kiyosumi-shirakawa", "miyoshi"],
         catchphrase: "平野で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "平野周辺のご自宅のピアノや電子ピアノで受けられる、通学不要の出張ピアノレッスン。趣味としてピアノを始めたい大人の方・再開したい方のご相談に対応しています。",
         mainImage: "/images/areas/hirano.webp",
+        objectPositionMobile: "77% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "平野エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["平野 ピアノ教室","平野 ピアノ 大人","平野 出張レッスン","平野 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["平野 ピアノ教室", "平野 ピアノ 大人", "平野 出張レッスン", "平野 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -755,15 +763,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "平野 ピアノ教室",
-            secondaryKeywords: ["平野 大人 ピアノ","平野 ピアノレッスン","平野 出張レッスン","平野 ピアノ 初心者"],
+            secondaryKeywords: ["平野 大人 ピアノ", "平野 ピアノレッスン", "平野 出張レッスン", "平野 ピアノ 初心者"],
             metaDescription: "平野で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。東京都現代美術館周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。平野周辺への出張に対応しています。"
         },
-        relatedAreas: ["kiyosumi-shirakawa","miyoshi","monzen-nakacho"],
+        relatedAreas: ["kiyosumi-shirakawa", "miyoshi", "monzen-nakacho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%B9%B3%E9%87%8E%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["東京都現代美術館","木場公園（近隣）"],
+        landmarks: ["東京都現代美術館", "木場公園（近隣）"],
         areaGuide: "平野で大人のピアノレッスンを続けるには、家での練習環境に合わせた課題設定が重要です。電子ピアノやアップライトピアノなど、今ある楽器でできることを前提に、譜読み・指づかい・苦手な小節を少しずつ整えていきます。自宅レッスンなら移動を減らせるため、仕事や家庭の予定がある方でも続けやすくなります。弾きたい曲を中心にしながら、必要な基礎だけを補う形にすると、大人の再開者にも負担が少なくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -772,12 +780,14 @@ export const areas: Area[] = [
         slug: "miyoshi",
         name: "三好",
         groupId: "kiyosumi-group",
-        siblingSlugs: ["kiyosumi-shirakawa","hirano"],
+        siblingSlugs: ["kiyosumi-shirakawa", "hirano"],
         catchphrase: "三好周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "三好エリアのご自宅で受けられる出張ピアノレッスン。ブランクのある再開者の方や、楽譜の読み方から始めたい初心者の大人の方に、目的に合わせたマンツーマン個人指導を行っています。",
         mainImage: "/images/areas/miyoshi.webp",
+        objectPositionMobile: "69% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "三好エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["三好 ピアノ教室","三好 ピアノ 大人","三好 出張レッスン","三好 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["三好 ピアノ教室", "三好 ピアノ 大人", "三好 出張レッスン", "三好 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -816,15 +826,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "三好 ピアノ教室",
-            secondaryKeywords: ["三好 大人 ピアノ","三好 ピアノレッスン","三好 出張レッスン","三好 ピアノ 初心者"],
+            secondaryKeywords: ["三好 大人 ピアノ", "三好 ピアノレッスン", "三好 出張レッスン", "三好 ピアノ 初心者"],
             metaDescription: "三好で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。東京都現代美術館（近隣）周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。三好周辺への出張に対応しています。"
         },
-        relatedAreas: ["kiyosumi-shirakawa","hirano","monzen-nakacho"],
+        relatedAreas: ["kiyosumi-shirakawa", "hirano", "monzen-nakacho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E4%B8%89%E5%A5%BD%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["東京都現代美術館（近隣）","清澄庭園（近隣）"],
+        landmarks: ["東京都現代美術館（近隣）", "清澄庭園（近隣）"],
         areaGuide: "三好でピアノを続ける場合、生活圏の中で受けやすい形を選ぶことが大切です。自宅レッスンなら普段の練習環境をそのまま確認でき、スタジオでのレッスンを組み合わせることもできます。大人の初心者や再開者は、毎回新しいことを増やしすぎると負担になりがちです。好きな曲の中で、今つまずいている箇所を一つずつ整理し、次回までの練習を小さく決めていくと継続しやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -833,14 +843,14 @@ export const areas: Area[] = [
         slug: "monzen-nakacho",
         name: "門前仲町",
         groupId: "monzen-group",
-        siblingSlugs: ["kiba","ecchujima"],
+        siblingSlugs: ["kiba", "ecchujima"],
         catchphrase: "門前仲町周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "門前仲町周辺のご自宅のピアノや電子ピアノで受けられる、通学不要の出張ピアノレッスン。趣味として取り組みたい大人の方、ブランクのある再開者の方のご相談に対応しています。",
         mainImage: "/images/areas/monzen-nakacho.webp",
         mainImageAlt: "門前仲町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        objectPositionMobile: "40% 55%",
+        objectPositionMobile: "67% 55%",
         objectPositionDesktop: "50% 55%",
-        keywords: ["門前仲町 ピアノ教室","門前仲町 ピアノ 大人","門前仲町 出張レッスン","門前仲町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["門前仲町 ピアノ教室", "門前仲町 ピアノ 大人", "門前仲町 出張レッスン", "門前仲町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -879,15 +889,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "門前仲町 ピアノ教室",
-            secondaryKeywords: ["門前仲町 大人 ピアノ","門前仲町 ピアノレッスン","門前仲町 出張レッスン","門前仲町 ピアノ 初心者"],
+            secondaryKeywords: ["門前仲町 大人 ピアノ", "門前仲町 ピアノレッスン", "門前仲町 出張レッスン", "門前仲町 ピアノ 初心者"],
             metaDescription: "門前仲町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。富岡八幡宮周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。門前仲町周辺への出張に対応しています。"
         },
-        relatedAreas: ["kiba","ecchujima","kiyosumi-shirakawa","ningyocho"],
+        relatedAreas: ["kiba", "ecchujima", "kiyosumi-shirakawa", "ningyocho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E9%96%80%E5%89%8D%E4%BB%B2%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["富岡八幡宮","深川ギャザリア","門前仲町駅"],
+        landmarks: ["富岡八幡宮", "深川ギャザリア", "門前仲町駅"],
         areaGuide: "門前仲町で大人がピアノ教室を探す場合、通いやすさだけでなく、続けたい目的に合っているかが重要です。自宅レッスンなら、普段使っている楽器で練習の癖や弾きにくい箇所を確認できます。仕事や家庭の予定がある方は、毎週固定にこだわらず、隔週や月2回から始める方が続きやすい場合もあります。好きな曲を軸に、必要な基礎や譜読みを補っていくことで、趣味として無理なく積み上げやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -896,12 +906,14 @@ export const areas: Area[] = [
         slug: "kiba",
         name: "木場",
         groupId: "monzen-group",
-        siblingSlugs: ["monzen-nakacho","ecchujima"],
+        siblingSlugs: ["monzen-nakacho", "ecchujima"],
         catchphrase: "木場で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "木場エリアのご自宅で受けられる出張ピアノレッスン。ブランクがある再開者の方や、大人になってから初めてピアノに取り組む方のご相談に対応しています。",
         mainImage: "/images/areas/kiba.webp",
+        objectPositionMobile: "33% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "木場エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["木場 ピアノ教室","木場 ピアノ 大人","木場 出張レッスン","木場 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["木場 ピアノ教室", "木場 ピアノ 大人", "木場 出張レッスン", "木場 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -940,15 +952,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "木場 ピアノ教室",
-            secondaryKeywords: ["木場 大人 ピアノ","木場 ピアノレッスン","木場 出張レッスン","木場 ピアノ 初心者"],
+            secondaryKeywords: ["木場 大人 ピアノ", "木場 ピアノレッスン", "木場 出張レッスン", "木場 ピアノ 初心者"],
             metaDescription: "木場で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。木場公園周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。木場周辺への出張に対応しています。"
         },
-        relatedAreas: ["monzen-nakacho","ecchujima","kiyosumi-shirakawa"],
+        relatedAreas: ["monzen-nakacho", "ecchujima", "kiyosumi-shirakawa"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%9C%A8%E5%A0%B4%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["木場公園","深川ギャザリア（近隣）","木場駅"],
+        landmarks: ["木場公園", "深川ギャザリア（近隣）", "木場駅"],
         areaGuide: "木場でピアノレッスンを続けるには、普段の生活に入れやすい練習内容にすることが大切です。自宅レッスンでは、電子ピアノやアップライトピアノを使いながら、弾きにくい小節、譜読み、手の使い方を具体的に確認できます。大人の再開者は、基礎だけを長く続けるより、好きな曲の中で必要な技術を身につける方が継続しやすいことがあります。練習時間が限られていても、課題を絞れば少しずつ進められます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -957,12 +969,14 @@ export const areas: Area[] = [
         slug: "ecchujima",
         name: "越中島",
         groupId: "monzen-group",
-        siblingSlugs: ["monzen-nakacho","kiba"],
+        siblingSlugs: ["monzen-nakacho", "kiba"],
         catchphrase: "越中島周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "越中島周辺のご自宅のピアノや電子ピアノで受けられる出張ピアノレッスン。通学不要でご自宅のままレッスンが受けられ、趣味として始めたい大人の方・再開したい方にご相談いただけます。",
         mainImage: "/images/areas/ecchujima.webp",
+        objectPositionMobile: "65% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "越中島エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["越中島 ピアノ教室","越中島 ピアノ 大人","越中島 出張レッスン","越中島 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["越中島 ピアノ教室", "越中島 ピアノ 大人", "越中島 出張レッスン", "越中島 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1001,15 +1015,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "越中島 ピアノ教室",
-            secondaryKeywords: ["越中島 大人 ピアノ","越中島 ピアノレッスン","越中島 出張レッスン","越中島 ピアノ 初心者"],
+            secondaryKeywords: ["越中島 大人 ピアノ", "越中島 ピアノレッスン", "越中島 出張レッスン", "越中島 ピアノ 初心者"],
             metaDescription: "越中島で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。越中島公園周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。越中島周辺への出張に対応しています。"
         },
-        relatedAreas: ["monzen-nakacho","kiba","tsukishima"],
+        relatedAreas: ["monzen-nakacho", "kiba", "tsukishima"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%B6%8A%E4%B8%AD%E5%B3%B6%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["越中島公園","越中島駅"],
+        landmarks: ["越中島公園", "越中島駅"],
         areaGuide: "越中島で大人がピアノを続けるなら、移動の少なさと練習のしやすさを重視すると無理がありません。自宅レッスンでは、普段使っている楽器で実際の弾き方を確認できるため、レッスン後の練習にもつなげやすくなります。ブランクがある方は、曲全体を一気に仕上げようとせず、弾きにくい部分を小さく分けると続けやすくなります。月2回や隔週でも、課題を明確にすれば趣味として着実に進められます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1018,14 +1032,14 @@ export const areas: Area[] = [
         slug: "ningyocho",
         name: "人形町",
         groupId: "nihonbashi-group",
-        siblingSlugs: ["suitengu-mae","hamacho"],
+        siblingSlugs: ["suitengu-mae", "hamacho"],
         catchphrase: "人形町周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "人形町周辺でピアノを学びたい忙しい社会人・主婦の方へ。オフィス近くのスタジオやご自宅で、好きな曲や課題曲に絞った効率的なレッスンを自分のペースでご相談可能です。",
         mainImage: "/images/areas/ningyocho.webp",
         mainImageAlt: "人形町エリアの自宅・マンションで受けられる大人のピアノレッスン",
         objectPositionMobile: "45% 50%",
         objectPositionDesktop: "50% 50%",
-        keywords: ["人形町 ピアノ教室","人形町 ピアノ 大人","人形町 出張レッスン","人形町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["人形町 ピアノ教室", "人形町 ピアノ 大人", "人形町 出張レッスン", "人形町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1064,15 +1078,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "人形町 ピアノ教室",
-            secondaryKeywords: ["人形町 大人 ピアノ","人形町 ピアノレッスン","人形町 出張レッスン","人形町 ピアノ 初心者"],
+            secondaryKeywords: ["人形町 大人 ピアノ", "人形町 ピアノレッスン", "人形町 出張レッスン", "人形町 ピアノ 初心者"],
             metaDescription: "人形町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。水天宮（近隣）周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。人形町周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["suitengu-mae","hamacho","tsukishima","monzen-nakacho"],
+        relatedAreas: ["suitengu-mae", "hamacho", "tsukishima", "monzen-nakacho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E4%BA%BA%E5%BD%A2%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["水天宮（近隣）","リガーレ日本橋人形町","人形町駅"],
+        landmarks: ["水天宮（近隣）", "リガーレ日本橋人形町", "人形町駅"],
         areaGuide: "人形町でピアノレッスンを続ける場合、仕事や日常の予定に合わせて、受講場所を柔軟に選ぶことが大切です。自宅レッスンなら移動を減らせますし、近隣スタジオなら仕事帰りや用事の前後にも組み込みやすくなります。大人の初心者や再開者は、毎回広い範囲を進めるより、今弾きたい曲の中で必要な譜読み・リズム・指づかいを確認する方が続きやすいです。目的を絞って進めることで、忙しい時期でも中断しにくくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1081,12 +1095,14 @@ export const areas: Area[] = [
         slug: "suitengu-mae",
         name: "水天宮前",
         groupId: "nihonbashi-group",
-        siblingSlugs: ["ningyocho","hamacho"],
+        siblingSlugs: ["ningyocho", "hamacho"],
         catchphrase: "水天宮前で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "水天宮前エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事帰りや週末の時間を活かしてピアノを始めたい方・再開したい方のご相談に対応しています。",
         mainImage: "/images/areas/suitengu-mae.webp",
+        objectPositionMobile: "45% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "水天宮前エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["水天宮前 ピアノ教室","水天宮前 ピアノ 大人","水天宮前 出張レッスン","水天宮前 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["水天宮前 ピアノ教室", "水天宮前 ピアノ 大人", "水天宮前 出張レッスン", "水天宮前 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1125,15 +1141,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "水天宮前 ピアノ教室",
-            secondaryKeywords: ["水天宮前 大人 ピアノ","水天宮前 ピアノレッスン","水天宮前 出張レッスン","水天宮前 ピアノ 初心者"],
+            secondaryKeywords: ["水天宮前 大人 ピアノ", "水天宮前 ピアノレッスン", "水天宮前 出張レッスン", "水天宮前 ピアノ 初心者"],
             metaDescription: "水天宮前で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。水天宮周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。水天宮前周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["ningyocho","hamacho","tsukishima"],
+        relatedAreas: ["ningyocho", "hamacho", "tsukishima"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%B0%B4%E5%A4%A9%E5%AE%AE%E5%89%8D%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["水天宮","水天宮前駅","ロイヤルパークホテル"],
+        landmarks: ["水天宮", "水天宮前駅", "ロイヤルパークホテル"],
         areaGuide: "水天宮前で大人がピアノを続けるには、生活の予定に合わせて受講方法を決めることが重要です。自宅レッスンは移動を減らせるため、仕事や家事の合間にも取り入れやすくなります。近隣スタジオを使えば、音量や楽器環境を気にせず弾ける時間も作れます。再開者の場合は、昔の教材をそのまま進めるより、今弾きたい曲に必要な基礎を確認すると続けやすくなります。練習量よりも、次に見る課題を明確にすることを重視します。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1142,12 +1158,14 @@ export const areas: Area[] = [
         slug: "hamacho",
         name: "浜町",
         groupId: "nihonbashi-group",
-        siblingSlugs: ["ningyocho","suitengu-mae"],
+        siblingSlugs: ["ningyocho", "suitengu-mae"],
         catchphrase: "浜町周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "浜町周辺でピアノを学びたい忙しい社会人・主婦の方へ。オフィス近くのスタジオやご自宅で、好きな曲や課題曲に絞った効率的なレッスンを自分のペースでご相談可能です。",
         mainImage: "/images/areas/hamacho.webp",
+        objectPositionMobile: "58% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "浜町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["浜町 ピアノ教室","浜町 ピアノ 大人","浜町 出張レッスン","浜町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["浜町 ピアノ教室", "浜町 ピアノ 大人", "浜町 出張レッスン", "浜町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1186,15 +1204,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "浜町 ピアノ教室",
-            secondaryKeywords: ["浜町 大人 ピアノ","浜町 ピアノレッスン","浜町 出張レッスン","浜町 ピアノ 初心者"],
+            secondaryKeywords: ["浜町 大人 ピアノ", "浜町 ピアノレッスン", "浜町 出張レッスン", "浜町 ピアノ 初心者"],
             metaDescription: "浜町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。浜町公園周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。浜町周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["ningyocho","suitengu-mae","morishita"],
+        relatedAreas: ["ningyocho", "suitengu-mae", "morishita"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%B5%9C%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["浜町公園","トルナーレ日本橋浜町","浜町駅"],
+        landmarks: ["浜町公園", "トルナーレ日本橋浜町", "浜町駅"],
         areaGuide: "浜町でピアノレッスンを続けるには、自宅とスタジオのどちらが続けやすいかを最初に整理すると無理がありません。自宅では普段の練習環境を確認でき、スタジオでは音量や響きを気にせず曲全体を見やすくなります。大人の初心者や再開者は、毎回広く進めるより、止まりやすい小節、指が迷う箇所、ペダルの使い方などを絞って確認すると効果的です。忙しい時期でも、月2回や隔週の頻度で継続しやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1203,14 +1221,14 @@ export const areas: Area[] = [
         slug: "morishita",
         name: "森下",
         groupId: "morishita-group",
-        siblingSlugs: ["sumiyoshi","kikukawa"],
+        siblingSlugs: ["sumiyoshi", "kikukawa"],
         catchphrase: "森下周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "森下周辺のご自宅のピアノや電子ピアノで受けられる出張ピアノレッスン。大人の初心者の方・ブランクのある再開者の方のご相談に対応しています。通学不要でご自宅でのレッスンが可能です。",
         mainImage: "/images/areas/morishita.webp",
         mainImageAlt: "森下エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        objectPositionMobile: "45% 50%",
+        objectPositionMobile: "66% 50%",
         objectPositionDesktop: "50% 50%",
-        keywords: ["森下 ピアノ教室","森下 ピアノ 大人","森下 出張レッスン","森下 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["森下 ピアノ教室", "森下 ピアノ 大人", "森下 出張レッスン", "森下 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1249,15 +1267,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "森下 ピアノ教室",
-            secondaryKeywords: ["森下 大人 ピアノ","森下 ピアノレッスン","森下 出張レッスン","森下 ピアノ 初心者"],
+            secondaryKeywords: ["森下 大人 ピアノ", "森下 ピアノレッスン", "森下 出張レッスン", "森下 ピアノ 初心者"],
             metaDescription: "森下で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。森下文化センター周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。森下周辺への出張に対応しています。"
         },
-        relatedAreas: ["sumiyoshi","kikukawa","kiyosumi-shirakawa","monzen-nakacho"],
+        relatedAreas: ["sumiyoshi", "kikukawa", "kiyosumi-shirakawa", "monzen-nakacho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%A3%AE%E4%B8%8B%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["森下文化センター","森下駅"],
+        landmarks: ["森下文化センター", "森下駅"],
         areaGuide: "森下で大人がピアノを続けるには、通う負担と練習の負担をどちらも軽くすることが大切です。出張レッスンなら、自宅の楽器で普段の弾き方を確認でき、レッスン後の練習にもつなげやすくなります。再開者の場合、最初から完璧に弾こうとせず、片手練習や数小節単位で戻していく方が続けやすいです。好きな曲を軸にしながら、必要な譜読みや指づかいをその都度補うと、趣味として自然に継続できます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1266,12 +1284,14 @@ export const areas: Area[] = [
         slug: "sumiyoshi",
         name: "住吉",
         groupId: "morishita-group",
-        siblingSlugs: ["morishita","kikukawa"],
+        siblingSlugs: ["morishita", "kikukawa"],
         catchphrase: "住吉で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "住吉エリアのご自宅で受けられる出張ピアノレッスン。ブランクのある再開者の方・大人になってから初めてピアノを学ぶ方を中心に、目的に合わせた進め方でレッスンを行っています。",
         mainImage: "/images/areas/sumiyoshi.webp",
+        objectPositionMobile: "30% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "住吉エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["住吉 ピアノ教室","住吉 ピアノ 大人","住吉 出張レッスン","住吉 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["住吉 ピアノ教室", "住吉 ピアノ 大人", "住吉 出張レッスン", "住吉 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1310,15 +1330,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "住吉 ピアノ教室",
-            secondaryKeywords: ["住吉 大人 ピアノ","住吉 ピアノレッスン","住吉 出張レッスン","住吉 ピアノ 初心者"],
+            secondaryKeywords: ["住吉 大人 ピアノ", "住吉 ピアノレッスン", "住吉 出張レッスン", "住吉 ピアノ 初心者"],
             metaDescription: "住吉で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。猿江恩賜公園周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。住吉周辺への出張に対応しています。"
         },
-        relatedAreas: ["morishita","kikukawa","kiyosumi-shirakawa"],
+        relatedAreas: ["morishita", "kikukawa", "kiyosumi-shirakawa"],
         googleMapUrl: "https://maps.google.com/maps?q=%E4%BD%8F%E5%90%89%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["猿江恩賜公園","住吉駅"],
+        landmarks: ["猿江恩賜公園", "住吉駅"],
         areaGuide: "住吉でピアノ教室を探す大人の方は、続けやすい場所と頻度を先に決めると負担が少なくなります。自宅レッスンなら移動が少なく、普段の楽器で練習内容を確認できます。初心者の場合は、基礎だけを長く続けるより、短い曲や好きな曲を使いながら譜読みと指づかいを覚えると実感が出やすくなります。再開者は、以前弾いた曲を無理なく戻しながら、今の手の状態に合わせて練習を組み立てると続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1327,12 +1347,14 @@ export const areas: Area[] = [
         slug: "kikukawa",
         name: "菊川",
         groupId: "morishita-group",
-        siblingSlugs: ["morishita","sumiyoshi"],
+        siblingSlugs: ["morishita", "sumiyoshi"],
         catchphrase: "菊川周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "菊川周辺のご自宅のピアノや電子ピアノで受けられる、通学不要の出張ピアノレッスン。趣味として始めたい大人の方も、ブランクのある再開者の方も、目的に合わせてご相談いただけます。",
         mainImage: "/images/areas/kikukawa.webp",
+        objectPositionMobile: "51% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "菊川エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["菊川 ピアノ教室","菊川 ピアノ 大人","菊川 出張レッスン","菊川 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["菊川 ピアノ教室", "菊川 ピアノ 大人", "菊川 出張レッスン", "菊川 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1371,15 +1393,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "菊川 ピアノ教室",
-            secondaryKeywords: ["菊川 大人 ピアノ","菊川 ピアノレッスン","菊川 出張レッスン","菊川 ピアノ 初心者"],
+            secondaryKeywords: ["菊川 大人 ピアノ", "菊川 ピアノレッスン", "菊川 出張レッスン", "菊川 ピアノ 初心者"],
             metaDescription: "菊川で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。ティアラこうとう（近隣）周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。菊川周辺への出張に対応しています。"
         },
-        relatedAreas: ["morishita","sumiyoshi","kiyosumi-shirakawa"],
+        relatedAreas: ["morishita", "sumiyoshi", "kiyosumi-shirakawa"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%8F%8A%E5%B7%9D%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["ティアラこうとう（近隣）","菊川駅"],
+        landmarks: ["ティアラこうとう（近隣）", "菊川駅"],
         areaGuide: "菊川でピアノを続けるには、練習量よりも継続しやすい仕組みを作ることが大切です。出張レッスンなら、自宅の楽器で普段の弾き方を見てもらえるため、練習で困っている箇所をその場で確認できます。大人の初心者や再開者は、曲全体を毎日練習するより、片手だけ、数小節だけ、リズムだけと課題を小さく分ける方が続きます。好きな曲を目標にしながら、必要な基礎を少しずつ補う形が現実的です。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1388,12 +1410,14 @@ export const areas: Area[] = [
         slug: "tsukuda",
         name: "佃",
         groupId: "harumi-group",
-        siblingSlugs: ["tsukishima","kachidoki","harumi"],
+        siblingSlugs: ["tsukishima", "kachidoki", "harumi"],
         catchphrase: "佃周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "佃周辺のご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事後や週末の時間に、趣味としてピアノに取り組みたい大人の方のご相談に対応しています。",
         mainImage: "/images/areas/tsukuda.webp",
+        objectPositionMobile: "33% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "佃エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["佃 ピアノ教室","佃 ピアノ 大人","佃 出張レッスン","佃 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["佃 ピアノ教室", "佃 ピアノ 大人", "佃 出張レッスン", "佃 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1432,15 +1456,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "佃 ピアノ教室",
-            secondaryKeywords: ["佃 大人 ピアノ","佃 ピアノレッスン","佃 出張レッスン","佃 ピアノ 初心者"],
+            secondaryKeywords: ["佃 大人 ピアノ", "佃 ピアノレッスン", "佃 出張レッスン", "佃 ピアノ 初心者"],
             metaDescription: "佃で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。佃公園周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。佃周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["tsukishima","kachidoki","tsukiji","hatchobori"],
+        relatedAreas: ["tsukishima", "kachidoki", "tsukiji", "hatchobori"],
         googleMapUrl: "https://maps.google.com/maps?q=%E4%BD%83%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["佃公園","大川端リバーシティ21","月島駅"],
+        landmarks: ["佃公園", "大川端リバーシティ21", "月島駅"],
         areaGuide: "佃でピアノを続けたい大人の方は、暮らしのペースを崩さない受講頻度を決めることが大切です。自宅レッスンを中心にすれば移動の負担を減らせますし、音量や楽器環境が気になる時はスタジオを併用できます。再開者の場合は、基礎教材だけに戻るより、弾きたい曲の中で必要な技術を確認する方が続きやすいことがあります。無理に毎日長く練習するより、短時間で触れる箇所を決めておくと習慣にしやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1449,12 +1473,14 @@ export const areas: Area[] = [
         slug: "nihonbashi",
         name: "日本橋",
         groupId: "nihonbashi-group",
-        siblingSlugs: ["ningyocho","suitengu-mae","hamacho"],
+        siblingSlugs: ["ningyocho", "suitengu-mae", "hamacho"],
         catchphrase: "日本橋で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "日本橋エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事帰りや週末の時間に、大人の初心者・ブランクのある再開者向けのマンツーマン個人指導を行っています。",
         mainImage: "/images/areas/nihonbashi.webp",
+        objectPositionMobile: "30% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "日本橋エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["日本橋 ピアノ教室","日本橋 ピアノ 大人","日本橋 出張レッスン","日本橋 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["日本橋 ピアノ教室", "日本橋 ピアノ 大人", "日本橋 出張レッスン", "日本橋 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1493,15 +1519,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "日本橋 ピアノ教室",
-            secondaryKeywords: ["日本橋 大人 ピアノ","日本橋 ピアノレッスン","日本橋 出張レッスン","日本橋 ピアノ 初心者"],
+            secondaryKeywords: ["日本橋 大人 ピアノ", "日本橋 ピアノレッスン", "日本橋 出張レッスン", "日本橋 ピアノ 初心者"],
             metaDescription: "日本橋で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。日本橋三越本店周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。日本橋周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["kayabacho","kyobashi","ningyocho","suitengu-mae"],
+        relatedAreas: ["kayabacho", "kyobashi", "ningyocho", "suitengu-mae"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%97%A5%E6%9C%AC%E6%A9%8B%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["日本橋三越本店","コレド室町","日本橋駅"],
+        landmarks: ["日本橋三越本店", "コレド室町", "日本橋駅"],
         areaGuide: "日本橋でピアノレッスンを受ける大人の方は、仕事や外出の前後に組み込みやすい形を選ぶと続けやすくなります。自宅での出張レッスンに加え、近隣スタジオを利用すれば、予定に合わせて受講場所を調整できます。中級者は、曲を通すだけでなく、弾きにくい箇所や表現を細かく確認することで完成度を高めやすくなります。初心者や再開者も、弾きたい曲を目標にしながら必要な基礎を補うと、負担を抑えて続けられます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1514,8 +1540,10 @@ export const areas: Area[] = [
         catchphrase: "茅場町周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "茅場町周辺でピアノを学びたい忙しい社会人・主婦の方へ。オフィス近くのスタジオやご自宅で、好きな曲や課題曲に絞った効率的なレッスンを自分のペースでご相談可能です。",
         mainImage: "/images/areas/kayabacho.webp",
+        objectPositionMobile: "53% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "茅場町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["茅場町 ピアノ教室","茅場町 ピアノ 大人","茅場町 出張レッスン","茅場町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["茅場町 ピアノ教室", "茅場町 ピアノ 大人", "茅場町 出張レッスン", "茅場町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1554,15 +1582,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "茅場町 ピアノ教室",
-            secondaryKeywords: ["茅場町 大人 ピアノ","茅場町 ピアノレッスン","茅場町 出張レッスン","茅場町 ピアノ 初心者"],
+            secondaryKeywords: ["茅場町 大人 ピアノ", "茅場町 ピアノレッスン", "茅場町 出張レッスン", "茅場町 ピアノ 初心者"],
             metaDescription: "茅場町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。茅場町周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。茅場町周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["nihonbashi","hatchobori","ningyocho"],
+        relatedAreas: ["nihonbashi", "hatchobori", "ningyocho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%8C%85%E5%A0%B4%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["茅場町駅","兜町平和ビル","日本橋川"],
+        landmarks: ["茅場町駅", "兜町平和ビル", "日本橋川"],
         areaGuide: "茅場町で大人がピアノレッスンを受ける場合、仕事の予定に合わせて受講場所と時間を調整しやすいことが続けやすさにつながります。近隣スタジオで仕事帰りに受ける方法も、自宅で移動を省く方法も選べます。練習時間が限られる方は、曲全体を広く進めるより、苦手な小節、リズム、指づかいを絞って確認する方が効率的です。再開者や中級者も、好きな曲の完成度を少しずつ整える形なら無理なく続けられます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1575,8 +1603,10 @@ export const areas: Area[] = [
         catchphrase: "八丁堀周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "八丁堀エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事帰りや週末の時間を活かして、クラシックやポップスなど目的に合わせた個人レッスンを行っています。",
         mainImage: "/images/areas/hatchobori.webp",
+        objectPositionMobile: "63% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "八丁堀エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["八丁堀 ピアノ教室","八丁堀 ピアノ 大人","八丁堀 出張レッスン","八丁堀 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["八丁堀 ピアノ教室", "八丁堀 ピアノ 大人", "八丁堀 出張レッスン", "八丁堀 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1615,15 +1645,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "八丁堀 ピアノ教室",
-            secondaryKeywords: ["八丁堀 大人 ピアノ","八丁堀 ピアノレッスン","八丁堀 出張レッスン","八丁堀 ピアノ 初心者"],
+            secondaryKeywords: ["八丁堀 大人 ピアノ", "八丁堀 ピアノレッスン", "八丁堀 出張レッスン", "八丁堀 ピアノ 初心者"],
             metaDescription: "八丁堀で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。八丁堀周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。八丁堀周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["kayabacho","tsukiji","shintomicho","kyobashi"],
+        relatedAreas: ["kayabacho", "tsukiji", "shintomicho", "kyobashi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%85%AB%E4%B8%81%E5%A0%80%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["八丁堀駅","桜川公園","亀島川"],
+        landmarks: ["八丁堀駅", "桜川公園", "亀島川"],
         areaGuide: "八丁堀でピアノを続ける大人の方は、仕事や家庭の予定に合わせて、無理のない頻度を決めることが大切です。自宅レッスンなら移動を減らせますし、近隣スタジオを使えば音量や楽器環境を気にせず受講できます。初心者は基礎を少しずつ進め、再開者は弾きたい曲の中で必要な技術を戻していくと続けやすくなります。練習できない週があっても、次回のレッスンで課題を整理し直せるようにしておくと安心です。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1636,8 +1666,10 @@ export const areas: Area[] = [
         catchphrase: "築地で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "築地周辺でピアノを学びたい忙しい社会人・主婦の方へ。オフィス近くのスタジオやご自宅で、好きな曲や課題曲に絞った効率的なレッスンを自分のペースでご相談可能です。",
         mainImage: "/images/areas/tsukiji.webp",
+        objectPositionMobile: "73% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "築地エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["築地 ピアノ教室","築地 ピアノ 大人","築地 出張レッスン","築地 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["築地 ピアノ教室", "築地 ピアノ 大人", "築地 出張レッスン", "築地 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1676,15 +1708,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "築地 ピアノ教室",
-            secondaryKeywords: ["築地 大人 ピアノ","築地 ピアノレッスン","築地 出張レッスン","築地 ピアノ 初心者"],
+            secondaryKeywords: ["築地 大人 ピアノ", "築地 ピアノレッスン", "築地 出張レッスン", "築地 ピアノ 初心者"],
             metaDescription: "築地で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。築地本願寺周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。築地周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["shintomicho","hatchobori","tsukishima","ginza"],
+        relatedAreas: ["shintomicho", "hatchobori", "tsukishima", "ginza"],
         googleMapUrl: "https://maps.google.com/maps?q=%E7%AF%89%E5%9C%B0%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["築地本願寺","築地川公園","築地駅"],
+        landmarks: ["築地本願寺", "築地川公園", "築地駅"],
         areaGuide: "築地でピアノレッスンを続けるには、毎回の目的を小さく決めると無理がありません。自宅レッスンでは普段の楽器で譜読みや指づかいを確認でき、スタジオでは音の出し方やペダルを見やすくなります。大人の再開者は、以前のように弾けるかを気にしすぎず、今弾きたい曲に合わせて必要な基礎を戻していく方が続けやすいです。月2回や隔週など、生活に合う頻度から始めると長く続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1697,8 +1729,10 @@ export const areas: Area[] = [
         catchphrase: "新富町周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "新富町エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事帰りや週末の時間に、大人になってから始める方・ブランクのある再開者の方のご相談に対応しています。",
         mainImage: "/images/areas/shintomicho.webp",
+        objectPositionMobile: "87% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "新富町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["新富町 ピアノ教室","新富町 ピアノ 大人","新富町 出張レッスン","新富町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["新富町 ピアノ教室", "新富町 ピアノ 大人", "新富町 出張レッスン", "新富町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1737,15 +1771,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "新富町 ピアノ教室",
-            secondaryKeywords: ["新富町 大人 ピアノ","新富町 ピアノレッスン","新富町 出張レッスン","新富町 ピアノ 初心者"],
+            secondaryKeywords: ["新富町 大人 ピアノ", "新富町 ピアノレッスン", "新富町 出張レッスン", "新富町 ピアノ 初心者"],
             metaDescription: "新富町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。新富町周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "空き枠や出張可能範囲は公式LINEでご確認ください。新富町周辺でのレッスンについてご相談いただけます。"
         },
-        relatedAreas: ["tsukiji","hatchobori","ginza","kyobashi"],
+        relatedAreas: ["tsukiji", "hatchobori", "ginza", "kyobashi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%96%B0%E5%AF%8C%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["新富町駅","中央区役所","京橋公園"],
+        landmarks: ["新富町駅", "中央区役所", "京橋公園"],
         areaGuide: "新富町で大人がピアノを続けるには、受講場所を固定しすぎず、予定に合わせて選べる形にすると便利です。自宅では普段の楽器で練習方法を確認し、スタジオでは音量や響きを気にせず曲を通せます。再開者は、手の動きや譜読みを少しずつ戻しながら、弾きたい曲に必要な基礎を補うと続けやすくなります。中級者は、音の出し方やペダルなど細かい部分を見直すことで、同じ曲でも仕上がりを整えやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1758,8 +1792,10 @@ export const areas: Area[] = [
         catchphrase: "京橋周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "京橋周辺でピアノを学びたい忙しい社会人・主婦の方へ。オフィス近くのスタジオやご自宅で、好きな曲や課題曲に絞った効率的なレッスンを自分のペースでご相談可能です。",
         mainImage: "/images/areas/kyobashi.webp",
+        objectPositionMobile: "30% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "京橋エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["京橋 ピアノ教室","京橋 ピアノ 大人","京橋 出張レッスン","京橋 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["京橋 ピアノ教室", "京橋 ピアノ 大人", "京橋 出張レッスン", "京橋 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1798,15 +1834,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "京橋 ピアノ教室",
-            secondaryKeywords: ["京橋 大人 ピアノ","京橋 ピアノレッスン","京橋 出張レッスン","京橋 ピアノ 初心者"],
+            secondaryKeywords: ["京橋 大人 ピアノ", "京橋 ピアノレッスン", "京橋 出張レッスン", "京橋 ピアノ 初心者"],
             metaDescription: "京橋で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。京橋エドグラン周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。京橋周辺への出張に対応しています。"
         },
-        relatedAreas: ["ginza","nihonbashi","hatchobori","shintomicho"],
+        relatedAreas: ["ginza", "nihonbashi", "hatchobori", "shintomicho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E4%BA%AC%E6%A9%8B%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["京橋エドグラン","東京スクエアガーデン","京橋駅"],
+        landmarks: ["京橋エドグラン", "東京スクエアガーデン", "京橋駅"],
         areaGuide: "京橋でピアノレッスンを続ける大人の方は、仕事の予定と練習のしやすさを両立できる形を選ぶと負担が少なくなります。近隣スタジオなら仕事帰りにも受けやすく、自宅レッスンなら移動を減らせます。再開者は、昔の感覚に戻るまで時間がかかることもあるため、曲全体を急がず、止まりやすい部分を小さく分けて確認すると続けやすくなります。中級者は、音の出し方やペダルを見直すことで、曲の印象を整えやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1819,8 +1855,10 @@ export const areas: Area[] = [
         catchphrase: "銀座で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "銀座エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事帰りや週末の時間に、クラシックを軸に大人の初心者・ブランクのある再開者向けのレッスンを行っています。",
         mainImage: "/images/areas/ginza.webp",
+        objectPositionMobile: "54% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "銀座エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["銀座 ピアノ教室","銀座 ピアノ 大人","銀座 出張レッスン","銀座 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["銀座 ピアノ教室", "銀座 ピアノ 大人", "銀座 出張レッスン", "銀座 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1859,15 +1897,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "銀座 ピアノ教室",
-            secondaryKeywords: ["銀座 大人 ピアノ","銀座 ピアノレッスン","銀座 出張レッスン","銀座 ピアノ 初心者"],
+            secondaryKeywords: ["銀座 大人 ピアノ", "銀座 ピアノレッスン", "銀座 出張レッスン", "銀座 ピアノ 初心者"],
             metaDescription: "銀座で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。銀座三越周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。銀座周辺への出張に対応しています。"
         },
-        relatedAreas: ["kyobashi","tsukiji","shintomicho","nihonbashi"],
+        relatedAreas: ["kyobashi", "tsukiji", "shintomicho", "nihonbashi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E9%8A%80%E5%BA%A7%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["銀座三越","歌舞伎座","銀座駅"],
+        landmarks: ["銀座三越", "歌舞伎座", "銀座駅"],
         areaGuide: "銀座で大人がピアノレッスンを続ける場合、仕事や外出の予定に合わせてスタジオを使う方法が取り入れやすいです。自宅レッスンが難しい場合でも、近隣スタジオなら楽器環境を整えて受講できます。中級者は、曲を弾ける状態から一段整えるために、ペダル、音のバランス、フレーズの切り方を確認すると効果的です。初心者や再開者も、好きな曲を目標にして必要な基礎を補う形なら、営業的な習い事ではなく趣味として続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1876,12 +1914,14 @@ export const areas: Area[] = [
         slug: "azabujuban",
         name: "麻布十番",
         groupId: "azabu-roppongi-group",
-        siblingSlugs: ["roppongi","shirokane-takanawa","akabanebashi"],
+        siblingSlugs: ["roppongi", "shirokane-takanawa", "akabanebashi"],
         catchphrase: "麻布十番周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "麻布十番周辺のご自宅やスタジオへ講師が伺う、マンツーマンの出張ピアノレッスン。クラシックを軸に、初心者の基礎づくりから中級者の表現磨きまで、目的に合わせた進め方でレッスンを行っています。",
         mainImage: "/images/areas/azabujuban.webp",
+        objectPositionMobile: "75% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "麻布十番エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["麻布十番 ピアノ教室","麻布十番 ピアノ 大人","麻布十番 出張レッスン","麻布十番 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["麻布十番 ピアノ教室", "麻布十番 ピアノ 大人", "麻布十番 出張レッスン", "麻布十番 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1920,15 +1960,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "麻布十番 ピアノ教室",
-            secondaryKeywords: ["麻布十番 大人 ピアノ","麻布十番 ピアノレッスン","麻布十番 出張レッスン","麻布十番 ピアノ 初心者"],
+            secondaryKeywords: ["麻布十番 大人 ピアノ", "麻布十番 ピアノレッスン", "麻布十番 出張レッスン", "麻布十番 ピアノ 初心者"],
             metaDescription: "麻布十番で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。麻布十番商店街周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。麻布十番周辺への出張に対応しています。"
         },
-        relatedAreas: ["roppongi","akabanebashi","shirokane-takanawa"],
+        relatedAreas: ["roppongi", "akabanebashi", "shirokane-takanawa"],
         googleMapUrl: "https://maps.google.com/maps?q=%E9%BA%BB%E5%B8%83%E5%8D%81%E7%95%AA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["麻布十番商店街","網代公園","麻布十番駅"],
+        landmarks: ["麻布十番商店街", "網代公園", "麻布十番駅"],
         areaGuide: "麻布十番で大人がピアノを続けるには、時間を効率よく使える受講方法を選ぶことが大切です。自宅レッスンなら移動を減らせ、スタジオでのレッスンを利用することもできます。忙しい方ほど、毎回曲全体を通すより、苦手な小節、音のバランス、ペダルの切り替えなど、確認する内容を絞る方が続けやすいです。初心者・再開者・中級者のいずれも、目的に合わせて課題を小さく設定すると無理なく進められます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1937,12 +1977,14 @@ export const areas: Area[] = [
         slug: "roppongi",
         name: "六本木",
         groupId: "azabu-roppongi-group",
-        siblingSlugs: ["azabujuban","shirokane-takanawa","akabanebashi"],
+        siblingSlugs: ["azabujuban", "shirokane-takanawa", "akabanebashi"],
         catchphrase: "六本木周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "六本木エリアのご自宅やスタジオで、プライベートな時間を有意義にする大人のピアノレッスン。ご都合に合わせたフレキシブルなスケジュールで受講可能です。",
         mainImage: "/images/areas/roppongi.webp",
+        objectPositionMobile: "45% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "六本木エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["六本木 ピアノ教室","六本木 ピアノ 大人","六本木 出張レッスン","六本木 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["六本木 ピアノ教室", "六本木 ピアノ 大人", "六本木 出張レッスン", "六本木 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -1981,15 +2023,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "六本木 ピアノ教室",
-            secondaryKeywords: ["六本木 大人 ピアノ","六本木 ピアノレッスン","六本木 出張レッスン","六本木 ピアノ 初心者"],
+            secondaryKeywords: ["六本木 大人 ピアノ", "六本木 ピアノレッスン", "六本木 出張レッスン", "六本木 ピアノ 初心者"],
             metaDescription: "六本木で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。六本木ヒルズ周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。六本木周辺への出張に対応しています。"
         },
-        relatedAreas: ["azabujuban","akabanebashi","shirokane-takanawa"],
+        relatedAreas: ["azabujuban", "akabanebashi", "shirokane-takanawa"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%85%AD%E6%9C%AC%E6%9C%A8%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["六本木ヒルズ","東京ミッドタウン","六本木駅"],
+        landmarks: ["六本木ヒルズ", "東京ミッドタウン", "六本木駅"],
         areaGuide: "六本木でピアノレッスンを続けるには、忙しい予定の中でも受講しやすい場所を選ぶことが重要です。自宅レッスンで移動を減らす方法も、近隣スタジオで音量や楽器環境を整える方法もあります。中級者は、一人では気づきにくい音のバランスやペダルの濁りを確認すると、曲の仕上がりが変わります。初心者や再開者は、短い曲や好きな曲を使いながら、必要な基礎を少しずつ補うと継続しやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -1998,12 +2040,14 @@ export const areas: Area[] = [
         slug: "shirokane-takanawa",
         name: "白金高輪",
         groupId: "azabu-roppongi-group",
-        siblingSlugs: ["azabujuban","roppongi","akabanebashi"],
+        siblingSlugs: ["azabujuban", "roppongi", "akabanebashi"],
         catchphrase: "白金高輪で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "白金高輪周辺のご自宅やスタジオへ講師が伺う出張ピアノレッスン。クラシックを中心に、大人の初心者・ブランクのある再開者・表現をさらに高めたい中級者に対応しています。",
         mainImage: "/images/areas/shirokane-takanawa.webp",
+        objectPositionMobile: "54% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "白金高輪エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["白金高輪 ピアノ教室","白金高輪 ピアノ 大人","白金高輪 出張レッスン","白金高輪 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["白金高輪 ピアノ教室", "白金高輪 ピアノ 大人", "白金高輪 出張レッスン", "白金高輪 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2042,15 +2086,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "白金高輪 ピアノ教室",
-            secondaryKeywords: ["白金高輪 大人 ピアノ","白金高輪 ピアノレッスン","白金高輪 出張レッスン","白金高輪 ピアノ 初心者"],
+            secondaryKeywords: ["白金高輪 大人 ピアノ", "白金高輪 ピアノレッスン", "白金高輪 出張レッスン", "白金高輪 ピアノ 初心者"],
             metaDescription: "白金高輪で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。白金アエルシティ周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。白金高輪周辺への出張に対応しています。"
         },
-        relatedAreas: ["azabujuban","akabanebashi","roppongi"],
+        relatedAreas: ["azabujuban", "akabanebashi", "roppongi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E7%99%BD%E9%87%91%E9%AB%98%E8%BC%AA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["白金アエルシティ","高輪ゲートウェイ駅（近隣）","白金高輪駅"],
+        landmarks: ["白金アエルシティ", "高輪ゲートウェイ駅（近隣）", "白金高輪駅"],
         areaGuide: "白金高輪で大人がピアノを続ける場合、自宅レッスンを中心にすると、普段の楽器で練習の癖を確認しやすくなります。音量や楽器環境を変えたい時は、近隣スタジオを使う方法もあります。再開者は、基礎をすべて最初からやり直すより、弾きたい曲に必要な部分を補う方が続けやすい場合があります。中級者は、音色やペダル、フレーズの整理を行うことで、同じ曲でも弾きやすさと仕上がりを整えやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2059,12 +2103,14 @@ export const areas: Area[] = [
         slug: "akabanebashi",
         name: "赤羽橋",
         groupId: "azabu-roppongi-group",
-        siblingSlugs: ["azabujuban","roppongi","shirokane-takanawa"],
+        siblingSlugs: ["azabujuban", "roppongi", "shirokane-takanawa"],
         catchphrase: "赤羽橋周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "赤羽橋エリアのご自宅やスタジオで、プライベートな時間を有意義にする大人のピアノレッスン。ご都合に合わせたフレキシブルなスケジュールで受講可能です。",
         mainImage: "/images/areas/akabanebashi.webp",
+        objectPositionMobile: "68% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "赤羽橋エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["赤羽橋 ピアノ教室","赤羽橋 ピアノ 大人","赤羽橋 出張レッスン","赤羽橋 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["赤羽橋 ピアノ教室", "赤羽橋 ピアノ 大人", "赤羽橋 出張レッスン", "赤羽橋 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2103,15 +2149,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "赤羽橋 ピアノ教室",
-            secondaryKeywords: ["赤羽橋 大人 ピアノ","赤羽橋 ピアノレッスン","赤羽橋 出張レッスン","赤羽橋 ピアノ 初心者"],
+            secondaryKeywords: ["赤羽橋 大人 ピアノ", "赤羽橋 ピアノレッスン", "赤羽橋 出張レッスン", "赤羽橋 ピアノ 初心者"],
             metaDescription: "赤羽橋で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。東京タワー周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。赤羽橋周辺への出張に対応しています。"
         },
-        relatedAreas: ["azabujuban","roppongi","shirokane-takanawa"],
+        relatedAreas: ["azabujuban", "roppongi", "shirokane-takanawa"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%B5%A4%E7%BE%BD%E6%A9%8B%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["東京タワー","芝公園","赤羽橋駅"],
+        landmarks: ["東京タワー", "芝公園", "赤羽橋駅"],
         areaGuide: "赤羽橋でピアノレッスンを続けるには、忙しい予定の中でも確認する内容を明確にしておくことが大切です。自宅レッスンなら移動を減らせ、スタジオでのレッスンを組み合わせることもできます。再開者は、昔弾いていた曲をそのまま通すより、今つまずく部分を分けて練習すると戻しやすくなります。中級者は、音の出し方やフレーズの整え方まで見直すことで、短いレッスン時間でも得るものを明確にしやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2120,12 +2166,14 @@ export const areas: Area[] = [
         slug: "kojimachi",
         name: "麹町",
         groupId: "kojimachi-bancho-group",
-        siblingSlugs: ["hanzomon","bancho"],
+        siblingSlugs: ["hanzomon", "bancho"],
         catchphrase: "麹町周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "麹町周辺のご自宅やスタジオへ講師が伺う、マンツーマンの出張ピアノレッスン。クラシックを軸に、大人になってから始める方・再開者・好きな曲を仕上げたい方のご相談に対応しています。",
         mainImage: "/images/areas/kojimachi.webp",
+        objectPositionMobile: "30% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "麹町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["麹町 ピアノ教室","麹町 ピアノ 大人","麹町 出張レッスン","麹町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["麹町 ピアノ教室", "麹町 ピアノ 大人", "麹町 出張レッスン", "麹町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2164,15 +2212,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "麹町 ピアノ教室",
-            secondaryKeywords: ["麹町 大人 ピアノ","麹町 ピアノレッスン","麹町 出張レッスン","麹町 ピアノ 初心者"],
+            secondaryKeywords: ["麹町 大人 ピアノ", "麹町 ピアノレッスン", "麹町 出張レッスン", "麹町 ピアノ 初心者"],
             metaDescription: "麹町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。麹町周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。麹町周辺への出張に対応しています。"
         },
-        relatedAreas: ["hanzomon","bancho","toyosu"],
+        relatedAreas: ["hanzomon", "bancho", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E9%BA%B9%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["麹町駅","半蔵門駅","千鳥ヶ淵（近隣）"],
+        landmarks: ["麹町駅", "半蔵門駅", "千鳥ヶ淵（近隣）"],
         areaGuide: "麹町で大人がピアノを続ける場合、落ち着いて取り組める目的を決めておくと継続しやすくなります。自宅レッスンなら普段の楽器で練習の状態を確認でき、スタジオを使えば音量や響きを気にせず曲を見られます。再開者は、昔の教材に戻るだけでなく、今弾きたい曲に必要な基礎を確認する方が負担を抑えられます。クラシックや好きな曲を一曲ずつ整える形なら、40〜60代の大人にも続けやすい進め方になります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2181,12 +2229,14 @@ export const areas: Area[] = [
         slug: "hanzomon",
         name: "半蔵門",
         groupId: "kojimachi-bancho-group",
-        siblingSlugs: ["kojimachi","bancho"],
+        siblingSlugs: ["kojimachi", "bancho"],
         catchphrase: "半蔵門で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "半蔵門エリアのご自宅やスタジオで、プライベートな時間を有意義にする大人のピアノレッスン。ご都合に合わせたフレキシブルなスケジュールで受講可能です。",
         mainImage: "/images/areas/hanzomon.webp",
+        objectPositionMobile: "57% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "半蔵門エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["半蔵門 ピアノ教室","半蔵門 ピアノ 大人","半蔵門 出張レッスン","半蔵門 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["半蔵門 ピアノ教室", "半蔵門 ピアノ 大人", "半蔵門 出張レッスン", "半蔵門 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2225,15 +2275,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "半蔵門 ピアノ教室",
-            secondaryKeywords: ["半蔵門 大人 ピアノ","半蔵門 ピアノレッスン","半蔵門 出張レッスン","半蔵門 ピアノ 初心者"],
+            secondaryKeywords: ["半蔵門 大人 ピアノ", "半蔵門 ピアノレッスン", "半蔵門 出張レッスン", "半蔵門 ピアノ 初心者"],
             metaDescription: "半蔵門で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。半蔵門周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。半蔵門周辺への出張に対応しています。"
         },
-        relatedAreas: ["kojimachi","bancho","toyosu"],
+        relatedAreas: ["kojimachi", "bancho", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%8D%8A%E8%94%B5%E9%96%80%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["半蔵門駅","イギリス大使館","国立劇場"],
+        landmarks: ["半蔵門駅", "イギリス大使館", "国立劇場"],
         areaGuide: "半蔵門でピアノレッスンを続けるには、基礎の確認と弾きたい曲のバランスを取ることが大切です。自宅レッスンでは、普段の練習環境を見ながら、譜読みや指づかいの癖を確認できます。近隣スタジオでのレッスンを組み合わせることもできます。大人の再開者は、以前のレベルにすぐ戻ることを目標にしすぎず、今の手の状態に合わせて課題を決めると続けやすくなります。中級者は表現面の整理にも取り組めます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2242,12 +2292,14 @@ export const areas: Area[] = [
         slug: "bancho",
         name: "番町",
         groupId: "kojimachi-bancho-group",
-        siblingSlugs: ["kojimachi","hanzomon"],
+        siblingSlugs: ["kojimachi", "hanzomon"],
         catchphrase: "番町周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "番町周辺のご自宅やスタジオへ講師が伺う出張ピアノレッスン。クラシックを中心に、大人の初心者・再開者・趣味や教養としてピアノに向き合いたい方のご相談に対応しています。",
         mainImage: "/images/areas/bancho.webp",
+        objectPositionMobile: "61% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "番町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["番町 ピアノ教室","番町 ピアノ 大人","番町 出張レッスン","番町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["番町 ピアノ教室", "番町 ピアノ 大人", "番町 出張レッスン", "番町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2286,15 +2338,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "番町 ピアノ教室",
-            secondaryKeywords: ["番町 大人 ピアノ","番町 ピアノレッスン","番町 出張レッスン","番町 ピアノ 初心者"],
+            secondaryKeywords: ["番町 大人 ピアノ", "番町 ピアノレッスン", "番町 出張レッスン", "番町 ピアノ 初心者"],
             metaDescription: "番町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。市ヶ谷（近隣）周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。番町周辺への出張に対応しています。"
         },
-        relatedAreas: ["kojimachi","hanzomon","toyosu"],
+        relatedAreas: ["kojimachi", "hanzomon", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E7%95%AA%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["市ヶ谷駅（近隣）","四ツ谷駅（近隣）","千鳥ヶ淵公園"],
+        landmarks: ["市ヶ谷駅（近隣）", "四ツ谷駅（近隣）", "千鳥ヶ淵公園"],
         areaGuide: "番町で大人がピアノを続けるなら、急いで曲数を増やすより、今弾きたい曲を丁寧に整える進め方が合います。自宅レッスンでは普段の楽器で練習の癖を確認でき、スタジオを使う場合は音量や響きを意識した練習もしやすくなります。再開者は、譜読みや指づかいを一つずつ戻しながら、苦手な小節を分けて練習すると負担が少なくなります。生活の予定に合わせて、月2回や隔週から始める方法も現実的です。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2303,12 +2355,14 @@ export const areas: Area[] = [
         slug: "kasuga",
         name: "春日",
         groupId: "bunkyo-group",
-        siblingSlugs: ["koishikawa","hongo"],
+        siblingSlugs: ["koishikawa", "hongo"],
         catchphrase: "春日周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "春日エリアのご自宅やレンタルスタジオで受けられる出張ピアノレッスン。好きな曲や昔習っていた曲を仕上げたい大人の方のほか、クラシックの基礎から取り組みたい方のご相談に対応しています。",
         mainImage: "/images/areas/kasuga.webp",
+        objectPositionMobile: "51% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "春日エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["春日 ピアノ教室","春日 ピアノ 大人","春日 出張レッスン","春日 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["春日 ピアノ教室", "春日 ピアノ 大人", "春日 出張レッスン", "春日 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2347,15 +2401,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "春日 ピアノ教室",
-            secondaryKeywords: ["春日 大人 ピアノ","春日 ピアノレッスン","春日 出張レッスン","春日 ピアノ 初心者"],
+            secondaryKeywords: ["春日 大人 ピアノ", "春日 ピアノレッスン", "春日 出張レッスン", "春日 ピアノ 初心者"],
             metaDescription: "春日で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。文京シビックセンター周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。春日周辺への出張に対応しています。"
         },
-        relatedAreas: ["koishikawa","hongo","toyosu"],
+        relatedAreas: ["koishikawa", "hongo", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%98%A5%E6%97%A5%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["文京シビックセンター","春日駅","後楽園駅"],
+        landmarks: ["文京シビックセンター", "春日駅", "後楽園駅"],
         areaGuide: "春日で大人のピアノレッスンを続けるには、学び直しの目的をはっきりさせると進めやすくなります。楽譜を読む力を戻したいのか、好きな曲を弾きたいのか、基礎を整えたいのかによって、レッスン内容は変わります。自宅レッスンなら普段の楽器で練習の状態を確認でき、スタジオでのレッスンも選択できます。毎日長く練習するより、譜読みや片手練習など小さな課題を継続する方が、大人には現実的です。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2364,12 +2418,14 @@ export const areas: Area[] = [
         slug: "koishikawa",
         name: "小石川",
         groupId: "bunkyo-group",
-        siblingSlugs: ["kasuga","hongo"],
+        siblingSlugs: ["kasuga", "hongo"],
         catchphrase: "小石川で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "小石川周辺で大人の趣味・学び直しとしてピアノを始めたい方へ。基礎の見直しから、弾きたいクラシック・ポップスの部分指導まで柔軟に対応する個人レッスンです。",
         mainImage: "/images/areas/koishikawa.webp",
+        objectPositionMobile: "65% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "小石川エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["小石川 ピアノ教室","小石川 ピアノ 大人","小石川 出張レッスン","小石川 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["小石川 ピアノ教室", "小石川 ピアノ 大人", "小石川 出張レッスン", "小石川 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2408,15 +2464,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "小石川 ピアノ教室",
-            secondaryKeywords: ["小石川 大人 ピアノ","小石川 ピアノレッスン","小石川 出張レッスン","小石川 ピアノ 初心者"],
+            secondaryKeywords: ["小石川 大人 ピアノ", "小石川 ピアノレッスン", "小石川 出張レッスン", "小石川 ピアノ 初心者"],
             metaDescription: "小石川で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。播磨坂さくら並木周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。小石川周辺への出張に対応しています。"
         },
-        relatedAreas: ["kasuga","hongo","toyosu"],
+        relatedAreas: ["kasuga", "hongo", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%B0%8F%E7%9F%B3%E5%B7%9D%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["播磨坂さくら並木","小石川植物園（近隣）","後楽園駅"],
+        landmarks: ["播磨坂さくら並木", "小石川植物園（近隣）", "後楽園駅"],
         areaGuide: "小石川でピアノを続ける大人の方は、基礎の見直しと好きな曲のバランスを取ると続けやすくなります。自宅レッスンでは、普段の楽器で譜読みや指づかいの癖を確認できるため、日々の練習にもつなげやすいです。再開者は、昔と同じ練習量を求めるより、今の生活に合わせた短時間練習を設計する方が現実的です。曲の中で必要な基礎を補っていけば、初心者に近い状態からでも無理なく進められます。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2425,12 +2481,14 @@ export const areas: Area[] = [
         slug: "hongo",
         name: "本郷",
         groupId: "bunkyo-group",
-        siblingSlugs: ["kasuga","koishikawa"],
+        siblingSlugs: ["kasuga", "koishikawa"],
         catchphrase: "本郷周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "本郷エリアのご自宅やレンタルスタジオで受けられる出張ピアノレッスン。好きな曲を仕上げたい大人の方・クラシックを基礎から学び直したい再開者の方のご相談に対応しています。",
         mainImage: "/images/areas/hongo.webp",
+        objectPositionMobile: "70% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "本郷エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["本郷 ピアノ教室","本郷 ピアノ 大人","本郷 出張レッスン","本郷 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["本郷 ピアノ教室", "本郷 ピアノ 大人", "本郷 出張レッスン", "本郷 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2469,15 +2527,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "本郷 ピアノ教室",
-            secondaryKeywords: ["本郷 大人 ピアノ","本郷 ピアノレッスン","本郷 出張レッスン","本郷 ピアノ 初心者"],
+            secondaryKeywords: ["本郷 大人 ピアノ", "本郷 ピアノレッスン", "本郷 出張レッスン", "本郷 ピアノ 初心者"],
             metaDescription: "本郷で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。本郷三丁目周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのお申し込みや詳細のご確認は公式LINEにて承っています。本郷周辺への出張に対応しています。"
         },
-        relatedAreas: ["kasuga","koishikawa","toyosu"],
+        relatedAreas: ["kasuga", "koishikawa", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%9C%AC%E9%83%B7%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["本郷三丁目駅","本郷給水所公苑","東京大学（近隣）"],
+        landmarks: ["本郷三丁目駅", "本郷給水所公苑", "東京大学（近隣）"],
         areaGuide: "本郷で大人がピアノレッスンを続けるには、ただ曲を進めるだけでなく、なぜ弾きにくいのかを整理しながら進めると効果的です。譜読み、リズム、手の使い方、ペダルのタイミングなどを分けて確認すると、再開者でも課題が見えやすくなります。自宅レッスンなら普段の楽器で練習内容を確認でき、スタジオを使えば響きのある環境で仕上げを見られます。好きな曲を軸に、必要な基礎を少しずつ補う形が続けやすいです。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2486,12 +2544,14 @@ export const areas: Area[] = [
         slug: "ryogoku",
         name: "両国",
         groupId: "ryogoku-kuramae-group",
-        siblingSlugs: ["kuramae","asakusabashi"],
+        siblingSlugs: ["kuramae", "asakusabashi"],
         catchphrase: "両国周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "両国周辺で大人の趣味・学び直しとしてピアノを始めたい方へ。基礎の見直しから、弾きたいクラシック・ポップスの部分指導まで柔軟に対応する個人レッスンです。",
         mainImage: "/images/areas/ryogoku.webp",
+        objectPositionMobile: "74% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "両国エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["両国 ピアノ教室","両国 ピアノ 大人","両国 出張レッスン","両国 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["両国 ピアノ教室", "両国 ピアノ 大人", "両国 出張レッスン", "両国 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2530,15 +2590,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "両国 ピアノ教室",
-            secondaryKeywords: ["両国 大人 ピアノ","両国 ピアノレッスン","両国 出張レッスン","両国 ピアノ 初心者"],
+            secondaryKeywords: ["両国 大人 ピアノ", "両国 ピアノレッスン", "両国 出張レッスン", "両国 ピアノ 初心者"],
             metaDescription: "両国で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。国技館周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。両国周辺への出張に対応しています。"
         },
-        relatedAreas: ["kuramae","asakusabashi","morishita"],
+        relatedAreas: ["kuramae", "asakusabashi", "morishita"],
         googleMapUrl: "https://maps.google.com/maps?q=%E4%B8%A1%E5%9B%BD%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["国技館","旧安田庭園","両国駅"],
+        landmarks: ["国技館", "旧安田庭園", "両国駅"],
         areaGuide: "両国でピアノを続ける大人の方は、趣味として無理なく続けられる曲選びと頻度を決めることが大切です。自宅レッスンなら移動を減らし、普段の楽器で練習の状態を確認できます。仕事や家庭の予定がある方は、毎週にこだわらず、月2回や隔週で課題を絞る形も現実的です。再開者は、昔弾いた曲をそのまま戻すより、今弾きにくい部分を分けて確認すると進めやすくなります。好きな曲を軸にすれば継続しやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2547,12 +2607,14 @@ export const areas: Area[] = [
         slug: "kuramae",
         name: "蔵前",
         groupId: "ryogoku-kuramae-group",
-        siblingSlugs: ["ryogoku","asakusabashi"],
+        siblingSlugs: ["ryogoku", "asakusabashi"],
         catchphrase: "蔵前で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "蔵前エリアのご自宅やレンタルスタジオで受けられる出張ピアノレッスン。好きな曲や昔習っていた曲に取り組みたい大人の方・クラシックの基礎固めをしたい方のご相談に対応しています。",
         mainImage: "/images/areas/kuramae.webp",
+        objectPositionMobile: "64% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "蔵前エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["蔵前 ピアノ教室","蔵前 ピアノ 大人","蔵前 出張レッスン","蔵前 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["蔵前 ピアノ教室", "蔵前 ピアノ 大人", "蔵前 出張レッスン", "蔵前 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2591,15 +2653,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "蔵前 ピアノ教室",
-            secondaryKeywords: ["蔵前 大人 ピアノ","蔵前 ピアノレッスン","蔵前 出張レッスン","蔵前 ピアノ 初心者"],
+            secondaryKeywords: ["蔵前 大人 ピアノ", "蔵前 ピアノレッスン", "蔵前 出張レッスン", "蔵前 ピアノ 初心者"],
             metaDescription: "蔵前で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。蔵前周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。蔵前周辺への出張に対応しています。"
         },
-        relatedAreas: ["asakusabashi","ryogoku","toyosu"],
+        relatedAreas: ["asakusabashi", "ryogoku", "toyosu"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%94%B5%E5%89%8D%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["蔵前駅","隅田川テラス","蔵前おもちゃの街周辺"],
+        landmarks: ["蔵前駅", "隅田川テラス", "蔵前おもちゃの街周辺"],
         areaGuide: "蔵前でピアノレッスンを続けるには、義務感のある練習より、弾きたい曲を中心にした現実的な進め方が合います。自宅レッスンなら普段の楽器で確認でき、スタジオを使えば音量や響きを気にせず練習できます。大人の初心者や再開者は、基礎練習だけでは続きにくい場合もあるため、曲の中で必要な譜読みや指づかいを確認していくと負担が少なくなります。短時間でも触れる箇所を決めておくと継続しやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2608,12 +2670,14 @@ export const areas: Area[] = [
         slug: "asakusabashi",
         name: "浅草橋",
         groupId: "ryogoku-kuramae-group",
-        siblingSlugs: ["ryogoku","kuramae"],
+        siblingSlugs: ["ryogoku", "kuramae"],
         catchphrase: "浅草橋周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "浅草橋周辺で大人の趣味・学び直しとしてピアノを始めたい方へ。基礎の見直しから、弾きたいクラシック・ポップスの部分指導まで柔軟に対応する個人レッスンです。",
         mainImage: "/images/areas/asakusabashi.webp",
+        objectPositionMobile: "93% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "浅草橋エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["浅草橋 ピアノ教室","浅草橋 ピアノ 大人","浅草橋 出張レッスン","浅草橋 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["浅草橋 ピアノ教室", "浅草橋 ピアノ 大人", "浅草橋 出張レッスン", "浅草橋 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2652,15 +2716,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "浅草橋 ピアノ教室",
-            secondaryKeywords: ["浅草橋 大人 ピアノ","浅草橋 ピアノレッスン","浅草橋 出張レッスン","浅草橋 ピアノ 初心者"],
+            secondaryKeywords: ["浅草橋 大人 ピアノ", "浅草橋 ピアノレッスン", "浅草橋 出張レッスン", "浅草橋 ピアノ 初心者"],
             metaDescription: "浅草橋で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。浅草橋周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。浅草橋周辺への出張に対応しています。"
         },
-        relatedAreas: ["kuramae","ryogoku","nihonbashi"],
+        relatedAreas: ["kuramae", "ryogoku", "nihonbashi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%B5%85%E8%8D%89%E6%A9%8B%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["浅草橋駅","神田川","柳橋"],
+        landmarks: ["浅草橋駅", "神田川", "柳橋"],
         areaGuide: "浅草橋でピアノを続ける大人の方は、仕事や日常の予定に合わせて、受講場所を選びやすくしておくと負担が少なくなります。自宅レッスンでは普段の楽器で練習内容を確認でき、スタジオでは音量や楽器環境を気にせず曲を見られます。初心者や再開者は、好きな曲を目標にしながら、譜読みや指づかいを少しずつ補うと続けやすくなります。練習時間が短い週でも、次に見る箇所を絞っておけば中断しにくくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2673,8 +2737,10 @@ export const areas: Area[] = [
         catchphrase: "辰巳周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "辰巳エリアのご自宅や近隣スタジオで受けられる出張ピアノレッスン。家事や仕事のスケジュールに合わせて、初心者の方・再開者の方の目的に応じたレッスンを行っています。",
         mainImage: "/images/areas/tatsumi.webp",
+        objectPositionMobile: "60% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "辰巳エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["辰巳 ピアノ教室","辰巳 ピアノ 大人","辰巳 出張レッスン","辰巳 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["辰巳 ピアノ教室", "辰巳 ピアノ 大人", "辰巳 出張レッスン", "辰巳 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2713,15 +2779,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "辰巳 ピアノ教室",
-            secondaryKeywords: ["辰巳 大人 ピアノ","辰巳 ピアノレッスン","辰巳 出張レッスン","辰巳 ピアノ 初心者"],
+            secondaryKeywords: ["辰巳 大人 ピアノ", "辰巳 ピアノレッスン", "辰巳 出張レッスン", "辰巳 ピアノ 初心者"],
             metaDescription: "辰巳で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。辰巳の森海浜公園周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。辰巳周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["toyosu","shinonome","shinkiba"],
+        relatedAreas: ["toyosu", "shinonome", "shinkiba"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%BE%B0%E5%B7%B3%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["辰巳の森海浜公園","辰巳駅","辰巳運河"],
+        landmarks: ["辰巳の森海浜公園", "辰巳駅", "辰巳運河"],
         areaGuide: "辰巳で大人のピアノレッスンを続けるには、マンションでの練習環境を前提に、無理のない課題を設定することが大切です。電子ピアノやヘッドホン練習でも、譜読みや指づかい、リズムの確認は進められます。自宅レッスンなら普段の環境で弾き方を見てもらえるため、日々の練習につなげやすくなります。初心者や再開者は、長時間練習よりも、短く触れる箇所を決めておく方が継続しやすいです。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2734,8 +2800,10 @@ export const areas: Area[] = [
         catchphrase: "新木場で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "新木場周辺のご自宅や近隣スタジオで受けられる出張ピアノレッスン。仕事後の時間を活かしてピアノを始めたい方・再開したい大人の方にご相談いただけます。",
         mainImage: "/images/areas/shinkiba.webp",
+        objectPositionMobile: "78% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "新木場エリアで受けられる大人のピアノレッスン",
-        keywords: ["新木場 ピアノ教室","新木場 ピアノ 大人","新木場 出張レッスン","新木場 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["新木場 ピアノ教室", "新木場 ピアノ 大人", "新木場 出張レッスン", "新木場 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2774,15 +2842,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "新木場 ピアノ教室",
-            secondaryKeywords: ["新木場 大人 ピアノ","新木場 ピアノレッスン","新木場 出張レッスン","新木場 ピアノ 初心者"],
+            secondaryKeywords: ["新木場 大人 ピアノ", "新木場 ピアノレッスン", "新木場 出張レッスン", "新木場 ピアノ 初心者"],
             metaDescription: "新木場で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。新木場周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンのご相談は公式LINEから。新木場周辺のご自宅やスタジオへの出張に対応しています。"
         },
-        relatedAreas: ["tatsumi","toyosu","ariake"],
+        relatedAreas: ["tatsumi", "toyosu", "ariake"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%96%B0%E6%9C%A8%E5%A0%B4%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["新木場駅","夢の島公園","若洲海浜公園（近隣）"],
+        landmarks: ["新木場駅", "夢の島公園", "若洲海浜公園（近隣）"],
         areaGuide: "新木場でピアノレッスンを続けるには、通う負担を増やしすぎず、生活の中に組み込みやすい形を選ぶことが大切です。自宅レッスンでは普段の楽器で練習内容を確認でき、スタジオを使えば音量や楽器環境を気にせず受講できます。大人の初心者や再開者は、曲全体を毎回進めるより、譜読み、片手練習、苦手な小節などを絞って確認すると続けやすくなります。趣味として無理なく続けるには、頻度も柔軟に考えることが重要です。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2791,12 +2859,14 @@ export const areas: Area[] = [
         slug: "kameido",
         name: "亀戸",
         groupId: "ojima-kameido-group",
-        siblingSlugs: ["ojima","nishiojima"],
+        siblingSlugs: ["ojima", "nishiojima"],
         catchphrase: "亀戸周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "亀戸周辺のご自宅のピアノや電子ピアノで受けられる出張ピアノレッスン。通学不要で、趣味としてピアノを始めたい大人の方・再開したい方のご相談に対応しています。",
         mainImage: "/images/areas/kameido.webp",
+        objectPositionMobile: "56% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "亀戸エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["亀戸 ピアノ教室","亀戸 ピアノ 大人","亀戸 出張レッスン","亀戸 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["亀戸 ピアノ教室", "亀戸 ピアノ 大人", "亀戸 出張レッスン", "亀戸 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2835,15 +2905,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "亀戸 ピアノ教室",
-            secondaryKeywords: ["亀戸 大人 ピアノ","亀戸 ピアノレッスン","亀戸 出張レッスン","亀戸 ピアノ 初心者"],
+            secondaryKeywords: ["亀戸 大人 ピアノ", "亀戸 ピアノレッスン", "亀戸 出張レッスン", "亀戸 ピアノ 初心者"],
             metaDescription: "亀戸で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。亀戸天神社周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。亀戸周辺への出張に対応しています。"
         },
-        relatedAreas: ["nishiojima","ojima","sumiyoshi"],
+        relatedAreas: ["nishiojima", "ojima", "sumiyoshi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E4%BA%80%E6%88%B8%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["亀戸天神社","亀戸駅","アトレ亀戸"],
+        landmarks: ["亀戸天神社", "亀戸駅", "アトレ亀戸"],
         areaGuide: "亀戸で大人がピアノレッスンを続けるには、生活に合わせて無理のないペースを作ることが大切です。自宅レッスンなら移動を減らせ、普段の楽器で実際の練習状態を確認できます。再開者や初心者は、基礎をすべて終えてから曲に入るより、好きな曲の中で必要な譜読みや指づかいを補う方が続けやすい場合があります。練習時間が限られる週でも、次に確認する小さな課題を決めておけば、趣味として継続しやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2856,8 +2926,10 @@ export const areas: Area[] = [
         catchphrase: "東陽町周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "東陽町エリアのご自宅で受けられる出張ピアノレッスン。楽譜の読み方から始めたい初心者の方・ブランクを経て再開したい大人の方のご相談に対応しています。",
         mainImage: "/images/areas/toyocho.webp",
+        objectPositionMobile: "40% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "東陽町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["東陽町 ピアノ教室","東陽町 ピアノ 大人","東陽町 出張レッスン","東陽町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["東陽町 ピアノ教室", "東陽町 ピアノ 大人", "東陽町 出張レッスン", "東陽町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2896,15 +2968,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "東陽町 ピアノ教室",
-            secondaryKeywords: ["東陽町 大人 ピアノ","東陽町 ピアノレッスン","東陽町 出張レッスン","東陽町 ピアノ 初心者"],
+            secondaryKeywords: ["東陽町 大人 ピアノ", "東陽町 ピアノレッスン", "東陽町 出張レッスン", "東陽町 ピアノ 初心者"],
             metaDescription: "東陽町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。江東区役所周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。東陽町周辺への出張に対応しています。"
         },
-        relatedAreas: ["minamisunamachi","kiba","monzen-nakacho"],
+        relatedAreas: ["minamisunamachi", "kiba", "monzen-nakacho"],
         googleMapUrl: "https://maps.google.com/maps?q=%E6%9D%B1%E9%99%BD%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["江東区役所","東陽町駅","木場公園（近隣）"],
+        landmarks: ["江東区役所", "東陽町駅", "木場公園（近隣）"],
         areaGuide: "東陽町でピアノを続ける大人の方は、生活に合わせた頻度と練習内容にすることで負担を減らせます。自宅レッスンなら移動を省け、電子ピアノやアップライトピアノなど普段の楽器で弾き方を確認できます。再開者は、以前と同じように弾けないことを気にしすぎず、曲の中で必要な基礎を少しずつ戻す進め方が向いています。家事や仕事の合間に短時間で取り組める課題を決めると、忙しい時期でも続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2917,8 +2989,10 @@ export const areas: Area[] = [
         catchphrase: "南砂町で始める大人の個人ピアノレッスン｜初心者・再開者の目的に合わせた個別指導",
         lead: "南砂町周辺のご自宅のピアノや電子ピアノで受けられる出張ピアノレッスン。通学不要で、大人の初心者の方・ブランクのある再開者の方に対応しています。",
         mainImage: "/images/areas/minamisunamachi.webp",
+        objectPositionMobile: "66% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "南砂町エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["南砂町 ピアノ教室","南砂町 ピアノ 大人","南砂町 出張レッスン","南砂町 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["南砂町 ピアノ教室", "南砂町 ピアノ 大人", "南砂町 出張レッスン", "南砂町 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -2957,15 +3031,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "南砂町 ピアノ教室",
-            secondaryKeywords: ["南砂町 大人 ピアノ","南砂町 ピアノレッスン","南砂町 出張レッスン","南砂町 ピアノ 初心者"],
+            secondaryKeywords: ["南砂町 大人 ピアノ", "南砂町 ピアノレッスン", "南砂町 出張レッスン", "南砂町 ピアノ 初心者"],
             metaDescription: "南砂町で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。南砂町周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。南砂町周辺への出張に対応しています。"
         },
-        relatedAreas: ["toyocho","kiba","shinonome"],
+        relatedAreas: ["toyocho", "kiba", "shinonome"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%8D%97%E7%A0%82%E7%94%BA%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["南砂町駅","スナモ（SUNAMO）","トピレックプラザ"],
+        landmarks: ["南砂町駅", "スナモ（SUNAMO）", "トピレックプラザ"],
         areaGuide: "南砂町で大人がピアノレッスンを続けるには、生活圏の中で完結しやすい形を選ぶことが大切です。自宅レッスンなら教室までの移動を減らせ、普段の楽器で練習の様子を確認できます。初心者は、楽譜の読み方や指づかいを一度に詰め込まず、曲に必要な範囲から進めると負担が少なくなります。再開者は、好きな曲や昔弾いた曲を使いながら、弾きにくい箇所を分けて練習すると続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -2974,12 +3048,14 @@ export const areas: Area[] = [
         slug: "ojima",
         name: "大島",
         groupId: "ojima-kameido-group",
-        siblingSlugs: ["nishiojima","kameido"],
+        siblingSlugs: ["nishiojima", "kameido"],
         catchphrase: "大島周辺の自宅や近隣スタジオで弾く｜ブランクのある大人向けピアノレッスン",
         lead: "大島エリアのご自宅で受けられる出張ピアノレッスン。ブランクがある再開者の方・大人になってからクラシックを学び始めたい方のご相談に対応しています。",
         mainImage: "/images/areas/ojima.webp",
+        objectPositionMobile: "33% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "大島エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["大島 ピアノ教室","大島 ピアノ 大人","大島 出張レッスン","大島 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["大島 ピアノ教室", "大島 ピアノ 大人", "大島 出張レッスン", "大島 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -3018,15 +3094,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "大島 ピアノ教室",
-            secondaryKeywords: ["大島 大人 ピアノ","大島 ピアノレッスン","大島 出張レッスン","大島 ピアノ 初心者"],
+            secondaryKeywords: ["大島 大人 ピアノ", "大島 ピアノレッスン", "大島 出張レッスン", "大島 ピアノ 初心者"],
             metaDescription: "大島で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。大島周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。大島周辺への出張に対応しています。"
         },
-        relatedAreas: ["nishiojima","kameido","sumiyoshi"],
+        relatedAreas: ["nishiojima", "kameido", "sumiyoshi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E5%A4%A7%E5%B3%B6%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["大島駅","中の橋商店街","大島小松川公園"],
+        landmarks: ["大島駅", "中の橋商店街", "大島小松川公園"],
         areaGuide: "大島で大人のピアノレッスンを続けるには、自宅で無理なく練習できる内容にすることが大切です。出張レッスンなら移動の負担を減らし、普段の電子ピアノやアップライトピアノで弾き方を確認できます。再開者は、曲全体を一度に戻そうとせず、片手練習や数小節単位で進めると負担が少なくなります。仕事や家庭の予定に合わせて、月2回や隔週の受講頻度にすることで、趣味として長く続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"
@@ -3035,12 +3111,14 @@ export const areas: Area[] = [
         slug: "nishiojima",
         name: "西大島",
         groupId: "ojima-kameido-group",
-        siblingSlugs: ["ojima","kameido"],
+        siblingSlugs: ["ojima", "kameido"],
         catchphrase: "西大島周辺でピアノを趣味として楽しむ｜ご自宅やスタジオで受けられるオーダーメイドレッスン",
         lead: "西大島周辺のご自宅のピアノや電子ピアノで受けられる出張ピアノレッスン。通学不要で、趣味としてピアノに取り組みたい大人の方のご相談に対応しています。",
         mainImage: "/images/areas/nishiojima.webp",
+        objectPositionMobile: "64% 35%",
+        objectPositionDesktop: "35% 35%",
         mainImageAlt: "西大島エリアの自宅・マンションで受けられる大人のピアノレッスン",
-        keywords: ["西大島 ピアノ教室","西大島 ピアノ 大人","西大島 出張レッスン","西大島 ピアノレッスン","大人 ピアノ","初心者","再開","好きな曲"],
+        keywords: ["西大島 ピアノ教室", "西大島 ピアノ 大人", "西大島 出張レッスン", "西大島 ピアノレッスン", "大人 ピアノ", "初心者", "再開", "好きな曲"],
         features: [
             {
                 title: "大人の初心者・再開者向け指導",
@@ -3079,15 +3157,15 @@ export const areas: Area[] = [
         ],
         seo: {
             primaryKeyword: "西大島 ピアノ教室",
-            secondaryKeywords: ["西大島 大人 ピアノ","西大島 ピアノレッスン","西大島 出張レッスン","西大島 ピアノ 初心者"],
+            secondaryKeywords: ["西大島 大人 ピアノ", "西大島 ピアノレッスン", "西大島 出張レッスン", "西大島 ピアノ 初心者"],
             metaDescription: "西大島で大人向けの出張ピアノレッスンをお探しの方へ。初心者やブランクがある方の再開にも丁寧に対応。西大島周辺のご自宅や近隣スタジオでのマンツーマン個人指導を、ご都合に合わせてご相談いただけます。"
         },
         cta: {
             subcopy: "体験レッスンの日程やご不明点は公式LINEからご相談ください。西大島周辺への出張に対応しています。"
         },
-        relatedAreas: ["ojima","kameido","sumiyoshi"],
+        relatedAreas: ["ojima", "kameido", "sumiyoshi"],
         googleMapUrl: "https://maps.google.com/maps?q=%E8%A5%BF%E5%A4%A7%E5%B3%B6%E9%A7%85&t=m&z=15&output=embed&iwloc=near",
-        landmarks: ["西大島駅","江東区総合区民センター","アリオ北砂（近隣）"],
+        landmarks: ["西大島駅", "江東区総合区民センター", "アリオ北砂（近隣）"],
         areaGuide: "西大島でピアノを続ける大人の方は、通いやすさよりも、日常の中で中断しにくい形を選ぶことが重要です。自宅レッスンなら移動を減らせるため、仕事や家事の前後にも取り入れやすくなります。電子ピアノでも、譜読み、指づかい、リズム、曲の流れを確認できます。再開者は、以前の感覚を急いで取り戻そうとせず、今弾きたい曲に必要な部分を一つずつ見直すと続けやすくなります。",
         lessonFlow: defaultLessonFlow,
         metaSnippet: "ご自宅や近隣スタジオでの出張レッスン。大人の初心者・再開者向けピアノ教室。"

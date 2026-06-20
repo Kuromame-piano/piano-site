@@ -112,3 +112,152 @@ const desktopPos = objectPosition || objectPositionDesktop;
         100% { transform: translateY(100%); }
     }
 </style>
+
+{import.meta.env.DEV && (
+  <div id="bg-tuner-widget" class="fixed bottom-4 right-4 z-50 bg-[#1A130E]/90 border border-white/20 text-[#E8E2D9] p-4 font-sans text-xs shadow-2xl max-w-xs backdrop-blur-md rounded-lg">
+    <div class="flex justify-between items-center mb-3 border-b border-white/10 pb-2">
+      <span class="font-bold tracking-wider">背景位置調整ツール (DEV限定)</span>
+      <button id="bg-tuner-toggle" class="text-white/60 hover:text-white text-[10px] uppercase tracking-wider">最小化</button>
+    </div>
+    
+    <div id="bg-tuner-controls" class="space-y-4">
+      <div class="flex gap-2">
+        <button id="btn-mode-mobile" class="flex-1 py-1.5 px-2 bg-white/10 text-white border border-white/20 font-medium rounded text-center">Mobile 用</button>
+        <button id="btn-mode-desktop" class="flex-1 py-1.5 px-2 bg-transparent text-white/60 border border-transparent rounded text-center">Desktop 用</button>
+      </div>
+
+      <div class="space-y-2">
+        <div class="flex justify-between">
+          <span>左右位置 (X軸):</span>
+          <span id="val-x" class="font-mono text-white">30%</span>
+        </div>
+        <input id="slider-x" type="range" min="0" max="100" value="30" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+      </div>
+
+      <div class="space-y-2">
+        <div class="flex justify-between">
+          <span>上下位置 (Y軸):</span>
+          <span id="val-y" class="font-mono text-white">35%</span>
+        </div>
+        <input id="slider-y" type="range" min="0" max="100" value="35" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+      </div>
+
+      <div class="pt-2 border-t border-white/10 space-y-2">
+        <button id="btn-copy-code" class="w-full py-2 bg-[#A88B58] hover:bg-[#8e7345] text-white font-bold rounded transition-colors text-center">
+          コードをコピー
+        </button>
+        <div id="copy-status" class="text-[10px] text-center text-green-400 hidden">コピーしました！areas.ts に貼り付けてください。</div>
+      </div>
+    </div>
+  </div>
+
+  <script is:inline define:vars={{ initialMobilePos: mobilePos, initialDesktopPos: desktopPos }}>
+    const widget = document.getElementById('bg-tuner-widget');
+    const controls = document.getElementById('bg-tuner-controls');
+    const toggleBtn = document.getElementById('bg-tuner-toggle');
+    const btnMobile = document.getElementById('btn-mode-mobile');
+    const btnDesktop = document.getElementById('btn-mode-desktop');
+    const sliderX = document.getElementById('slider-x');
+    const sliderY = document.getElementById('slider-y');
+    const valX = document.getElementById('val-x');
+    const valY = document.getElementById('val-y');
+    const btnCopy = document.getElementById('btn-copy-code');
+    const copyStatus = document.getElementById('copy-status');
+
+    // 状態管理
+    let activeMode = 'mobile'; // 'mobile' | 'desktop'
+    
+    // パース関数
+    const parsePos = (posStr) => {
+      const parts = posStr.split(' ');
+      const x = parseInt(parts[0]) || 50;
+      const y = parseInt(parts[1]) || 50;
+      return { x, y };
+    };
+
+    const mobilePosObj = parsePos(initialMobilePos);
+    const desktopPosObj = parsePos(initialDesktopPos);
+
+    // 画像要素の取得
+    const mobileImg = document.querySelector('.md\\:hidden img');
+    const desktopImg = document.querySelector('.hidden.md\\:block img');
+
+    const updateUI = () => {
+      const current = activeMode === 'mobile' ? mobilePosObj : desktopPosObj;
+      sliderX.value = current.x;
+      sliderY.value = current.y;
+      valX.textContent = `${current.x}%`;
+      valY.textContent = `${current.y}%`;
+
+      // モードボタンのアクティブ状態の更新
+      if (activeMode === 'mobile') {
+        btnMobile.className = "flex-1 py-1.5 px-2 bg-white/10 text-white border border-white/20 font-medium rounded text-center";
+        btnDesktop.className = "flex-1 py-1.5 px-2 bg-transparent text-white/60 border border-transparent rounded text-center";
+      } else {
+        btnMobile.className = "flex-1 py-1.5 px-2 bg-transparent text-white/60 border border-transparent rounded text-center";
+        btnDesktop.className = "flex-1 py-1.5 px-2 bg-white/10 text-white border border-white/20 font-medium rounded text-center";
+      }
+    };
+
+    const applyPosition = () => {
+      const current = activeMode === 'mobile' ? mobilePosObj : desktopPosObj;
+      const posStr = `${current.x}% ${current.y}%`;
+      
+      if (activeMode === 'mobile' && mobileImg) {
+        mobileImg.style.objectPosition = posStr;
+      } else if (activeMode === 'desktop' && desktopImg) {
+        desktopImg.style.objectPosition = posStr;
+      }
+    };
+
+    // イベントリスナー
+    toggleBtn.addEventListener('click', () => {
+      if (controls.classList.contains('hidden')) {
+        controls.classList.remove('hidden');
+        toggleBtn.textContent = '最小化';
+      } else {
+        controls.classList.add('hidden');
+        toggleBtn.textContent = '展開';
+      }
+    });
+
+    btnMobile.addEventListener('click', () => {
+      activeMode = 'mobile';
+      updateUI();
+    });
+
+    btnDesktop.addEventListener('click', () => {
+      activeMode = 'desktop';
+      updateUI();
+    });
+
+    const handleSliderChange = () => {
+      const current = activeMode === 'mobile' ? mobilePosObj : desktopPosObj;
+      current.x = parseInt(sliderX.value);
+      current.y = parseInt(sliderY.value);
+      valX.textContent = `${current.x}%`;
+      valY.textContent = `${current.y}%`;
+      applyPosition();
+    };
+
+    sliderX.addEventListener('input', handleSliderChange);
+    sliderY.addEventListener('input', handleSliderChange);
+
+    btnCopy.addEventListener('click', () => {
+      const current = activeMode === 'mobile' ? mobilePosObj : desktopPosObj;
+      const propName = activeMode === 'mobile' ? 'objectPositionMobile' : 'objectPositionDesktop';
+      const code = `${propName}: "${current.x}% ${current.y}%",`;
+
+      navigator.clipboard.writeText(code).then(() => {
+        copyStatus.classList.remove('hidden');
+        setTimeout(() => {
+          copyStatus.classList.add('hidden');
+        }, 3000);
+      });
+    });
+
+    // 初期化
+    updateUI();
+  </script>
+)}
+
