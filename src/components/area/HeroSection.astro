@@ -112,6 +112,27 @@ const desktopPos = objectPosition || objectPositionDesktop;
         0% { transform: translateY(-100%); }
         100% { transform: translateY(100%); }
     }
+
+    /* スマホ表示用調整スタイル */
+    #mobile-title-container {
+        transform: translateX(-25px);
+        padding-bottom: 150px;
+    }
+    #mobile-text-main {
+        font-size: 32px;
+    }
+    #mobile-text-sub1 {
+        font-size: 20px;
+    }
+    #mobile-text-sub2 {
+        font-size: 16px;
+    }
+    #mobile-badge-container {
+        bottom: 200px;
+    }
+    #mobile-badge {
+        font-size: 12px;
+    }
 </style>
 
 {import.meta.env.DEV && (
@@ -165,45 +186,45 @@ const desktopPos = objectPosition || objectPositionDesktop;
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>タイトル全体左右位置:</span>
-            <span id="val-title-x" class="font-mono text-white">-26px</span>
+            <span id="val-title-x" class="font-mono text-white">-25px</span>
           </div>
-          <input id="slider-title-x" type="range" min="-80" max="80" value="-26" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-title-x" type="range" min="-80" max="80" value="-25" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         {/* 全体Y位置 */}
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>タイトル全体下部余白 (Y):</span>
-            <span id="val-title-y" class="font-mono text-white">48px</span>
+            <span id="val-title-y" class="font-mono text-white">150px</span>
           </div>
-          <input id="slider-title-y" type="range" min="0" max="150" value="48" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-title-y" type="range" min="0" max="250" value="150" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         {/* メインタイトルサイズ */}
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>髙橋遊月 文字サイズ:</span>
-            <span id="val-font-main" class="font-mono text-white">28px</span>
+            <span id="val-font-main" class="font-mono text-white">32px</span>
           </div>
-          <input id="slider-font-main" type="range" min="16" max="40" value="28" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-font-main" type="range" min="16" max="40" value="32" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         {/* サブタイトル1サイズ */}
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>大人向けピアノ 文字サイズ:</span>
-            <span id="val-font-sub1" class="font-mono text-white">16px</span>
+            <span id="val-font-sub1" class="font-mono text-white">20px</span>
           </div>
-          <input id="slider-font-sub1" type="range" min="12" max="24" value="16" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-font-sub1" type="range" min="12" max="24" value="20" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         {/* サブタイトル2サイズ */}
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>自宅スタジオ 文字サイズ:</span>
-            <span id="val-font-sub2" class="font-mono text-white">12px</span>
+            <span id="val-font-sub2" class="font-mono text-white">16px</span>
           </div>
-          <input id="slider-font-sub2" type="range" min="8" max="20" value="12" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-font-sub2" type="range" min="8" max="20" value="16" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         {/* バッジ文字サイズ */}
@@ -219,9 +240,9 @@ const desktopPos = objectPosition || objectPositionDesktop;
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>バッジ下部位置:</span>
-            <span id="val-badge-y" class="font-mono text-white">128px</span>
+            <span id="val-badge-y" class="font-mono text-white">200px</span>
           </div>
-          <input id="slider-badge-y" type="range" min="40" max="200" value="128" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-badge-y" type="range" min="40" max="250" value="200" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         <div class="pt-2 border-t border-white/10 space-y-2">
