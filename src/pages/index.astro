@@ -20,6 +20,7 @@ const pageDescription =
   "東京都内（江東区・中央区周辺）で大人向けの出張ピアノレッスンを行っています。楽譜の読めない初心者から、ブランクのある再開者、好きな曲を仕上げたい方まで。ご自宅や近隣スタジオでのマンツーマン個人レッスンです。無料体験受付中。";
 import heroPiano from "../assets/images/hero-piano.webp";
 const heroImage = heroPiano.src;
+const heroImageUrl = new URL(heroImage, Astro.site).toString();
 
 // 構造化データ
 const schema = JSON.stringify({
@@ -30,7 +31,7 @@ const schema = JSON.stringify({
       "@id": "https://playon-music.jp/#business",
       name: "髙橋遊月ピアノ教室",
       description: pageDescription,
-      image: heroImage,
+      image: heroImageUrl,
       url: "https://playon-music.jp",
       address: {
         "@type": "PostalAddress",
