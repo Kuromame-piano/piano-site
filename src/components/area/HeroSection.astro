@@ -116,7 +116,7 @@ const desktopPos = objectPosition || objectPositionDesktop;
     /* スマホ表示用調整スタイル */
     #mobile-title-container {
         transform: translateX(-25px);
-        padding-bottom: 46px;
+        padding-bottom: 0px;
     }
     #mobile-text-main {
         font-size: 32px;
@@ -128,7 +128,7 @@ const desktopPos = objectPosition || objectPositionDesktop;
         font-size: 16px;
     }
     #mobile-badge-container {
-        bottom: 85px;
+        bottom: 64px;
     }
     #mobile-badge {
         font-size: 12px;
@@ -195,9 +195,9 @@ const desktopPos = objectPosition || objectPositionDesktop;
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>タイトル全体下部余白 (Y):</span>
-            <span id="val-title-y" class="font-mono text-white">46px</span>
+            <span id="val-title-y" class="font-mono text-white">0px</span>
           </div>
-          <input id="slider-title-y" type="range" min="0" max="250" value="46" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-title-y" type="range" min="0" max="250" value="0" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         {/* メインタイトルサイズ */}
@@ -240,9 +240,9 @@ const desktopPos = objectPosition || objectPositionDesktop;
         <div class="space-y-1">
           <div class="flex justify-between text-[10px]">
             <span>バッジ下部位置:</span>
-            <span id="val-badge-y" class="font-mono text-white">85px</span>
+            <span id="val-badge-y" class="font-mono text-white">64px</span>
           </div>
-          <input id="slider-badge-y" type="range" min="40" max="250" value="85" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
+          <input id="slider-badge-y" type="range" min="40" max="250" value="64" class="w-full accent-[#A88B58] bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" />
         </div>
 
         <div class="pt-2 border-t border-white/10 space-y-2">
